@@ -1067,3 +1067,75 @@ body.cover #end {
 #cover-logo small {
   font-size: 0.3em;
 }
+
+/* level title card */
+#titlecard {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(40, 60, 20, 0.6), 0 0 20px rgba(0, 0, 0, 0.25);
+  animation: pop 0.45s cubic-bezier(0.2, 1.5, 0.4, 1);
+  transition: opacity 0.4s, transform 0.4s;
+  width: min(92vw, 640px);
+}
+#titlecard.bye {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-12px);
+}
+#titlecard small {
+  display: block;
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 700;
+  opacity: 0.9;
+}
+#titlecard b {
+  display: block;
+  font-size: clamp(32px, 9vw, 58px);
+  line-height: 1.05;
+  -webkit-text-stroke: 2px var(--leaf-dark);
+  paint-order: stroke fill;
+}
+#titlecard span {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: clamp(16px, 4.2vw, 22px);
+  font-weight: 700;
+  background: rgba(255, 247, 230, 0.92);
+  color: var(--wood-dark);
+  text-shadow: none;
+  border: 3px solid var(--wood);
+  border-radius: 14px;
+  padding: 3px 12px;
+}
+#ui .place {
+  position: absolute;
+  left: 50%;
+  top: calc(108px + var(--safe-top));
+  transform: translateX(-50%);
+  background: rgba(60, 40, 20, 0.72);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 5px 14px;
+  border-radius: 14px;
+  pointer-events: none;
+  animation: pop 0.35s;
+  white-space: nowrap;
+}
+/* cave darkness at the screen edges (the sprite carries its own light) */
+#vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse 55% 60% at 32% 58%, rgba(0, 0, 0, 0) 40%, rgba(5, 8, 12, 0.85) 100%);
+}
+body.cover #titlecard,
+body.cover .place,
+body.cover #vignette {
+  display: none !important;
+}

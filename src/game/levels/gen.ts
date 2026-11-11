@@ -270,7 +270,7 @@ export function generateLevel(world: number, n: number, seed: number, opts: GenO
       space(spacing());
     }
   };
-  let signed = new Set<string>();
+  const signed = new Set<string>();
   /** the set pieces, built at the cursor (with a sign the first time one appears in the game) */
   const piece = (p: SetPiece, main: boolean) => {
     const k = Math.round(d * 10);

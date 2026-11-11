@@ -57,6 +57,13 @@ export class Stage {
   private pollen: THREE.Points;
   private ambient: AmbientConfig = { color: '#fff7c2', size: 0.22, count: 90, fall: 0, flicker: false };
   private rayStrength = 0.22;
+  private hillMats: THREE.MeshLambertMaterial[] = [];
+  private cloudMat: THREE.MeshLambertMaterial | null = null;
+  private rain: THREE.LineSegments;
+  private rainAmount = 0;
+  /** a soft light that follows the sprite (caves, night) */
+  readonly lamp = new THREE.PointLight('#ffe6b0', 0, 9, 1.6);
+  private tc = [new THREE.Color(), new THREE.Color()];
   /** world objects of the current level */
   readonly world = new THREE.Group();
   readonly fx = new THREE.Group();
@@ -125,6 +132,49 @@ export class Stage {
       new THREE.PointsMaterial({ map: glowTexture(), size: 0.22, color: '#fff7c2', transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending }),
     );
     this.scene.add(this.pollen);
+
+    // rain: short streaks around the camera
+    const rg = new THREE.BufferGeometry();
+    const rp = new Float32Array(240 * 6);
+    for (let i = 0; i < 240; i++) {
+      const x = (((i * 37) % 100) / 100) * 60 - 30,
+        y = (((i * 61) % 100) / 100) * 30 - 8,
+        z = (((i * 17) % 100) / 100) * 14 - 8;
+      rp.set([x, y, z, x - 0.12, y - 0.7, z], i * 6);
+    }
+    rg.setAttribute('position', new THREE.BufferAttribute(rp, 3));
+    this.rain = new THREE.LineSegments(rg, new THREE.LineBasicMaterial({ color: '#dbe8f2', transparent: true, opacity: 0, depthWrite: false }));
+    this.rain.frustumCulled = false;
+    this.scene.add(this.rain, this.lamp);
+  }
+
+  /**
+   * Blend between two scenery variants (k from 0 to 1): sky, fog, light, hills, light rays, particles and rain.
+   * Only colours and numbers change, so moving from one stretch of scenery to the next costs nothing.
+   */
+  blend(a: Theme, b: Theme, k: number, la: number, lb: number, aa: AmbientConfig, ab: AmbientConfig, rain: number) {
+    const [c1, c2] = this.tc;
+    const mix = (x: string, y: string, out: THREE.Color) => out.copy(c1.set(x)).lerp(c2.set(y), k);
+    mix(a.skyTop, b.skyTop, this.skyMat.uniforms.top.value as THREE.Color);
+    mix(a.skyBottom, b.skyBottom, this.skyMat.uniforms.bottom.value as THREE.Color);
+    mix(a.sun, b.sun, this.skyMat.uniforms.sun.value as THREE.Color);
+    const fog = this.scene.fog as THREE.Fog;
+    mix(a.fog, b.fog, fog.color);
+    fog.near = a.fogNear + (b.fogNear - a.fogNear) * k;
+    fog.far = a.fogFar + (b.fogFar - a.fogFar) * k;
+    const light = la + (lb - la) * k;
+    mix(a.ambientSky, b.ambientSky, this.hemi.color);
+    mix(a.ambientGround, b.ambientGround, this.hemi.groundColor);
+    this.hemi.intensity = 1.25 * (0.45 + 0.55 * light);
+    mix(a.sun, b.sun, this.sun.color);
+    this.sun.intensity = 2.3 * light;
+    this.hillMats.forEach((m, i) => mix(a.hills[i], b.hills[i], m.color));
+    this.rayStrength = a.rays + (b.rays - a.rays) * k;
+    if (this.cloudMat) this.cloudMat.emissiveIntensity = 0.45 * light;
+    const amb = k < 0.5 ? aa : ab;
+    if (amb !== this.ambient) this.setAmbient(amb);
+    mix(aa.color, ab.color, (this.pollen.material as THREE.PointsMaterial).color);
+    this.rainAmount = rain;
   }
 
   setAmbient(a: AmbientConfig) {
@@ -145,6 +195,7 @@ export class Stage {
     this.hemi.color.set(th.ambientSky);
     this.hemi.groundColor.set(th.ambientGround);
     this.sun.color.set(th.sun);
+    this.hillMats = [];
     for (const f of this.far) this.scene.remove(f.o);
     for (const c of this.clouds) this.scene.remove(c);
     for (const r of this.rays) this.scene.remove(r);
@@ -167,13 +218,16 @@ export class Stage {
         shape.lineTo(x, y);
       }
       shape.lineTo(w / 2, -40);
-      const mesh = new THREE.Mesh(new THREE.ShapeGeometry(shape, 1), new THREE.MeshLambertMaterial({ color: L.color }));
+      const hm = new THREE.MeshLambertMaterial({ color: L.color });
+      this.hillMats[li] = hm;
+      const mesh = new THREE.Mesh(new THREE.ShapeGeometry(shape, 1), hm);
       mesh.position.set(0, L.y, L.z);
       this.scene.add(mesh);
       this.far.push({ o: mesh, k: L.k, x: 0 });
     });
     // clouds
     const cm = new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 });
+    this.cloudMat = cm;
     for (let i = 0; i < 9; i++) {
       const c = new THREE.Group();
       for (let j = 0; j < 5; j++) {
@@ -254,6 +308,13 @@ export class Stage {
     const pm = this.pollen.material as THREE.PointsMaterial;
     if (a.flicker) pm.opacity = 0.55 + 0.45 * Math.abs(Math.sin(this.time * 2.3));
     this.pollen.position.y = this.camera.position.y - 6;
+    // rain falls around the camera
+    const rm = this.rain.material as THREE.LineBasicMaterial;
+    rm.opacity = this.rainAmount * 0.5;
+    this.rain.visible = this.rainAmount > 0.01;
+    if (this.rain.visible) {
+      this.rain.position.set(cx, this.camera.position.y - 4 - ((this.time * 14) % 10), 0);
+    }
     // shadows follow the camera
     const tx = this.camera.position.x,
       ty = this.camera.position.y - 2;

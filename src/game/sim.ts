@@ -476,7 +476,9 @@ export function step(level: Level, s: SimState, inp: Input) {
     if (m.sinkAfter > 0) {
       if (standing && s.moverT[i] > m.sinkAfter) {
         if (s.moverD[i] === 0) s.events.push('sink');
+        const d0 = s.moverD[i];
         s.moverD[i] = Math.min(P.SINK_MAX, s.moverD[i] + P.SINK_V * P.DT);
+        s.y -= s.moverD[i] - d0; // the sprite goes down with it
       } else if (!standing) s.moverD[i] = Math.max(0, s.moverD[i] - P.SINK_V * 0.5 * P.DT);
     }
   }

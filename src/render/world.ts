@@ -8,6 +8,8 @@ import { enemyX, type SimState } from '../game/sim';
 import { instanced, hasModel, modelSize } from './assets';
 import { acorn, bee, beetle, checkpoint, gemGeo, gemMat, goalHouse, roller, sign, snail, type CheckpointView, type EnemyView } from './props';
 import { themeFor } from './themes';
+import { variantOf, type Variant } from './variants';
+import { sceneryProps } from './scenery';
 import { enemyY } from '../game/sim';
 import { barkTexture, ringsTexture, soilTexture } from './textures';
 import { has, t } from '../i18n';
@@ -95,6 +97,13 @@ export function buildWorld(level: Level): WorldView {
   const root = new THREE.Group();
   const r = rng(level.seed * 7919);
   const th = themeFor(level.world);
+  // the scenery stretches of this level: [x0, x1) → variant
+  const ranges = (level.scenery.length ? level.scenery : [{ x: -40, variant: '' }]).map((sc, i, all) => ({
+    x0: i === 0 ? -60 : sc.x,
+    x1: i + 1 < all.length ? all[i + 1].x : level.goalX + 80,
+    v: variantOf(level.world, sc.variant),
+  }));
+  const vAt = (x: number): Variant => (ranges.find((q) => x >= q.x0 && x < q.x1) ?? ranges[ranges.length - 1]).v;
   const soil = new THREE.MeshStandardMaterial({ map: soilTexture(...th.soil), roughness: 0.95 });
   const rock = new THREE.MeshStandardMaterial({ map: soilTexture('#9c9184', '#6f665c', '#bdb3a4'), roughness: 0.95 });
   const grass = new THREE.MeshStandardMaterial({ color: th.grass, roughness: 0.85 });
@@ -260,12 +269,13 @@ export function buildWorld(level: Level): WorldView {
       if (r() < 0.45) grassM.push(mk(x + 0.1, tp.y, Z1 - 0.25 - r() * 0.3, 0.3 + r() * 0.15));
       if (busy(x)) continue;
       const k = r();
-      if (k < 0.1 * th.flowers) flowerA.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
-      else if (k > 0.1 && k < 0.1 + 0.08 * th.flowers) flowerB.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
+      const vv = vAt(x);
+      if (k < 0.1 * vv.flowers) flowerA.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
+      else if (k > 0.1 && k < 0.1 + 0.08 * vv.flowers) flowerB.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
       else if (k < 0.215) bushes.push(mk(x, tp.y, Z0 + 0.2, 0.55 + r() * 0.25));
       else if (k < 0.24) plants.push(mk(x, tp.y, Z0 + 0.6, 0.5 + r() * 0.3));
       else if (k < 0.255) rocks1.push(mk(x, tp.y - 0.05, Z0 + 0.5, 0.35 + r() * 0.2));
-      else if (k < 0.255 + 0.015 * th.shrooms) shrooms.push(mk(x, tp.y, Z0 + 0.8 + r() * 0.6, 0.6 + r() * 0.3));
+      else if (k < 0.255 + 0.015 * vv.shrooms) shrooms.push(mk(x, tp.y, Z0 + 0.8 + r() * 0.6, 0.6 + r() * 0.3));
       else if (k < 0.33) pebbles.push(mk(x, tp.y - 0.02, Z1 - 0.4 - r() * 0.4, 0.5 + r() * 0.4));
     }
     // a rock at some cliff edges
@@ -286,21 +296,32 @@ export function buildWorld(level: Level): WorldView {
   root.add(instanced('Pebble_Round_1', scaleAll(pebbles, fit('Pebble_Round_1', 0.25)), false));
   root.add(instanced('Mushroom_Common', scaleAll(shrooms, fit('Mushroom_Common', 0.5)), false));
 
-  // trees behind the trail, in two depths, and a few in the low meadow
-  const near: THREE.Matrix4[] = [];
-  const pines: THREE.Matrix4[] = [];
-  const pines2: THREE.Matrix4[] = [];
+  // trees behind the trail, in two depths (chosen by the scenery of each stretch), and bushes in the low meadow
+  const groups = new Map<string, { name: string; tint?: string; shadows: boolean; mats: THREE.Matrix4[] }>();
+  const put = (t: { name: string; tint?: string }, shadows: boolean, m: THREE.Matrix4) => {
+    const key = `${t.name}|${t.tint ?? ''}|${shadows}`;
+    let g = groups.get(key);
+    if (!g) groups.set(key, (g = { ...t, shadows, mats: [] }));
+    g.mats.push(m);
+  };
   const meadowBush: THREE.Matrix4[] = [];
-  for (let x = -20; x < level.goalX + 40; x += 5 + r() * 6) near.push(mk(x, -3.2, -6.5 - r() * 7, 7 + r() * 3));
-  for (let x = -30; x < level.goalX + 60; x += 4 + r() * 5) (r() < 0.5 ? pines : pines2).push(mk(x, -3.2, -17 - r() * 10, 8 + r() * 5));
+  for (let x = -20; x < level.goalX + 40; ) {
+    const vv = vAt(x);
+    if (r() < Math.min(1, vv.treeDensity)) put(vv.trees[Math.floor(r() * vv.trees.length)], true, mk(x, -3.2, -6.5 - r() * 7, 7 + r() * 3));
+    x += (5 + r() * 6) / Math.max(0.6, vv.treeDensity);
+  }
+  for (let x = -30; x < level.goalX + 60; x += 4 + r() * 5) {
+    const vv = vAt(x);
+    put(vv.far[Math.floor(r() * vv.far.length)], false, mk(x, -3.2, -17 - r() * 10, 8 + r() * 5));
+  }
   for (let x = -20; x < level.goalX + 40; x += 2 + r() * 4) meadowBush.push(mk(x, -3.2, -4.5 - r() * 9, 1.4 + r() * 0.8));
   const fitTo = (mats: THREE.Matrix4[], name: string) => mats.map((m) => m.clone().multiply(new THREE.Matrix4().makeScale(fit(name, 1), fit(name, 1), fit(name, 1))));
-  const byKind = <T,>(list: T[], mats: THREE.Matrix4[]) => list.map((_, k) => mats.filter((__, i) => i % list.length === k));
-  byKind(th.near, near).forEach((mats, k) => root.add(instanced(th.near[k].name, fitTo(mats, th.near[k].name), true, th.near[k].tint)));
-  const farAll = [...pines, ...pines2];
-  byKind(th.far, farAll).forEach((mats, k) => root.add(instanced(th.far[k].name, fitTo(mats, th.far[k].name), false, th.far[k].tint)));
-  if (th.giantShrooms) root.add(giantMushrooms(level.goalX, r));
-  if (th.mist) root.add(mistBanks(level.goalX, r));
+  for (const g of groups.values()) root.add(instanced(g.name, fitTo(g.mats, g.name), g.shadows, g.tint));
+  for (const q of ranges) {
+    if (q.v.giantShrooms) root.add(giantMushrooms(q.x0, q.x1, r));
+    if (q.v.mist) root.add(mistBanks(q.x0, q.x1, r));
+    root.add(sceneryProps(level, q.v, q.x0, q.x1, tops, r));
+  }
   root.add(instanced('Bush_Common_Flowers', fitTo(meadowBush, 'Bush_Common_Flowers'), false));
 
   // pickups
@@ -466,12 +487,12 @@ function log(root: THREE.Group, b: Box, bark: THREE.Material, rings: THREE.Mater
 }
 
 /** big glowing mushrooms in the valley behind the trail (world 3) */
-function giantMushrooms(len: number, r: () => number) {
+function giantMushrooms(from: number, len: number, r: () => number) {
   const g = new THREE.Group();
   const stemM = new THREE.MeshStandardMaterial({ color: '#f4ead8', roughness: 0.7 });
   const caps = ['#ff8fb0', '#b48cff', '#7fd0ff', '#ffb36b'].map((c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.5, emissive: c, emissiveIntensity: 0.12 }));
   const spot = new THREE.MeshStandardMaterial({ color: '#fff8ec' });
-  for (let x = -10; x < len + 30; x += 6 + r() * 8) {
+  for (let x = Math.max(-10, from); x < len; x += 6 + r() * 8) {
     const h = 3 + r() * 5;
     const z = -5 - r() * 12;
     const m = new THREE.Group();
@@ -498,10 +519,10 @@ function giantMushrooms(len: number, r: () => number) {
 }
 
 /** soft mist banks drifting low over the swamp (world 5) */
-function mistBanks(len: number, r: () => number) {
+function mistBanks(from: number, len: number, r: () => number) {
   const g = new THREE.Group();
   const tex = mistTexture();
-  for (let x = -10; x < len + 30; x += 7 + r() * 6) {
+  for (let x = Math.max(-10, from); x < len; x += 7 + r() * 6) {
     const m = new THREE.Mesh(
       new THREE.PlaneGeometry(14 + r() * 8, 3 + r() * 2),
       new THREE.MeshBasicMaterial({ map: tex, color: '#eef4ee', transparent: true, opacity: 0.35 + r() * 0.2, depthWrite: false }),
