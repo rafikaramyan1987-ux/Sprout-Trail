@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - name: Level validator (a bot plays every level with the real physics; all 3 acorns with the given seeds, wrong plants fail; writes docs/levels-report.md)
+        run: npm run validate:levels
+      - name: Level validator report is up to date
+        run: git diff --exit-code docs/levels-report.md
+      - name: Translations (every language file has all keys of en.json)
+        run: npm run check:i18n
+      - name: Web build
+        run: npm run build:web
+      - name: Build size budget (< 10 MB)
+        run: node scripts/check-size.mjs dist-web
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build:web
+      - run: npm run test:e2e
