@@ -274,7 +274,10 @@ type Sfx =
   | 'glide'
   | 'roll'
   | 'buy'
-  | 'reward';
+  | 'reward'
+  | 'grab'
+  | 'boar'
+  | 'crack';
 
 let gemStreak = 0;
 let lastGem = 0;
@@ -387,6 +390,32 @@ export function sfx(name: Sfx) {
       break;
     case 'roll':
       for (let i = 0; i < 5; i++) voice(c, out, t + i * 0.09, 110 + i * 6, 0.04, { type: 'triangle', gain: 0.12, r: 0.06 });
+      break;
+    case 'grab':
+      noiseHit(c, out, noise, t, { gain: 0.14, f: 1800, q: 1.5, dur: 0.12 });
+      mallet(c, out, t + 0.03, 79, 0.3, 0.08);
+      break;
+    case 'boar': {
+      // a cartoon grunt: two low wobbling honks
+      for (let i = 0; i < 2; i++) {
+        const o = c.createOscillator();
+        const g = c.createGain();
+        o.type = 'sawtooth';
+        o.frequency.setValueAtTime(120, t + i * 0.22);
+        o.frequency.exponentialRampToValueAtTime(80, t + i * 0.22 + 0.18);
+        g.gain.setValueAtTime(0.08, t + i * 0.22);
+        g.gain.exponentialRampToValueAtTime(0.001, t + i * 0.22 + 0.2);
+        const lp = c.createBiquadFilter();
+        lp.frequency.value = 700;
+        o.connect(lp).connect(g).connect(out);
+        o.start(t + i * 0.22);
+        o.stop(t + i * 0.22 + 0.22);
+      }
+      break;
+    }
+    case 'crack':
+      noiseHit(c, out, noise, t, { gain: 0.3, f: 900, q: 2, dur: 0.18 });
+      voice(c, out, t + 0.05, 140, 0.05, { type: 'triangle', gain: 0.2, r: 0.12 });
       break;
     case 'buy':
       [76, 79, 84, 88].forEach((m, i) => mallet(c, out, t + i * 0.06, m, 0.5, 0.14));

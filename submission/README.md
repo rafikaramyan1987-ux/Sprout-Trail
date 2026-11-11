@@ -13,14 +13,14 @@ The sprite runs on its own. Tap or swipe up to jump; keep your finger down to ju
 platformer, runner, puzzle, casual, cute, nature, forest, one-finger, 3d, family, kids, mobile, html5
 
 ## Files
-- `sprout-trail-crazygames-v1.0.0.zip` — the CrazyGames build (`npm run build`), `index.html` at the root,
+- `sprout-trail-crazygames-v1.1.0.zip` — the CrazyGames build (`npm run build`), `index.html` at the root,
   relative paths only. CrazyGames SDK v3: loadingStart/Stop while booting, gameplayStart/Stop only around real play,
   happytime on a finished level, midgame ads only between levels (Next / Retry / Menu on the result screen, at most
   one per 2 minutes, none in the first 2 minutes), rewarded ads only from the clearly labelled buttons ("Watch an
   ad: +2 seeds", "Watch an ad: continue with 1 heart", "Watch an ad: double gems"), granted only on adFinished;
   8 s timeout, then "No ad available right now, try later" for 2.5 s. Language from the SDK locale (6 languages),
   saves in the SDK Data Module, the platform mute setting is followed live.
-- Older versions: none.
+- Older versions: `sprout-trail-crazygames-v1.0.0.zip`.
 - `covers/cover-1920x1080.png`, `covers/cover-800x1200.png`, `covers/cover-800x800.png` — from real play
   (`scripts/submission/covers.ts`); the logo sits at the bottom, the top-left corner is clear.
 - `videos/trailer-1920x1080.mp4`, `videos/trailer-1080x1620.mp4` — 18 s, no sound, real play across the 5 worlds

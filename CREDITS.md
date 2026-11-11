@@ -3,7 +3,10 @@
 Sprout Trail is an original game. Everything not listed below was made for this project: code, the forest sprite
 and its hats, the beetle, snail, bee and rolling acorn, the plants (bridge, vine ladder, mushroom, big leaf, tall
 tree, log), golden acorns, gems, signs, checkpoint flowers, the goal stump house, stumps, fallen logs, thorn brambles,
-giant mushrooms, mist, terrain, water, sky, hills, clouds, light rays, particles (`src/render/`), UI art and icons
+giant mushrooms, mist, the Phase C set pieces (planks, ropes, the cartoon crocodile, logs, lily pads,
+stepping stones, bounce mushrooms, wind leaves and vane, the collapsing bridge, the boar and fence, the cave, the
+waterfall, dandelions), the 20 scenery variants and their props (lakes, reeds, waterfall cliffs, giant roots, glowing
+mushrooms, crystals, puddles, rain), terrain, water, sky, hills, clouds, light rays, particles (`src/render/`), UI art and icons
 (`src/ui/icons.ts`, `src/main.ts`), all sound effects and the music (synthesised at runtime with the Web Audio API,
 `src/app/audio.ts`), the level generator and all 95 levels.
 

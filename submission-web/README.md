@@ -4,7 +4,7 @@ The ad-free web build (`npm run build:web` + `node scripts/web/zip.mjs`): no por
 
 | File | What |
 |---|---|
-| `sprout-trail-web-v1.zip` | `index.html` at the zip root, relative paths only; checked in CI by `scripts/web/check.mjs` (served in an iframe at 640x480, 960x600, 1280x720 and 390x844: no scrollbars, canvas centred, level 1-1 played, no external request, only its own localStorage key) |
+| `sprout-trail-web-v2.zip` | `index.html` at the zip root, relative paths only; checked in CI by `scripts/web/check.mjs` (served in an iframe at 640x480, 960x600, 1280x720 and 390x844: no scrollbars, canvas centred, level 1-1 played, no external request, only its own localStorage key) |
 | `cover-630x500.png` | cover (from the main cover art) |
 | `icon-512x512.png` | icon |
 | `screenshot-1.png` … `screenshot-4.png` | 1280x720 shots of real play: title, bees in the Deep Forest, the seed cards at a wide river, a rolling acorn in the Autumn Woods |

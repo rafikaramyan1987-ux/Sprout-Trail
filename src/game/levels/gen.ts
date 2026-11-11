@@ -10,7 +10,7 @@
  */
 import { LevelBuilder } from '../build';
 import { MAX_SPEED, RUN } from '../physics';
-import type { HandHint, Level, PlantKind } from '../types';
+import type { HandHint, Level, PlantKind, SetPiece } from '../types';
 
 function rng(seed: number) {
   let s = (seed * 2654435761) >>> 0 || 1;
@@ -44,7 +44,7 @@ const WORLD_RECIPES: Recipe[][] = [
 ];
 const unlocked = <T,>(table: T[][], world: number) => table.slice(0, world).flat();
 
-/** the teaching level of a world introduces this (sign key + what it unlocks first) */
+/** the first level of a world introduces its new hazard / plant with a sign */
 const TEACH: Record<number, { sign: string; hand?: HandHint; hazard?: Hz; recipe?: Recipe }[]> = {
   2: [{ sign: 'tut.bee', hazard: 'beeHigh' }, { sign: 'tut.leaf', recipe: 'cliff' }, { sign: 'tut.acornChoice', recipe: 'riverAcorn' }],
   3: [{ sign: 'tut.snail', hazard: 'snail' }, { sign: 'tut.tree', recipe: 'wideRiver' }, { sign: 'tut.tree', recipe: 'cliffTree' }],
@@ -52,13 +52,60 @@ const TEACH: Record<number, { sign: string; hand?: HandHint; hazard?: Hz; recipe
   5: [{ sign: 'tut.double', recipe: 'wall' }, { sign: 'tut.fog', hazard: 'beeLow' }, { sign: 'tut.double', recipe: 'riverAcorn' }],
 };
 
-/** seconds of play of a level (about 50 s early, up to ~105 s at the end of the game) */
+/**
+ * The signature moment of every level (no two levels in a row share it). Each set piece is introduced once with a
+ * sign (the first level it appears in), then remixed. Levels 1-2 of world 1 are hand-made (levels/w1.ts).
+ */
+export const SCHEDULE: SetPiece[][] = [
+  ['planks', 'shrooms', 'ropes', 'logs', 'collapse', 'glide', 'chase', 'planks', 'ropes', 'shrooms', 'logs', 'chase'],
+  ['cave', 'waterfall', 'planks', 'ropes', 'chase', 'cave', 'glide', 'logs', 'waterfall', 'collapse', 'shrooms', 'ropes'],
+  ['shrooms', 'cave', 'ropes', 'planks', 'glide', 'waterfall', 'logs', 'chase', 'shrooms', 'collapse', 'cave', 'ropes'],
+  ['wind', 'logs', 'wind', 'chase', 'planks', 'wind', 'glide', 'ropes', 'collapse', 'wind', 'waterfall', 'chase'],
+  ['lily', 'ropes', 'lily', 'cave', 'logs', 'lily', 'wind', 'chase', 'planks', 'lily', 'glide', 'ropes'],
+];
+export const SPECIAL_PIECES: SetPiece[][] = [
+  ['ropes', 'shrooms', 'chase'],
+  ['cave', 'ropes', 'waterfall'],
+  ['shrooms', 'glide', 'cave'],
+  ['wind', 'collapse', 'chase'],
+  ['lily', 'ropes', 'wind'],
+];
+const ALL_PIECES: SetPiece[] = ['planks', 'shrooms', 'ropes', 'logs', 'collapse', 'glide', 'chase', 'cave', 'waterfall', 'wind', 'lily'];
+/** the world a set piece is first allowed in */
+const PIECE_WORLD: Record<SetPiece, number> = { planks: 1, shrooms: 1, ropes: 1, logs: 1, collapse: 1, glide: 1, chase: 1, cave: 2, waterfall: 2, wind: 4, lily: 5 };
+
+/** the scenery variants of each world (four each); a level starts in one and wanders into the next */
+export const VARIANTS: string[][] = [
+  ['meadow', 'sunset', 'rain', 'lake'],
+  ['pines', 'roots', 'glow', 'falls'],
+  ['caps', 'canyon', 'pastel', 'grotto'],
+  ['golden', 'ridge', 'dusk', 'drizzle'],
+  ['marsh', 'lagoon', 'moon', 'mangrove'],
+];
+
+/** the first level (in play order) each set piece appears in: it gets a sign there */
+export function firstAppearance(piece: SetPiece): string {
+  if (piece === 'planks') return '1-1';
+  if (piece === 'shrooms') return '1-2';
+  for (let w = 0; w < SCHEDULE.length; w++) for (let n = 0; n < 12; n++) if (SCHEDULE[w][n] === piece) return `${w + 1}-${n + 1}`;
+  return '';
+}
+
+/** overall difficulty 0..1: world 1 levels 1-2 are the tutorial, then it rises through the whole game */
+export function difficulty(world: number, n: number) {
+  const gi = (world - 1) * 12 + (n - 1);
+  if (gi < 2) return 0.04 * (gi + 1);
+  return Math.min(1, 0.3 + (0.7 * (gi - 2)) / 57);
+}
+
+/** seconds of play of a level */
 export function targetSeconds(world: number, n: number, special = false) {
-  return Math.min(78, 42 + (world - 1) * 5 + (n - 1) * 1.8 + (special ? 4 : 0));
+  return Math.min(58, 42 + (world - 1) * 3 + (n - 1) * 0.9 - (special ? 10 : 0));
 }
 
 export function levelSpeed(world: number, n: number) {
-  return Math.min(MAX_SPEED * 0.92, RUN * (1 + 0.05 * (world - 1) + 0.006 * (n - 1)));
+  const gi = (world - 1) * 12 + (n - 1);
+  return Math.min(MAX_SPEED * 0.9, RUN * (1 + (0.3 * gi) / 59));
 }
 
 export interface GenOpts {
@@ -70,60 +117,83 @@ export interface GenOpts {
 export function generateLevel(world: number, n: number, seed: number, opts: GenOpts = {}): Level {
   const r = rng(seed * 977 + world * 131 + n * 17);
   const pick = <T,>(a: T[]) => a[Math.floor(r() * a.length)];
-  const teach = !opts.special && !opts.daily && n <= 3;
-  const lesson = teach ? TEACH[world]?.[n - 1] : undefined;
-  // 0..1 within the world, and overall
-  const dw = opts.special ? 1 : opts.daily ? 0.7 : teach ? 0.05 * n : (n - 3) / 9;
-  const d = Math.min(1, dw * 0.75 + ((world - 1) / 4) * 0.35);
-  const ramp = teach ? 0.02 : 0.05;
-  let v = levelSpeed(world, opts.daily ? 8 : n);
-  const nDps = opts.special ? 4 : teach ? (lesson?.recipe ? 2 : 1) : 2 + (d > 0.45 ? 1 : 0) + (d > 0.8 ? 1 : 0);
+  const lesson = !opts.special && !opts.daily && n <= 3 ? TEACH[world]?.[n - 1] : undefined;
+  const id = opts.id ?? (opts.special ? `${world}-S` : `${world}-${n}`);
+  const d = opts.special ? Math.min(1, difficulty(world, 12) + 0.03) : opts.daily ? difficulty(world, 7) : difficulty(world, n);
+  const ramp = 0.035 + 0.02 * d;
+  let v = opts.special ? levelSpeed(world, 12) : levelSpeed(world, opts.daily ? 7 : n);
+  // the set pieces: the scheduled main one, plus a different second one from the middle of the game on
+  const prevMain = n > 1 ? SCHEDULE[world - 1][n - 2] : world > 1 ? SCHEDULE[world - 2][11] : undefined;
+  const avail = ALL_PIECES.filter((p) => PIECE_WORLD[p] <= world);
+  let pieces: SetPiece[];
+  if (opts.special) pieces = [...SPECIAL_PIECES[world - 1]];
+  else if (opts.daily) {
+    const a = avail[(seed * 7) % avail.length];
+    pieces = [a, avail.filter((p) => p !== a)[(seed * 3) % (avail.length - 1)]];
+  } else {
+    const main = SCHEDULE[world - 1][n - 1];
+    pieces = [main];
+    if (d > 0.3) {
+      const second = shuffle(avail.filter((p) => p !== main && p !== prevMain && p !== 'cave'))[0];
+      if (second) pieces.push(second);
+    }
+  }
+  const nDps = opts.special ? 3 : lesson?.recipe ? 2 : d < 0.25 ? 2 : 2 + (d > 0.5 ? 1 : 0) + (d > 0.85 ? 1 : 0);
   const recipes = unlocked(WORLD_RECIPES, world);
   const hazards = unlocked(WORLD_HAZARDS, world);
   const newRecipes = WORLD_RECIPES[world - 1];
   const newHazards = WORLD_HAZARDS[world - 1];
 
-  // decision point recipes: the lesson's first, then new ones of this world more often
+  // decision point recipes: the lesson's first; world 1 level 3 teaches the vine ladder and the mushroom
   const dpList: Recipe[] = [];
   for (let i = 0; i < nDps; i++) {
     if (i === 0 && lesson?.recipe) dpList.push(lesson.recipe);
+    else if (world === 1 && n === 3) dpList.push(i === 0 ? 'wall' : 'thorns');
     else {
       let rec = newRecipes.length && r() < 0.5 ? pick(newRecipes) : pick(recipes);
       if (rec === dpList[i - 1]) rec = pick(recipes);
       dpList.push(rec);
     }
   }
-  // at most two golden acorns come from plant choices
+  // at most one golden acorn comes from a plant choice, one from the main set piece
   let seen = 0;
-  for (let i = 0; i < dpList.length; i++) if (dpList[i].endsWith('Acorn') && ++seen > 2) dpList[i] = 'gap';
-  let acornsLeft = 3 - Math.min(2, seen);
-  const twoInARow = world >= 5 && !teach ? 0.6 : lesson?.sign === 'tut.double' ? 1 : 0;
-  const seeds = nDps + (world === 1 ? 2 : 1);
+  for (let i = 0; i < dpList.length; i++) if (dpList[i].endsWith('Acorn') && ++seen > 1) dpList[i] = 'gap';
+  const pieceAcorn = ['planks', 'ropes', 'logs', 'lily', 'shrooms', 'waterfall'].includes(pieces[0]);
+  let acornsLeft = 3 - seen - (pieceAcorn ? 1 : 0);
+  const twoInARow = world >= 5 ? 0.6 : lesson?.sign === 'tut.double' ? 1 : 0;
+  // fewer seeds as the game goes on: one spare seed early, none later
+  const seeds = nDps + (d < 0.4 ? 1 : 0);
 
-  const id = opts.id ?? (opts.special ? `${world}-S` : `${world}-${n}`);
   const b = new LevelBuilder(id, world, n, seeds, seed, v, ramp);
+  b.level.pieces = pieces;
+  b.level.difficulty = d;
   if (opts.special) b.level.special = true;
   if (opts.daily) b.level.daily = true;
+  // the journey: a level starts in one scenery variant and wanders into the next ones
+  const vars = VARIANTS[world - 1];
+  const v0 = opts.daily ? seed % 4 : opts.special ? 3 : (n - 1 + world) % 4;
+  const journey = [vars[v0], vars[(v0 + 1) % 4], ...(d > 0.45 ? [vars[(v0 + 2) % 4]] : [])];
+  b.scene(journey[0]);
 
   const total = targetSeconds(world, n, opts.special);
   const sections = nDps + 1;
   const secTime = total / sections;
   const water = world === 5 || r() < 0.4;
-  // hazard spacing in seconds: wide while teaching, tight late in the world
-  const spacing = () => (teach ? 1.7 + r() * 0.5 : Math.max(0.75, 1.35 - d * 0.7 + r() * 0.35));
+  const spacing = () => Math.max(0.6, 1.3 - d * 0.75 + r() * 0.25);
   const space = (sec: number) => {
     const len = Math.max(2.5, sec * v);
     if (r() < 0.55 && len > 4) b.gems(Math.min(6, Math.floor(len / 1.2)), 0.6, 0.7, 1.1);
     b.ground(len);
   };
-  const pool: Hz[] = teach ? ([...(lesson?.hazard ? [lesson.hazard, lesson.hazard] : []), 'stump', 'gap', 'lowLog', 'beetle'] as Hz[]).filter((h) => hazards.includes(h)) : hazards;
-  const weighted = (): Hz => {
-    if (lesson?.hazard && r() < 0.45) return lesson.hazard;
-    if (!teach && newHazards.length && r() < 0.3) return pick(newHazards);
-    return pick(pool);
+  const pool: Hz[] = hazards;
+  const weighted = (exclude: Hz[] = []): Hz => {
+    let h: Hz;
+    if (lesson?.hazard && r() < 0.45) h = lesson.hazard;
+    else if (newHazards.length && r() < 0.3) h = pick(newHazards);
+    else h = pick(pool);
+    return exclude.includes(h) ? pick(pool.filter((x) => !exclude.includes(x))) : h;
   };
   let lastHz: Hz | '' = '';
-
   const placeHazard = (h: Hz) => {
     switch (h) {
       case 'stump':
@@ -187,31 +257,113 @@ export function generateLevel(world: number, n: number, seed: number, opts: GenO
     b.checkpoint(0);
     v = Math.min(MAX_SPEED, v * (1 + ramp));
   };
-  const runSection = (sec: number, first: boolean, acorns: number) => {
-    const startX = b.x;
-    if (first) {
-      b.ground(6).gems(5, 1, 0.7, 1.2).ground(8);
-      if (lesson?.hazard) b.sign(lesson.sign, lesson.hand, 1).ground(4);
-    } else space(1.2);
-    const slots = Math.max(acorns, Math.round(sec / 3.2));
-    const acornAt = new Set<number>();
-    while (acornAt.size < acorns) acornAt.add(Math.floor(r() * slots));
-    let lastCp = b.x;
-    for (let slot = 0; slot < slots || (b.x - startX) / v < sec; slot++) {
-      if (acornAt.has(slot)) placeAcorn();
-      else {
-        let h = weighted();
-        if (h === lastHz && r() < 0.6) h = weighted();
-        placeHazard(h);
-        // tight combinations later on: a second hazard right after the first
-        if (!teach && r() < 0.15 + d * 0.55) {
-          b.ground(Math.max(1.5, (0.55 + r() * 0.2) * v));
-          let h2 = weighted();
-          if (h2 === 'roller' || h2 === 'step') h2 = pick(pool.filter((x) => x !== 'roller' && x !== 'step'));
-          placeHazard(h2);
-        }
+  /** a stretch of hazards; `exclude` keeps some out (no gaps in a chase) */
+  const hazardRun = (count: number, exclude: Hz[] = []) => {
+    for (let i = 0; i < count; i++) {
+      let h = weighted(exclude);
+      if (h === lastHz && r() < 0.6) h = weighted(exclude);
+      placeHazard(h);
+      if (r() < 0.2 + d * 0.6) {
+        b.ground(Math.max(1.5, (0.55 + r() * 0.2) * v));
+        placeHazard(weighted([...exclude, 'roller', 'step']));
       }
       space(spacing());
+    }
+  };
+  const signed = new Set<string>();
+  /** the set pieces, built at the cursor (with a sign the first time one appears in the game) */
+  const piece = (p: SetPiece, main: boolean) => {
+    const k = Math.round(d * 10);
+    if (main && firstAppearance(p) === id && !signed.has(p)) {
+      b.sign(`piece.${p}`, p === 'glide' ? 'hold' : p === 'ropes' ? 'tap' : undefined, 1).ground(4);
+      signed.add(p);
+    }
+    const acorn = main && pieceAcorn;
+    switch (p) {
+      case 'planks':
+        b.planks(4 + Math.min(4, Math.floor(k / 2)), { sway: d > 0.25 ? 0.25 + 0.4 * d : 0, sink: world >= 2 && d > 0.3 ? 0.65 - 0.25 * d : 0, acornAt: acorn ? 2 : undefined, gap: 1.6 + 0.6 * d });
+        break;
+      case 'ropes':
+        b.ropes(2 + Math.min(2, Math.floor(k / 3)), { acorn });
+        break;
+      case 'logs':
+        b.logs(3 + Math.min(3, Math.floor(k / 3)), { croc: d > 0.2, drift: 0.5 + 0.6 * d, acornAt: acorn ? 1 : undefined });
+        break;
+      case 'lily':
+        b.lily(5 + Math.min(4, Math.floor(k / 2)), { sinkEvery: d > 0.8 ? 1 : 2, sinkAfter: 0.6 - 0.25 * d, acornAt: acorn ? 3 : undefined });
+        break;
+      case 'shrooms':
+        b.shrooms(2 + Math.min(2, Math.floor(k / 3)), { acornAt: acorn ? 0 : undefined });
+        break;
+      case 'collapse':
+        b.collapse(12 + Math.round(12 * d));
+        break;
+      case 'glide':
+        b.glide(12 + Math.round(6 * d));
+        break;
+      case 'waterfall':
+        b.waterfall(acorn);
+        break;
+      case 'chase': {
+        b.ground(2);
+        const x0 = b.x;
+        hazardRun(3 + Math.round(2 * d), ['gap', 'stream', 'roller', 'step', 'beeHigh']);
+        b.ground(3);
+        b.zone('chase', x0, b.x, { y: b.y });
+        b.ground(4);
+        break;
+      }
+      case 'cave': {
+        b.ground(2);
+        const x0 = b.x;
+        hazardRun(4 + Math.round(3 * d));
+        b.zone('cave', x0, b.x);
+        break;
+      }
+      case 'wind': {
+        const x0 = b.x;
+        const dir = r() < 0.5 ? 1 : -1;
+        hazardRun(4 + Math.round(2 * d), ['roller', 'beeHigh', 'lowLog']);
+        b.zone('wind', x0, b.x, { dir, strength: 1.6 + 1.2 * d, period: 2.6, duty: 0.5, phase: r() * 2 });
+        break;
+      }
+    }
+    // a run-out after the set piece (a flight off a rope or a mushroom is fast)
+    b.gems(3, 1, 0.7, 1.2).ground(4 + v * 0.8);
+  };
+  const placePieceAcornFallback = () => {
+    acornsLeft++;
+  };
+  void placePieceAcornFallback;
+
+  const runSection = (sec: number, first: boolean, acorns: number, piecesHere: SetPiece[], mainHere: boolean) => {
+    const startX = b.x;
+    if (first) {
+      b.ground(6).gems(5, 1, 0.7, 1.2).ground(6);
+      if (lesson?.hazard) b.sign(lesson.sign, lesson.hand, 1).ground(4);
+    } else space(1.2);
+    const slots = Math.max(acorns + piecesHere.length + 1, Math.round(sec / (2.5 - 0.9 * d)));
+    const acornAt = new Set<number>();
+    while (acornAt.size < acorns) acornAt.add(Math.floor(r() * slots));
+    const pieceAt = new Map<number, SetPiece>();
+    piecesHere.forEach((p, i) => {
+      let at = Math.floor(slots * (0.25 + 0.3 * i));
+      while (acornAt.has(at) || pieceAt.has(at)) at++;
+      pieceAt.set(at, p);
+    });
+    let lastCp = b.x;
+    const pending = () => [...acornAt, ...pieceAt.keys()].some((k) => k >= slotNow);
+    let slotNow = 0;
+    for (let slot = 0; (b.x - startX) / v < sec || pending(); slot++) {
+      slotNow = slot;
+      const p = pieceAt.get(slot);
+      if (p) {
+        cp();
+        lastCp = b.x;
+        b.ground(2);
+        piece(p, mainHere && p === pieces[0]);
+      } else if (acornAt.has(slot)) placeAcorn();
+      else hazardRun(1);
       if (b.x - lastCp > 24 * v) {
         cp();
         lastCp = b.x;
@@ -244,36 +396,54 @@ export function generateLevel(world: number, n: number, seed: number, opts: GenO
     return out;
   }
 
-  // spread the remaining acorns over the run sections
+  // which section gets which set piece and how many acorns: the main piece in the middle of the level
   const perSection = Array.from({ length: sections }, () => 0);
-  for (let i = 0; i < acornsLeft; i++) perSection[(i * 2 + 1) % sections]++;
+  for (let i = 0; i < Math.max(0, acornsLeft); i++) perSection[(i * 2 + 1) % sections]++;
+  const mainSec = Math.min(sections - 1, Math.max(0, Math.floor(sections / 2)));
+  const piecesIn: SetPiece[][] = Array.from({ length: sections }, () => []);
+  piecesIn[mainSec].push(pieces[0]);
+  pieces.slice(1).forEach((p, i) => piecesIn[(mainSec + 1 + i) % sections].push(p));
   let di = 0;
-  for (let sct = 0; sct < sections && (sct === 0 || di < nDps || sct === sections - 1); sct++) {
-    runSection(secTime, sct === 0, perSection[sct]);
+  for (let sct = 0; sct < sections; sct++) {
+    // the scenery changes along the way
+    const jv = Math.min(journey.length - 1, Math.floor((sct * journey.length) / sections));
+    b.scene(journey[jv]);
+    runSection(secTime, sct === 0, perSection[sct], piecesIn[sct], sct === mainSec);
     if (di < nDps) {
       cp();
       b.ground(3);
       if (lesson?.recipe && di === 0) b.sign(lesson.sign, 'choose', 0).ground(2);
       decide(dpList[di++]);
-      if (di < nDps && r() < twoInARow) {
+      if (di < nDps && sct + 1 < sections - 1 && r() < twoInARow) {
         // two obstacles in a row: the next decision point right after this one
         b.ground(3);
         decide(dpList[di++]);
-        perSection[sct + 1] += perSection[sct + 2] ?? 0;
-        if (sct + 2 < sections) perSection[sct + 2] = 0;
       }
       b.gems(4, 1.5, 0.7, 1).ground(6);
-      if (di >= nDps) {
-        // the last run to the goal
-        runSection(secTime, false, perSection.slice(sct + 1).reduce((a, x) => a + x, 0));
-        break;
-      }
     }
+  }
+  while (di < nDps) {
+    cp();
+    b.ground(3);
+    decide(dpList[di++]);
+    b.gems(4, 1.5, 0.7, 1).ground(6);
+  }
+  // top up to three golden acorns on the last stretch (high above the trail: hold to jump higher)
+  for (let k = b.level.pickups.filter((p) => p.kind === 'acorn').length; k < 3; k++) {
+    b.ground(2).acorn(2.5, 3.4).ground(4);
+    space(spacing());
   }
   cp();
   b.gems(6, 0, 0.7, 1).ground(8);
   const level = b.goal().done();
-  const nAcorns = level.pickups.filter((p) => p.kind === 'acorn').length;
-  if (nAcorns !== 3) throw new Error(`${level.id}: ${nAcorns} golden acorns`);
+  // exactly three golden acorns: extra ones (not from a plant choice) become gems
+  const dpAcorns = new Set(level.dps.map((x) => x.acorn ?? -1));
+  let count = level.pickups.filter((p) => p.kind === 'acorn').length;
+  for (let i = level.pickups.length - 1; i >= 0 && count > 3; i--)
+    if (level.pickups[i].kind === 'acorn' && !dpAcorns.has(i)) {
+      level.pickups[i].kind = 'gem';
+      count--;
+    }
+  if (count !== 3) throw new Error(`${level.id}: ${count} golden acorns`);
   return level;
 }

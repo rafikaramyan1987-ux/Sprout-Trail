@@ -119,7 +119,7 @@ export function solve(level: Level, opts: { width?: number; maxSeconds?: number;
           const inp = inputFor(a, n.prev, i === 0);
           inputs.push(inp);
           step(level, s, inp);
-          if (s.events.includes('fall')) fell = true;
+          if (s.events.includes('fall') || s.events.includes('croc')) fell = true;
         }
         if (fell || s.mode === 'lost') continue;
         const child: Node = { s, prev: a, inputs, choice: null, parent: n, presses: n.presses + (a !== 0 && a !== n.prev ? 1 : 0) + (a === 2 ? 0.4 : a === 1 ? 0.05 : 0) };
@@ -128,7 +128,7 @@ export function solve(level: Level, opts: { width?: number; maxSeconds?: number;
           break;
         }
         if (s.mode === 'won') continue;
-        const key = `${Math.round(s.x * 6)}:${Math.round(s.y * 6)}:${Math.round(s.vy / 2)}:${s.holding ? 1 : 0}:${s.ducking ? 1 : 0}:${s.acorns}:${s.hearts}:${a}`;
+        const key = `${Math.round(s.x * 6)}:${Math.round(s.y * 6)}:${Math.round(s.vy / 2)}:${s.holding ? 1 : 0}:${s.ducking ? 1 : 0}:${s.acorns}:${s.hearts}:${a}:${s.rope}:${s.rope >= 0 ? Math.round(s.ropeA * 8) + ':' + Math.round(s.ropeW * 2) : ''}:${Math.round(s.flyVX)}:${s.gliding ? 1 : 0}`;
         const old = out.get(key);
         if (!old || nscore(old) < nscore(child)) out.set(key, child);
       }

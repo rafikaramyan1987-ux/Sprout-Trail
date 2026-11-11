@@ -13,11 +13,13 @@ import { Fx } from '../render/fx';
 import * as THREE from 'three';
 import { leafShapeGeo, makePlant, type PlantView } from '../render/plants';
 import { themeFor } from '../render/themes';
+import { variantOf } from '../render/variants';
+import { buildPieces, dandelion, type PiecesView } from '../render/pieces';
 import { cosmetics } from '../app/cosmetics';
 import { Sprite } from '../render/sprite';
 import type { Stage } from '../render/stage';
 import { buildWorld, signText, touchFirst, type WorldView } from '../render/world';
-import { bubble, el, esc, ico, toast, ui } from '../ui/ui';
+import { bubble, el, esc, ico, timedClass, timedRemove, toast, ui } from '../ui/ui';
 import { PLANT_ART } from '../ui/icons';
 
 export interface PlayHooks {
@@ -59,6 +61,10 @@ export class Play {
   botThink = 1.1;
   private botT = 0;
   private hitStop = 0;
+  private pieces!: PiecesView;
+  private vignette!: HTMLElement;
+  private placeShown = 0;
+  private glideSeed = dandelion(0.8);
   private glideLeaf = (() => {
     const g = new THREE.Group();
     const m = new THREE.Mesh(leafShapeGeo(1.3, 0.75), new THREE.MeshStandardMaterial({ color: '#5fbf45', side: THREE.DoubleSide, roughness: 0.6 }));
@@ -89,9 +95,15 @@ export class Play {
     this.camGroundY = this.sim.y;
     stage.world.clear();
     const th = themeFor(level.world);
-    stage.setTheme(th.stage);
-    stage.setAmbient(th.ambient);
+    const v0 = variantOf(level.world, level.scenery[0]?.variant ?? '');
+    stage.setTheme(v0.stage ?? th.stage);
+    stage.setAmbient(v0.ambient ?? th.ambient);
     this.world = buildWorld(level);
+    this.pieces = buildPieces(level);
+    this.world.root.add(this.pieces.root);
+    this.vignette = el('<div id="vignette"></div>');
+    ui().prepend(this.vignette);
+    this.titleCard();
     this.sprite.setColor(cosmetics.color);
     this.sprite.setHat(cosmetics.hat);
     stage.world.add(this.world.root, this.sprite.root, this.sprite.shadow);
@@ -104,6 +116,9 @@ export class Play {
 
   dispose() {
     this.hud.remove();
+    this.vignette.remove();
+    document.getElementById('titlecard')?.remove();
+    this.stage.lamp.intensity = 0;
     this.dpSheet?.remove();
     this.hand?.remove();
     document.querySelectorAll('.bubble').forEach((b) => b.remove());
@@ -342,7 +357,34 @@ export class Play {
           this.fx.leaves(p.x, p.y + 0.2, 10);
           break;
         }
+        case 'grab':
+          sfx('grab');
+          break;
+        case 'release':
+          sfx('jump');
+          break;
+        case 'croc':
+          sfx('splash');
+          this.fx.splash(s.x, s.y);
+          bubble(t('piece.crocBite'), false, 1600);
+          this.shake = 0.35;
+          break;
+        case 'boar':
+          sfx('boar');
+          bubble(t('piece.chaseGo'), false, 1600);
+          break;
+        case 'boarStop':
+          sfx('checkpoint');
+          break;
+        case 'crack':
+          sfx('crack');
+          this.shake = 0.25;
+          break;
+        case 'sink':
+          sfx('duck');
+          break;
         case 'bounce':
+          if (s.mode === 'run') this.pieces.squish(s.lastEnemy);
           sfx('bounce');
           this.plantViews[this.plantViews.length - 1]?.view.poke();
           this.squash = 0.8;
@@ -423,7 +465,8 @@ export class Play {
       cheer: s.mode === 'won',
       t: this.time,
     });
-    sp.setGlide(s.gliding && (s.mode === 'cross' || s.mode === 'fail'), this.glideLeaf);
+    const seedGlide = s.gliding && s.mode === 'run';
+    sp.setGlide(s.gliding && (s.mode === 'cross' || s.mode === 'fail' || seedGlide), seedGlide ? this.glideSeed : this.glideLeaf);
     if (s.mode === 'fail' && s.failReason === 'thorns') sp.root.position.y += Math.abs(Math.sin(s.modeT * 9)) * 0.4 * Math.max(0, 1 - s.modeT);
     // blob shadow on the ground below
     const gy = this.groundBelow(x, y);
@@ -447,6 +490,8 @@ export class Play {
       pv.view.update(dt, this.time);
     }
     this.world.update(s, this.time, dt);
+    this.pieces.update(s, this.time, dt);
+    this.updateScenery(x, y);
     this.fx.update(dt);
     this.updateCamera(x, y, dt);
     this.updateHand(x);
@@ -457,6 +502,53 @@ export class Play {
     for (const b of this.level.boxes) if (x > b.x0 && x < b.x1 && b.y1 <= y + 0.05 && b.y1 > best) best = b.y1;
     for (const p of this.sim.plants) if (p.kind === 'bridge' && x > p.x && x < p.x + P.BRIDGE_LEN && p.y <= y + 0.05 && p.y > best) best = p.y;
     return best;
+  }
+
+  /** the scenery stretch around the camera: blend sky and light into the next one, darken caves, name new places */
+  private updateScenery(x: number, y: number) {
+    const sc = this.level.scenery;
+    const cx = this.stage.camera.position.x;
+    let i = 0;
+    while (i + 1 < sc.length && cx >= sc[i + 1].x) i++;
+    const W = 9;
+    let a = sc[i],
+      b = sc[i],
+      k = 0;
+    if (i + 1 < sc.length && cx > sc[i + 1].x - W) {
+      b = sc[i + 1];
+      k = (cx - (sc[i + 1].x - W)) / W;
+    } else if (i > 0 && cx < sc[i].x + 1) {
+      a = sc[i];
+    }
+    const va = variantOf(this.level.world, a?.variant ?? ''),
+      vb = variantOf(this.level.world, b?.variant ?? '');
+    const cave = this.pieces.caveAt(x);
+    const dark = 1 - 0.75 * cave;
+    this.stage.blend(va.stage, vb.stage, k, va.light * dark, vb.light * dark, va.ambient, vb.ambient, (va.rain + (vb.rain - va.rain) * k) * (1 - cave));
+    // a light around the sprite in caves and at night
+    const night = 1 - Math.min(va.light, vb.light);
+    this.stage.lamp.intensity = Math.max(cave * 3.2, night > 0.4 ? night * 2.2 : 0);
+    this.stage.lamp.position.set(x, y + 1.4, 1.2);
+    this.vignette.style.opacity = String(Math.max(cave * 0.85, night > 0.4 ? night * 0.35 : 0));
+    // the name of a new place, once per stretch
+    const si = sc.findIndex((q, j) => x >= q.x && (j + 1 >= sc.length || x < sc[j + 1].x));
+    if (si > this.placeShown) {
+      this.placeShown = si;
+      if (si > 0) placeToast(t(`place.${sc[si].variant}`));
+    }
+  }
+
+  /** the level's title card: world and number, the place, the signature moment */
+  private titleCard() {
+    const L = this.level;
+    const place = t(`place.${L.scenery[0]?.variant ?? ''}`);
+    const head = L.daily ? t('daily.title') : L.special ? t('world.special') : t('card.level', { w: L.world, n: L.n });
+    const pieces = L.pieces.map((p) => t(`piece.${p}.name`)).join(' · ');
+    const card = el(`<div id="titlecard"><small>${esc(head)}</small><b>${esc(place)}</b><span>${esc(pieces)}</span></div>`);
+    document.getElementById('titlecard')?.remove();
+    ui().append(card);
+    timedClass(card, 'bye', 2.3);
+    timedRemove(card, 2.8);
   }
 
   private updateCamera(x: number, y: number, dt: number) {
@@ -479,15 +571,17 @@ export class Play {
       // so every hazard is on screen at least 1.2 s before the sprite reaches it (checked by the level validator)
       tx = x + s.vx / 12;
       ty = this.camGroundY + 0.8;
-      tsx = portrait ? 0.25 : 0.3;
+      // during a chase the sprite moves to the middle so the boar behind it is on screen too
+      const chasing = !Number.isNaN(s.boarX) && !s.boarDone;
+      tsx = chasing ? (portrait ? 0.5 : 0.45) : portrait ? 0.25 : 0.3;
       tsy = portrait ? 0.33 : 0.36;
-      tw = Math.max(portrait ? 9.6 : 0, P.viewAhead(s.speed) / (1 - tsx) + 0.4);
+      tw = Math.max(portrait ? 9.6 : 0, P.viewAhead(Math.max(s.speed, s.vx)) / (1 - tsx) + 0.4);
     }
     const k = this.cam.init ? 1 - Math.exp(-dt * (dp ? 2.5 : 12)) : 1;
     const ky = this.cam.init ? 1 - Math.exp(-dt * 3.5) : 1;
     this.cam.x = lerp(this.cam.x, tx, k);
     this.cam.y = lerp(this.cam.y, ty, ky);
-    this.cam.w = lerp(this.cam.w, tw, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
+    this.cam.w = lerp(this.cam.w, tw, this.cam.init ? 1 - Math.exp(-dt * (tw > this.cam.w ? 14 : 2.5)) : 1);
     this.cam.sx = lerp(this.cam.sx, tsx, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.sy = lerp(this.cam.sy, tsy, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.init = true;
@@ -601,4 +695,12 @@ function speedToast() {
   if (now - lastSpeedToast < 4) return;
   lastSpeedToast = now;
   toast(t('faster'), 1200);
+}
+
+/** a small label when the trail enters a new place */
+function placeToast(text: string) {
+  document.querySelectorAll('.place').forEach((p) => p.remove());
+  const n = el(`<div class="place">${esc(text)}</div>`);
+  ui().append(n);
+  timedRemove(n, 2.2);
 }

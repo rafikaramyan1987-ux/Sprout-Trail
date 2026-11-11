@@ -1,7 +1,7 @@
 {
   "name": "sprout-trail",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Sprout Trail - a cozy 2.5D forest platformer with plant-choice puzzles, playable with one finger",
   "scripts": {

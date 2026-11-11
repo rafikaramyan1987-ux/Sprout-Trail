@@ -24,6 +24,11 @@ export function readability(level: Level, plan: Pick<Plan, 'inputs' | 'choices'>
   );
   for (const h of level.hazards) threats.push({ what: 'thorns', x: h.x0, near: () => h.x0, seen: -1, met: -1 });
   for (const b of level.boxes) if (b.kind === 'log' || b.kind === 'stump') threats.push({ what: b.kind === 'log' ? 'low log' : 'stump', x: b.x0, near: () => b.x0, seen: -1, met: -1 });
+  // set pieces: the crocodile's lake, wind, a collapsing bridge, sinking platforms (the boar comes from behind and
+  // only catches a sprite that is held up, so it is not something to see ahead)
+  for (const w of level.water) if (w.croc) threats.push({ what: 'crocodile lake', x: w.x0, near: () => w.x0, seen: -1, met: -1 });
+  for (const z of level.zones) if (z.kind === 'wind' || z.kind === 'collapse') threats.push({ what: z.kind === 'wind' ? 'wind' : 'collapsing bridge', x: z.x0, near: () => z.x0, seen: -1, met: -1 });
+  for (const m of level.movers) if (m.sinkAfter > 0) threats.push({ what: `sinking ${m.kind}`, x: m.x0, near: () => m.x0 - m.amp, seen: -1, met: -1 });
   // decision point obstacles are excluded: the sprite stops in front of them by itself
   const s = newSim(level);
   const r = new Replay(plan);
@@ -39,7 +44,7 @@ export function readability(level: Level, plan: Pick<Plan, 'inputs' | 'choices'>
     threats.forEach((t, i) => {
       const ra = i < level.enemies.length ? s.rollAt[i] : -1;
       const near = t.near(s.et, ra);
-      if (t.seen < 0 && near - s.x <= P.viewAhead(s.speed)) t.seen = s.et;
+      if (t.seen < 0 && near - s.x <= P.viewAhead(Math.max(s.speed, s.vx))) t.seen = s.et;
       if (t.met < 0 && near - (s.x + P.W / 2) <= 0.3) t.met = s.et;
     });
   }

@@ -30,6 +30,13 @@ export function hide(id: string) {
 /** short-lived messages, timed on the game clock (so they pause and work frame by frame in captures) */
 const timed: { node: HTMLElement; left: number }[] = [];
 export function tickMessages(dt: number) {
+  for (let i = later.length - 1; i >= 0; i--) {
+    later[i].left -= dt;
+    if (later[i].left <= 0) {
+      later[i].node.classList.add(later[i].cls);
+      later.splice(i, 1);
+    }
+  }
   for (let i = timed.length - 1; i >= 0; i--) {
     timed[i].left -= dt;
     if (timed[i].left <= 0 || !timed[i].node.isConnected) {
@@ -37,6 +44,12 @@ export function tickMessages(dt: number) {
       timed.splice(i, 1);
     }
   }
+}
+
+/** add a class later (on the game clock) */
+const later: { node: HTMLElement; cls: string; left: number }[] = [];
+export function timedClass(node: HTMLElement, cls: string, sec: number) {
+  later.push({ node, cls, left: sec });
 }
 
 export function timedRemove(node: HTMLElement, sec: number) {
