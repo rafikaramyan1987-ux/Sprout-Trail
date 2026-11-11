@@ -159,6 +159,29 @@ export class Sprite {
     this.skin.color.set(c);
   }
 
+  private hat = new THREE.Group();
+  private glideLeaf: THREE.Group | null = null;
+
+  /** cosmetics: a hat on the head (behind the sprout) */
+  setHat(id: string) {
+    this.body.remove(this.hat);
+    this.hat = makeHat(id);
+    this.hat.position.set(0, 0.92, 0);
+    this.body.add(this.hat);
+  }
+
+  /** the big leaf held overhead while gliding */
+  setGlide(on: boolean, leaf?: THREE.Group) {
+    if (on && !this.glideLeaf && leaf) {
+      this.glideLeaf = leaf;
+      leaf.position.set(0.05, 1.55, 0);
+      this.root.add(leaf);
+    } else if (!on && this.glideLeaf) {
+      this.root.remove(this.glideLeaf);
+      this.glideLeaf = null;
+    }
+  }
+
   update(p: SpritePose) {
     const t = p.t;
     const run = p.grounded && !p.idle && !p.climbing;
@@ -238,4 +261,82 @@ export class Sprite {
         s.rotation.y = t * 6;
       });
   }
+}
+
+const mat = (c: string, o: Partial<THREE.MeshStandardMaterialParameters> = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.6, ...o });
+
+/** hats for the wardrobe (all hand-modelled) */
+export function makeHat(id: string): THREE.Group {
+  const g = new THREE.Group();
+  const add = (m: THREE.Mesh) => {
+    m.castShadow = true;
+    g.add(m);
+    return m;
+  };
+  switch (id) {
+    case 'acorn': {
+      const cap = add(new THREE.Mesh(new THREE.SphereGeometry(0.36, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), mat('#9a6a3a', { roughness: 0.9 })));
+      cap.scale.y = 0.6;
+      cap.position.y = -0.06;
+      const st = add(new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 0.16, 6), mat('#5a3a20')));
+      st.position.set(0.12, 0.18, 0);
+      break;
+    }
+    case 'flower': {
+      const c = add(new THREE.Mesh(new THREE.SphereGeometry(0.09, 10, 8), mat('#ffd23a')));
+      c.position.set(0.22, 0.02, 0.12);
+      for (let i = 0; i < 6; i++) {
+        const p = add(new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), mat('#ff8fc0')));
+        const a = (i / 6) * Math.PI * 2;
+        p.position.set(0.22 + Math.cos(a) * 0.12, 0.02 + Math.sin(a) * 0.12, 0.1);
+        p.scale.z = 0.4;
+      }
+      break;
+    }
+    case 'mushroom': {
+      const cap = add(new THREE.Mesh(new THREE.SphereGeometry(0.34, 20, 10, 0, Math.PI * 2, 0, Math.PI / 2), mat('#ff6b6b', { roughness: 0.45 })));
+      cap.scale.y = 0.7;
+      for (let i = 0; i < 5; i++) {
+        const sp = add(new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), mat('#fff8ec')));
+        const a = i * 1.3;
+        sp.position.set(Math.cos(a) * 0.2, 0.16, Math.sin(a) * 0.2);
+        sp.scale.y = 0.4;
+      }
+      break;
+    }
+    case 'crown': {
+      const ring = add(new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.05, 6, 20), mat('#5cb840')));
+      ring.rotation.x = Math.PI / 2;
+      ring.position.y = -0.04;
+      for (let i = 0; i < 7; i++) {
+        const l = add(new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.24, 4), mat(i % 2 ? '#7bd05a' : '#ffd23a', { metalness: i % 2 ? 0 : 0.4 })));
+        const a = (i / 7) * Math.PI * 2;
+        l.position.set(Math.cos(a) * 0.28, 0.08, Math.sin(a) * 0.28);
+      }
+      break;
+    }
+    case 'straw': {
+      const brim = add(new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.52, 0.04, 24), mat('#f0cf7a', { roughness: 0.9 })));
+      brim.position.y = -0.02;
+      const top = add(new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 0.2, 18), mat('#f0cf7a', { roughness: 0.9 })));
+      top.position.y = 0.09;
+      const band = add(new THREE.Mesh(new THREE.CylinderGeometry(0.285, 0.285, 0.06, 18), mat('#e0566a')));
+      band.position.y = 0.02;
+      break;
+    }
+    case 'bow': {
+      for (const s of [-1, 1]) {
+        const w = add(new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.22, 4), mat('#7fb8ff')));
+        w.rotation.z = (s * Math.PI) / 2;
+        w.position.set(s * 0.12, 0, 0.18);
+      }
+      const k = add(new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), mat('#5a8fe0')));
+      k.position.set(0, 0, 0.2);
+      g.position.x = 0.15;
+      break;
+    }
+    default:
+      break;
+  }
+  return g;
 }

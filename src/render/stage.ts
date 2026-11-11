@@ -14,6 +14,19 @@ export interface Theme {
   sun: string;
   ambientSky: string;
   ambientGround: string;
+  fogNear: number;
+  fogFar: number;
+  /** light ray strength */
+  rays: number;
+}
+
+/** floating particles around the camera (pollen, spores, falling leaves, fireflies) */
+export interface AmbientConfig {
+  color: string;
+  size: number;
+  count: number;
+  fall: number;
+  flicker: boolean;
 }
 
 export const SPRING: Theme = {
@@ -24,6 +37,9 @@ export const SPRING: Theme = {
   sun: '#fff1c9',
   ambientSky: '#dff3ff',
   ambientGround: '#6f8f4a',
+  fogNear: 45,
+  fogFar: 230,
+  rays: 0.22,
 };
 
 export class Stage {
@@ -39,6 +55,8 @@ export class Stage {
   private clouds: THREE.Group[] = [];
   private rays: THREE.Mesh[] = [];
   private pollen: THREE.Points;
+  private ambient: AmbientConfig = { color: '#fff7c2', size: 0.22, count: 90, fall: 0, flicker: false };
+  private rayStrength = 0.22;
   /** world objects of the current level */
   readonly world = new THREE.Group();
   readonly fx = new THREE.Group();
@@ -94,7 +112,7 @@ export class Stage {
     this.scene.add(this.sky);
 
     const pg = new THREE.BufferGeometry();
-    const n = 90;
+    const n = 120;
     const pos = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
       pos[i * 3] = ((i * 53) % 100) / 100 * 60 - 30;
@@ -109,12 +127,21 @@ export class Stage {
     this.scene.add(this.pollen);
   }
 
+  setAmbient(a: AmbientConfig) {
+    this.ambient = a;
+    const pm = this.pollen.material as THREE.PointsMaterial;
+    pm.color.set(a.color);
+    pm.size = a.size;
+    pm.opacity = 0.85;
+  }
+
   /** set the sky, light and background layers for a world */
   setTheme(th: Theme) {
     (this.skyMat.uniforms.top.value as THREE.Color).set(th.skyTop);
     (this.skyMat.uniforms.bottom.value as THREE.Color).set(th.skyBottom);
     (this.skyMat.uniforms.sun.value as THREE.Color).set(th.sun);
-    this.scene.fog = new THREE.Fog(th.fog, 45, 230);
+    this.scene.fog = new THREE.Fog(th.fog, th.fogNear, th.fogFar);
+    this.rayStrength = th.rays;
     this.hemi.color.set(th.ambientSky);
     this.hemi.groundColor.set(th.ambientGround);
     this.sun.color.set(th.sun);
@@ -209,17 +236,23 @@ export class Stage {
       const f = this.far.find((q) => q.o === c);
       if (f) f.x += dt * (0.4 + (i % 3) * 0.15);
     });
-    this.rays.forEach((r, i) => (((r.material as THREE.MeshBasicMaterial).opacity = 0.14 + 0.08 * Math.sin(this.time * 0.6 + i * 1.7))));
+    this.rays.forEach((r, i) => (((r.material as THREE.MeshBasicMaterial).opacity = this.rayStrength * (0.65 + 0.35 * Math.sin(this.time * 0.6 + i * 1.7)))));
     // pollen drifts around the camera
     const p = this.pollen.geometry.attributes.position as THREE.BufferAttribute;
+    const a = this.ambient;
     for (let i = 0; i < p.count; i++) {
-      let x = p.getX(i) + dt * (0.3 + (i % 5) * 0.05);
-      const y = p.getY(i) + Math.sin(this.time * 0.8 + i) * dt * 0.15;
+      let x = p.getX(i) + dt * (0.3 + (i % 5) * 0.05 + a.fall * 0.5);
+      let y = p.getY(i) + Math.sin(this.time * 0.8 + i) * dt * 0.15 - a.fall * dt * (0.8 + (i % 3) * 0.3);
       if (x - cx > 30) x -= 60;
       if (x - cx < -30) x += 60;
+      if (y < -2) y += 16;
+      if (y > 14) y -= 16;
       p.setXY(i, x, y);
     }
     p.needsUpdate = true;
+    this.pollen.geometry.setDrawRange(0, a.count);
+    const pm = this.pollen.material as THREE.PointsMaterial;
+    if (a.flicker) pm.opacity = 0.55 + 0.45 * Math.abs(Math.sin(this.time * 2.3));
     this.pollen.position.y = this.camera.position.y - 6;
     // shadows follow the camera
     const tx = this.camera.position.x,

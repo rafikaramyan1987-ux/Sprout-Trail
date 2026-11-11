@@ -84,7 +84,7 @@ export function modelSize(name: string) {
  * Many copies of one model as InstancedMeshes (one per mesh in the model). `mats` are world matrices.
  * Returns a group to add to the scene.
  */
-export function instanced(name: string, mats: THREE.Matrix4[], shadows = true): THREE.Group {
+export function instanced(name: string, mats: THREE.Matrix4[], shadows = true, tint?: string): THREE.Group {
   const g = new THREE.Group();
   const src = models.get(name);
   if (!src || !mats.length) return g;
@@ -94,7 +94,24 @@ export function instanced(name: string, mats: THREE.Matrix4[], shadows = true): 
     const m = o as THREE.Mesh;
     if (!m.isMesh) return;
     const local = new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld);
-    const im = new THREE.InstancedMesh(m.geometry, m.material, mats.length);
+    let mat = m.material;
+    if (tint && !Array.isArray(mat) && /Leaves|Leaf/i.test(mat.name)) {
+      // recolour the foliage by its brightness (autumn reds, lavender, misty greens) instead of multiplying
+      const src = mat;
+      const c = (src as THREE.MeshStandardMaterial).clone();
+      const tc = new THREE.Color(tint);
+      c.color.setScalar(1);
+      c.onBeforeCompile = (sh, r) => {
+        src.onBeforeCompile(sh, r);
+        sh.uniforms.uTint = { value: tc };
+        sh.fragmentShader = sh.fragmentShader
+          .replace('#include <common>', '#include <common>\nuniform vec3 uTint;')
+          .replace('#include <map_fragment>', '#include <map_fragment>\n{ float lum = dot(diffuseColor.rgb, vec3(0.3, 0.59, 0.11)); diffuseColor.rgb = uTint * (0.35 + lum * 2.1); }');
+      };
+      c.customProgramCacheKey = () => `${src.customProgramCacheKey()}tint`;
+      mat = c;
+    }
+    const im = new THREE.InstancedMesh(m.geometry, mat, mats.length);
     const tmp = new THREE.Matrix4();
     mats.forEach((w, i) => im.setMatrixAt(i, tmp.multiplyMatrices(w, local)));
     im.castShadow = shadows;

@@ -626,3 +626,24 @@ export function stars(level: Level, s: SimState) {
   if (s.mode !== 'won') return 0;
   return 1 + (s.acorns >= 3 ? 1 : 0) + (s.seeds >= level.seeds - level.dps.length ? 1 : 0);
 }
+
+/** "Watch an ad: continue with 1 heart": back to the last checkpoint with one heart */
+export function revive(s: SimState) {
+  if (s.mode !== 'lost') return;
+  s.hearts = 1;
+  s.mode = 'run';
+  s.modeT = 0;
+  s.x = s.cpX;
+  s.y = s.cpY;
+  s.vx = s.vy = 0;
+  s.grounded = true;
+  s.invuln = 2;
+  s.knockT = 0;
+  s.ducking = false;
+  s.duckT = 0;
+}
+
+/** "Watch an ad: +2 seeds" */
+export function addSeeds(s: SimState, n: number) {
+  s.seeds += n;
+}

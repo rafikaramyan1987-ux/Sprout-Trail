@@ -22,6 +22,8 @@ export const ICONS = {
   star: svg('<path d="M32 4 L40 24 L61 24 L44 37 L50 58 L32 45 L14 58 L20 37 L3 24 L24 24Z" fill="#ffd54a" stroke="#b07a00" stroke-width="3" stroke-linejoin="round"/>'),
   starEmpty: svg('<path d="M32 4 L40 24 L61 24 L44 37 L50 58 L32 45 L14 58 L20 37 L3 24 L24 24Z" fill="rgba(80,60,40,.25)" stroke="#8a6a4a" stroke-width="3" stroke-linejoin="round"/>'),
   tv: svg('<rect x="6" y="16" width="52" height="38" rx="7" fill="#fff"/><path d="M22 6 L32 16 L42 6" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M27 26 L41 35 L27 44Z" fill="#e0672f"/>'),
+  hat: svg('<path d="M8 46 C8 40 18 38 32 38 C46 38 56 40 56 46 C56 50 8 50 8 46Z" fill="#fff"/><path d="M18 40 C18 22 24 14 32 14 C40 14 46 22 46 40Z" fill="#fff"/><path d="M18 34 H46" stroke="#e0672f" stroke-width="5"/>'),
+  globe: svg('<circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="5"/><path d="M8 32 H56 M32 8 C20 20 20 44 32 56 M32 8 C44 20 44 44 32 56" stroke="#fff" stroke-width="4" fill="none"/>'),
   close: svg('<path d="M16 16 L48 48 M48 16 L16 48" stroke="#fff" stroke-width="8" stroke-linecap="round"/>'),
 };
 

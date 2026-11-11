@@ -6,7 +6,9 @@ import * as THREE from 'three';
 import type { Box, Level } from '../game/types';
 import { enemyX, type SimState } from '../game/sim';
 import { instanced, hasModel, modelSize } from './assets';
-import { acorn, beetle, checkpoint, gemGeo, gemMat, goalHouse, sign, type BeetleView, type CheckpointView } from './props';
+import { acorn, bee, beetle, checkpoint, gemGeo, gemMat, goalHouse, roller, sign, snail, type CheckpointView, type EnemyView } from './props';
+import { themeFor } from './themes';
+import { enemyY } from '../game/sim';
 import { barkTexture, ringsTexture, soilTexture } from './textures';
 import { has, t } from '../i18n';
 
@@ -81,7 +83,7 @@ export interface WorldView {
   gems: THREE.InstancedMesh;
   gemIndex: number[];
   acorns: Map<number, THREE.Group>;
-  beetles: BeetleView[];
+  beetles: EnemyView[];
   checkpoints: CheckpointView[];
   goal: THREE.Group;
   /** pickup index → gem instance index */
@@ -92,12 +94,13 @@ export interface WorldView {
 export function buildWorld(level: Level): WorldView {
   const root = new THREE.Group();
   const r = rng(level.seed * 7919);
-  const soil = new THREE.MeshStandardMaterial({ map: soilTexture(), roughness: 0.95 });
+  const th = themeFor(level.world);
+  const soil = new THREE.MeshStandardMaterial({ map: soilTexture(...th.soil), roughness: 0.95 });
   const rock = new THREE.MeshStandardMaterial({ map: soilTexture('#9c9184', '#6f665c', '#bdb3a4'), roughness: 0.95 });
-  const grass = new THREE.MeshStandardMaterial({ color: '#86cf5c', roughness: 0.85 });
+  const grass = new THREE.MeshStandardMaterial({ color: th.grass, roughness: 0.85 });
   const rockMat = new THREE.MeshStandardMaterial({ color: '#a8a092', roughness: 0.95, flatShading: true });
   const deepSoil = new THREE.MeshStandardMaterial({ map: soilTexture('#5e3f27', '#3f2918', '#6f4a2e'), roughness: 1 });
-  const grassDark = new THREE.MeshStandardMaterial({ color: '#5fae47', roughness: 0.9 });
+  const grassDark = new THREE.MeshStandardMaterial({ color: th.grassDark, roughness: 0.9 });
   const bark = new THREE.MeshStandardMaterial({ map: barkTexture(), roughness: 0.9 });
   const rings = new THREE.MeshStandardMaterial({ map: ringsTexture(), roughness: 0.9 });
 
@@ -148,14 +151,14 @@ export function buildWorld(level: Level): WorldView {
   }
 
   // low meadow behind the ridge
-  const meadow = new THREE.Mesh(new THREE.PlaneGeometry(level.goalX + 200, 60), new THREE.MeshStandardMaterial({ color: '#8ccf6a', roughness: 1 }));
+  const meadow = new THREE.Mesh(new THREE.PlaneGeometry(level.goalX + 200, 60), new THREE.MeshStandardMaterial({ color: th.meadow, roughness: 1 }));
   meadow.rotation.x = -Math.PI / 2;
   meadow.position.set(level.goalX / 2, -3.2, -33);
   meadow.receiveShadow = true;
   root.add(meadow);
 
   // streams
-  const waterMat = new THREE.MeshStandardMaterial({ color: '#59b8e6', roughness: 0.15, metalness: 0.05, transparent: true, opacity: 0.85 });
+  const waterMat = new THREE.MeshStandardMaterial({ color: th.water, roughness: 0.15, metalness: 0.05, transparent: true, opacity: 0.85 });
   waterMat.onBeforeCompile = (sh) => {
     sh.uniforms.uT = waterTime;
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vW;').replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\nvW = (modelMatrix * vec4(transformed,1.0)).xyz;');
@@ -174,7 +177,7 @@ export function buildWorld(level: Level): WorldView {
     surf.rotation.x = -Math.PI / 2;
     surf.position.set((w.x0 + w.x1) / 2, w.y, (Z0 + Z1) / 2);
     root.add(surf);
-    const front = new THREE.Mesh(new THREE.PlaneGeometry(w.x1 - w.x0 + 0.4, 1.2), new THREE.MeshBasicMaterial({ color: '#2f7fb0', transparent: true, opacity: 0.75 }));
+    const front = new THREE.Mesh(new THREE.PlaneGeometry(w.x1 - w.x0 + 0.4, 1.2), new THREE.MeshBasicMaterial({ color: th.waterFront, transparent: true, opacity: 0.75 }));
     front.position.set((w.x0 + w.x1) / 2, w.y - 0.6, Z1);
     root.add(front);
     const bed = new THREE.Mesh(slabGeometry(w.x0 - 0.2, w.x1 + 0.2, w.y - 30, w.y - 1.2, Z0, Z1 - 0.05), soil);
@@ -191,7 +194,7 @@ export function buildWorld(level: Level): WorldView {
   }
 
   // thorn brambles
-  const thornStem = new THREE.MeshStandardMaterial({ color: '#5a3d58', roughness: 0.7 });
+  const thornStem = new THREE.MeshStandardMaterial({ color: th.thorn, roughness: 0.7 });
   const thornTip = new THREE.MeshStandardMaterial({ color: '#efe1c6', roughness: 0.5 });
   const berry = new THREE.MeshStandardMaterial({ color: '#d63b5a', roughness: 0.3 });
   const thornLeaf = new THREE.MeshStandardMaterial({ color: '#3f6e35', roughness: 0.8 });
@@ -257,12 +260,12 @@ export function buildWorld(level: Level): WorldView {
       if (r() < 0.45) grassM.push(mk(x + 0.1, tp.y, Z1 - 0.25 - r() * 0.3, 0.3 + r() * 0.15));
       if (busy(x)) continue;
       const k = r();
-      if (k < 0.1) flowerA.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
-      else if (k < 0.18) flowerB.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
+      if (k < 0.1 * th.flowers) flowerA.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
+      else if (k > 0.1 && k < 0.1 + 0.08 * th.flowers) flowerB.push(mk(x, tp.y, Z0 + 0.5 + r() * 0.9, 0.6 + r() * 0.3));
       else if (k < 0.215) bushes.push(mk(x, tp.y, Z0 + 0.2, 0.55 + r() * 0.25));
       else if (k < 0.24) plants.push(mk(x, tp.y, Z0 + 0.6, 0.5 + r() * 0.3));
       else if (k < 0.255) rocks1.push(mk(x, tp.y - 0.05, Z0 + 0.5, 0.35 + r() * 0.2));
-      else if (k < 0.27) shrooms.push(mk(x, tp.y, Z0 + 0.8 + r() * 0.6, 0.6 + r() * 0.3));
+      else if (k < 0.255 + 0.015 * th.shrooms) shrooms.push(mk(x, tp.y, Z0 + 0.8 + r() * 0.6, 0.6 + r() * 0.3));
       else if (k < 0.33) pebbles.push(mk(x, tp.y - 0.02, Z1 - 0.4 - r() * 0.4, 0.5 + r() * 0.4));
     }
     // a rock at some cliff edges
@@ -292,9 +295,12 @@ export function buildWorld(level: Level): WorldView {
   for (let x = -30; x < level.goalX + 60; x += 4 + r() * 5) (r() < 0.5 ? pines : pines2).push(mk(x, -3.2, -17 - r() * 10, 8 + r() * 5));
   for (let x = -20; x < level.goalX + 40; x += 2 + r() * 4) meadowBush.push(mk(x, -3.2, -4.5 - r() * 9, 1.4 + r() * 0.8));
   const fitTo = (mats: THREE.Matrix4[], name: string) => mats.map((m) => m.clone().multiply(new THREE.Matrix4().makeScale(fit(name, 1), fit(name, 1), fit(name, 1))));
-  root.add(instanced('CommonTree_1', fitTo(near, 'CommonTree_1')));
-  root.add(instanced('Pine_3', fitTo(pines, 'Pine_3'), false));
-  root.add(instanced('Pine_5', fitTo(pines2, 'Pine_5'), false));
+  const byKind = <T,>(list: T[], mats: THREE.Matrix4[]) => list.map((_, k) => mats.filter((__, i) => i % list.length === k));
+  byKind(th.near, near).forEach((mats, k) => root.add(instanced(th.near[k].name, fitTo(mats, th.near[k].name), true, th.near[k].tint)));
+  const farAll = [...pines, ...pines2];
+  byKind(th.far, farAll).forEach((mats, k) => root.add(instanced(th.far[k].name, fitTo(mats, th.far[k].name), false, th.far[k].tint)));
+  if (th.giantShrooms) root.add(giantMushrooms(level.goalX, r));
+  if (th.mist) root.add(mistBanks(level.goalX, r));
   root.add(instanced('Bush_Common_Flowers', fitTo(meadowBush, 'Bush_Common_Flowers'), false));
 
   // pickups
@@ -314,7 +320,7 @@ export function buildWorld(level: Level): WorldView {
     acorns.set(i, a);
   });
 
-  const beetles = level.enemies.map(() => beetle());
+  const beetles: EnemyView[] = level.enemies.map((e) => (e.kind === 'snail' ? snail() : e.kind === 'bee' ? bee() : e.kind === 'roller' ? roller() : beetle()));
   for (const b of beetles) root.add(b.root);
 
   for (const s of level.signs) {
@@ -380,10 +386,11 @@ export function buildWorld(level: Level): WorldView {
           if (b.root.scale.y < 0.05) b.root.visible = false;
           return;
         }
-        const x = enemyX(e, s.et);
-        const x2 = enemyX(e, s.et + 1);
-        b.root.position.set(x, e.y, 0);
-        b.update(time, x2 >= x ? 1 : -1);
+        const x = enemyX(e, s.et, s.rollAt[i]);
+        const x2 = enemyX(e, s.et + 1, s.rollAt[i]);
+        b.root.position.set(x, enemyY(e, s.et), 0);
+        b.root.visible = e.kind !== 'roller' || e.x0 - x < 22;
+        b.update(time, x2 >= x ? 1 : -1, e.x0 - x);
       });
       checkpoints.forEach((c, i) => {
         const target = s.cp >= i ? 1 : 0;
@@ -456,4 +463,67 @@ function log(root: THREE.Group, b: Box, bark: THREE.Material, rings: THREE.Mater
   top.rotation.z = Math.PI / 2;
   top.position.set(cx, cy, 0);
   root.add(top);
+}
+
+/** big glowing mushrooms in the valley behind the trail (world 3) */
+function giantMushrooms(len: number, r: () => number) {
+  const g = new THREE.Group();
+  const stemM = new THREE.MeshStandardMaterial({ color: '#f4ead8', roughness: 0.7 });
+  const caps = ['#ff8fb0', '#b48cff', '#7fd0ff', '#ffb36b'].map((c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.5, emissive: c, emissiveIntensity: 0.12 }));
+  const spot = new THREE.MeshStandardMaterial({ color: '#fff8ec' });
+  for (let x = -10; x < len + 30; x += 6 + r() * 8) {
+    const h = 3 + r() * 5;
+    const z = -5 - r() * 12;
+    const m = new THREE.Group();
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.3 + h * 0.04, 0.5 + h * 0.05, h, 10), stemM);
+    stem.position.y = h / 2;
+    const cr = 1.2 + h * 0.25;
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(cr, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), caps[Math.floor(r() * caps.length)]);
+    cap.scale.y = 0.55;
+    cap.position.y = h - 0.1;
+    for (let i = 0; i < 5; i++) {
+      const sp = new THREE.Mesh(new THREE.SphereGeometry(cr * 0.12, 8, 6), spot);
+      const a = r() * Math.PI * 2;
+      sp.position.set(Math.cos(a) * cr * 0.6, h + cr * 0.32, Math.sin(a) * cr * 0.6);
+      sp.scale.y = 0.4;
+      m.add(sp);
+    }
+    stem.castShadow = cap.castShadow = true;
+    m.add(stem, cap);
+    m.position.set(x, -3.2, z);
+    m.rotation.z = (r() - 0.5) * 0.2;
+    g.add(m);
+  }
+  return g;
+}
+
+/** soft mist banks drifting low over the swamp (world 5) */
+function mistBanks(len: number, r: () => number) {
+  const g = new THREE.Group();
+  const tex = mistTexture();
+  for (let x = -10; x < len + 30; x += 7 + r() * 6) {
+    const m = new THREE.Mesh(
+      new THREE.PlaneGeometry(14 + r() * 8, 3 + r() * 2),
+      new THREE.MeshBasicMaterial({ map: tex, color: '#eef4ee', transparent: true, opacity: 0.35 + r() * 0.2, depthWrite: false }),
+    );
+    m.position.set(x, -1.2 + r() * 2, -3 - r() * 10);
+    g.add(m);
+  }
+  return g;
+}
+
+let mistTex: THREE.Texture | null = null;
+function mistTexture() {
+  if (mistTex) return mistTex;
+  const c = document.createElement('canvas');
+  c.width = 128;
+  c.height = 64;
+  const x = c.getContext('2d')!;
+  const gr = x.createRadialGradient(64, 32, 4, 64, 32, 64);
+  gr.addColorStop(0, 'rgba(255,255,255,0.9)');
+  gr.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = gr;
+  x.fillRect(0, 0, 128, 64);
+  mistTex = new THREE.CanvasTexture(c);
+  return mistTex;
 }

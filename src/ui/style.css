@@ -850,3 +850,197 @@ select.lang {
   height: 110px;
   background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.7));
 }
+
+/* rewarded ad buttons: clearly labelled, with a TV icon */
+.btn.ad {
+  background: linear-gradient(#ffb35a, #f0802f);
+  box-shadow: 0 6px 0 #a8501c, 0 10px 20px rgba(60, 40, 20, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.45);
+  text-shadow: 0 2px 0 rgba(120, 50, 10, 0.5);
+  font-size: clamp(17px, 4.6vw, 22px);
+  min-height: 64px;
+  text-align: left;
+}
+.btn.ad span {
+  overflow-wrap: anywhere;
+}
+.btn.ad.busy {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.btn.special {
+  width: 100%;
+  background: linear-gradient(#ffe27a, #f0b52f);
+  box-shadow: 0 6px 0 #a8701c;
+  color: #6a3c00;
+  text-shadow: none;
+  flex-wrap: wrap;
+}
+.btn.special .st {
+  display: flex;
+  height: 22px;
+}
+.btn.special .st .ico {
+  width: 22px;
+  height: 22px;
+}
+.btn.special small {
+  width: 100%;
+  font-size: 15px;
+}
+.btn.special.locked {
+  filter: grayscale(0.9);
+  opacity: 0.75;
+}
+.wname {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--wood-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.wname span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+}
+.wname .ico {
+  width: 22px;
+  height: 22px;
+}
+.tab {
+  min-width: 48px;
+  font-size: 20px;
+}
+.tab .ico {
+  width: 20px;
+  height: 20px;
+}
+.tab:not(.on) .ico svg * {
+  fill: var(--wood-dark);
+  stroke: var(--wood-dark);
+}
+.locked-note {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.locked-note .ico,
+.btn.special.locked .ico {
+  width: 26px;
+  height: 26px;
+}
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  color: var(--wood-dark);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.streak .ico {
+  width: 34px;
+  height: 34px;
+  background: var(--wood);
+  border-radius: 10px;
+  padding: 5px;
+}
+.streak span {
+  font-size: 18px;
+  opacity: 0.8;
+}
+.streak-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.streak-line .ico {
+  width: 26px;
+  height: 26px;
+  background: var(--wood);
+  border-radius: 8px;
+  padding: 4px;
+}
+.wardrobe h3 {
+  margin: 4px 0 0;
+  color: var(--wood-dark);
+  align-self: flex-start;
+}
+.wallet {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 26px;
+  color: var(--wood-dark);
+}
+.wallet .ico {
+  width: 30px;
+  height: 30px;
+}
+.items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+.item {
+  font: inherit;
+  font-weight: 700;
+  border: 3px solid var(--wood);
+  border-radius: 16px;
+  background: #fffaf0;
+  color: var(--wood-dark);
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 112px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.item.on {
+  border-color: var(--leaf-dark);
+  background: #eaffd8;
+}
+.item .swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.15);
+}
+.item .hat-ico {
+  width: 44px;
+  height: 44px;
+}
+.item .nm {
+  text-align: center;
+  line-height: 1.1;
+  min-height: 2.2em;
+  display: flex;
+  align-items: center;
+}
+.item .act {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 14px;
+  background: var(--leaf);
+  color: #fff;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+.item.buy .act {
+  background: var(--wood);
+}
+.item .act .ico.sm {
+  width: 16px;
+  height: 16px;
+}
+.panel.wardrobe {
+  width: min(520px, 100%);
+}
