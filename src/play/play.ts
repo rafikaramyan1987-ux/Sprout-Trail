@@ -3,18 +3,21 @@
  * keeps the 3D scene, camera, sounds, particles, HUD and the seed cards in step with it.
  */
 import * as P from '../game/physics';
-import { choose, newSim, nextDp, step, stars, type Input, type SimState } from '../game/sim';
+import { addSeeds, choose, newSim, nextDp, revive, step, stars, type Input, type SimState } from '../game/sim';
 import type { Level, PlantKind } from '../game/types';
 import type { Replay } from '../game/bot';
 import { controls } from '../app/input';
 import { sfx } from '../app/audio';
 import { t } from '../i18n';
 import { Fx } from '../render/fx';
-import { makePlant, type PlantView } from '../render/plants';
+import * as THREE from 'three';
+import { leafShapeGeo, makePlant, type PlantView } from '../render/plants';
+import { themeFor } from '../render/themes';
+import { cosmetics } from '../app/cosmetics';
 import { Sprite } from '../render/sprite';
 import type { Stage } from '../render/stage';
 import { buildWorld, signText, touchFirst, type WorldView } from '../render/world';
-import { bubble, el, esc, ico, ui } from '../ui/ui';
+import { bubble, el, esc, ico, toast, ui } from '../ui/ui';
 import { PLANT_ART } from '../ui/icons';
 
 export interface PlayHooks {
@@ -56,8 +59,22 @@ export class Play {
   botThink = 1.1;
   private botT = 0;
   private hitStop = 0;
+  private glideLeaf = (() => {
+    const g = new THREE.Group();
+    const m = new THREE.Mesh(leafShapeGeo(1.3, 0.75), new THREE.MeshStandardMaterial({ color: '#5fbf45', side: THREE.DoubleSide, roughness: 0.6 }));
+    m.rotation.x = -Math.PI / 2 + 0.75;
+    m.position.z = -0.6;
+    m.castShadow = true;
+    g.add(m);
+    g.rotation.y = -Math.PI / 2 + 0.5;
+    return g;
+  })();
   private won = false;
   private noSeeds = false;
+  /** the "continue with 1 heart" reward was used in this run (offered once) */
+  revived = false;
+  /** store art: tighter framing around the sprite */
+  coverZoom = 0;
   /** render only (title screen behind the menu) */
   frozen = false;
 
@@ -71,7 +88,12 @@ export class Play {
     this.prevY = this.sim.y;
     this.camGroundY = this.sim.y;
     stage.world.clear();
+    const th = themeFor(level.world);
+    stage.setTheme(th.stage);
+    stage.setAmbient(th.ambient);
     this.world = buildWorld(level);
+    this.sprite.setColor(cosmetics.color);
+    this.sprite.setHat(cosmetics.hat);
     stage.world.add(this.world.root, this.sprite.root, this.sprite.shadow);
     this.fx = new Fx(stage.fx);
     this.fx.clear();
@@ -328,6 +350,18 @@ export class Play {
         case 'climb':
           sfx('climb');
           break;
+        case 'hop':
+          if (this.plantViews.length && s.plants[s.plants.length - 1]?.kind === 'log') sfx('jump');
+          break;
+        case 'glide':
+          sfx('glide');
+          break;
+        case 'roll':
+          sfx('roll');
+          break;
+        case 'speed':
+          speedToast();
+          break;
         case 'success':
           sfx('checkpoint');
           bubble(t('nice'), true, 1200);
@@ -389,6 +423,7 @@ export class Play {
       cheer: s.mode === 'won',
       t: this.time,
     });
+    sp.setGlide(s.gliding && (s.mode === 'cross' || s.mode === 'fail'), this.glideLeaf);
     if (s.mode === 'fail' && s.failReason === 'thorns') sp.root.position.y += Math.abs(Math.sin(s.modeT * 9)) * 0.4 * Math.max(0, 1 - s.modeT);
     // blob shadow on the ground below
     const gy = this.groundBelow(x, y);
@@ -440,13 +475,15 @@ export class Play {
       tsx = 0.5;
       tsy = portrait ? 0.56 : 0.5;
     } else {
-      tx = x;
+      // follow tightly (the lead term cancels the smoothing lag) and always show viewAhead(speed) units ahead,
+      // so every hazard is on screen at least 1.2 s before the sprite reaches it (checked by the level validator)
+      tx = x + s.vx / 12;
       ty = this.camGroundY + 0.8;
-      tw = portrait ? 9.6 : 0;
-      tsx = portrait ? 0.27 : 0.32;
+      tsx = portrait ? 0.25 : 0.3;
       tsy = portrait ? 0.33 : 0.36;
+      tw = Math.max(portrait ? 9.6 : 0, P.viewAhead(s.speed) / (1 - tsx) + 0.4);
     }
-    const k = this.cam.init ? 1 - Math.exp(-dt * (dp ? 2.5 : 6)) : 1;
+    const k = this.cam.init ? 1 - Math.exp(-dt * (dp ? 2.5 : 12)) : 1;
     const ky = this.cam.init ? 1 - Math.exp(-dt * 3.5) : 1;
     this.cam.x = lerp(this.cam.x, tx, k);
     this.cam.y = lerp(this.cam.y, ty, ky);
@@ -454,7 +491,12 @@ export class Play {
     this.cam.sx = lerp(this.cam.sx, tsx, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.sy = lerp(this.cam.sy, tsy, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.init = true;
-    const viewH = portrait ? 0 : dp ? Math.max(10.5, (dp.height || 0) + 6) : 10.5;
+    const viewH = portrait ? 0 : dp ? Math.max(10.5, (dp.height || 0) + (dp.drop || 0) + 6) : 10.5;
+    if (this.coverZoom) {
+      const z = this.coverZoom;
+      st.frame(x + (portrait ? 1 : 1.6), this.camGroundY + 1.2, (portrait ? 9 : 0) * z, 10.5 * z * (portrait ? 0 : 1), 0.42, portrait ? 0.55 : 0.5);
+      return;
+    }
     st.frame(this.cam.x, this.cam.y, this.cam.w, viewH, this.cam.sx, this.cam.sy);
     if (this.shake > 0) {
       this.shake = Math.max(0, this.shake - dt);
@@ -511,6 +553,34 @@ export class Play {
     if (sg.hand === 'swipeDown' && kind === 'swipeDown') this.handDone.add(this.handSign);
   }
 
+  /** after a completed rewarded ad: continue from the last checkpoint with one heart */
+  reviveWithHeart() {
+    revive(this.sim);
+    this.ended = false;
+    this.endT = 0;
+    this.prevX = this.sim.x;
+    this.prevY = this.sim.y;
+    this.cam.init = false;
+    this.updateHud(true);
+  }
+
+  /** after a completed rewarded ad: two more seeds, the cards come back */
+  addTwoSeeds() {
+    addSeeds(this.sim, 2);
+    this.noSeeds = false;
+    this.updateHud(true);
+    if (this.sim.mode === 'decide') this.showCards();
+  }
+
+  /** tests: out of hearts right now */
+  forceLose() {
+    this.sim.hearts = 0;
+    this.sim.mode = 'lost';
+    this.ended = true;
+    this.won = false;
+    this.endT = 0;
+  }
+
   nextDecision() {
     return nextDp(this.level, this.sim);
   }
@@ -524,3 +594,11 @@ const ICON_PAUSE = '<svg viewBox="0 0 64 64"><rect x="15" y="12" width="12" heig
 const HAND_SVG =
   '<svg viewBox="0 0 64 64"><path d="M26 30 V10 a5 5 0 0 1 10 0 V28 l2 -1 a5 5 0 0 1 8 2 l1 1 a5 5 0 0 1 8 3 V44 C55 54 48 60 38 60 H34 C26 60 22 56 18 50 L10 38 a5 5 0 0 1 8 -6 Z" fill="#fff" stroke="#4a2e1a" stroke-width="3.5" stroke-linejoin="round"/></svg>';
 
+
+let lastSpeedToast = -99;
+function speedToast() {
+  const now = performance.now() / 1000;
+  if (now - lastSpeedToast < 4) return;
+  lastSpeedToast = now;
+  toast(t('faster'), 1200);
+}

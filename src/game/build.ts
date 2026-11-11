@@ -2,7 +2,21 @@
  * Level builder: a small chainable language that walks a cursor along the trail (x) at the current ground height
  * (y) and drops ground, steps, gaps, logs, thorns, pickups, signs and decision points.
  */
-import type { DecisionPoint, Level, PlantKind, HandHint } from './types';
+import { RUN } from './physics';
+import type { DecisionPoint, EnemyDef, EnemyKind, Level, PlantKind, HandHint } from './types';
+
+export interface DecisionOpts {
+  /** ground before the obstacle */
+  lead?: number;
+  /** plants that also cross but miss the decision point's golden acorn */
+  alsoWorks?: PlantKind[];
+  /** a golden acorn only the answer collects, relative to the start of the obstacle */
+  acornAt?: [number, number];
+  /** cliff: how far down the far side is */
+  drop?: number;
+  /** thorns: height (1.2 tall, 0.8 short) */
+  thornH?: number;
+}
 
 const DEEP = 30;
 
@@ -11,12 +25,14 @@ export class LevelBuilder {
   y = 0;
   readonly level: Level;
 
-  constructor(id: string, world: number, n: number, seeds: number, seed = 1) {
+  constructor(id: string, world: number, n: number, seeds: number, seed = 1, speed = RUN, ramp = 0) {
     this.level = {
       id,
       world,
       n,
       seeds,
+      speed,
+      ramp,
       startX: 2,
       startY: 0,
       goalX: 0,
@@ -120,7 +136,12 @@ export class LevelBuilder {
   }
 
   beetle(dx: number, range: number, speed = 1.3) {
-    this.level.enemies.push({ kind: 'beetle', x0: this.x + dx, x1: this.x + dx + range, y: this.y, speed });
+    return this.enemy('beetle', dx, range, speed);
+  }
+
+  /** an enemy relative to the cursor (does not move it); bee: `y` is the extra hover height */
+  enemy(kind: EnemyKind, dx: number, range: number, speed = 1.3, extra: Partial<EnemyDef> = {}) {
+    this.level.enemies.push({ kind, x0: this.x + dx, x1: this.x + dx + range, y: this.y, speed, ...extra, ...(extra.y !== undefined ? { y: this.y + extra.y } : {}) });
     return this;
   }
 
@@ -128,13 +149,23 @@ export class LevelBuilder {
    * A decision point: the sprite stops in front of the obstacle and the player picks a plant.
    * The obstacle starts `lead` units ahead of the cursor.
    */
-  decision(obstacle: DecisionPoint['obstacle'], size: number, cards: PlantKind[], answer: PlantKind, lead = 4.5) {
-    this.ground(lead);
+  decision(obstacle: DecisionPoint['obstacle'], size: number, cards: PlantKind[], answer: PlantKind, opts: DecisionOpts | number = {}) {
+    const o: DecisionOpts = typeof opts === 'number' ? { lead: opts } : opts;
+    this.ground(o.lead ?? 4.5);
     const anchorX = this.x;
     const y = this.y;
-    const dp: DecisionPoint = { obstacle, stopX: anchorX - 2.4, y, anchorX, exitX: 0, cards, answer, width: size, height: 0 };
+    const dp: DecisionPoint = { obstacle, stopX: anchorX - 2.4, y, anchorX, exitX: 0, cards, answer, width: size, height: 0, alsoWorks: o.alsoWorks ?? [], acorn: -1 };
+    if (o.acornAt) {
+      dp.acorn = this.level.pickups.length;
+      this.level.pickups.push({ x: anchorX + o.acornAt[0], y: y + o.acornAt[1], kind: 'acorn' });
+    }
     if (obstacle === 'river' || obstacle === 'gap') {
       this.gap(size, obstacle === 'river');
+      dp.exitX = this.x + 1.2;
+    } else if (obstacle === 'cliff') {
+      dp.drop = o.drop ?? 4;
+      this.gap(size);
+      this.down(dp.drop);
       dp.exitX = this.x + 1.2;
     } else if (obstacle === 'wall') {
       dp.height = size;
@@ -143,8 +174,8 @@ export class LevelBuilder {
       this.up(size);
       dp.exitX = this.x + 1.4;
     } else if (obstacle === 'thorns') {
-      dp.height = 1.2;
-      this.thorns(size, 1.2);
+      dp.height = o.thornH ?? 1.2;
+      this.thorns(size, dp.height);
       dp.exitX = this.x + 0.9;
     }
     this.level.dps.push(dp);

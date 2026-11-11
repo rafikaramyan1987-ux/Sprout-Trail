@@ -21,7 +21,7 @@ export const PACKS = {
     maxTexture: 512,
     models: [
       'CommonTree_1', 'Pine_3', 'Pine_5', 'Bush_Common_Flowers', 'Flower_3_Group', 'Flower_4_Group',
-      'Grass_Common_Tall', 'Plant_1_Big', 'Rock_Medium_1', 'Rock_Medium_2', 'Pebble_Round_1', 'Mushroom_Common',
+      'Grass_Common_Tall', 'Plant_1_Big', 'Rock_Medium_1', 'Rock_Medium_2', 'Pebble_Round_1', 'Mushroom_Common', 'DeadTree_1', 'Pine_1',
     ],
   },
 };

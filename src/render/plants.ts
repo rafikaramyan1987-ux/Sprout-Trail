@@ -4,9 +4,9 @@
  * and a wilt for wrong choices.
  */
 import * as THREE from 'three';
-import { BRIDGE_LEN, MUSHROOM_TOP, VINE_H } from '../game/physics';
+import { BRIDGE_LEN, LOG_LEN, LOG_TOP, MUSHROOM_TOP, TREE_LEN, VINE_H } from '../game/physics';
 import type { PlantKind } from '../game/types';
-import { barkTexture } from './textures';
+import { barkTexture, ringsTexture } from './textures';
 
 const back = (k: number) => {
   const c = 1.9;
@@ -250,8 +250,161 @@ function mushroom(): PlantView {
   };
 }
 
+/** a giant leaf: it grows from a curled sprout and opens like an umbrella (the sprite holds it to glide) */
+export function leafShapeGeo(len = 1.6, wid = 0.85) {
+  const s = new THREE.Shape();
+  s.moveTo(0, 0);
+  s.bezierCurveTo(wid, len * 0.2, wid * 1.05, len * 0.7, 0, len);
+  s.bezierCurveTo(-wid * 1.05, len * 0.7, -wid, len * 0.2, 0, 0);
+  const g = new THREE.ShapeGeometry(s, 16);
+  // cup it a little
+  const p = g.attributes.position as THREE.BufferAttribute;
+  for (let i = 0; i < p.count; i++) p.setZ(i, -(Math.abs(p.getX(i)) ** 2) * 0.35);
+  g.computeVertexNormals();
+  return g;
+}
+
+function bigLeaf(): PlantView {
+  const root = new THREE.Group();
+  const green = new THREE.MeshStandardMaterial({ color: '#5fbf45', roughness: 0.6, side: THREE.DoubleSide });
+  const vein = new THREE.MeshStandardMaterial({ color: '#3f8f2f', roughness: 0.6 });
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.08, 1.6, 6), vein);
+  stem.position.y = 0.8;
+  const pivot = new THREE.Group();
+  pivot.position.y = 1.6;
+  const leaf = new THREE.Mesh(leafShapeGeo(), green);
+  leaf.rotation.x = -Math.PI / 2 + 0.7;
+  leaf.position.set(0, 0, 0.8);
+  leaf.castShadow = true;
+  const mid = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 1.5, 4), vein);
+  mid.rotation.x = Math.PI / 2 - 0.25;
+  mid.position.set(0, 0.06, 0.78);
+  pivot.add(leaf, mid);
+  root.add(stem, pivot);
+  root.rotation.y = -Math.PI / 2 + 0.6;
+  let k0 = 0;
+  return {
+    kind: 'leaf',
+    root,
+    grow(k) {
+      k0 = k;
+      stem.scale.set(1, Math.max(0.001, clamp01(k * 1.6)), 1);
+      stem.position.y = 0.8 * clamp01(k * 1.6);
+      pivot.position.y = 1.6 * clamp01(k * 1.6);
+      const open = back(clamp01((k - 0.35) / 0.65));
+      pivot.scale.setScalar(Math.max(0.001, open));
+      pivot.rotation.z = (1 - clamp01(open)) * 1.2;
+    },
+    wilt(k) {
+      tintAll(root, k);
+      pivot.rotation.x = k * 0.8;
+    },
+    poke() {},
+    update(_dt, t) {
+      if (k0 >= 1) pivot.rotation.y = Math.sin(t * 2) * 0.06;
+    },
+  };
+}
+
+/** a tall tree: it shoots up, then topples forward into a long bridge */
+function tallTree(): PlantView {
+  const root = new THREE.Group();
+  const hinge = new THREE.Group();
+  root.add(hinge);
+  const bark = new THREE.MeshStandardMaterial({ color: '#b98a5a', map: barkTexture('#8b5a35'), roughness: 0.9 });
+  const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.42, TREE_LEN, 14), bark);
+  trunk.position.y = TREE_LEN / 2;
+  trunk.castShadow = trunk.receiveShadow = true;
+  const ring = new THREE.Mesh(new THREE.CircleGeometry(0.42, 14), new THREE.MeshStandardMaterial({ map: ringsTexture(), roughness: 0.9 }));
+  ring.rotation.x = Math.PI / 2;
+  hinge.add(trunk, ring);
+  const crown = new THREE.Group();
+  crown.position.y = TREE_LEN - 0.4;
+  const greens = ['#5cb840', '#7bd05a', '#4a9a35'].map((c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.85 }));
+  for (let i = 0; i < 7; i++) {
+    const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.7 + (i % 3) * 0.2, 1), greens[i % 3]);
+    b.position.set(Math.cos(i * 2.1) * 0.6, (i % 3) * 0.35, Math.sin(i * 2.1) * 0.6);
+    b.castShadow = true;
+    crown.add(b);
+  }
+  hinge.add(crown);
+  let grown = 0;
+  return {
+    kind: 'tree',
+    root,
+    grow(k) {
+      grown = k;
+      // 0-0.55: grow up; 0.55-1: fall forward (rotate around the base towards +x)
+      const up = clamp01(k / 0.55);
+      hinge.scale.set(1, Math.max(0.001, back(up)), 1);
+      const fall = clamp01((k - 0.55) / 0.45);
+      hinge.rotation.z = -(Math.PI / 2) * fall * fall;
+      hinge.position.y = -0.4 * fall;
+    },
+    wilt(k) {
+      tintAll(root, k);
+    },
+    poke() {},
+    update(_dt, t) {
+      if (grown < 0.55) crown.rotation.y = t;
+    },
+  };
+}
+
+/** a sturdy log that drops onto the obstacle */
+function bigLog(): PlantView {
+  const root = new THREE.Group();
+  const holder = new THREE.Group();
+  root.add(holder);
+  const bark = new THREE.MeshStandardMaterial({ color: '#a8784a', map: barkTexture('#7b5236'), roughness: 0.9 });
+  const rad = (LOG_TOP - 0.2) / 2 + 0.05;
+  const log = new THREE.Mesh(new THREE.CylinderGeometry(rad, rad, LOG_LEN, 16), bark);
+  log.rotation.z = Math.PI / 2;
+  log.position.set(LOG_LEN / 2, 0.2 + rad, 0);
+  log.castShadow = log.receiveShadow = true;
+  holder.add(log);
+  const rings = new THREE.MeshStandardMaterial({ map: ringsTexture(), roughness: 0.9 });
+  for (const x of [0, LOG_LEN]) {
+    const e = new THREE.Mesh(new THREE.CircleGeometry(rad, 16), rings);
+    e.rotation.y = x ? Math.PI / 2 : -Math.PI / 2;
+    e.position.set(x, 0.2 + rad, 0);
+    holder.add(e);
+  }
+  const moss = new THREE.MeshStandardMaterial({ color: '#6dbb4a' });
+  for (let i = 0; i < 6; i++) {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(0.16, 8, 6), moss);
+    m.scale.y = 0.4;
+    m.position.set(0.4 + i * 0.65, 0.2 + rad * 2, (i % 2) * 0.2 - 0.1);
+    holder.add(m);
+  }
+  // little stakes holding it up
+  for (const x of [0.3, LOG_LEN - 0.3]) {
+    const st = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.6, 6), bark);
+    st.position.set(x, 0.1, 0.5);
+    holder.add(st);
+  }
+  return {
+    kind: 'log',
+    root,
+    grow(k) {
+      const kk = clamp01(k);
+      holder.position.y = (1 - kk) ** 2 * 6;
+      holder.scale.setScalar(Math.max(0.001, clamp01(k * 3)));
+    },
+    wilt(k) {
+      tintAll(root, k);
+      holder.rotation.z = -k * 0.3;
+    },
+    poke() {},
+    update() {},
+  };
+}
+
 export function makePlant(kind: PlantKind): PlantView {
   if (kind === 'bridge') return bridge();
   if (kind === 'vine') return vineLadder();
+  if (kind === 'leaf') return bigLeaf();
+  if (kind === 'tree') return tallTree();
+  if (kind === 'log') return bigLog();
   return mushroom();
 }

@@ -270,7 +270,11 @@ type Sfx =
   | 'duck'
   | 'fall'
   | 'lose'
-  | 'stop';
+  | 'stop'
+  | 'glide'
+  | 'roll'
+  | 'buy'
+  | 'reward';
 
 let gemStreak = 0;
 let lastGem = 0;
@@ -376,6 +380,19 @@ export function sfx(name: Sfx) {
       break;
     case 'click':
       voice(c, out, t, 900, 0.01, { type: 'triangle', gain: 0.12, r: 0.05 });
+      break;
+    case 'glide':
+      noiseHit(c, out, noise, t, { gain: 0.18, f: 900, q: 0.5, dur: 0.8, type: 'lowpass' });
+      [79, 76, 72].forEach((m, i) => mallet(c, out, t + i * 0.12, m, 0.6, 0.06));
+      break;
+    case 'roll':
+      for (let i = 0; i < 5; i++) voice(c, out, t + i * 0.09, 110 + i * 6, 0.04, { type: 'triangle', gain: 0.12, r: 0.06 });
+      break;
+    case 'buy':
+      [76, 79, 84, 88].forEach((m, i) => mallet(c, out, t + i * 0.06, m, 0.5, 0.14));
+      break;
+    case 'reward':
+      [72, 79, 84, 91].forEach((m, i) => mallet(c, out, t + i * 0.08, m, 0.7, 0.15));
       break;
     case 'stop':
       [76, 72].forEach((m, i) => mallet(c, out, t + i * 0.1, m, 0.4, 0.1));

@@ -3,7 +3,7 @@
  * validator all run this exact code, so a level the validator solves is a level the player can solve.
  */
 import * as P from './physics';
-import type { Box, DecisionPoint, Level, PlantKind } from './types';
+import type { Box, DecisionPoint, EnemyDef, EnemyKind, Level, PlantKind } from './types';
 
 export type Mode = 'run' | 'decide' | 'grow' | 'cross' | 'fail' | 'won' | 'lost';
 export type FailReason = '' | 'splash' | 'thorns' | 'bonk' | 'fall';
@@ -26,7 +26,10 @@ export type SimEvent =
   | 'checkpoint'
   | 'win'
   | 'lose'
-  | 'duck';
+  | 'duck'
+  | 'roll'
+  | 'glide'
+  | 'speed';
 
 export interface Input {
   jumpPressed: boolean;
@@ -68,6 +71,12 @@ export interface SimState {
   knockT: number;
   hearts: number;
   invuln: number;
+  /** current run speed (grows at checkpoints, capped) */
+  speed: number;
+  /** rolling acorns: the world tick they started rolling at (-1: still waiting) */
+  rollAt: Float64Array;
+  gliding: boolean;
+  logHop: boolean;
   seeds: number;
   gems: number;
   acorns: number;
@@ -137,6 +146,10 @@ export function newSim(level: Level): SimState {
     knockT: 0,
     hearts: 3,
     invuln: 0,
+    speed: level.speed,
+    rollAt: new Float64Array(level.enemies.length).fill(-1),
+    gliding: false,
+    logHop: false,
     seeds: level.seeds,
     gems: 0,
     acorns: 0,
@@ -164,26 +177,39 @@ export function cloneSim(s: SimState): SimState {
     ...s,
     got: s.got.slice(),
     enemyDead: s.enemyDead.slice(),
+    rollAt: s.rollAt.slice(),
     solved: s.solved.slice(),
     plants: s.plants.map((p) => ({ ...p })),
     events: [],
   };
 }
 
-/** enemy centre x at a tick: back and forth over its patrol range */
-export function enemyX(e: Level['enemies'][number], tick: number) {
+/** enemy centre x at a world tick (rollers: `rollAt` is the tick they started rolling, -1 = waiting) */
+export function enemyX(e: EnemyDef, tick: number, rollAt = -1) {
+  if (e.kind === 'roller') return rollAt < 0 ? e.x0 : e.x0 - (tick - rollAt) * P.DT * P.ROLL_SPEED;
   const len = e.x1 - e.x0;
   if (len <= 0) return e.x0;
   const d = (tick * P.DT * e.speed) % (2 * len);
   return d < len ? e.x0 + d : e.x1 - (d - len);
 }
-export const ENEMY_W = 0.9;
-export const ENEMY_H = 0.7;
+/** the bottom of the enemy's hitbox at a world tick */
+export function enemyY(e: EnemyDef, tick: number) {
+  if (e.kind !== 'bee') return e.y;
+  return e.y + (e.amp ?? 0) * Math.sin(tick * P.DT * e.speed * 2 + (e.phase ?? 0));
+}
+export const ENEMY_SIZE: Record<EnemyKind, { w: number; h: number; stomp: boolean }> = {
+  beetle: { w: 0.9, h: 0.7, stomp: true },
+  snail: { w: 1.0, h: 0.85, stomp: false },
+  bee: { w: 0.7, h: 0.6, stomp: false },
+  roller: { w: 0.8, h: 0.8, stomp: true },
+};
 
 function plantBoxes(level: Level, s: SimState): Box[] {
   const out: Box[] = [];
   for (const p of s.plants) {
     if (p.kind === 'bridge') out.push({ x0: p.x, x1: p.x + P.BRIDGE_LEN, y0: p.y - 0.3, y1: p.y, kind: 'plank', oneWay: true });
+    if (p.kind === 'tree') out.push({ x0: p.x, x1: p.x + P.TREE_LEN, y0: p.y - 0.4, y1: p.y, kind: 'plank', oneWay: true });
+    if (p.kind === 'log') out.push({ x0: p.x, x1: p.x + P.LOG_LEN, y0: p.y + 0.2, y1: p.y + P.LOG_TOP, kind: 'plank', oneWay: true });
   }
   void level;
   return out;
@@ -256,7 +282,8 @@ function overWater(level: Level, x: number) {
 
 /** where each plant grows, relative to the start of the obstacle */
 export function plantX(kind: PlantKind, dp: DecisionPoint) {
-  if (kind === 'bridge') return dp.anchorX - 0.3;
+  if (kind === 'bridge' || kind === 'tree') return dp.anchorX - 0.3;
+  if (kind === 'log') return dp.anchorX - 0.4;
   if (kind === 'mushroom') return dp.anchorX - 0.8;
   return dp.anchorX - 0.05;
 }
@@ -292,6 +319,8 @@ export function step(level: Level, s: SimState, inp: Input) {
       s.bestX = s.x;
       s.hopped = false;
       s.bounced = false;
+      s.gliding = false;
+      s.logHop = false;
       s.events.push('cross');
     }
     return;
@@ -362,7 +391,7 @@ export function step(level: Level, s: SimState, inp: Input) {
   else if (s.knockT > 0) s.vx = -3;
   else if (s.bounced && !s.grounded) s.vx = P.MUSHROOM_VX;
   else {
-    let v = s.ducking && s.grounded ? P.SLIDE : P.RUN;
+    let v = crossing ? P.RUN : s.speed;
     if (next >= 0) {
       const d = level.dps[next].stopX - s.x;
       if (d < P.DP_SLOW) v *= Math.max(0.25, Math.min(1, d / P.DP_SLOW));
@@ -375,6 +404,19 @@ export function step(level: Level, s: SimState, inp: Input) {
   else {
     const g = s.holding && s.vy > 0 && s.holdT < P.HOLD_MAX ? P.GRAVITY * P.HOLD_G : P.GRAVITY;
     s.vy = Math.max(s.vy - g * P.DT, -P.FALL_MAX);
+  }
+  // big leaf: glide down slowly once off the ground
+  if (crossing && plant?.kind === 'leaf' && !s.grounded && s.vy < 0) {
+    if (!s.gliding) s.events.push('glide');
+    s.gliding = true;
+    s.vy = Math.max(s.vy, -P.LEAF_FALL);
+  }
+  // log: hop up onto it
+  if (crossing && plant?.kind === 'log' && !s.logHop && s.grounded && s.x >= plant.x - 0.9) {
+    s.logHop = true;
+    s.vy = 9;
+    s.grounded = false;
+    s.events.push('hop');
   }
   s.holdT += P.DT;
 
@@ -465,9 +507,19 @@ export function step(level: Level, s: SimState, inp: Input) {
   if (!crossing)
     level.enemies.forEach((e, i) => {
       if (s.enemyDead[i]) return;
-      const ex = enemyX(e, s.et);
-      if (s.x + P.W / 2 > ex - ENEMY_W / 2 && s.x - P.W / 2 < ex + ENEMY_W / 2 && s.y < e.y + ENEMY_H && s.y + h > e.y) {
-        if (s.vy < 0 && prevY >= e.y + ENEMY_H * 0.45) {
+      if (e.kind === 'roller' && s.rollAt[i] < 0) {
+        // starts rolling when it is a full view ahead of the sprite (on screen)
+        if (e.x0 - s.x <= P.viewAhead(s.speed)) {
+          s.rollAt[i] = s.et;
+          s.lastEnemy = i;
+          s.events.push('roll');
+        } else return;
+      }
+      const sz = ENEMY_SIZE[e.kind];
+      const ex = enemyX(e, s.et, s.rollAt[i]);
+      const ey = enemyY(e, s.et);
+      if (s.x + P.W / 2 > ex - sz.w / 2 && s.x - P.W / 2 < ex + sz.w / 2 && s.y < ey + sz.h && s.y + h > ey) {
+        if (sz.stomp && s.vy < 0 && prevY >= ey + sz.h * 0.45) {
           s.enemyDead[i] = 1;
           s.vy = P.STOMP_BOUNCE;
           s.holding = jumpHeld;
@@ -515,7 +567,7 @@ export function step(level: Level, s: SimState, inp: Input) {
     return;
   }
   // crossing: falling into the river / gap counts before reaching killY
-  if (crossing && dp && s.y < dp.y - 1.6 && overWater(level, s.x)) return startFail(s, 'splash');
+  if (crossing && dp && s.y < dp.y - (dp.drop ?? 0) - 1.6) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
 
   if (crossing && dp) {
     if (s.x >= dp.exitX && s.grounded) {
@@ -550,13 +602,16 @@ export function step(level: Level, s: SimState, inp: Input) {
     return;
   }
 
-  // checkpoints and the goal
+  // checkpoints (each one speeds the run up a little) and the goal
   for (let i = s.cp + 1; i < level.checkpoints.length; i++) {
     if (s.x >= level.checkpoints[i].x) {
       s.cp = i;
       s.cpX = level.checkpoints[i].x;
       s.cpY = level.checkpoints[i].y;
       s.events.push('checkpoint');
+      const v = Math.min(P.MAX_SPEED, s.speed * (1 + level.ramp));
+      if (v > s.speed + 1e-9) s.events.push('speed');
+      s.speed = v;
     } else break;
   }
   if (s.x >= level.goalX) {
@@ -570,4 +625,25 @@ export function step(level: Level, s: SimState, inp: Input) {
 export function stars(level: Level, s: SimState) {
   if (s.mode !== 'won') return 0;
   return 1 + (s.acorns >= 3 ? 1 : 0) + (s.seeds >= level.seeds - level.dps.length ? 1 : 0);
+}
+
+/** "Watch an ad: continue with 1 heart": back to the last checkpoint with one heart */
+export function revive(s: SimState) {
+  if (s.mode !== 'lost') return;
+  s.hearts = 1;
+  s.mode = 'run';
+  s.modeT = 0;
+  s.x = s.cpX;
+  s.y = s.cpY;
+  s.vx = s.vy = 0;
+  s.grounded = true;
+  s.invuln = 2;
+  s.knockT = 0;
+  s.ducking = false;
+  s.duckT = 0;
+}
+
+/** "Watch an ad: +2 seeds" */
+export function addSeeds(s: SimState, n: number) {
+  s.seeds += n;
 }

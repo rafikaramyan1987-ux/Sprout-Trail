@@ -5,6 +5,7 @@
 
 export type PlantKind = 'bridge' | 'vine' | 'mushroom' | 'tree' | 'leaf' | 'log';
 export type ObstacleKind = 'river' | 'gap' | 'wall' | 'thorns' | 'cliff';
+export type EnemyKind = 'beetle' | 'snail' | 'bee' | 'roller';
 export type BoxKind = 'ground' | 'step' | 'ledge' | 'log' | 'wall' | 'plank' | 'stump';
 
 export interface Box {
@@ -32,12 +33,18 @@ export interface Pickup {
 }
 
 export interface EnemyDef {
-  kind: 'beetle';
-  /** patrol range of the enemy's centre */
+  /** beetle: walks, can be stomped; snail: crawls, spiky shell (jump over); bee: hovers up and down (duck or jump);
+   *  roller: a golden-brown acorn that starts rolling towards the sprite once it is on screen (jump over) */
+  kind: EnemyKind;
+  /** patrol range of the enemy's centre (roller: x0 is where it waits) */
   x0: number;
   x1: number;
+  /** ground height under it (bee: the centre of its hover) */
   y: number;
   speed: number;
+  /** bee: hover amplitude and phase */
+  amp?: number;
+  phase?: number;
 }
 
 export type HandHint = 'tap' | 'hold' | 'swipeDown' | 'choose';
@@ -61,7 +68,14 @@ export interface DecisionPoint {
   /** the crossing is done once the sprite stands at or past this x */
   exitX: number;
   cards: PlantKind[];
+  /** the best plant: it crosses and (if the decision point has one) collects its golden acorn */
   answer: PlantKind;
+  /** plants that also cross but miss the golden acorn */
+  alsoWorks?: PlantKind[];
+  /** the golden acorn only the answer's path collects (pickup index), or -1 */
+  acorn?: number;
+  /** cliff: how far the far side is below */
+  drop?: number;
   /** for the hint text and the failure joke, e.g. the river width */
   width: number;
   height: number;
@@ -79,6 +93,12 @@ export interface Level {
   /** 1-based number in the world */
   n: number;
   seeds: number;
+  /** run speed at the start (units/s) and the speed gain at each checkpoint flower (0.05 = +5 %) */
+  speed: number;
+  ramp: number;
+  /** special (bonus) level of the world, daily challenge */
+  special?: boolean;
+  daily?: boolean;
   startX: number;
   startY: number;
   goalX: number;

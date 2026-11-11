@@ -1,15 +1,22 @@
 /**
- * Translations: one JSON file per language, English is the reference. `t(key, params)` with `{name}` placeholders;
- * missing keys fall back to English. (Phase B adds fr, de, es, it, ru.)
+ * Translations: one JSON file per language, English is the reference (every other file must have all its keys,
+ * checked in CI by scripts/check-i18n.mjs). `t(key, params)` with `{name}` placeholders; missing keys fall back to
+ * English. The language comes from the player's choice in Settings, else the portal's locale, else the browser.
  */
 import en from './en.json';
+import fr from './fr.json';
+import de from './de.json';
+import es from './es.json';
+import it from './it.json';
+import ru from './ru.json';
 
-export const LANGS = ['en'] as const;
+export const LANGS = ['en', 'fr', 'de', 'es', 'it', 'ru'] as const;
 export type Lang = (typeof LANGS)[number];
-export const LANG_NAMES: Record<Lang, string> = { en: 'English' };
+/** language names in their own language (never translated) */
+export const LANG_NAMES: Record<Lang, string> = { en: 'English', fr: 'Français', de: 'Deutsch', es: 'Español', it: 'Italiano', ru: 'Русский' };
 
 type Table = Record<string, string>;
-const TABLES: Record<Lang, Table> = { en };
+const TABLES: Record<Lang, Table> = { en, fr, de, es, it, ru };
 
 let lang: Lang = 'en';
 const listeners = new Set<(l: Lang) => void>();

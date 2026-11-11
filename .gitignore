@@ -7,3 +7,6 @@ ci-*
 *.log
 .DS_Store
 scripts/_*
+ci/
+ci-web/
+ci-playgama/

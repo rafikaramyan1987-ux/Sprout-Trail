@@ -1,10 +1,11 @@
 /** World 1, Spring Meadow. Levels 1-3 teach: jump and duck, the first plant choice, then vine and mushroom. */
 import { LevelBuilder } from '../build';
+import { RUN } from '../physics';
 import type { Level } from '../types';
 
 /** 1-1: tap to jump, hold to jump higher, swipe down to duck */
 function l1(): Level {
-  const b = new LevelBuilder('1-1', 1, 1, 0, 11);
+  const b = new LevelBuilder('1-1', 1, 1, 0, 11, RUN, 0.02);
   b.ground(4).gems(5, 1, 0.7, 1.2);
   b.ground(10);
   // tap to jump
@@ -44,7 +45,7 @@ function l1(): Level {
 
 /** 1-2: the first plant choice, a bridge over the stream */
 function l2(): Level {
-  const b = new LevelBuilder('1-2', 1, 2, 3, 23);
+  const b = new LevelBuilder('1-2', 1, 2, 3, 23, RUN, 0.02);
   b.ground(6).gems(5, 1, 0.7, 1.2).ground(10);
   b.arc(3, 0.3, 2.2, 1.2, 1.2).stump(0.9, 1, 1, 5);
   b.arc(4, -0.4, 3, 1.5).gap(2.4, true).ground(5);
@@ -78,7 +79,7 @@ function l2(): Level {
 
 /** 1-3: two decision points, a vine ladder at a high wall and a mushroom over thorns; first beetles */
 function l3(): Level {
-  const b = new LevelBuilder('1-3', 1, 3, 4, 37);
+  const b = new LevelBuilder('1-3', 1, 3, 4, 37, RUN, 0.02);
   b.ground(6).gems(5, 1, 0.7, 1.2).ground(10);
   b.sign('tut.stomp', 'tap', 0).ground(3);
   b.beetle(3, 4).gems(3, 3, 2.2, 1).ground(10);

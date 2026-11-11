@@ -1,28 +1,40 @@
 # Sprout Trail
 
 A cozy 2.5D forest platformer for the browser (desktop and mobile), playable with one finger. A little forest
-sprite runs along the trail by itself: tap or swipe up to jump (hold for a higher jump), swipe down to duck. At big
-gaps, high walls, rivers and thorn fields it stops and you pick a seed card — a bridge, a vine ladder, a mushroom… —
-and only the right plant gets it across.
+sprite runs along the trail by itself: tap or swipe up to jump (keep the finger down for a higher jump), swipe down to
+duck. At rivers, walls, cliffs and thorn fields it stops and you pick a seed card — bridge, vine ladder, mushroom, big
+leaf, tall tree or log — and only the right plant gets it across. From world 2 some plants work but miss the golden
+acorn, and seeds are limited.
 
-TypeScript, Vite, Three.js. Build-time platform layer `VITE_PLATFORM = web | crazygames | gd | gamepix | playgama`
-(`--mode <platform>`), `base: './'`.
+- 5 worlds (Spring Meadow, Deep Forest, Mushroom Valley, Autumn Woods, Misty Swamp) × 12 levels + a Golden Grove
+  special level per world, and a daily trail with a streak (30-level pool).
+- Hazards are introduced one world at a time and get denser and tighter: beetles, thorns, low logs, bees, snails,
+  rolling acorns. The run speed rises a little at every checkpoint and from world to world, capped at 1.5x level 1;
+  decision points are always a full stop.
+- Wardrobe: hats and sprite colours bought with gems. 6 languages (en, fr, de, es, it, ru).
+- Platform layer chosen at build time: `VITE_PLATFORM = web | crazygames | gd | gamepix | playgama`
+  (`--mode <platform>`), `base: './'`. Rewarded ads only from labelled buttons, interstitials only between levels
+  (at most one per 2 minutes); no ads at all in the web build.
+
+TypeScript, Vite, Three.js. Total build about 2.3 MB.
 
 ```sh
 npm ci
-npm run dev              # local dev server
-npm run build:web        # ad-free web build → dist-web/
-npm test                 # unit tests (physics, decision points, every level solvable)
-npm run validate:levels  # level validator → docs/levels-report.md (fails if a level is unsolvable)
-npm run test:e2e         # Playwright, desktop + phone (build:web first)
-npm run assets           # rebuild public/models/nature.glb from assets-src/
+npm run dev                 # local dev server
+npm run build:all           # dist/ (CrazyGames), dist-web/, dist-gd/, dist-gamepix/, dist-playgama/
+npm test                    # unit tests
+npm run validate:levels     # level validator → docs/levels-report.md (fails if any level is unsolvable or unfair)
+npm run test:e2e            # Playwright, desktop + phone (build:web first)
+npm run submission          # portal zips + READMEs (after build:all); npm run submission:check
 ```
 
-Controls: touch / mouse — tap or swipe up = jump (keep the finger down for higher), swipe down = duck. Keyboard —
-Space / Up / W = jump (hold for higher), Down / S = duck (KeyboardEvent.code, so QWERTY and AZERTY both work).
+Controls: touch / mouse — tap or swipe up = jump (hold for higher), swipe down = duck. Keyboard — Space / Up / W =
+jump (hold for higher), Down / S = duck (`KeyboardEvent.code`, so QWERTY and AZERTY both work). Escape is never used.
 
-The simulation (`src/game/sim.ts`) is deterministic with a fixed 60 Hz timestep; the level bot (`src/game/bot.ts`)
-plays every level with it in CI and proves each one can be finished with all three golden acorns and that every
-wrong plant really fails.
+The simulation (`src/game/sim.ts`) is deterministic with a fixed 60 Hz timestep. The level bot (`src/game/bot.ts`)
+plays every shipped level with it in CI at the level's real speed: each level must be beaten with all three golden
+acorns within its hearts and seeds, every wrong plant must really fail, and every hazard must be on screen at least
+1 second before it has to be dodged (`src/game/fairness.ts`; the camera always shows `viewAhead(speed)` ahead).
 
-Status: Phase A preview — the spring meadow world with 3 levels. See `docs/preview/`. Credits: `CREDITS.md`.
+Submission folders: `submission/` (CrazyGames), `submission-gd/`, `submission-gamepix/`, `submission-playgama/`,
+`submission-web/` — each with a README. Credits: `CREDITS.md`.
