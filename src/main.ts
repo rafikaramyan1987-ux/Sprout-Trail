@@ -25,8 +25,9 @@ import type { Input, SimState } from './game/sim';
 
 const params = new URLSearchParams(location.search);
 const CAPTURE = params.has('capture');
-/** rewarded ads and interstitials exist in the portal builds only (never in the web build) */
-const ADS = __PLATFORM__ !== 'web';
+/** rewarded ads and interstitials exist in the portal builds only (never in the web build; on Playgama only where
+ *  Bridge supports rewarded ads) */
+const ads = () => __PLATFORM__ !== 'web' && (__PLATFORM__ !== 'playgama' || sdk.available);
 
 const canvas = document.getElementById('game') as HTMLCanvasElement;
 const stage = new Stage(canvas);
@@ -89,7 +90,7 @@ function startLevel(level: Level, frozen = false) {
 
 /** interstitial between levels (portal builds, at most one per 2 minutes, see the platform layer), then go on */
 async function between(next: () => void) {
-  if (ADS && sdk.adSlot('between')) {
+  if (__PLATFORM__ !== 'web' && sdk.adSlot('between')) {
     screen = 'ad';
     await sdk.midgame('between');
   }
@@ -107,7 +108,7 @@ async function rewarded(btn: HTMLElement, grant: () => void) {
     grant();
   } else toast(t('ad.none'), 2500);
 }
-const adButton = (act: string, key: string) => (ADS ? `<button class="btn ad" data-ad="${act}">${ico('tv')}<span>${label(key)}</span></button>` : '');
+const adButton = (act: string, key: string) => (ads() ? `<button class="btn ad" data-ad="${act}">${ico('tv')}<span>${label(key)}</span></button>` : '');
 
 /* ------------------------------------------------------------------ screens */
 
@@ -326,7 +327,7 @@ function showWin(level: Level, s: SimState, st: number) {
     `<h2>${label('win.title')}</h2><div class="stars">${starsHtml(st)}</div>
      <div class="tally">
        ${ico('acorn')}<span>${label('win.acorns')}</span><span class="val">${[0, 1, 2].map((i) => ico(i < s.acorns ? 'acorn' : 'acornEmpty')).join('')}</span>
-       ${ico('gem')}<span>${label('win.earned')}</span><span class="val" data-gems>${s.gems}</span>
+       ${ico('gem')}<span>${label('win.earned')}</span><span class="val" data-earned>${s.gems}</span>
        ${level.dps.length ? `${ico('seed')}<span>${label('win.seeds')}</span><span class="val">${s.seeds}</span>` : ''}
      </div>
      ${level.daily ? `<p class="streak-line">${ico('calendar')}${label('daily.streak', { n: currentStreak(today()) })}</p>` : ''}`,
@@ -340,7 +341,7 @@ function showWin(level: Level, s: SimState, st: number) {
     void rewarded(b, () => {
       save.gems += s.gems;
       persist();
-      n.querySelector('[data-gems]')!.textContent = String(s.gems * 2);
+      n.querySelector('[data-earned]')!.textContent = String(s.gems * 2);
       b.remove();
       toast(t('ad.doubled'), 1800);
     });
@@ -358,6 +359,7 @@ function showLost(level: Level) {
       hide('end');
       if (!play) return;
       play.revived = true;
+      play.paused = false;
       play.reviveWithHeart();
       controls.release();
       controls.enabled = true;
@@ -375,7 +377,10 @@ function showNoSeeds(level: Level) {
     void rewarded(b, () => {
       hide('end');
       if (!play) return;
+      play.paused = false;
       play.addTwoSeeds();
+      controls.release();
+      controls.enabled = true;
       screen = 'play';
       sdk.gameplayStart();
     });

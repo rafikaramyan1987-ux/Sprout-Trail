@@ -32,7 +32,7 @@ if (only.includes('shots')) {
   const dir = mkdtempSync(join(tmpdir(), 'webstore-'));
   execFileSync('unzip', ['-q', zip, '-d', dir]);
   const server = await serve(dir);
-  const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  const browser = await chromium.launch({ executablePath: process.env.PW_CHROMIUM || undefined, args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const pick = args.includes('--shot') ? +args[args.indexOf('--shot') + 1] : 0;
   for (const [i, shot] of game.shots.entries()) {
     if (pick && pick !== i + 1) continue;

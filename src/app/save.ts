@@ -35,6 +35,8 @@ let store: KeyValueStore | null = null;
 export let save: Save = fresh();
 
 function local(): KeyValueStore | null {
+  // Playgama: progress goes through Bridge Storage only (the platform's data())
+  if (__PLATFORM__ === 'playgama') return null;
   try {
     const s = window.localStorage;
     s.setItem('__st_probe', '1');

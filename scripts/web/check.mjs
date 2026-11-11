@@ -78,7 +78,7 @@ const server = await serve(dir);
 const origin = server.origin;
 
 const GL = ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'];
-const browser = await chromium.launch({ args: GL });
+const browser = await chromium.launch({ executablePath: process.env.PW_CHROMIUM || undefined, args: GL });
 const external = new Set();
 const notFound = new Set();
 

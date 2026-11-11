@@ -77,7 +77,7 @@ const STUB = `(() => {
   };
 })();`;
 
-const browser = await chromium.launch({
+const browser = await chromium.launch({ executablePath: process.env.PW_CHROMIUM || undefined,
   args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--autoplay-policy=no-user-gesture-required'],
 });
 
@@ -112,7 +112,7 @@ async function open(query, { stub = false } = {}) {
 /** what the game and Bridge were doing when a step failed */
 const debug = (frame) =>
   frame
-    .evaluate(() => JSON.stringify({ log: window.__playgama?.log, stub: window.__stubLog, phase: window.__game?.play.phase, job: window.__game?.play.job?.def.n, interstitial: window.bridge?.advertisement.interstitialState }))
+    .evaluate(() => JSON.stringify({ log: window.__playgama?.log, stub: window.__stubLog, state: window.__game?.state(), screen: window.__game?.screen(), interstitial: window.bridge?.advertisement.interstitialState }))
     .catch((e) => `debug failed: ${e.message}`);
 
 /** the game's silence for the platform (`muted` → audio.ts setMuted) and its paused clock (`onAdPause`) */
@@ -138,7 +138,7 @@ if (only !== 'playgama') {
     expect(log1.includes('level_started') && log1.includes('level_completed'), 'level_started / level_completed sent', log1.join(','));
     expect((await frame.locator(game.rewardSelector).count()) === 0, 'no rewarded buttons (mock: isRewardedSupported = false)');
     const saved = await frame.evaluate(async () => {
-      const [v] = await window.bridge.storage.get(['fixitgarage.save.v1']);
+      const [v] = await window.bridge.storage.get(['sprout-trail-save']);
       return { v: typeof v === 'string' ? v.slice(0, 40) : v };
     });
     expect(saved.v, 'progress saved through Bridge Storage (storage.get returns the save)', JSON.stringify(saved));
@@ -148,7 +148,7 @@ if (only !== 'playgama') {
     const log2 = await frame.evaluate(() => window.__playgama.log.slice());
     const sup = await frame.evaluate(() => window.bridge.advertisement.isInterstitialSupported);
     expect(!log2.some((x) => x.startsWith('interstitial:opened')), `between-levels slot: no interstitial (mock isInterstitialSupported = ${sup}), the next level opened`, log2.join(','));
-    expect((await frame.locator(game.rewardSelector).count()) === 0, 'no rewarded hint button in the next job (mock)');
+    expect((await frame.locator(game.rewardSelector).count()) === 0, 'no rewarded buttons in the next level (mock)');
     expect(!s.external.length, 'no external requests (mock)', s.external.join(', '));
     expect(!s.pageErrors.length, 'no page errors (mock)', s.pageErrors.join(' | '));
   } catch (e) {
@@ -172,57 +172,45 @@ if (only !== 'mock') {
     await frame.waitForFunction(() => window.__stubLog?.includes('gameReady'), null, { timeout: 10_000 }).catch(() => {});
     expect(await frame.evaluate(() => window.__stubLog.includes('gameReady')), 'game_ready reached the platform');
     await game.play(frame, page, { w: 960, h: 600 });
-    const btn = frame.locator('[data-action=double]');
-    expect((await btn.count()) === 1 && /\S/.test(await btn.innerText()), 'labelled rewarded button on the payment screen', await btn.innerText().catch(() => ''));
-    const total = Number((await frame.locator('.paycard .tot span').last().innerText()).replace(/\D/g, ''));
+    const btn = frame.locator('[data-ad=gems]');
+    expect((await btn.count()) === 1 && /\S/.test(await btn.innerText()), 'labelled rewarded button on the result screen', await btn.innerText().catch(() => ''));
+    const earned = Number(await frame.locator('[data-earned]').innerText());
 
-    // cancelled: no reward (paid once, not twice), "Gerade keine Werbung da" for 2.5 s, the game goes on
+    // cancelled: no reward, "Gerade keine Werbung verfügbar" for 2.5 s, the game goes on
     const v0 = await game.money(frame);
     await frame.evaluate(() => (window.__rewardedOutcome = 'cancel'));
-    await frame.evaluate(() => (window.__playgama.lastMidgame = 0)); // the 2-minute gap is skipped for the test
-    await d.click('[data-action=double]');
-    await d.click('[data-action=watch]'); // the game's one-line notice before the first rewarded ad
+    await d.click('[data-ad=gems]');
     await waitLog(frame, 'rewarded:closed');
     const during1 = await frame.evaluate(() => window.__adSamples.rewarded);
     await d.tick(0.2);
     const toast = await frame.locator('.toast').allInnerTexts();
-    await d.tick(1.6);
+    await d.tick(2.6);
     const v1 = await game.money(frame);
-    expect(v1 === v0 + total, 'cancelled rewarded ad: no reward (payment not doubled)', `${v0} + ${total} → ${v1}`);
+    expect(v1 === v0, 'cancelled rewarded ad: no reward (gems not doubled)', `${v0} → ${v1}`);
     expect(during1?.muted && during1.paused, 'muted + game paused while the rewarded ad is open', JSON.stringify(during1));
     expect(toast.some((x) => /werbung/i.test(x)), 'the game says no ad is available right now (2.5 s)', toast.join(' | '));
 
+    // watched to the end: gems doubled after the `rewarded` state
+    await frame.evaluate(() => (window.__rewardedOutcome = 'complete'));
+    await frame.evaluate(() => (window.__playgama.log.length = 0));
+    await d.click('[data-ad=gems]');
+    await waitLog(frame, 'rewarded:closed');
+    await d.tick(0.5);
+    const v2 = await game.money(frame);
+    const log = await frame.evaluate(() => window.__playgama.log.slice());
+    expect(v2 === v1 + earned && log.includes('rewarded:rewarded'), 'completed rewarded ad: gems doubled after the `rewarded` state', `${v1} + ${earned} → ${v2}; ${log.join(',')}`);
+    const after = await state(frame);
+    expect(!after.muted && !after.paused, 'audio back and game running after the ad (player sound settings on)', JSON.stringify(after));
+
     // between levels: the interstitial
-    await d.tick(1.5);
+    await frame.evaluate(() => (window.__playgama.lastMidgame = 0)); // the 2-minute gap is skipped for the test
+    await game.next(frame, page);
     await waitLog(frame, 'interstitial:closed');
     const during2 = await frame.evaluate(() => window.__adSamples.interstitial);
     expect(during2?.muted && during2.paused, 'muted + game paused while the interstitial is open', JSON.stringify(during2));
     await game.nextLevelOpened(frame, page);
     const log3 = await frame.evaluate(() => window.__playgama.log.slice());
     expect(log3.includes('interstitial:closed'), 'interstitial between levels shown and closed, next level opened', log3.join(','));
-
-    // watched to the end: the part for free
-    await d.click('[data-tool=repair]');
-    await d.tick(0.3);
-    // Relaxed mode, no clue yet: every part is one tap away behind "Show all parts"
-    if (await d.has('.tab[data-cat=bay]')) await d.click('.tab[data-cat=bay]');
-    else await d.click('[data-action=all-parts]');
-    await d.click('[data-part=battery]');
-    await d.tick(0.2);
-    const free = frame.locator('[data-action=free-part]');
-    expect((await free.count()) === 1 && /\S/.test(await free.innerText()), 'labelled rewarded button in the parts sheet', await free.innerText().catch(() => ''));
-    await frame.evaluate(() => (window.__rewardedOutcome = 'complete'));
-    await frame.evaluate(() => (window.__playgama.log.length = 0));
-    const m0 = await game.money(frame);
-    await d.click('[data-action=free-part]');
-    await waitLog(frame, 'rewarded:closed');
-    await d.tick(0.5);
-    const m1 = await game.money(frame);
-    const log = await frame.evaluate(() => window.__playgama.log.slice());
-    const phase = await frame.evaluate(() => window.__game.play.phase);
-    expect(m1 === m0 && phase.startsWith('fit:') && log.includes('rewarded:rewarded'), 'completed rewarded ad: the part is fitted for free after the `rewarded` state', `$${m0} → $${m1}, ${phase}; ${log.join(',')}`);
-    const after = await state(frame);
-    expect(!after.muted && !after.paused, 'audio back and game running after the ad (player sound settings on)', JSON.stringify(after));
     const stub = await frame.evaluate(() => window.__stubLog.slice());
     expect(stub.filter((x) => x === 'showInterstitial').length === 1, 'exactly one interstitial request', stub.join(','));
     expect(!s.external.length, 'no other external requests', s.external.join(', '));
