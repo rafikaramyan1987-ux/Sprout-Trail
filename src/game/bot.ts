@@ -27,6 +27,8 @@ export interface CardResult {
   reason: FailReason;
   /** seconds from planting until the crossing ended */
   time: number;
+  /** it collected the decision point's golden acorn */
+  acorn: boolean;
 }
 export interface DpReport {
   dp: number;
@@ -65,7 +67,9 @@ export function tryCard(level: Level, s0: SimState, kind: PlantKind): { res: Car
     if (s.mode === 'fail' && !reason) reason = s.failReason;
     if (s.mode === 'run' || s.mode === 'decide' || s.mode === 'won') break;
   }
-  return { res: { kind, ok: s.mode === 'run' || s.mode === 'won', reason, time: (s.tick - t0) / 60 }, s };
+  const dp = level.dps[s0.dp];
+  const acorn = dp.acorn !== undefined && dp.acorn >= 0 && !!s.got[dp.acorn] && !s0.got[dp.acorn];
+  return { res: { kind, ok: s.mode === 'run' || s.mode === 'won', reason, time: (s.tick - t0) / 60, acorn }, s };
 }
 
 function score(s: SimState, presses = 0) {
@@ -90,7 +94,7 @@ export function solve(level: Level, opts: { width?: number; maxSeconds?: number;
           rep = { dp: n.s.dp, answer: dp.answer, cards: dp.cards.map((k) => tryCard(level, n.s, k).res) };
           dps.push(rep);
         }
-        const good = rep.cards.find((c) => c.ok && c.kind === dp.answer) ?? rep.cards.find((c) => c.ok);
+        const good = rep.cards.find((c) => c.ok && c.kind === dp.answer) ?? rep.cards.find((c) => c.ok && c.acorn) ?? rep.cards.find((c) => c.ok);
         if (!good) continue;
         const seq: PlantKind[] = [];
         let s = n.s;
