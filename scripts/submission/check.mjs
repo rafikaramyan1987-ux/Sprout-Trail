@@ -3,6 +3,7 @@
 // usage: node scripts/submission/check.mjs
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import sharp from 'sharp';
 import { DESCRIPTION, HOW_TO_PLAY } from './texts.mjs';
 
 let bad = 0;
@@ -60,13 +61,45 @@ for (const f of need) {
   }
   const want = /(\d+)x(\d+)\.\w+$/.exec(f);
   if (f.endsWith('.mp4')) {
-    const [w, h, dur] = execFileSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height:format=duration', '-of', 'csv=p=0:s=x', f], { encoding: 'utf8' }).trim().split(/\s+|x/).map(Number);
-    if (`${w}x${h}` !== `${want[1]}x${want[2]}` || dur < 15 || dur > 20) fail(`${f}: ${w}x${h}, ${dur} s (want ${want[1]}x${want[2]}, about 18 s)`);
+    const { w, h, dur } = mp4Info(f);
+    if (`${w}x${h}` !== `${want[1]}x${want[2]}` || dur < 15 || dur > 20) fail(`${f}: ${w}x${h}, ${dur.toFixed(1)} s (want ${want[1]}x${want[2]}, about 18 s)`);
   } else {
-    const size = execFileSync('identify', ['-format', '%wx%h', f], { encoding: 'utf8' }).trim();
+    const m = await sharp(f).metadata();
+    const size = `${m.width}x${m.height}`;
     const expect = want ? `${want[1]}x${want[2]}` : f.includes('screenshot') ? '1280x720' : null;
     if (expect && size !== expect) fail(`${f}: ${size}, want ${expect}`);
   }
+}
+
+/** width / height of the first video track and the duration, read from the MP4 boxes (no ffprobe needed) */
+function mp4Info(file) {
+  const b = readFileSync(file);
+  let dur = 0,
+    w = 0,
+    h = 0;
+  const walk = (start, end) => {
+    for (let p = start; p + 8 <= end; ) {
+      let size = b.readUInt32BE(p);
+      const type = b.toString('latin1', p + 4, p + 8);
+      if (size === 1) size = Number(b.readBigUInt64BE(p + 8));
+      if (size < 8) break;
+      if (['moov', 'trak'].includes(type)) walk(p + 8, p + size);
+      if (type === 'mvhd') {
+        const v = b[p + 8];
+        const ts = v ? b.readUInt32BE(p + 28) : b.readUInt32BE(p + 20);
+        const d = v ? Number(b.readBigUInt64BE(p + 32)) : b.readUInt32BE(p + 24);
+        dur = d / ts;
+      }
+      if (type === 'tkhd' && !w) {
+        const tw = b.readUInt32BE(p + size - 8) / 65536,
+          th = b.readUInt32BE(p + size - 4) / 65536;
+        if (tw && th) [w, h] = [tw, th];
+      }
+      p += size;
+    }
+  };
+  walk(0, b.length);
+  return { w, h, dur };
 }
 console.log(bad ? `${bad} problem(s)` : 'submission checks passed');
 process.exit(bad ? 1 : 0);
