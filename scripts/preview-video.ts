@@ -4,7 +4,7 @@
  * usage: npx tsx scripts/preview-video.ts [baseUrl] [out.mp4]   (serve dist-web first)
  */
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readdirSync, rmSync } from 'node:fs';
+import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Driver } from './driver';
@@ -21,8 +21,11 @@ mkdirSync(dir, { recursive: true });
 const d = await Driver.open(base, W, H, 1);
 d.fps = FPS;
 let n = 0;
+// raw CDP captures are much faster than page.screenshot() with software WebGL
+const cdp = await d.page.context().newCDPSession(d.page);
 d.onFrame = async () => {
-  await d.page.screenshot({ path: join(dir, `f${String(n++).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 90, timeout: 180_000 });
+  const { data } = await cdp.send('Page.captureScreenshot', { format: 'jpeg', quality: 92, optimizeForSpeed: true });
+  writeFileSync(join(dir, `f${String(n++).padStart(5, '0')}.jpg`), Buffer.from(data, 'base64'));
   if (n % 60 === 0) console.log('frames', n);
 };
 
