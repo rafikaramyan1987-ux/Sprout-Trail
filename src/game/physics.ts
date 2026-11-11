@@ -9,7 +9,7 @@ export const MAX_SPEED = RUN * 1.5;
  * How far ahead of the sprite the camera always shows the trail at a run speed (units): at least 1.2 s of running
  * plus a margin, so every hazard is on screen well over 1 second before it must be dodged.
  */
-export const viewAhead = (speed: number) => speed * 1.2 + 2;
+export const viewAhead = (speed: number) => speed * 1.25 + 2.6;
 /** rolling acorns roll this fast towards the sprite */
 export const ROLL_SPEED = 2;
 export const GRAVITY = 34;
@@ -48,3 +48,20 @@ export const DP_SLOW = 1.6;
 export const STUCK_TIME = 0.7;
 export const GROW_TIME = 1.1;
 export const FAIL_TIME = 1.5;
+
+/** set pieces */
+export const ROPE_GRAB = 0.7;
+/** ropes swing up to this angle (rad) and the sprite pumps this fast (rad/s²) */
+export const ROPE_ARC = 1.0;
+export const ROPE_PUMP = 2.2;
+export const ROPE_RELEASE_UP = 4;
+export const ROPE_COOLDOWN = 0.35;
+export const SHROOM_V = 17;
+/** a sinking platform goes down this fast once it starts sinking */
+export const SINK_V = 1.4;
+export const SINK_MAX = 4;
+export const BOOST = 1.25;
+/** the boar runs this much slower than the sprite's run speed (it only catches a sprite that is held up) */
+export const BOAR_SPEED = 0.98;
+export const BOAR_START = 5;
+export const GLIDE_FALL = 1.1;

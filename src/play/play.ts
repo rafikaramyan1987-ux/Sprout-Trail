@@ -481,13 +481,13 @@ export class Play {
       ty = this.camGroundY + 0.8;
       tsx = portrait ? 0.25 : 0.3;
       tsy = portrait ? 0.33 : 0.36;
-      tw = Math.max(portrait ? 9.6 : 0, P.viewAhead(s.speed) / (1 - tsx) + 0.4);
+      tw = Math.max(portrait ? 9.6 : 0, P.viewAhead(Math.max(s.speed, s.vx)) / (1 - tsx) + 0.4);
     }
     const k = this.cam.init ? 1 - Math.exp(-dt * (dp ? 2.5 : 12)) : 1;
     const ky = this.cam.init ? 1 - Math.exp(-dt * 3.5) : 1;
     this.cam.x = lerp(this.cam.x, tx, k);
     this.cam.y = lerp(this.cam.y, ty, ky);
-    this.cam.w = lerp(this.cam.w, tw, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
+    this.cam.w = lerp(this.cam.w, tw, this.cam.init ? 1 - Math.exp(-dt * (tw > this.cam.w ? 14 : 2.5)) : 1);
     this.cam.sx = lerp(this.cam.sx, tsx, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.sy = lerp(this.cam.sy, tsy, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.init = true;

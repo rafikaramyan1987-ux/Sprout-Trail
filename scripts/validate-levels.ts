@@ -15,7 +15,7 @@ import { spawnSync } from 'node:child_process';
 import { cpus } from 'node:os';
 import { writeFileSync } from 'node:fs';
 import { solve, Replay } from '../src/game/bot';
-import { allLevels } from '../src/game/levels';
+import { allLevels, LEVEL_IDS } from '../src/game/levels';
 import { generateLevel } from '../src/game/levels/gen';
 import { readability } from '../src/game/fairness';
 import { newSim, step, choose } from '../src/game/sim';
@@ -40,6 +40,19 @@ export interface Result {
   minRead: number;
   hazards: number;
   dps: string[];
+  pieces: string[];
+  scenery: string[];
+  difficulty: number;
+  /** hazards per minute of play */
+  perMin: number;
+}
+
+/** enemies, thorns, low logs, stumps and the pits to jump over */
+function hazardCount(L: Level) {
+  const grounds = L.boxes.filter((b) => b.kind === 'ground' || b.kind === 'wall').sort((a, b) => a.x0 - b.x0);
+  let pits = 0;
+  for (let i = 1; i < grounds.length; i++) if (grounds[i].x0 - grounds[i - 1].x1 > 0.5) pits++;
+  return L.enemies.length + L.hazards.length + L.boxes.filter((b) => b.kind === 'log' || b.kind === 'stump').length + pits;
 }
 
 export function check(L: Level): Result {
@@ -80,6 +93,9 @@ export function check(L: Level): Result {
   const reads = p.ok ? readability(L, p) : [];
   const minRead = reads.length ? Math.min(...reads.map((x) => x.seconds)) : 99;
   for (const x of reads) if (x.seconds < MIN_READ) problems.push(`${x.what} at x ${x.x.toFixed(1)} is on screen only ${x.seconds.toFixed(2)} s before it must be dodged`);
+  const scenery = L.scenery.map((x) => x.variant);
+  if (new Set(scenery).size < 2) problems.push('the scenery does not change within the level');
+  if (!L.pieces.length) problems.push('no set piece');
   return {
     id: L.id,
     ok: problems.length === 0,
@@ -94,8 +110,12 @@ export function check(L: Level): Result {
     speed0: L.speed,
     speed1: p.final.speed,
     minRead,
-    hazards: L.enemies.length + L.hazards.length + L.boxes.filter((b) => b.kind === 'log' || b.kind === 'stump').length,
+    hazards: hazardCount(L),
     dps,
+    pieces: L.pieces,
+    scenery,
+    difficulty: L.difficulty,
+    perMin: ((hazardCount(L) + L.movers.length + L.ropes.length) / p.seconds) * 60,
   };
 }
 
@@ -109,14 +129,17 @@ if (shardArg) {
   process.stdout.write(JSON.stringify(out));
 } else if (args.includes('--tune')) {
   // find a passing seed for every failing generated level
-  const failing = args.filter((a) => /^\d-(\d+|S)$/.test(a));
+  const failing = args.filter((a) => /^(\d-(\d+|S)|daily-\d+)$/.test(a));
   for (const id of failing) {
     const [w, n] = id.split('-');
-    for (let seed = 2; seed < 60; seed++) {
-      const L = generateLevel(+w, n === 'S' ? 12 : +n, seed, n === 'S' ? { special: true } : {});
+    for (let seed = 2; seed < 400; seed++) {
+      const L =
+        w === 'daily'
+          ? generateLevel((+n % 5) + 1, 8, 300 + seed, { daily: true, id })
+          : generateLevel(+w, n === 'S' ? 12 : +n, seed, n === 'S' ? { special: true } : {});
       const res = check(L);
       if (res.ok) {
-        console.log(`${id}: seed ${seed}`);
+        console.log(`${id}: seed ${w === 'daily' ? 300 + seed : seed}`);
         break;
       }
     }
@@ -136,9 +159,18 @@ if (shardArg) {
   void spawnSync;
   const order = allLevels().map((l) => l.id);
   const results = (await Promise.all(procs)).flat().sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+  // across levels: no two levels in a row share their main set piece or their first scenery variant, and every
+  // world starts harder than the one before ended
+  for (let i = 1; i < LEVEL_IDS.length; i++) {
+    const a = results.find((r) => r.id === LEVEL_IDS[i - 1])!;
+    const b = results.find((r) => r.id === LEVEL_IDS[i])!;
+    if (a.pieces[0] === b.pieces[0]) { b.ok = false; b.problems.push(`same main set piece (${b.pieces[0]}) as ${a.id}`); }
+    if (a.scenery[0] === b.scenery[0]) { b.ok = false; b.problems.push(`same scenery (${b.scenery[0]}) as ${a.id}`); }
+    if (b.id.endsWith('-1') && b.difficulty <= a.difficulty) { b.ok = false; b.problems.push(`world starts no harder than ${a.id} ended`); }
+  }
   const failed = results.filter((r) => !r.ok);
   const row = (r: Result) =>
-    `| ${r.id} | ${r.ok ? 'ok' : '**FAIL**'} | ${r.seconds.toFixed(0)} s | ${r.speed0.toFixed(2)} → ${r.speed1.toFixed(2)} | ${r.hazards} | ${r.minRead.toFixed(2)} s | ${r.acorns}/3 | ${r.hearts}/3 | ${r.gems}/${r.gemsTotal} | ${r.seedsUsed}/${r.seeds} | ${r.dps.length} |`;
+    `| ${r.id} | ${r.ok ? 'ok' : '**FAIL**'} | ${r.pieces.join(' + ')} | ${r.scenery.join(' → ')} | ${r.difficulty.toFixed(2)} | ${r.seconds.toFixed(0)} s | ${r.speed0.toFixed(2)} → ${r.speed1.toFixed(2)} | ${r.hazards} (${r.perMin.toFixed(0)}/min) | ${r.minRead.toFixed(2)} s | ${r.acorns}/3 | ${r.hearts}/3 | ${r.gems}/${r.gemsTotal} | ${r.seedsUsed}/${r.seeds} | ${r.dps.length} |`;
   const md = `# Level validator report
 
 Generated by \`npm run validate:levels\` (scripts/validate-levels.ts). A beam-search bot plays every shipped level
@@ -148,12 +180,16 @@ inputs in 50 ms slices. A level passes when the bot finishes it with all 3 golde
 seeds; at every decision point the answer crosses (and collects the decision point's acorn), "also works" plants
 cross but miss that acorn and every other plant fails; every hazard is on screen at least ${MIN_READ.toFixed(1)} s
 before the sprite reaches it ("min. warning"); the recorded inputs replay to the same win; and the run lasts
-45-120 s.
+45-120 s. Set pieces (hanging and sinking planks, ropes over a crocodile lake, drifting logs, lily pads, bouncy
+mushrooms, wind gusts, collapsing bridges, the boar chase, dark caves, waterfalls, dandelion glides) are part of the
+same simulation and played by the same bot. Across levels: no two levels in a row share their main set piece or
+their first scenery variant, every level's scenery changes at least once, and every world starts harder than the
+previous one ended (designed difficulty 0..1).
 
 **${results.length - failed.length} of ${results.length} levels pass.**
 
-| Level | Result | Bot time | Speed (start → end) | Hazards | Min. warning | Acorns | Hearts left | Gems | Seeds used | Decision points |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Level | Result | Set pieces | Scenery | Difficulty | Bot time | Speed (start → end) | Hazards incl. pits (per min. with platforms, ropes) | Min. warning | Acorns | Hearts left | Gems | Seeds used | Decision points |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 ${results.map(row).join('\n')}
 
 ## Decision points

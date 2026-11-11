@@ -3,7 +3,7 @@
  * validator all run this exact code, so a level the validator solves is a level the player can solve.
  */
 import * as P from './physics';
-import type { Box, DecisionPoint, EnemyDef, EnemyKind, Level, PlantKind } from './types';
+import type { Box, DecisionPoint, EnemyDef, EnemyKind, Level, Mover, PlantKind } from './types';
 
 export type Mode = 'run' | 'decide' | 'grow' | 'cross' | 'fail' | 'won' | 'lost';
 export type FailReason = '' | 'splash' | 'thorns' | 'bonk' | 'fall';
@@ -29,7 +29,15 @@ export type SimEvent =
   | 'duck'
   | 'roll'
   | 'glide'
-  | 'speed';
+  | 'speed'
+  | 'grab'
+  | 'release'
+  | 'croc'
+  | 'boar'
+  | 'boarStop'
+  | 'crack'
+  | 'gust'
+  | 'sink';
 
 export interface Input {
   jumpPressed: boolean;
@@ -77,6 +85,24 @@ export interface SimState {
   rollAt: Float64Array;
   gliding: boolean;
   logHop: boolean;
+  /** movers: seconds stood on (sinking), how far each has sunk */
+  moverT: Float64Array;
+  moverD: Float64Array;
+  /** the mover the sprite stands on, or -1 */
+  on: number;
+  /** rope: index (-1 = none), angle, angular speed, length held, cooldown after letting go */
+  rope: number;
+  ropeA: number;
+  ropeW: number;
+  ropeL: number;
+  ropeCool: number;
+  /** horizontal speed of a flight after a rope or a bouncy mushroom (0 = run speed) */
+  flyVX: number;
+  /** chase: the boar's x (NaN = not running), done */
+  boarX: number;
+  boarDone: boolean;
+  /** per zone: furthest x the sprite reached in it (collapsing bridges) */
+  zoneX: Float64Array;
   seeds: number;
   gems: number;
   acorns: number;
@@ -150,6 +176,18 @@ export function newSim(level: Level): SimState {
     rollAt: new Float64Array(level.enemies.length).fill(-1),
     gliding: false,
     logHop: false,
+    moverT: new Float64Array(level.movers.length),
+    moverD: new Float64Array(level.movers.length),
+    on: -1,
+    rope: -1,
+    ropeA: 0,
+    ropeW: 0,
+    ropeL: 0,
+    ropeCool: 0,
+    flyVX: 0,
+    boarX: NaN,
+    boarDone: false,
+    zoneX: new Float64Array(level.zones.length).fill(-1e9),
     seeds: level.seeds,
     gems: 0,
     acorns: 0,
@@ -178,6 +216,9 @@ export function cloneSim(s: SimState): SimState {
     got: s.got.slice(),
     enemyDead: s.enemyDead.slice(),
     rollAt: s.rollAt.slice(),
+    moverT: s.moverT.slice(),
+    moverD: s.moverD.slice(),
+    zoneX: s.zoneX.slice(),
     solved: s.solved.slice(),
     plants: s.plants.map((p) => ({ ...p })),
     events: [],
@@ -215,7 +256,37 @@ function plantBoxes(level: Level, s: SimState): Box[] {
   return out;
 }
 
-function forBoxes(level: Level, s: SimState, x0: number, x1: number, fn: (b: Box) => void) {
+/** sideways drift of a mover at a world tick */
+export const moverOffset = (m: Mover, et: number) => (m.amp ? m.amp * Math.sin(et * P.DT * m.freq + m.phase) : 0);
+
+/** the collision box of a mover now */
+export function moverBox(m: Mover, s: SimState, i: number): Box {
+  const o = moverOffset(m, s.et);
+  const d = s.moverD[i];
+  return { x0: m.x0 + o, x1: m.x1 + o, y0: m.y - 0.45 - d, y1: m.y - d, kind: 'plank', oneWay: true };
+}
+
+/** collapsing bridges: which zone each bridge box belongs to */
+const bridgeZone = new WeakMap<Level, Int16Array>();
+function zoneOfBox(level: Level, i: number) {
+  let z = bridgeZone.get(level);
+  if (!z) {
+    z = new Int16Array(level.boxes.length).fill(-1);
+    level.boxes.forEach((b, k) => {
+      if (b.kind !== 'bridge') return;
+      z![k] = level.zones.findIndex((q) => q.kind === 'collapse' && b.x0 >= q.x0 - 0.01 && b.x1 <= q.x1 + 0.01);
+    });
+    bridgeZone.set(level, z);
+  }
+  return z[i];
+}
+/** a bridge plank behind the sprite has fallen */
+export function bridgeGone(level: Level, s: SimState, i: number) {
+  const z = zoneOfBox(level, i);
+  return z >= 0 && level.boxes[i].x1 < s.zoneX[z] - 1.2;
+}
+
+function forBoxes(level: Level, s: SimState, x0: number, x1: number, fn: (b: Box, mover?: number) => void) {
   const ix = index(level);
   const c0 = Math.max(0, Math.floor(x0 / CELL));
   const c1 = Math.min(ix.boxes.length - 1, Math.floor(x1 / CELL));
@@ -227,10 +298,46 @@ function forBoxes(level: Level, s: SimState, x0: number, x1: number, fn: (b: Box
         if (seen.has(i)) continue;
         seen.add(i);
       }
+      if (level.boxes[i].kind === 'bridge' && bridgeGone(level, s, i)) continue;
       fn(level.boxes[i]);
     }
   }
   if (s.plants.length) for (const b of plantBoxes(level, s)) fn(b);
+  for (let i = 0; i < level.movers.length; i++) {
+    const m = level.movers[i];
+    if (m.x1 + m.amp < x0 - 1 || m.x0 - m.amp > x1 + 1) continue;
+    fn(moverBox(m, s, i), i);
+  }
+}
+
+/** the zone of a kind the x is in, or -1 */
+export function zoneAt(level: Level, kind: string, x: number) {
+  for (let i = 0; i < level.zones.length; i++) {
+    const z = level.zones[i];
+    if (z.kind === kind && x >= z.x0 && x <= z.x1) return i;
+  }
+  return -1;
+}
+
+/** wind of a zone at a world tick: the gust is blowing */
+export function gustOn(z: Level['zones'][number], et: number) {
+  const per = z.period ?? 2.4;
+  return ((et * P.DT + (z.phase ?? 0)) % per) < per * (z.duty ?? 0.5);
+}
+
+/** back to the last checkpoint (falls, crocodile) */
+function respawn(s: SimState) {
+  s.x = s.cpX;
+  s.y = s.cpY;
+  s.vx = s.vy = 0;
+  s.grounded = true;
+  s.invuln = Math.max(s.invuln, 1);
+  s.ducking = false;
+  s.duckT = 0;
+  s.rope = -1;
+  s.flyVX = 0;
+  s.on = -1;
+  s.gliding = false;
 }
 
 const height = (s: SimState) => (s.ducking ? P.H_DUCK : P.H_STAND);
@@ -357,6 +464,48 @@ export function step(level: Level, s: SimState, inp: Input) {
 
   s.invuln = Math.max(0, s.invuln - P.DT);
   s.knockT = Math.max(0, s.knockT - P.DT);
+  s.ropeCool = Math.max(0, s.ropeCool - P.DT);
+  // movers: ride along with a drifting one; sinking ones go down while stood on, and come back up after
+  for (let i = 0; i < level.movers.length; i++) {
+    const m = level.movers[i];
+    const standing = s.on === i && s.grounded;
+    if (standing) {
+      s.x += moverOffset(m, s.et) - moverOffset(m, s.et - 1);
+      s.moverT[i] += P.DT;
+    } else s.moverT[i] = Math.max(0, s.moverT[i] - P.DT);
+    if (m.sinkAfter > 0) {
+      if (standing && s.moverT[i] > m.sinkAfter) {
+        if (s.moverD[i] === 0) s.events.push('sink');
+        s.moverD[i] = Math.min(P.SINK_MAX, s.moverD[i] + P.SINK_V * P.DT);
+      } else if (!standing) s.moverD[i] = Math.max(0, s.moverD[i] - P.SINK_V * 0.5 * P.DT);
+    }
+  }
+
+  // hanging on a rope: swing like a pendulum, let go on a tap
+  if (s.rope >= 0 && !crossing) {
+    const r = level.ropes[s.rope];
+    s.ropeW += -(P.GRAVITY / s.ropeL) * Math.sin(s.ropeA) * P.DT;
+    // the sprite pumps: the swing grows towards a full arc of ±ROPE_ARC
+    const e = 0.5 * s.ropeW * s.ropeW - (P.GRAVITY / s.ropeL) * Math.cos(s.ropeA);
+    const eMax = -(P.GRAVITY / s.ropeL) * Math.cos(P.ROPE_ARC);
+    if (e < eMax) s.ropeW += (s.ropeW >= 0 ? 1 : -1) * P.ROPE_PUMP * P.DT;
+    s.ropeA += s.ropeW * P.DT;
+    s.x = r.x + s.ropeL * Math.sin(s.ropeA);
+    s.y = r.y - s.ropeL * Math.cos(s.ropeA) - 1.0;
+    s.vx = s.ropeW * s.ropeL * Math.cos(s.ropeA);
+    s.vy = s.ropeW * s.ropeL * Math.sin(s.ropeA);
+    s.grounded = false;
+    if (jumpPressed) {
+      s.rope = -1;
+      s.vy += P.ROPE_RELEASE_UP;
+      s.flyVX = Math.max(-3, Math.min(10, s.vx));
+      s.ropeCool = P.ROPE_COOLDOWN;
+      s.holding = false;
+      s.buffer = 0;
+      s.events.push('release');
+    }
+    return afterMove(level, s, s.y, false, jumpHeld);
+  }
   s.buffer = jumpPressed ? P.JUMP_BUFFER : Math.max(0, s.buffer - P.DT);
   s.coyote = s.grounded ? P.COYOTE : Math.max(0, s.coyote - P.DT);
 
@@ -390,13 +539,22 @@ export function step(level: Level, s: SimState, inp: Input) {
   if (s.climbing) s.vx = 0;
   else if (s.knockT > 0) s.vx = -3;
   else if (s.bounced && !s.grounded) s.vx = P.MUSHROOM_VX;
+  else if (s.flyVX !== 0 && !s.grounded) s.vx = s.flyVX;
   else {
     let v = crossing ? P.RUN : s.speed;
+    // a collapsing bridge: run!
+    const cz = crossing ? -1 : zoneAt(level, 'collapse', s.x);
+    if (cz >= 0 && s.zoneX[cz] > -1e8) v = Math.min(P.MAX_SPEED, v * P.BOOST);
     if (next >= 0) {
       const d = level.dps[next].stopX - s.x;
       if (d < P.DP_SLOW) v *= Math.max(0.25, Math.min(1, d / P.DP_SLOW));
     }
     s.vx = v;
+  }
+  // wind gusts push jumps forward or back
+  if (!crossing && !s.grounded) {
+    const wz = zoneAt(level, 'wind', s.x);
+    if (wz >= 0 && gustOn(level.zones[wz], s.et)) s.vx += (level.zones[wz].dir ?? 1) * (level.zones[wz].strength ?? 2);
   }
 
   // vertical speed
@@ -411,6 +569,12 @@ export function step(level: Level, s: SimState, inp: Input) {
     s.gliding = true;
     s.vy = Math.max(s.vy, -P.LEAF_FALL);
   }
+  // dandelion seeds: keep the finger down to glide
+  if (!crossing && !s.grounded && jumpHeld && s.vy < 0 && zoneAt(level, 'glide', s.x) >= 0) {
+    if (!s.gliding) s.events.push('glide');
+    s.gliding = true;
+    s.vy = Math.max(s.vy, -P.GLIDE_FALL);
+  } else if (!crossing && s.gliding && (!jumpHeld || s.grounded)) s.gliding = false;
   // log: hop up onto it
   if (crossing && plant?.kind === 'log' && !s.logHop && s.grounded && s.x >= plant.x - 0.9) {
     s.logHop = true;
@@ -463,13 +627,15 @@ export function step(level: Level, s: SimState, inp: Input) {
   {
     const x0 = s.x - P.W / 2,
       x1 = s.x + P.W / 2;
-    forBoxes(level, s, x0, x1, (b) => {
+    s.on = -1;
+    forBoxes(level, s, x0, x1, (b, mi) => {
       if (!(x1 > b.x0 && x0 < b.x1)) return;
       if (s.vy <= 0 && prevY >= b.y1 - 1e-3 && s.y < b.y1) {
         s.landV = -s.vy;
         s.y = b.y1;
         s.vy = 0;
         s.grounded = true;
+        s.on = mi ?? -1;
       } else if (!b.oneWay && s.vy > 0 && s.y + h > b.y0 && prevY + h <= b.y0 + 1e-3) {
         s.y = b.y0 - h;
         s.vy = 0;
@@ -483,6 +649,77 @@ export function step(level: Level, s: SimState, inp: Input) {
   if (s.grounded && !wasGrounded) {
     s.events.push('land');
     s.bounced = false;
+    s.flyVX = 0;
+  }
+  // big bouncy mushrooms launch the sprite high
+  if (!crossing && s.grounded && s.on >= 0 && level.movers[s.on].kind === 'shroom') {
+    s.vy = level.movers[s.on].bounce ?? P.SHROOM_V;
+    s.grounded = false;
+    s.flyVX = s.speed;
+    s.holding = false;
+    s.lastEnemy = s.on;
+    s.events.push('bounce');
+  }
+  return afterMove(level, s, prevY, crossing, jumpHeld, dp, plant, h, next);
+}
+
+/** everything after the sprite moved: plants, ropes, hazards, enemies, pickups, falls, goals */
+function afterMove(
+  level: Level,
+  s: SimState,
+  prevY: number,
+  crossing: boolean,
+  jumpHeld: boolean,
+  dp: DecisionPoint | null = null,
+  plant: Plant | null = null,
+  h = height(s),
+  next = -1,
+) {
+  // grab a rope in the air
+  if (!crossing && s.rope < 0 && !s.grounded && s.ropeCool <= 0) {
+    for (let i = 0; i < level.ropes.length; i++) {
+      const r = level.ropes[i];
+      const hand = s.y + 1.0;
+      if (Math.abs(s.x - r.x) < P.ROPE_GRAB && hand < r.y - 1.2 && hand > r.y - r.len - 0.4) {
+        s.rope = i;
+        s.ropeL = Math.max(2, Math.min(r.len, r.y - hand));
+        s.ropeA = Math.asin(Math.max(-0.9, Math.min(0.9, (s.x - r.x) / s.ropeL)));
+        s.ropeW = (s.vx * Math.cos(s.ropeA) + s.vy * Math.sin(s.ropeA)) / s.ropeL;
+        s.flyVX = 0;
+        s.gliding = false;
+        s.events.push('grab');
+        break;
+      }
+    }
+  }
+  // collapsing bridges: remember how far the sprite got
+  for (let i = 0; i < level.zones.length; i++) {
+    const z = level.zones[i];
+    if (z.kind === 'collapse' && s.grounded && s.x >= z.x0 && s.x <= z.x1 && s.x > s.zoneX[i]) {
+      if (s.zoneX[i] < -1e8) s.events.push('crack');
+      s.zoneX[i] = s.x;
+    }
+  }
+  // the chase: a boar charges from behind until the fence
+  if (!crossing && !s.boarDone) {
+    const ci = level.zones.findIndex((z) => z.kind === 'chase');
+    if (ci >= 0) {
+      const z = level.zones[ci];
+      if (Number.isNaN(s.boarX) && s.x >= z.x0) {
+        s.boarX = s.x - P.BOAR_START;
+        s.events.push('boar');
+      } else if (!Number.isNaN(s.boarX)) {
+        s.boarX += s.speed * P.BOAR_SPEED * P.DT;
+        if (s.boarX >= z.x1 - 1.2) {
+          s.boarX = z.x1 - 1.2;
+          s.boarDone = true;
+          s.events.push('boarStop');
+        } else if (Math.abs(s.boarX - s.x) < 0.9 && s.y < (z.y ?? 0) + 0.9 && s.mode === 'run') {
+          hit(s);
+          s.boarX -= 4;
+        }
+      }
+    }
   }
 
   // mushroom: bounce
@@ -553,16 +790,23 @@ export function step(level: Level, s: SimState, inp: Input) {
       }
   }
 
+  // the crocodile's lake: a heart, back to the last checkpoint
+  if (!crossing && s.mode === 'run') {
+    const w = level.water.find((q) => q.croc && s.x >= q.x0 && s.x <= q.x1);
+    if (w && s.y < w.y - 0.3) {
+      s.events.push('croc');
+      s.invuln = 0;
+      hit(s);
+      if ((s.mode as Mode) === 'lost') return;
+      respawn(s);
+      s.invuln = 1.2;
+      return;
+    }
+  }
   // fell
   if (s.y < level.killY) {
     if (crossing) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
-    s.x = s.cpX;
-    s.y = s.cpY;
-    s.vx = s.vy = 0;
-    s.grounded = true;
-    s.invuln = 1;
-    s.ducking = false;
-    s.duckT = 0;
+    respawn(s);
     s.events.push('fall');
     return;
   }

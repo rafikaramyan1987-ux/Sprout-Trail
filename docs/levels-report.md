@@ -7,107 +7,111 @@ inputs in 50 ms slices. A level passes when the bot finishes it with all 3 golde
 seeds; at every decision point the answer crosses (and collects the decision point's acorn), "also works" plants
 cross but miss that acorn and every other plant fails; every hazard is on screen at least 1.0 s
 before the sprite reaches it ("min. warning"); the recorded inputs replay to the same win; and the run lasts
-45-120 s.
+45-120 s. Set pieces (hanging and sinking planks, ropes over a crocodile lake, drifting logs, lily pads, bouncy
+mushrooms, wind gusts, collapsing bridges, the boar chase, dark caves, waterfalls, dandelion glides) are part of the
+same simulation and played by the same bot. Across levels: no two levels in a row share their main set piece or
+their first scenery variant, every level's scenery changes at least once, and every world starts harder than the
+previous one ended (designed difficulty 0..1).
 
 **95 of 95 levels pass.**
 
-| Level | Result | Bot time | Speed (start → end) | Hazards | Min. warning | Acorns | Hearts left | Gems | Seeds used | Decision points |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1-1 | ok | 51 s | 4.60 → 4.98 | 10 | 1.45 s | 3/3 | 3/3 | 87/87 | 0/0 | 0 |
-| 1-2 | ok | 49 s | 4.60 → 4.88 | 10 | 1.47 s | 3/3 | 3/3 | 79/79 | 1/3 | 1 |
-| 1-3 | ok | 50 s | 4.60 → 4.98 | 11 | 1.17 s | 3/3 | 3/3 | 60/63 | 2/4 | 2 |
-| 1-4 | ok | 64 s | 4.68 → 5.42 | 12 | 1.47 s | 3/3 | 3/3 | 117/117 | 2/4 | 2 |
-| 1-5 | ok | 69 s | 4.71 → 5.45 | 15 | 1.37 s | 3/3 | 3/3 | 119/119 | 2/4 | 2 |
-| 1-6 | ok | 65 s | 4.74 → 5.48 | 13 | 1.17 s | 3/3 | 3/3 | 117/119 | 2/4 | 2 |
-| 1-7 | ok | 72 s | 4.77 → 5.52 | 17 | 1.17 s | 3/3 | 3/3 | 136/138 | 2/4 | 2 |
-| 1-8 | ok | 70 s | 4.79 → 5.55 | 14 | 1.13 s | 3/3 | 3/3 | 118/118 | 2/4 | 2 |
-| 1-9 | ok | 76 s | 4.82 → 5.86 | 16 | 1.15 s | 3/3 | 3/3 | 157/159 | 3/5 | 3 |
-| 1-10 | ok | 79 s | 4.85 → 5.89 | 15 | 1.12 s | 3/3 | 3/3 | 137/137 | 3/5 | 3 |
-| 1-11 | ok | 84 s | 4.88 → 5.93 | 18 | 1.15 s | 3/3 | 3/3 | 157/159 | 3/5 | 3 |
-| 1-12 | ok | 84 s | 4.90 → 5.96 | 26 | 1.12 s | 3/3 | 3/3 | 158/160 | 3/5 | 3 |
-| 2-1 | ok | 58 s | 4.83 → 5.03 | 14 | 1.27 s | 3/3 | 3/3 | 113/113 | 1/2 | 1 |
-| 2-2 | ok | 68 s | 4.86 → 5.15 | 12 | 1.33 s | 3/3 | 3/3 | 123/123 | 2/3 | 2 |
-| 2-3 | ok | 67 s | 4.89 → 5.18 | 11 | 1.15 s | 3/3 | 3/3 | 128/128 | 2/3 | 2 |
-| 2-4 | ok | 69 s | 4.91 → 5.69 | 16 | 1.33 s | 3/3 | 3/3 | 145/145 | 2/3 | 2 |
-| 2-5 | ok | 74 s | 4.94 → 5.72 | 22 | 1.18 s | 3/3 | 3/3 | 158/158 | 2/3 | 2 |
-| 2-6 | ok | 74 s | 4.97 → 5.75 | 20 | 1.15 s | 3/3 | 3/3 | 149/149 | 2/3 | 2 |
-| 2-7 | ok | 75 s | 5.00 → 5.78 | 18 | 1.13 s | 3/3 | 3/3 | 145/145 | 2/3 | 2 |
-| 2-8 | ok | 89 s | 5.02 → 6.11 | 24 | 1.27 s | 3/3 | 3/3 | 187/187 | 3/4 | 3 |
-| 2-9 | ok | 85 s | 5.05 → 6.14 | 24 | 1.33 s | 3/3 | 3/3 | 164/164 | 3/4 | 3 |
-| 2-10 | ok | 91 s | 5.08 → 6.17 | 25 | 1.22 s | 3/3 | 3/3 | 170/170 | 3/4 | 3 |
-| 2-11 | ok | 93 s | 5.11 → 6.21 | 26 | 1.17 s | 3/3 | 3/3 | 178/178 | 3/4 | 3 |
-| 2-12 | ok | 104 s | 5.13 → 6.55 | 33 | 1.25 s | 3/3 | 3/3 | 206/206 | 4/5 | 4 |
-| 3-1 | ok | 63 s | 5.06 → 5.37 | 12 | 1.33 s | 3/3 | 3/3 | 108/108 | 1/2 | 1 |
-| 3-2 | ok | 75 s | 5.09 → 5.40 | 10 | 1.17 s | 3/3 | 3/3 | 130/130 | 2/3 | 2 |
-| 3-3 | ok | 76 s | 5.12 → 5.43 | 20 | 1.13 s | 3/3 | 3/3 | 114/114 | 2/3 | 2 |
-| 3-4 | ok | 74 s | 5.14 → 5.95 | 20 | 1.13 s | 3/3 | 3/3 | 147/149 | 2/3 | 2 |
-| 3-5 | ok | 84 s | 5.17 → 6.28 | 26 | 1.13 s | 3/3 | 3/3 | 146/146 | 2/3 | 2 |
-| 3-6 | ok | 80 s | 5.20 → 6.02 | 28 | 1.13 s | 3/3 | 3/3 | 136/136 | 2/3 | 2 |
-| 3-7 | ok | 91 s | 5.23 → 6.35 | 31 | 1.12 s | 3/3 | 3/3 | 150/150 | 3/4 | 3 |
-| 3-8 | ok | 88 s | 5.25 → 6.39 | 30 | 1.13 s | 3/3 | 3/3 | 173/175 | 3/4 | 3 |
-| 3-9 | ok | 99 s | 5.28 → 6.42 | 41 | 1.13 s | 3/3 | 3/3 | 135/135 | 3/4 | 3 |
-| 3-10 | ok | 97 s | 5.31 → 6.45 | 37 | 1.13 s | 3/3 | 3/3 | 195/195 | 3/4 | 3 |
-| 3-11 | ok | 103 s | 5.34 → 6.81 | 33 | 1.13 s | 3/3 | 3/3 | 174/174 | 4/5 | 4 |
-| 3-12 | ok | 101 s | 5.36 → 6.85 | 36 | 1.13 s | 3/3 | 3/3 | 170/170 | 4/5 | 4 |
-| 4-1 | ok | 82 s | 5.29 → 5.73 | 15 | 1.07 s | 3/3 | 3/3 | 117/117 | 1/2 | 1 |
-| 4-2 | ok | 79 s | 5.32 → 5.64 | 18 | 1.13 s | 3/3 | 3/3 | 128/128 | 2/3 | 2 |
-| 4-3 | ok | 76 s | 5.35 → 5.67 | 18 | 1.12 s | 3/3 | 3/3 | 136/136 | 2/3 | 2 |
-| 4-4 | ok | 82 s | 5.37 → 6.22 | 28 | 1.07 s | 3/3 | 3/3 | 141/141 | 2/3 | 2 |
-| 4-5 | ok | 89 s | 5.40 → 6.25 | 27 | 1.07 s | 3/3 | 3/3 | 165/165 | 2/3 | 2 |
-| 4-6 | ok | 90 s | 5.43 → 6.60 | 25 | 1.08 s | 3/3 | 3/3 | 164/164 | 3/4 | 3 |
-| 4-7 | ok | 90 s | 5.46 → 6.63 | 26 | 1.07 s | 3/3 | 3/3 | 178/178 | 3/4 | 3 |
-| 4-8 | ok | 97 s | 5.48 → 6.66 | 28 | 1.07 s | 3/3 | 3/3 | 178/180 | 3/4 | 3 |
-| 4-9 | ok | 104 s | 5.51 → 6.70 | 37 | 1.07 s | 3/3 | 3/3 | 205/205 | 3/4 | 3 |
-| 4-10 | ok | 105 s | 5.54 → 6.90 | 34 | 1.08 s | 3/3 | 3/3 | 241/241 | 4/5 | 4 |
-| 4-11 | ok | 105 s | 5.57 → 6.90 | 33 | 1.08 s | 3/3 | 3/3 | 237/241 | 4/5 | 4 |
-| 4-12 | ok | 112 s | 5.59 → 6.90 | 39 | 1.08 s | 3/3 | 3/3 | 228/230 | 4/5 | 4 |
-| 5-1 | ok | 56 s | 5.52 → 5.74 | 12 | 1.17 s | 3/3 | 3/3 | 99/99 | 2/3 | 2 |
-| 5-2 | ok | 73 s | 5.55 → 6.00 | 18 | 1.17 s | 3/3 | 3/3 | 130/130 | 1/2 | 1 |
-| 5-3 | ok | 55 s | 5.58 → 5.80 | 7 | 1.13 s | 3/3 | 3/3 | 98/98 | 2/3 | 2 |
-| 5-4 | ok | 60 s | 5.60 → 6.18 | 15 | 1.13 s | 3/3 | 3/3 | 147/147 | 2/3 | 2 |
-| 5-5 | ok | 75 s | 5.63 → 6.52 | 21 | 1.15 s | 3/3 | 3/3 | 152/152 | 3/4 | 3 |
-| 5-6 | ok | 75 s | 5.66 → 6.55 | 22 | 1.08 s | 3/3 | 3/3 | 155/155 | 3/4 | 3 |
-| 5-7 | ok | 101 s | 5.69 → 6.90 | 31 | 1.08 s | 3/3 | 3/3 | 212/212 | 3/4 | 3 |
-| 5-8 | ok | 98 s | 5.71 → 6.90 | 32 | 1.08 s | 3/3 | 3/3 | 197/199 | 3/4 | 3 |
-| 5-9 | ok | 71 s | 5.74 → 6.65 | 22 | 1.10 s | 3/3 | 3/3 | 117/117 | 4/5 | 4 |
-| 5-10 | ok | 74 s | 5.77 → 6.68 | 23 | 1.08 s | 3/3 | 3/3 | 137/137 | 4/5 | 4 |
-| 5-11 | ok | 69 s | 5.80 → 6.71 | 26 | 1.08 s | 3/3 | 3/3 | 121/121 | 4/5 | 4 |
-| 5-12 | ok | 86 s | 5.82 → 6.90 | 34 | 1.10 s | 3/3 | 3/3 | 162/162 | 4/5 | 4 |
-| 1-S | ok | 92 s | 4.90 → 6.26 | 19 | 1.15 s | 3/3 | 3/3 | 188/190 | 4/6 | 4 |
-| 2-S | ok | 104 s | 5.13 → 6.55 | 33 | 1.25 s | 3/3 | 3/3 | 206/206 | 4/5 | 4 |
-| 3-S | ok | 108 s | 5.36 → 6.85 | 37 | 1.13 s | 3/3 | 3/3 | 193/193 | 4/5 | 4 |
-| 4-S | ok | 113 s | 5.59 → 6.90 | 39 | 1.08 s | 3/3 | 3/3 | 240/242 | 4/5 | 4 |
-| 5-S | ok | 86 s | 5.82 → 6.90 | 34 | 1.10 s | 3/3 | 3/3 | 162/162 | 4/5 | 4 |
-| daily-0 | ok | 77 s | 4.79 → 5.83 | 14 | 1.17 s | 3/3 | 3/3 | 133/135 | 3/5 | 3 |
-| daily-1 | ok | 86 s | 5.02 → 6.11 | 23 | 1.27 s | 3/3 | 3/3 | 184/184 | 3/4 | 3 |
-| daily-2 | ok | 89 s | 5.25 → 6.39 | 34 | 1.13 s | 3/3 | 3/3 | 133/133 | 3/4 | 3 |
-| daily-3 | ok | 91 s | 5.48 → 6.66 | 30 | 1.08 s | 3/3 | 3/3 | 173/175 | 3/4 | 3 |
-| daily-4 | ok | 85 s | 5.71 → 6.90 | 26 | 1.08 s | 3/3 | 3/3 | 175/177 | 4/5 | 4 |
-| daily-5 | ok | 76 s | 4.79 → 5.83 | 16 | 1.17 s | 3/3 | 3/3 | 159/159 | 3/5 | 3 |
-| daily-6 | ok | 86 s | 5.02 → 6.11 | 27 | 1.12 s | 3/3 | 3/3 | 168/170 | 3/4 | 3 |
-| daily-7 | ok | 88 s | 5.25 → 6.39 | 32 | 1.13 s | 3/3 | 3/3 | 142/142 | 3/4 | 3 |
-| daily-8 | ok | 95 s | 5.48 → 6.66 | 31 | 1.08 s | 3/3 | 3/3 | 196/196 | 3/4 | 3 |
-| daily-9 | ok | 82 s | 5.71 → 6.90 | 30 | 1.08 s | 3/3 | 3/3 | 159/159 | 4/5 | 4 |
-| daily-10 | ok | 76 s | 4.79 → 5.83 | 12 | 1.43 s | 3/3 | 3/3 | 158/158 | 3/5 | 3 |
-| daily-11 | ok | 86 s | 5.02 → 6.11 | 26 | 1.17 s | 3/3 | 3/3 | 177/179 | 3/4 | 3 |
-| daily-12 | ok | 91 s | 5.25 → 6.39 | 30 | 1.13 s | 3/3 | 3/3 | 190/190 | 3/4 | 3 |
-| daily-13 | ok | 91 s | 5.48 → 6.66 | 37 | 1.07 s | 3/3 | 3/3 | 161/161 | 3/4 | 3 |
-| daily-14 | ok | 89 s | 5.71 → 6.90 | 30 | 1.08 s | 3/3 | 3/3 | 155/157 | 4/5 | 4 |
-| daily-15 | ok | 77 s | 4.79 → 5.83 | 19 | 1.15 s | 3/3 | 3/3 | 128/128 | 3/5 | 3 |
-| daily-16 | ok | 82 s | 5.02 → 6.11 | 24 | 1.15 s | 3/3 | 3/3 | 150/152 | 3/4 | 3 |
-| daily-17 | ok | 91 s | 5.25 → 6.39 | 32 | 1.13 s | 3/3 | 3/3 | 154/156 | 3/4 | 3 |
-| daily-18 | ok | 93 s | 5.48 → 6.66 | 28 | 1.08 s | 3/3 | 3/3 | 170/170 | 3/4 | 3 |
-| daily-19 | ok | 67 s | 5.71 → 6.61 | 24 | 1.08 s | 3/3 | 3/3 | 127/129 | 4/5 | 4 |
-| daily-20 | ok | 81 s | 4.79 → 5.83 | 20 | 1.27 s | 3/3 | 3/3 | 141/143 | 3/5 | 3 |
-| daily-21 | ok | 84 s | 5.02 → 6.11 | 19 | 1.28 s | 3/3 | 3/3 | 161/161 | 3/4 | 3 |
-| daily-22 | ok | 91 s | 5.25 → 6.39 | 26 | 1.15 s | 3/3 | 3/3 | 172/172 | 3/4 | 3 |
-| daily-23 | ok | 95 s | 5.48 → 6.66 | 33 | 1.07 s | 3/3 | 3/3 | 180/180 | 3/4 | 3 |
-| daily-24 | ok | 88 s | 5.71 → 6.90 | 25 | 1.08 s | 3/3 | 3/3 | 187/187 | 4/5 | 4 |
-| daily-25 | ok | 77 s | 4.79 → 5.83 | 16 | 1.13 s | 3/3 | 3/3 | 127/128 | 3/5 | 3 |
-| daily-26 | ok | 83 s | 5.02 → 6.11 | 22 | 1.13 s | 3/3 | 3/3 | 156/156 | 3/4 | 3 |
-| daily-27 | ok | 100 s | 5.25 → 6.39 | 35 | 1.13 s | 3/3 | 3/3 | 165/165 | 3/4 | 3 |
-| daily-28 | ok | 93 s | 5.48 → 6.66 | 28 | 1.08 s | 3/3 | 3/3 | 168/168 | 3/4 | 3 |
-| daily-29 | ok | 92 s | 5.71 → 6.90 | 30 | 1.08 s | 3/3 | 3/3 | 171/173 | 4/5 | 4 |
+| Level | Result | Set pieces | Scenery | Difficulty | Bot time | Speed (start → end) | Hazards incl. pits (per min. with platforms, ropes) | Min. warning | Acorns | Hearts left | Gems | Seeds used | Decision points |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1-1 | ok | planks | meadow → sunset | 0.04 | 55 s | 4.60 → 5.08 | 16 (22/min) | 1.63 s | 3/3 | 3/3 | 91/91 | 0/0 | 0 |
+| 1-2 | ok | shrooms | sunset → rain | 0.08 | 53 s | 4.60 → 4.88 | 17 (21/min) | 1.65 s | 3/3 | 3/3 | 81/81 | 1/3 | 1 |
+| 1-3 | ok | ropes | lake → meadow | 0.30 | 69 s | 4.65 → 5.68 | 23 (22/min) | 1.30 s | 3/3 | 3/3 | 139/142 | 2/3 | 2 |
+| 1-4 | ok | logs + collapse | meadow → sunset | 0.31 | 74 s | 4.67 → 5.72 | 20 (19/min) | 1.25 s | 3/3 | 3/3 | 129/131 | 2/3 | 2 |
+| 1-5 | ok | collapse + shrooms | sunset → rain | 0.32 | 62 s | 4.69 → 5.75 | 17 (19/min) | 1.53 s | 3/3 | 3/3 | 107/107 | 2/3 | 2 |
+| 1-6 | ok | glide + logs | rain → lake | 0.34 | 83 s | 4.72 → 5.79 | 27 (22/min) | 1.27 s | 3/3 | 3/3 | 155/160 | 2/3 | 2 |
+| 1-7 | ok | chase + ropes | lake → meadow | 0.35 | 75 s | 4.74 → 5.82 | 26 (23/min) | 1.58 s | 3/3 | 3/3 | 142/143 | 2/3 | 2 |
+| 1-8 | ok | planks + glide | meadow → sunset | 0.36 | 67 s | 4.76 → 5.86 | 17 (21/min) | 1.25 s | 3/3 | 3/3 | 113/116 | 2/3 | 2 |
+| 1-9 | ok | ropes + chase | sunset → rain | 0.37 | 71 s | 4.79 → 5.89 | 25 (24/min) | 1.48 s | 3/3 | 3/3 | 119/119 | 2/3 | 2 |
+| 1-10 | ok | shrooms + glide | rain → lake | 0.39 | 69 s | 4.81 → 5.93 | 22 (22/min) | 1.30 s | 3/3 | 3/3 | 109/112 | 2/3 | 2 |
+| 1-11 | ok | logs + planks | lake → meadow | 0.40 | 76 s | 4.83 → 5.97 | 25 (28/min) | 1.47 s | 3/3 | 3/3 | 139/139 | 2/3 | 2 |
+| 1-12 | ok | chase + ropes | meadow → sunset | 0.41 | 88 s | 4.86 → 6.26 | 35 (26/min) | 1.27 s | 3/3 | 3/3 | 136/137 | 2/2 | 2 |
+| 2-1 | ok | cave + waterfall | glow → falls | 0.42 | 82 s | 4.88 → 6.04 | 28 (21/min) | 1.35 s | 3/3 | 3/3 | 156/156 | 2/2 | 2 |
+| 2-2 | ok | waterfall + shrooms | falls → pines | 0.44 | 67 s | 4.90 → 6.07 | 21 (22/min) | 1.47 s | 3/3 | 3/3 | 119/119 | 2/2 | 2 |
+| 2-3 | ok | planks + shrooms | pines → roots | 0.45 | 66 s | 4.93 → 6.11 | 22 (28/min) | 1.47 s | 3/3 | 3/3 | 115/115 | 2/2 | 2 |
+| 2-4 | ok | ropes + chase | roots → glow → falls | 0.46 | 83 s | 4.95 → 6.15 | 32 (25/min) | 1.32 s | 3/3 | 3/3 | 174/177 | 2/2 | 2 |
+| 2-5 | ok | chase + shrooms | glow → falls → pines | 0.47 | 77 s | 4.97 → 6.18 | 27 (24/min) | 1.30 s | 3/3 | 3/3 | 128/128 | 2/2 | 2 |
+| 2-6 | ok | cave + collapse | falls → pines → roots | 0.48 | 74 s | 5.00 → 6.22 | 26 (21/min) | 1.35 s | 3/3 | 3/3 | 138/138 | 2/2 | 2 |
+| 2-7 | ok | glide + ropes | pines → roots → glow | 0.50 | 65 s | 5.02 → 6.25 | 20 (21/min) | 1.35 s | 3/3 | 3/3 | 105/111 | 2/2 | 2 |
+| 2-8 | ok | logs + waterfall | roots → glow → falls | 0.51 | 82 s | 5.04 → 6.58 | 31 (26/min) | 1.47 s | 3/3 | 3/3 | 202/206 | 3/3 | 3 |
+| 2-9 | ok | waterfall + chase | glow → falls → pines | 0.52 | 82 s | 5.07 → 6.62 | 27 (20/min) | 1.48 s | 3/3 | 3/3 | 154/154 | 3/3 | 3 |
+| 2-10 | ok | collapse + planks | falls → pines → roots | 0.53 | 77 s | 5.09 → 6.66 | 23 (22/min) | 1.50 s | 3/3 | 3/3 | 146/146 | 3/3 | 3 |
+| 2-11 | ok | shrooms + glide | pines → roots → glow | 0.55 | 80 s | 5.11 → 6.70 | 24 (20/min) | 1.27 s | 3/3 | 3/3 | 132/135 | 3/3 | 3 |
+| 2-12 | ok | ropes + logs | roots → glow → falls | 0.56 | 76 s | 5.14 → 6.74 | 25 (27/min) | 1.30 s | 3/3 | 3/3 | 151/152 | 3/3 | 3 |
+| 3-1 | ok | shrooms + logs | grotto → caps → canyon | 0.57 | 83 s | 5.16 → 6.78 | 32 (30/min) | 1.27 s | 3/3 | 3/3 | 136/136 | 3/3 | 3 |
+| 3-2 | ok | cave + planks | caps → canyon → pastel | 0.58 | 102 s | 5.18 → 6.51 | 46 (31/min) | 1.25 s | 3/3 | 3/3 | 168/168 | 2/2 | 2 |
+| 3-3 | ok | ropes + glide | canyon → pastel → grotto | 0.59 | 73 s | 5.21 → 6.55 | 31 (29/min) | 1.27 s | 3/3 | 3/3 | 106/109 | 2/2 | 2 |
+| 3-4 | ok | planks + collapse | pastel → grotto → caps | 0.61 | 82 s | 5.23 → 6.90 | 33 (29/min) | 1.33 s | 3/3 | 3/3 | 138/138 | 3/3 | 3 |
+| 3-5 | ok | glide + shrooms | grotto → caps → canyon | 0.62 | 79 s | 5.25 → 6.90 | 29 (25/min) | 1.27 s | 3/3 | 3/3 | 117/120 | 3/3 | 3 |
+| 3-6 | ok | waterfall + shrooms | caps → canyon → pastel | 0.63 | 79 s | 5.28 → 6.90 | 31 (27/min) | 1.27 s | 3/3 | 3/3 | 132/132 | 3/3 | 3 |
+| 3-7 | ok | logs + planks | canyon → pastel → grotto | 0.64 | 86 s | 5.30 → 6.90 | 34 (32/min) | 1.27 s | 3/3 | 3/3 | 131/131 | 3/3 | 3 |
+| 3-8 | ok | chase + ropes | pastel → grotto → caps | 0.66 | 83 s | 5.33 → 6.90 | 36 (29/min) | 1.25 s | 3/3 | 3/3 | 142/142 | 3/3 | 3 |
+| 3-9 | ok | shrooms + logs | grotto → caps → canyon | 0.67 | 94 s | 5.35 → 6.90 | 41 (32/min) | 1.27 s | 3/3 | 3/3 | 130/130 | 3/3 | 3 |
+| 3-10 | ok | collapse + chase | caps → canyon → pastel | 0.68 | 105 s | 5.37 → 6.90 | 50 (29/min) | 1.25 s | 3/3 | 3/3 | 192/192 | 3/3 | 3 |
+| 3-11 | ok | cave + shrooms | canyon → pastel → grotto | 0.69 | 106 s | 5.40 → 6.90 | 51 (31/min) | 1.25 s | 3/3 | 3/3 | 156/156 | 3/3 | 3 |
+| 3-12 | ok | ropes + planks | pastel → grotto → caps | 0.71 | 80 s | 5.42 → 6.90 | 35 (34/min) | 1.25 s | 3/3 | 3/3 | 130/130 | 3/3 | 3 |
+| 4-1 | ok | wind + chase | golden → ridge → dusk | 0.72 | 89 s | 5.44 → 6.90 | 39 (26/min) | 1.20 s | 3/3 | 3/3 | 178/178 | 3/3 | 3 |
+| 4-2 | ok | logs + ropes | ridge → dusk → drizzle | 0.73 | 67 s | 5.47 → 6.90 | 26 (31/min) | 1.18 s | 3/3 | 3/3 | 111/111 | 2/2 | 2 |
+| 4-3 | ok | wind + collapse | dusk → drizzle → golden | 0.74 | 98 s | 5.49 → 6.90 | 45 (28/min) | 1.10 s | 3/3 | 3/3 | 194/194 | 2/2 | 2 |
+| 4-4 | ok | chase + ropes | drizzle → golden → ridge | 0.75 | 83 s | 5.51 → 6.90 | 35 (28/min) | 1.20 s | 3/3 | 3/3 | 143/144 | 3/3 | 3 |
+| 4-5 | ok | planks + collapse | golden → ridge → dusk | 0.77 | 79 s | 5.54 → 6.90 | 27 (26/min) | 1.20 s | 3/3 | 3/3 | 143/145 | 3/3 | 3 |
+| 4-6 | ok | wind + chase | ridge → dusk → drizzle | 0.78 | 103 s | 5.56 → 6.90 | 48 (28/min) | 1.08 s | 3/3 | 3/3 | 174/174 | 3/3 | 3 |
+| 4-7 | ok | glide + logs | dusk → drizzle → golden | 0.79 | 91 s | 5.58 → 6.90 | 33 (25/min) | 1.20 s | 3/3 | 3/3 | 146/149 | 3/3 | 3 |
+| 4-8 | ok | ropes + shrooms | drizzle → golden → ridge | 0.80 | 91 s | 5.61 → 6.90 | 36 (29/min) | 1.18 s | 3/3 | 3/3 | 166/166 | 3/3 | 3 |
+| 4-9 | ok | collapse + shrooms | golden → ridge → dusk | 0.82 | 87 s | 5.63 → 6.90 | 35 (27/min) | 1.20 s | 3/3 | 3/3 | 179/181 | 3/3 | 3 |
+| 4-10 | ok | wind + ropes | ridge → dusk → drizzle | 0.83 | 102 s | 5.65 → 6.90 | 43 (28/min) | 1.20 s | 3/3 | 3/3 | 205/205 | 3/3 | 3 |
+| 4-11 | ok | waterfall + logs | dusk → drizzle → golden | 0.84 | 79 s | 5.68 → 6.90 | 30 (27/min) | 1.20 s | 3/3 | 3/3 | 177/178 | 3/3 | 3 |
+| 4-12 | ok | chase + collapse | drizzle → golden → ridge | 0.85 | 100 s | 5.70 → 6.90 | 45 (27/min) | 1.20 s | 3/3 | 3/3 | 212/212 | 4/4 | 4 |
+| 5-1 | ok | lily + ropes | lagoon → moon → mangrove | 0.86 | 82 s | 5.72 → 6.90 | 41 (40/min) | 1.25 s | 3/3 | 3/3 | 161/161 | 2/2 | 2 |
+| 5-2 | ok | ropes + chase | moon → mangrove → marsh | 0.88 | 109 s | 5.75 → 6.90 | 50 (30/min) | 1.25 s | 3/3 | 3/3 | 202/202 | 4/4 | 4 |
+| 5-3 | ok | lily + chase | mangrove → marsh → lagoon | 0.89 | 83 s | 5.77 → 6.90 | 38 (34/min) | 1.20 s | 3/3 | 3/3 | 166/166 | 2/2 | 2 |
+| 5-4 | ok | cave + waterfall | marsh → lagoon → moon | 0.90 | 118 s | 5.79 → 6.90 | 54 (28/min) | 1.20 s | 3/3 | 3/3 | 269/269 | 4/4 | 4 |
+| 5-5 | ok | logs + glide | lagoon → moon → mangrove | 0.91 | 89 s | 5.82 → 6.90 | 40 (31/min) | 1.25 s | 3/3 | 3/3 | 150/153 | 4/4 | 4 |
+| 5-6 | ok | lily + planks | moon → mangrove → marsh | 0.93 | 87 s | 5.84 → 6.90 | 35 (36/min) | 1.20 s | 3/3 | 3/3 | 153/154 | 4/4 | 4 |
+| 5-7 | ok | wind + logs | mangrove → marsh → lagoon | 0.94 | 97 s | 5.86 → 6.90 | 45 (32/min) | 1.20 s | 3/3 | 3/3 | 191/191 | 4/4 | 4 |
+| 5-8 | ok | chase + waterfall | marsh → lagoon → moon | 0.95 | 105 s | 5.89 → 6.90 | 48 (27/min) | 1.20 s | 3/3 | 3/3 | 193/193 | 4/4 | 4 |
+| 5-9 | ok | planks + lily | lagoon → moon → mangrove | 0.96 | 92 s | 5.91 → 6.90 | 35 (34/min) | 1.20 s | 3/3 | 3/3 | 162/162 | 4/4 | 4 |
+| 5-10 | ok | lily + waterfall | moon → mangrove → marsh | 0.98 | 91 s | 5.93 → 6.90 | 39 (32/min) | 1.20 s | 3/3 | 3/3 | 172/172 | 4/4 | 4 |
+| 5-11 | ok | glide + collapse | mangrove → marsh → lagoon | 0.99 | 96 s | 5.96 → 6.90 | 40 (25/min) | 1.20 s | 3/3 | 3/3 | 184/189 | 4/4 | 4 |
+| 5-12 | ok | ropes + shrooms | marsh → lagoon → moon | 1.00 | 87 s | 5.98 → 6.90 | 36 (30/min) | 1.25 s | 3/3 | 3/3 | 157/157 | 4/4 | 4 |
+| 1-S | ok | ropes + shrooms + chase | lake → meadow | 0.44 | 74 s | 4.86 → 6.56 | 23 (24/min) | 1.32 s | 3/3 | 3/3 | 135/137 | 3/3 | 3 |
+| 2-S | ok | cave + ropes + waterfall | falls → pines → roots | 0.59 | 91 s | 5.14 → 6.90 | 30 (22/min) | 1.27 s | 3/3 | 3/3 | 185/186 | 3/3 | 3 |
+| 3-S | ok | shrooms + glide + cave | grotto → caps → canyon | 0.74 | 92 s | 5.42 → 6.90 | 38 (27/min) | 1.27 s | 3/3 | 3/3 | 155/158 | 3/3 | 3 |
+| 4-S | ok | wind + collapse + chase | drizzle → golden → ridge | 0.88 | 106 s | 5.70 → 6.90 | 48 (27/min) | 1.07 s | 3/3 | 3/3 | 220/222 | 3/3 | 3 |
+| 5-S | ok | lily + ropes + wind | mangrove → marsh → lagoon | 1.00 | 89 s | 5.98 → 6.90 | 44 (38/min) | 1.13 s | 3/3 | 3/3 | 173/174 | 3/3 | 3 |
+| daily-0 | ok | planks + collapse | sunset → rain | 0.35 | 61 s | 4.74 → 5.82 | 16 (21/min) | 1.28 s | 3/3 | 3/3 | 111/113 | 2/3 | 2 |
+| daily-1 | ok | logs + ropes | glow → falls → pines | 0.50 | 65 s | 5.02 → 6.25 | 24 (29/min) | 1.48 s | 3/3 | 3/3 | 142/143 | 2/2 | 2 |
+| daily-2 | ok | shrooms + chase | grotto → caps → canyon | 0.64 | 88 s | 5.30 → 6.90 | 40 (30/min) | 1.25 s | 3/3 | 3/3 | 129/129 | 3/3 | 3 |
+| daily-3 | ok | waterfall + chase | golden → ridge → dusk | 0.79 | 88 s | 5.58 → 6.90 | 41 (28/min) | 1.20 s | 3/3 | 3/3 | 192/194 | 3/3 | 3 |
+| daily-4 | ok | ropes + cave | moon → mangrove → marsh | 0.94 | 111 s | 5.86 → 6.90 | 51 (30/min) | 1.20 s | 3/3 | 3/3 | 219/219 | 4/4 | 4 |
+| daily-5 | ok | planks + shrooms | rain → lake | 0.35 | 67 s | 4.74 → 5.82 | 21 (26/min) | 1.40 s | 3/3 | 3/3 | 114/114 | 2/3 | 2 |
+| daily-6 | ok | ropes + shrooms | falls → pines → roots | 0.50 | 68 s | 5.02 → 6.25 | 25 (28/min) | 1.35 s | 3/3 | 3/3 | 128/130 | 2/2 | 2 |
+| daily-7 | ok | planks + glide | caps → canyon → pastel | 0.64 | 87 s | 5.30 → 6.90 | 34 (28/min) | 1.27 s | 3/3 | 3/3 | 130/133 | 3/3 | 3 |
+| daily-8 | ok | logs + collapse | ridge → dusk → drizzle | 0.79 | 81 s | 5.58 → 6.90 | 28 (24/min) | 1.20 s | 3/3 | 3/3 | 172/172 | 3/3 | 3 |
+| daily-9 | ok | planks + shrooms | moon → mangrove → marsh | 0.94 | 89 s | 5.86 → 6.90 | 36 (33/min) | 1.18 s | 3/3 | 3/3 | 153/153 | 4/4 | 4 |
+| daily-10 | ok | planks + collapse | lake → meadow | 0.35 | 63 s | 4.74 → 5.82 | 19 (23/min) | 1.50 s | 3/3 | 3/3 | 128/128 | 2/3 | 2 |
+| daily-11 | ok | shrooms + planks | pines → roots → glow | 0.50 | 75 s | 5.02 → 6.25 | 28 (29/min) | 1.45 s | 3/3 | 3/3 | 153/155 | 2/2 | 2 |
+| daily-12 | ok | waterfall + logs | canyon → pastel → grotto | 0.64 | 82 s | 5.30 → 6.90 | 33 (28/min) | 1.25 s | 3/3 | 3/3 | 171/171 | 3/3 | 3 |
+| daily-13 | ok | waterfall + planks | dusk → drizzle → golden | 0.79 | 80 s | 5.58 → 6.90 | 27 (26/min) | 1.20 s | 3/3 | 3/3 | 145/145 | 3/3 | 3 |
+| daily-14 | ok | ropes + chase | mangrove → marsh → lagoon | 0.94 | 89 s | 5.86 → 6.90 | 39 (29/min) | 1.22 s | 3/3 | 3/3 | 187/189 | 4/4 | 4 |
+| daily-15 | ok | planks + shrooms | meadow → sunset | 0.35 | 72 s | 4.74 → 5.82 | 23 (26/min) | 1.27 s | 3/3 | 3/3 | 127/127 | 2/3 | 2 |
+| daily-16 | ok | planks + waterfall | roots → glow → falls | 0.50 | 66 s | 5.02 → 6.25 | 19 (23/min) | 1.25 s | 3/3 | 3/3 | 115/115 | 2/2 | 2 |
+| daily-17 | ok | cave + ropes | pastel → grotto → caps | 0.64 | 89 s | 5.30 → 6.90 | 34 (26/min) | 1.27 s | 3/3 | 3/3 | 173/174 | 3/3 | 3 |
+| daily-18 | ok | logs + cave | drizzle → golden → ridge | 0.79 | 103 s | 5.58 → 6.90 | 40 (26/min) | 1.20 s | 3/3 | 3/3 | 191/191 | 3/3 | 3 |
+| daily-19 | ok | collapse + planks | marsh → lagoon → moon | 0.94 | 87 s | 5.86 → 6.90 | 37 (31/min) | 1.20 s | 3/3 | 3/3 | 182/184 | 4/4 | 4 |
+| daily-20 | ok | planks + collapse | sunset → rain | 0.35 | 62 s | 4.74 → 5.82 | 17 (21/min) | 1.27 s | 3/3 | 3/3 | 98/98 | 2/3 | 2 |
+| daily-21 | ok | waterfall + chase | glow → falls → pines | 0.50 | 87 s | 5.02 → 6.25 | 32 (22/min) | 1.25 s | 3/3 | 3/3 | 159/159 | 2/2 | 2 |
+| daily-22 | ok | chase + shrooms | grotto → caps → canyon | 0.64 | 103 s | 5.30 → 6.90 | 45 (29/min) | 1.28 s | 3/3 | 3/3 | 197/197 | 3/3 | 3 |
+| daily-23 | ok | waterfall + logs | golden → ridge → dusk | 0.79 | 88 s | 5.58 → 6.90 | 32 (25/min) | 1.20 s | 3/3 | 3/3 | 156/156 | 3/3 | 3 |
+| daily-24 | ok | chase + glide | lagoon → moon → mangrove | 0.94 | 101 s | 5.86 → 6.90 | 46 (27/min) | 1.20 s | 3/3 | 3/3 | 170/173 | 4/4 | 4 |
+| daily-25 | ok | planks + shrooms | rain → lake | 0.35 | 70 s | 4.74 → 5.82 | 23 (27/min) | 1.25 s | 3/3 | 3/3 | 130/132 | 2/3 | 2 |
+| daily-26 | ok | cave + glide | falls → pines → roots | 0.50 | 87 s | 5.02 → 6.54 | 34 (23/min) | 1.30 s | 3/3 | 3/3 | 175/178 | 2/2 | 2 |
+| daily-27 | ok | glide + planks | caps → canyon → pastel | 0.64 | 91 s | 5.30 → 6.90 | 40 (31/min) | 1.25 s | 3/3 | 3/3 | 133/136 | 3/3 | 3 |
+| daily-28 | ok | logs + planks | ridge → dusk → drizzle | 0.79 | 83 s | 5.58 → 6.90 | 37 (36/min) | 1.20 s | 3/3 | 3/3 | 136/136 | 3/3 | 3 |
+| daily-29 | ok | waterfall + planks | moon → mangrove → marsh | 0.94 | 96 s | 5.86 → 6.90 | 38 (29/min) | 1.12 s | 3/3 | 3/3 | 186/188 | 4/4 | 4 |
 
 ## Decision points
 
@@ -121,548 +125,541 @@ No decision points.
 
 ### 1-3
 
-1. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
-2. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns)
+1. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
+2. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses
 
 ### 1-4
 
-1. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
-2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
+1. thorns 5 wide: **mushroom** — vine fails (thorns), bridge fails (thorns), mushroom crosses
+2. wall 5 high: **vine** — bridge fails (bonk), mushroom fails (bonk), vine crosses
 
 ### 1-5
 
-1. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
-2. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
+1. wall 5 high: **vine** — bridge fails (bonk), mushroom fails (bonk), vine crosses
+2. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
 
 ### 1-6
 
-1. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns)
-2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
+1. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses
+2. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
 
 ### 1-7
 
-1. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
-2. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, bridge fails (thorns)
+1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
+2. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
 
 ### 1-8
 
-1. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
+1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
 2. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
 
 ### 1-9
 
-1. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns)
-2. wall 5 high: **vine** — mushroom fails (bonk), vine crosses, bridge fails (bonk)
-3. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
+1. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
+2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
 
 ### 1-10
 
-1. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
-2. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
-3. wall 5 high: **vine** — mushroom fails (bonk), vine crosses, bridge fails (bonk)
+1. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
+2. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
 
 ### 1-11
 
-1. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), bridge fails (thorns)
-2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
-3. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
+1. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
+2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
 
 ### 1-12
 
-1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
-2. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
-3. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, bridge fails (thorns)
+1. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
+2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
 
 ### 2-1
 
-1. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
+2. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge crosses, vine fails (splash)
 
 ### 2-2
 
-1. cliff 13 wide, 4 down: **leaf** — leaf crosses, mushroom fails (fall), bridge fails (fall)
-2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), mushroom fails (fall)
+2. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), mushroom crosses +acorn, bridge crosses
 
 ### 2-3
 
-1. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), mushroom crosses +acorn, bridge crosses
-2. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
+1. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, mushroom crosses +acorn, vine fails (splash)
+2. river 5.5 wide: **bridge** — leaf fails (splash), bridge crosses, vine fails (splash)
 
 ### 2-4
 
-1. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge crosses, vine fails (splash)
-2. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
+2. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
 
 ### 2-5
 
-1. river 5.5 wide: **bridge** — bridge crosses, leaf fails (splash), vine fails (splash)
-2. wall 5 high: **vine** — mushroom fails (bonk), vine crosses, bridge fails (bonk)
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+2. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
 
 ### 2-6
 
-1. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), mushroom crosses +acorn, bridge crosses
-2. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
+2. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
 
 ### 2-7
 
-1. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
-2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
+2. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge crosses, vine fails (splash)
 
 ### 2-8
 
 1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
-2. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
-3. wall 5 high: **vine** — bridge fails (bonk), mushroom fails (bonk), vine crosses
+2. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
+3. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, leaf fails (thorns), bridge fails (thorns)
 
 ### 2-9
 
-1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
-2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
+1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
+2. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
 3. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
 
 ### 2-10
 
-1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
-2. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
-3. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+1. wall 3 high: **vine** (+acorn) — mushroom crosses, vine crosses +acorn, leaf fails (bonk)
+2. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash), leaf fails (splash)
+3. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
 
 ### 2-11
 
 1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
-2. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
-3. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
+2. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
+3. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
 
 ### 2-12
 
 1. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
-3. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
-4. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+2. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
+3. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses, leaf fails (fall)
 
 ### 3-1
 
-1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
+1. river 5.5 wide: **bridge** — bridge crosses, leaf fails (splash), vine fails (splash)
+2. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
+3. wall 5 high: **vine** — tree fails (bonk), bridge fails (bonk), vine crosses, mushroom fails (bonk)
 
 ### 3-2
 
-1. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
+1. river 8.5 wide: **tree** — mushroom fails (splash), tree crosses, bridge fails (splash)
+2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), tree fails (fall), leaf crosses
 
 ### 3-3
 
-1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
-2. wall 5 high: **vine** — bridge fails (bonk), tree fails (bonk), mushroom fails (bonk), vine crosses
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
+2. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
 
 ### 3-4
 
-1. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
-2. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns), leaf fails (thorns)
+1. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
+2. wall 5 high: **vine** — bridge fails (bonk), tree fails (bonk), vine crosses, mushroom fails (bonk)
+3. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
 
 ### 3-5
 
-1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
-2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
+1. river 5.5 wide: **bridge** — leaf fails (splash), vine fails (splash), bridge crosses
+2. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), bridge crosses, mushroom crosses +acorn
+3. river 8.5 wide: **tree** — mushroom fails (splash), bridge fails (splash), tree crosses
 
 ### 3-6
 
-1. wall 5 high: **vine** — bridge fails (bonk), tree fails (bonk), vine crosses, mushroom fails (bonk)
-2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+2. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
+3. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
 
 ### 3-7
 
-1. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
-2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
-3. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
+1. river 8.5 wide: **tree** — mushroom fails (splash), tree crosses, bridge fails (splash)
+2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
+3. wall 5 high: **vine** — bridge fails (bonk), tree fails (bonk), mushroom fails (bonk), vine crosses
 
 ### 3-8
 
-1. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
-2. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses, leaf fails (thorns)
-3. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
+2. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
+3. wall 5 high: **vine** — tree fails (bonk), vine crosses, mushroom fails (bonk), bridge fails (bonk)
 
 ### 3-9
 
-1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
-2. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
-3. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), bridge crosses, mushroom crosses +acorn
+1. river 8.5 wide: **tree** — mushroom fails (splash), tree crosses, bridge fails (splash)
+2. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
+3. river 8.5 wide: **tree** — mushroom fails (splash), bridge fails (splash), tree crosses
 
 ### 3-10
 
-1. river 8.5 wide: **tree** — tree crosses, bridge fails (splash), mushroom fails (splash)
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
-3. river 5.5 wide: **bridge** — bridge crosses, leaf fails (splash), vine fails (splash)
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), tree fails (fall), leaf crosses
+2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+3. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
 
 ### 3-11
 
-1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash), leaf fails (splash)
-2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
-3. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-4. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
+2. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
+3. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
 
 ### 3-12
 
-1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
-2. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
-3. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
-4. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), tree fails (fall), leaf crosses
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
+2. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
+3. river 8.5 wide: **tree** — tree crosses, bridge fails (splash), mushroom fails (splash)
 
 ### 4-1
 
-1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
+1. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), tree fails (thorns), vine fails (thorns)
+2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
+3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
 
 ### 4-2
 
-1. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), log crosses, vine fails (thorns)
-2. river 5.5 wide: **bridge** — leaf fails (splash), bridge crosses, vine fails (splash)
+1. thorns 3.4 wide: **log** — vine fails (thorns), log crosses, tree fails (thorns), bridge fails (thorns)
+2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
 
 ### 4-3
 
-1. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge fails (thorns), log crosses
-2. thorns 3.4 wide: **log** — bridge fails (thorns), vine fails (thorns), log crosses, tree fails (thorns)
+1. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
+2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
 
 ### 4-4
 
 1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
 2. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), log crosses, vine fails (thorns)
+3. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
 
 ### 4-5
 
-1. thorns 3.4 wide: **log** — bridge fails (thorns), vine fails (thorns), tree fails (thorns), log crosses
-2. cliff 13 wide, 4 down: **leaf** — leaf crosses, mushroom fails (fall), bridge fails (fall)
+1. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, bridge fails (thorns), leaf fails (thorns)
+2. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
+3. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
 
 ### 4-6
 
-1. thorns 3.4 wide: **log** — tree fails (thorns), vine fails (thorns), bridge fails (thorns), log crosses
-2. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), bridge crosses, mushroom crosses +acorn
-3. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
+2. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses, tree fails (bonk)
+3. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
 
 ### 4-7
 
-1. thorns 3.4 wide: **log** — bridge fails (thorns), log crosses, tree fails (thorns), vine fails (thorns)
-2. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
-3. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, log crosses, bridge fails (thorns)
+1. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
+2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
+3. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
 
 ### 4-8
 
-1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
-2. thorns 5 wide: **mushroom** — vine fails (thorns), bridge fails (thorns), mushroom crosses, leaf fails (thorns)
-3. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+1. thorns 3.4 wide: **log** — tree fails (thorns), vine fails (thorns), log crosses, bridge fails (thorns)
+2. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, bridge fails (thorns), mushroom crosses +acorn
+3. thorns 3.4 wide: **log** — vine fails (thorns), bridge fails (thorns), tree fails (thorns), log crosses
 
 ### 4-9
 
-1. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
-2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
-3. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), log crosses, vine fails (thorns)
+1. thorns 5 wide: **mushroom** — bridge fails (thorns), leaf fails (thorns), mushroom crosses, vine fails (thorns)
+2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
+3. thorns 3.4 wide: **log** — vine fails (thorns), bridge fails (thorns), log crosses, tree fails (thorns)
 
 ### 4-10
 
-1. thorns 3.4 wide: **log** — bridge fails (thorns), vine fails (thorns), log crosses, tree fails (thorns)
-2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
-3. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), vine fails (thorns), tree fails (thorns)
-4. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
+1. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+3. wall 5 high: **vine** — mushroom fails (bonk), tree fails (bonk), bridge fails (bonk), vine crosses
 
 ### 4-11
 
-1. thorns 3.4 wide: **log** — vine fails (thorns), bridge fails (thorns), tree fails (thorns), log crosses
+1. thorns 3.4 wide: **log** — vine fails (thorns), log crosses, bridge fails (thorns), tree fails (thorns)
 2. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, bridge fails (thorns), leaf fails (thorns)
-3. thorns 3.4 wide: **log** — vine fails (thorns), tree fails (thorns), log crosses, bridge fails (thorns)
-4. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
+3. thorns 3.4 wide: **log** — vine fails (thorns), log crosses, bridge fails (thorns), tree fails (thorns)
 
 ### 4-12
 
-1. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
-2. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-3. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+1. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), vine fails (thorns), tree fails (thorns)
+2. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+3. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
 4. thorns 3.4 wide: **log** — tree fails (thorns), vine fails (thorns), log crosses, bridge fails (thorns)
 
 ### 5-1
 
-1. wall 5 high: **vine** — vine crosses, tree fails (bonk), bridge fails (bonk), mushroom fails (bonk)
-2. thorns 3.4 wide: **log** — vine fails (thorns), tree fails (thorns), bridge fails (thorns), log crosses
+1. wall 5 high: **vine** — tree fails (bonk), bridge fails (bonk), vine crosses, mushroom fails (bonk)
+2. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
 
 ### 5-2
 
-1. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), bridge crosses, mushroom crosses +acorn
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, mushroom fails (fall), bridge fails (fall)
+2. river 5.5 wide: **bridge** — leaf fails (splash), bridge crosses, vine fails (splash)
+3. thorns 3.4 wide: **log** — tree fails (thorns), log crosses, vine fails (thorns), bridge fails (thorns)
+4. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
 
 ### 5-3
 
 1. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
-2. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
+2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
 
 ### 5-4
 
-1. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-2. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+1. thorns 3.4 wide: **log** — bridge fails (thorns), tree fails (thorns), vine fails (thorns), log crosses
+2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
+3. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
+4. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
 
 ### 5-5
 
-1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
-2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
-3. thorns 3.4 wide: **log** — bridge fails (thorns), log crosses, vine fails (thorns), tree fails (thorns)
+1. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses, leaf fails (fall)
+2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
+3. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), vine fails (thorns), tree fails (thorns)
+4. wall 5 high: **vine** — tree fails (bonk), vine crosses, bridge fails (bonk), mushroom fails (bonk)
 
 ### 5-6
 
-1. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
-2. thorns 3.4 wide: **log** — tree fails (thorns), vine fails (thorns), bridge fails (thorns), log crosses
-3. thorns 3.4 wide: **log** — tree fails (thorns), log crosses, vine fails (thorns), bridge fails (thorns)
+1. river 8.5 wide: **tree** — mushroom fails (splash), tree crosses, bridge fails (splash)
+2. thorns 3.4 wide: **log** — bridge fails (thorns), tree fails (thorns), vine fails (thorns), log crosses
+3. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), vine fails (thorns), tree fails (thorns)
+4. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
 
 ### 5-7
 
-1. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
-2. thorns 3.4 wide: **log** — vine fails (thorns), bridge fails (thorns), tree fails (thorns), log crosses
-3. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
+1. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
+2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses, leaf fails (splash)
+3. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge crosses, vine fails (splash)
+4. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
 
 ### 5-8
 
-1. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
-2. thorns 5 wide: **mushroom** — vine fails (thorns), leaf fails (thorns), bridge fails (thorns), mushroom crosses
-3. wall 3 high: **vine** (+acorn) — mushroom crosses, vine crosses +acorn, leaf fails (bonk)
+1. wall 5 high: **vine** — tree fails (bonk), bridge fails (bonk), vine crosses, mushroom fails (bonk)
+2. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
+3. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge fails (thorns), log crosses
+4. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
 
 ### 5-9
 
-1. thorns 3.4 wide: **log** — vine fails (thorns), tree fails (thorns), log crosses, bridge fails (thorns)
-2. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
-3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
-4. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
+2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+3. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
+4. thorns 3.4 wide: **log** — bridge fails (thorns), tree fails (thorns), vine fails (thorns), log crosses
 
 ### 5-10
 
-1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
-2. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
-3. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses, leaf fails (splash)
-4. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+1. river 8.5 wide: **tree** — mushroom fails (splash), bridge fails (splash), tree crosses
+2. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+3. thorns 3.4 wide: **log** — vine fails (thorns), bridge fails (thorns), tree fails (thorns), log crosses
+4. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
 
 ### 5-11
 
-1. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
-2. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-3. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, log crosses, bridge fails (thorns)
-4. river 5.5 wide: **bridge** — leaf fails (splash), vine fails (splash), bridge crosses
+1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash), leaf fails (splash)
+2. thorns 3.4 wide: **log** — bridge fails (thorns), log crosses, vine fails (thorns), tree fails (thorns)
+3. thorns 5 wide: **mushroom** — leaf fails (thorns), mushroom crosses, bridge fails (thorns), vine fails (thorns)
+4. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
 
 ### 5-12
 
-1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
-2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses, leaf fails (splash)
-3. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
-4. thorns 3.4 wide: **log** — bridge fails (thorns), tree fails (thorns), vine fails (thorns), log crosses
+1. thorns 3.4 wide: **log** — vine fails (thorns), log crosses, tree fails (thorns), bridge fails (thorns)
+2. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
+3. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk), tree fails (bonk)
+4. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
 
 ### 1-S
 
-1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
-2. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
-3. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns)
-4. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
+1. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
+2. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
+3. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses
 
 ### 2-S
 
-1. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
-3. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
-4. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
+2. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), mushroom fails (fall)
+3. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
 
 ### 3-S
 
-1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
-2. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
-3. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses, leaf fails (fall)
-4. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
+1. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), mushroom fails (fall)
+2. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
+3. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
 
 ### 4-S
 
-1. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
-2. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-3. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
-4. thorns 3.4 wide: **log** — bridge fails (thorns), vine fails (thorns), log crosses, tree fails (thorns)
+1. thorns 5 wide: **mushroom** — mushroom crosses, leaf fails (thorns), bridge fails (thorns), vine fails (thorns)
+2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+3. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
 
 ### 5-S
 
-1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
-2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses, leaf fails (splash)
-3. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
-4. thorns 3.4 wide: **log** — bridge fails (thorns), tree fails (thorns), vine fails (thorns), log crosses
+1. wall 3 high: **vine** (+acorn) — leaf fails (bonk), vine crosses +acorn, mushroom crosses
+2. river 5.5 wide: **bridge** — leaf fails (splash), vine fails (splash), bridge crosses
+3. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
 
 ### daily-0
 
 1. thorns 5 wide: **mushroom** — vine fails (thorns), bridge fails (thorns), mushroom crosses
-2. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
-3. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
+2. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
 
 ### daily-1
 
 1. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
-2. wall 3 high: **vine** (+acorn) — mushroom crosses, vine crosses +acorn, leaf fails (bonk)
-3. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+2. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
 
 ### daily-2
 
 1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
 2. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, mushroom crosses +acorn, vine fails (splash)
-3. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), tree fails (fall), leaf crosses
+3. cliff 13 wide, 4 down: **leaf** — tree fails (fall), bridge fails (fall), leaf crosses
 
 ### daily-3
 
-1. thorns 3.4 wide: **log** — log crosses, tree fails (thorns), bridge fails (thorns), vine fails (thorns)
+1. thorns 3.4 wide: **log** — vine fails (thorns), tree fails (thorns), log crosses, bridge fails (thorns)
 2. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
-3. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, leaf fails (thorns), vine fails (thorns)
+3. thorns 5 wide: **mushroom** — leaf fails (thorns), bridge fails (thorns), vine fails (thorns), mushroom crosses
 
 ### daily-4
 
 1. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
-2. river 8.5 wide: **tree** — mushroom fails (splash), bridge fails (splash), tree crosses
-3. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), vine fails (thorns), log crosses
-4. thorns 5 wide: **mushroom** — vine fails (thorns), leaf fails (thorns), mushroom crosses, bridge fails (thorns)
+2. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), vine fails (thorns), log crosses
+3. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
+4. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), tree fails (bonk), vine crosses
 
 ### daily-5
 
-1. wall 5 high: **vine** — bridge fails (bonk), mushroom fails (bonk), vine crosses
+1. wall 5 high: **vine** — vine crosses, mushroom fails (bonk), bridge fails (bonk)
 2. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
-3. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
 
 ### daily-6
 
-1. thorns 5 wide: **mushroom** — vine fails (thorns), leaf fails (thorns), mushroom crosses, bridge fails (thorns)
-2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, leaf fails (bonk), mushroom crosses
-3. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
+1. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, leaf fails (thorns), bridge fails (thorns)
+2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
 
 ### daily-7
 
 1. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
-2. wall 5 high: **vine** — mushroom fails (bonk), tree fails (bonk), bridge fails (bonk), vine crosses
-3. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
+2. wall 5 high: **vine** — mushroom fails (bonk), tree fails (bonk), vine crosses, bridge fails (bonk)
+3. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
 
 ### daily-8
 
 1. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
-2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
+2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
 3. wall 5 high: **vine** — bridge fails (bonk), tree fails (bonk), mushroom fails (bonk), vine crosses
 
 ### daily-9
 
-1. river 5.5 wide: **bridge** — leaf fails (splash), vine fails (splash), bridge crosses
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
-3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
-4. thorns 3.4 wide: **log** — tree fails (thorns), log crosses, bridge fails (thorns), vine fails (thorns)
+1. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
+2. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
+3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
+4. thorns 3.4 wide: **log** — vine fails (thorns), log crosses, tree fails (thorns), bridge fails (thorns)
 
 ### daily-10
 
 1. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
-2. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
-3. wall 5 high: **vine** — vine crosses, bridge fails (bonk), mushroom fails (bonk)
+2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
 
 ### daily-11
 
-1. wall 3 high: **vine** (+acorn) — mushroom crosses, vine crosses +acorn, leaf fails (bonk)
-2. thorns 5 wide: **mushroom** — vine fails (thorns), mushroom crosses, leaf fails (thorns), bridge fails (thorns)
-3. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
+1. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
+2. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, vine fails (thorns), leaf fails (thorns)
 
 ### daily-12
 
-1. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
-2. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
-3. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
+1. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
+2. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
+3. river 8.5 wide: **tree** — mushroom fails (splash), bridge fails (splash), tree crosses
 
 ### daily-13
 
-1. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses, leaf fails (fall)
-2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), log crosses, mushroom crosses +acorn
-3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
+1. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
+2. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
+3. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
 
 ### daily-14
 
-1. cliff 13 wide, 4 down: **leaf** — leaf crosses, mushroom fails (fall), bridge fails (fall)
-2. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
-3. thorns 5 wide: **mushroom** — vine fails (thorns), leaf fails (thorns), mushroom crosses, bridge fails (thorns)
-4. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), mushroom crosses +acorn, bridge crosses
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
+2. river 5.5 wide: **bridge** — bridge crosses, leaf fails (splash), vine fails (splash)
+3. thorns 5 wide: **mushroom** — mushroom crosses, bridge fails (thorns), vine fails (thorns), leaf fails (thorns)
+4. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
 
 ### daily-15
 
 1. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
-2. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
-3. wall 5 high: **vine** — mushroom fails (bonk), vine crosses, bridge fails (bonk)
+2. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
 
 ### daily-16
 
-1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
-2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
-3. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, leaf fails (thorns), vine fails (thorns)
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+2. wall 3 high: **vine** (+acorn) — vine crosses +acorn, leaf fails (bonk), mushroom crosses
 
 ### daily-17
 
 1. river 8.5 wide: **tree** — bridge fails (splash), mushroom fails (splash), tree crosses
-2. thorns 5 wide: **mushroom** — bridge fails (thorns), mushroom crosses, leaf fails (thorns), vine fails (thorns)
+2. thorns 5 wide: **mushroom** — leaf fails (thorns), bridge fails (thorns), vine fails (thorns), mushroom crosses
 3. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
 
 ### daily-18
 
 1. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), log crosses, vine fails (thorns)
-2. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge fails (thorns), log crosses
-3. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
+2. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+3. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
 
 ### daily-19
 
 1. thorns 5 wide: **mushroom** — vine fails (thorns), bridge fails (thorns), mushroom crosses, leaf fails (thorns)
 2. thorns 3.4 wide: **mushroom** (+acorn) — mushroom crosses +acorn, bridge fails (thorns), log crosses
-3. wall 3 high: **vine** (+acorn) — mushroom crosses, vine crosses +acorn, leaf fails (bonk)
-4. gap 5.5 wide: **bridge** — leaf fails (fall), vine fails (fall), bridge crosses
+3. gap 5.5 wide: **bridge** — leaf fails (fall), bridge crosses, vine fails (fall)
+4. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses, leaf fails (fall)
 
 ### daily-20
 
-1. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash)
-2. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
-3. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses
+1. river 5.5 wide: **bridge** — vine fails (splash), bridge crosses
+2. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall)
 
 ### daily-21
 
-1. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), mushroom fails (fall)
-2. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
-3. river 5.5 wide: **mushroom** (+acorn) — vine fails (splash), mushroom crosses +acorn, bridge crosses
+1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+2. wall 5 high: **vine** — bridge fails (bonk), vine crosses, mushroom fails (bonk)
 
 ### daily-22
 
-1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), bridge fails (fall), leaf crosses
+1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), mushroom fails (fall), leaf crosses
 2. river 8.5 wide: **tree** — tree crosses, bridge fails (splash), mushroom fails (splash)
-3. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
+3. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, tree fails (fall)
 
 ### daily-23
 
-1. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, bridge fails (thorns), mushroom crosses +acorn
-2. thorns 3.4 wide: **log** — tree fails (thorns), bridge fails (thorns), log crosses, vine fails (thorns)
-3. cliff 13 wide, 4 down: **leaf** — leaf crosses, tree fails (fall), bridge fails (fall)
+1. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+2. thorns 3.4 wide: **log** — log crosses, tree fails (thorns), bridge fails (thorns), vine fails (thorns)
+3. cliff 13 wide, 4 down: **leaf** — leaf crosses, bridge fails (fall), tree fails (fall)
 
 ### daily-24
 
-1. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), tree fails (fall), leaf crosses
-2. wall 5 high: **vine** — tree fails (bonk), bridge fails (bonk), mushroom fails (bonk), vine crosses
-3. gap 5.5 wide: **bridge** — bridge crosses, leaf fails (fall), vine fails (fall)
-4. wall 3 high: **vine** (+acorn) — vine crosses +acorn, mushroom crosses, leaf fails (bonk)
+1. cliff 13 wide, 4 down: **leaf** — tree fails (fall), leaf crosses, bridge fails (fall)
+2. wall 5 high: **vine** — tree fails (bonk), vine crosses, mushroom fails (bonk), bridge fails (bonk)
+3. gap 5.5 wide: **bridge** — bridge crosses, vine fails (fall), leaf fails (fall)
+4. wall 3 high: **vine** (+acorn) — mushroom crosses, leaf fails (bonk), vine crosses +acorn
 
 ### daily-25
 
-1. wall 5 high: **vine** — mushroom fails (bonk), vine crosses, bridge fails (bonk)
-2. thorns 5 wide: **mushroom** — mushroom crosses, bridge fails (thorns), vine fails (thorns)
-3. gap 5.5 wide: **bridge** — vine fails (fall), bridge crosses
+1. wall 5 high: **vine** — mushroom fails (bonk), bridge fails (bonk), vine crosses
+2. thorns 5 wide: **mushroom** — bridge fails (thorns), vine fails (thorns), mushroom crosses
 
 ### daily-26
 
-1. river 5.5 wide: **mushroom** (+acorn) — bridge crosses, vine fails (splash), mushroom crosses +acorn
+1. river 5.5 wide: **mushroom** (+acorn) — mushroom crosses +acorn, vine fails (splash), bridge crosses
 2. cliff 13 wide, 4 down: **leaf** — leaf crosses, mushroom fails (fall), bridge fails (fall)
-3. wall 3 high: **vine** (+acorn) — leaf fails (bonk), mushroom crosses, vine crosses +acorn
 
 ### daily-27
 
-1. river 5.5 wide: **bridge** — leaf fails (splash), vine fails (splash), bridge crosses
-2. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
+1. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
+2. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
 3. cliff 13 wide, 4 down: **leaf** — bridge fails (fall), leaf crosses, mushroom fails (fall)
 
 ### daily-28
 
 1. gap 5.5 wide: **bridge** — vine fails (fall), leaf fails (fall), bridge crosses
-2. river 8.5 wide: **tree** — bridge fails (splash), tree crosses, mushroom fails (splash)
-3. thorns 3.4 wide: **mushroom** (+acorn) — log crosses, mushroom crosses +acorn, bridge fails (thorns)
+2. river 8.5 wide: **tree** — tree crosses, mushroom fails (splash), bridge fails (splash)
+3. thorns 3.4 wide: **mushroom** (+acorn) — bridge fails (thorns), mushroom crosses +acorn, log crosses
 
 ### daily-29
 
 1. cliff 13 wide, 4 down: **leaf** — mushroom fails (fall), leaf crosses, bridge fails (fall)
-2. thorns 5 wide: **mushroom** — vine fails (thorns), bridge fails (thorns), leaf fails (thorns), mushroom crosses
-3. thorns 3.4 wide: **log** — tree fails (thorns), log crosses, vine fails (thorns), bridge fails (thorns)
-4. river 5.5 wide: **bridge** — bridge crosses, vine fails (splash), leaf fails (splash)
+2. thorns 5 wide: **mushroom** — mushroom crosses, vine fails (thorns), leaf fails (thorns), bridge fails (thorns)
+3. thorns 3.4 wide: **log** — log crosses, bridge fails (thorns), vine fails (thorns), tree fails (thorns)
+4. river 5.5 wide: **bridge** — vine fails (splash), leaf fails (splash), bridge crosses
 

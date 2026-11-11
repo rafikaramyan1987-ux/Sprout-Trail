@@ -3,7 +3,7 @@
  * (y) and drops ground, steps, gaps, logs, thorns, pickups, signs and decision points.
  */
 import { RUN } from './physics';
-import type { DecisionPoint, EnemyDef, EnemyKind, Level, PlantKind, HandHint } from './types';
+import type { DecisionPoint, EnemyDef, EnemyKind, Level, MoverKind, PlantKind, HandHint, Zone } from './types';
 
 export interface DecisionOpts {
   /** ground before the obstacle */
@@ -47,6 +47,12 @@ export class LevelBuilder {
       water: [],
       killY: -7,
       seed,
+      movers: [],
+      ropes: [],
+      zones: [],
+      scenery: [],
+      pieces: [],
+      difficulty: 0,
     };
     // solid ground behind the start, so the trail does not begin at the edge of the world
     this.level.boxes.push({ x0: -30, x1: 0, y0: -DEEP, y1: 0, kind: 'ground' });
@@ -180,6 +186,161 @@ export class LevelBuilder {
     }
     this.level.dps.push(dp);
     return this;
+  }
+
+  /* ------------------------------------------------------------- scenery and set pieces */
+
+  /** from here on the trail looks like this scenery variant */
+  scene(variant: string) {
+    const sc = this.level.scenery;
+    if (sc.length && Math.abs(sc[sc.length - 1].x - this.x) < 1) sc[sc.length - 1].variant = variant;
+    else if (!sc.length || sc[sc.length - 1].variant !== variant) sc.push({ x: sc.length ? this.x : -40, variant });
+    return this;
+  }
+
+  private mover(kind: MoverKind, x0: number, w: number, y: number, o: { amp?: number; freq?: number; phase?: number; sinkAfter?: number; bounce?: number } = {}) {
+    this.level.movers.push({ kind, x0, x1: x0 + w, y, amp: o.amp ?? 0, freq: o.freq ?? 1, phase: o.phase ?? 0, sinkAfter: o.sinkAfter ?? 0, bounce: o.bounce });
+  }
+
+  zone(kind: Zone['kind'], x0: number, x1: number, extra: Partial<Zone> = {}) {
+    this.level.zones.push({ kind, x0, x1, ...extra });
+    return this;
+  }
+
+  /**
+   * Planks hanging from branches over a pit: jump plank to plank. `sway` drifts them sideways, `sink` makes them
+   * go down a moment after you land. `acornAt`: index of the plank with a golden acorn high above it.
+   */
+  planks(n: number, o: { gap?: number; sway?: number; sink?: number; acornAt?: number; water?: boolean } = {}) {
+    const w = 1.7;
+    const gap = o.gap ?? 1.8;
+    this.ground(1.5);
+    const start = this.x;
+    const y0 = this.y;
+    let x = start + 1.6;
+    for (let i = 0; i < n; i++) {
+      const y = y0 + (i % 2 ? 1.2 : 0.6);
+      this.mover('plank', x, w, y, { amp: o.sway ?? 0, freq: 1.5, phase: i * 1.7, sinkAfter: o.sink ?? 0 });
+      this.level.pickups.push({ x: x + w / 2, y: y + 0.8, kind: 'gem' });
+      if (o.acornAt === i) this.level.pickups.push({ x: x + w / 2, y: y + 3.2, kind: 'acorn' });
+      x += w + gap;
+    }
+    this.gap(x - start + 0.4 - gap, o.water ?? false);
+    return this.ground(3);
+  }
+
+  /** a lake with a (cartoon) crocodile and a chain of ropes to swing across; tap to let go */
+  ropes(n: number, o: { spacing?: number; acorn?: boolean; croc?: boolean } = {}) {
+    const sp = o.spacing ?? 5.6;
+    this.ground(2);
+    const start = this.x;
+    for (let i = 0; i < n; i++) {
+      const rx = start + 2.6 + i * sp;
+      this.level.ropes.push({ x: rx, y: this.y + 7.6, len: 5.4 });
+      this.level.pickups.push({ x: rx, y: this.y + 1.6, kind: 'gem' });
+      if (i + 1 < n) this.level.pickups.push({ x: rx + sp / 2, y: this.y + (o.acorn && i === Math.floor((n - 1) / 2) ? 4.4 : 3.2), kind: o.acorn && i === Math.floor((n - 1) / 2) ? 'acorn' : 'gem' });
+    }
+    const len = 2.6 + (n - 1) * sp + 3.4;
+    this.level.water.push({ x0: start, x1: start + len, y: this.y - 1.3, croc: o.croc ?? true });
+    this.x += len;
+    return this.ground(3);
+  }
+
+  /** a river with logs drifting back and forth: hop log to log */
+  logs(n: number, o: { croc?: boolean; drift?: number; acornAt?: number } = {}) {
+    this.ground(1.5);
+    const start = this.x;
+    const sp = 3.3;
+    for (let i = 0; i < n; i++) {
+      const x = start + 1.4 + i * sp;
+      this.mover('log', x, 2.2, this.y - 0.5, { amp: o.drift ?? 0.7, freq: 1.1, phase: i * 2.1 });
+      this.level.pickups.push({ x: x + 1.1, y: this.y + 0.4, kind: o.acornAt === i ? 'acorn' : 'gem' });
+    }
+    const len = 1.4 + (n - 1) * sp + 2.2 + 1.6;
+    this.level.water.push({ x0: start, x1: start + len, y: this.y - 1.3, croc: o.croc ?? false });
+    this.x += len;
+    return this.ground(3);
+  }
+
+  /** a swamp pool with lily pads (some sink a moment after you land) and stepping stones */
+  lily(n: number, o: { sinkEvery?: number; sinkAfter?: number; acornAt?: number } = {}) {
+    this.ground(1.5);
+    const start = this.x;
+    const sp = 2.7;
+    for (let i = 0; i < n; i++) {
+      const x = start + 1.3 + i * sp;
+      const stone = i % 3 === 2;
+      const sinks = !stone && o.sinkEvery && i % o.sinkEvery === 0;
+      this.mover(stone ? 'stone' : 'lily', x, stone ? 1.1 : 1.4, this.y - (stone ? 0.6 : 0.9), { sinkAfter: sinks ? (o.sinkAfter ?? 0.5) : 0 });
+      this.level.pickups.push({ x: x + 0.65, y: this.y + 0.4, kind: o.acornAt === i ? 'acorn' : 'gem' });
+    }
+    const len = 1.3 + (n - 1) * sp + 1.4 + 1.4;
+    this.level.water.push({ x0: start, x1: start + len, y: this.y - 1.3, croc: true });
+    this.x += len;
+    return this.ground(3);
+  }
+
+  /** big bouncy mushrooms over a canyon: each one launches the sprite to the next */
+  shrooms(n: number, o: { sp?: number; acornAt?: number } = {}) {
+    this.ground(1.5);
+    const start = this.x;
+    const sp = o.sp ?? 6.2;
+    for (let i = 0; i < n; i++) {
+      const x = start + 1.4 + i * sp;
+      this.mover('shroom', x, 1.6, this.y - 0.4, { bounce: 17 });
+      this.level.pickups.push({ x: x + 0.8 + sp / 2, y: this.y + 4.2, kind: o.acornAt === i ? 'acorn' : 'gem' });
+    }
+    this.gap(1.4 + (n - 1) * sp + 1.6 + sp - 1.6);
+    return this.ground(3);
+  }
+
+  /** a stretch of wind: gusts (shown by blowing leaves) push jumps forward (+1) or back (-1) */
+  wind(len: number, dir: number, o: { strength?: number; period?: number; phase?: number } = {}) {
+    this.zone('wind', this.x, this.x + len, { dir, strength: o.strength ?? 2.2, period: o.period ?? 2.6, duty: 0.5, phase: o.phase ?? 0 });
+    return this;
+  }
+
+  /** an old bridge over a gorge: it breaks behind the sprite, the run speeds up until the far side */
+  collapse(len: number) {
+    this.ground(1);
+    const x0 = this.x;
+    for (let x = 0; x < len; x += 1) this.level.boxes.push({ x0: x0 + x, x1: x0 + Math.min(len, x + 1), y0: this.y - 0.35, y1: this.y, kind: 'bridge' });
+    this.zone('collapse', x0, x0 + len);
+    this.gems(Math.floor(len / 1.5), 0.8, 0.7, 1.5);
+    this.x += len;
+    return this.ground(3);
+  }
+
+  /** a wild boar charges from behind for this stretch; it gives up at the fence at the end */
+  chase(len: number) {
+    return this.zone('chase', this.x, this.x + len, { y: this.y });
+  }
+
+  /** dark cave: only a circle of light around the sprite; hazards glow */
+  cave(len: number) {
+    return this.zone('cave', this.x, this.x + len);
+  }
+
+  /** a waterfall: jump up behind the falling water to a hidden ledge path with a golden acorn */
+  waterfall(acorn = true) {
+    this.ground(2);
+    const x0 = this.x;
+    this.ledge(0.5, 2.5, 3.5).ledge(4.6, 3.6, 3.5).ledge(8.7, 2.5, 3);
+    this.gems(3, 1, 3.3, 1).gems(3, 5, 4.4, 1);
+    if (acorn) this.acorn(6.4, 5.4);
+    this.zone('waterfall', x0 + 2, x0 + 10);
+    return this.ground(13);
+  }
+
+  /** a valley to glide over with dandelion seeds: jump at the edge and keep the finger down */
+  glide(width: number, drop = 2) {
+    this.ground(2);
+    const x0 = this.x;
+    this.arc(8, 1, width - 2, 1.5, 2.6);
+    this.gap(width);
+    this.down(drop);
+    this.zone('glide', x0 - 3, this.x + 1);
+    return this.ground(3);
   }
 
   goal(after = 6) {

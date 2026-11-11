@@ -6,7 +6,7 @@
 export type PlantKind = 'bridge' | 'vine' | 'mushroom' | 'tree' | 'leaf' | 'log';
 export type ObstacleKind = 'river' | 'gap' | 'wall' | 'thorns' | 'cliff';
 export type EnemyKind = 'beetle' | 'snail' | 'bee' | 'roller';
-export type BoxKind = 'ground' | 'step' | 'ledge' | 'log' | 'wall' | 'plank' | 'stump';
+export type BoxKind = 'ground' | 'step' | 'ledge' | 'log' | 'wall' | 'plank' | 'stump' | 'bridge';
 
 export interface Box {
   x0: number;
@@ -85,6 +85,64 @@ export interface Water {
   x0: number;
   x1: number;
   y: number;
+  /** a (cartoon) crocodile lives here: falling in costs a heart, back to the last checkpoint */
+  croc?: boolean;
+}
+
+/**
+ * Platforms that are not part of the ground: hanging planks, drifting logs, lily pads, stepping stones and big
+ * bouncy mushrooms. Their top is at `y`; they may drift sideways (amp/freq/phase, by the world clock) and sink after
+ * the sprite has stood on them for `sinkAfter` seconds (0 = never).
+ */
+export type MoverKind = 'plank' | 'log' | 'lily' | 'stone' | 'shroom';
+export interface Mover {
+  kind: MoverKind;
+  x0: number;
+  x1: number;
+  y: number;
+  amp: number;
+  freq: number;
+  phase: number;
+  sinkAfter: number;
+  /** shroom: launch speed */
+  bounce?: number;
+}
+
+/** a hanging rope / vine: anchor point and length; the sprite grabs it in the air and lets go on tap */
+export interface Rope {
+  x: number;
+  y: number;
+  len: number;
+}
+
+/**
+ * Stretches of the trail with a special rule or look:
+ * wind (gusts push jumps forward / back), chase (a wild boar charges from behind until the fence at x1),
+ * collapse (an old bridge breaks behind the sprite, the run speeds up), cave (dark, light around the sprite),
+ * glide (dandelion seeds: hold to glide), waterfall (a hidden path behind the falling water).
+ */
+export type ZoneKind = 'wind' | 'chase' | 'collapse' | 'cave' | 'glide' | 'waterfall';
+export interface Zone {
+  kind: ZoneKind;
+  x0: number;
+  x1: number;
+  /** wind: +1 pushes forward, -1 back; strength (units/s added in the air), gust period and active part */
+  dir?: number;
+  strength?: number;
+  period?: number;
+  duty?: number;
+  phase?: number;
+  /** chase: ground height of the run */
+  y?: number;
+}
+
+/** the main set piece of a level (title card, schedule) */
+export type SetPiece = 'planks' | 'shrooms' | 'ropes' | 'logs' | 'collapse' | 'glide' | 'chase' | 'cave' | 'waterfall' | 'wind' | 'lily';
+
+/** a scenery stretch: from x on, the trail looks like this variant */
+export interface Scenery {
+  x: number;
+  variant: string;
 }
 
 export interface Level {
@@ -115,4 +173,13 @@ export interface Level {
   killY: number;
   /** decoration seed (render only) */
   seed: number;
+  movers: Mover[];
+  ropes: Rope[];
+  zones: Zone[];
+  /** scenery variants along the trail (sorted by x, the first one from the start) */
+  scenery: Scenery[];
+  /** the signature moment(s) of the level, the first is the main one */
+  pieces: SetPiece[];
+  /** designed difficulty 0..1 (rises through the whole game) */
+  difficulty: number;
 }
