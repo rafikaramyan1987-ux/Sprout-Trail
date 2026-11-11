@@ -68,7 +68,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Install Chromium for Playwright (system packages best-effort: the runner image already has Chromium's libraries)
+      - name: "Install Chromium for Playwright (system packages best-effort, the runner image already has Chromium's libraries)"
         run: |
           npx playwright install chromium
           npx playwright install-deps chromium || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
@@ -87,7 +87,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Install Chromium for Playwright (system packages best-effort: the runner image already has Chromium's libraries)
+      - name: "Install Chromium for Playwright (system packages best-effort, the runner image already has Chromium's libraries)"
         run: |
           npx playwright install chromium
           npx playwright install-deps chromium || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
@@ -114,7 +114,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Install Chromium for Playwright (system packages best-effort: the runner image already has Chromium's libraries)
+      - name: "Install Chromium for Playwright (system packages best-effort, the runner image already has Chromium's libraries)"
         run: |
           npx playwright install chromium
           npx playwright install-deps chromium || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
