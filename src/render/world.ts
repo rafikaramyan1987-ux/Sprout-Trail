@@ -174,10 +174,10 @@ export function buildWorld(level: Level): WorldView {
     surf.rotation.x = -Math.PI / 2;
     surf.position.set((w.x0 + w.x1) / 2, w.y, (Z0 + Z1) / 2);
     root.add(surf);
-    const front = new THREE.Mesh(new THREE.PlaneGeometry(w.x1 - w.x0 + 0.4, 10), new THREE.MeshBasicMaterial({ color: '#2f7fb0', transparent: true, opacity: 0.75 }));
-    front.position.set((w.x0 + w.x1) / 2, w.y - 5, Z1);
+    const front = new THREE.Mesh(new THREE.PlaneGeometry(w.x1 - w.x0 + 0.4, 1.2), new THREE.MeshBasicMaterial({ color: '#2f7fb0', transparent: true, opacity: 0.75 }));
+    front.position.set((w.x0 + w.x1) / 2, w.y - 0.6, Z1);
     root.add(front);
-    const bed = new THREE.Mesh(slabGeometry(w.x0 - 0.2, w.x1 + 0.2, w.y - 12, w.y - 1.2, Z0, Z1 - 0.05), rock);
+    const bed = new THREE.Mesh(slabGeometry(w.x0 - 0.2, w.x1 + 0.2, w.y - 30, w.y - 1.2, Z0, Z1 - 0.05), soil);
     root.add(bed);
     // reeds and stones on the banks
     for (const x of [w.x0 + 0.3, w.x1 - 0.3]) {
