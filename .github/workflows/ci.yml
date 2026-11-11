@@ -23,7 +23,7 @@ jobs:
         run: npm run check:i18n
       - name: Builds (crazygames, web, gd, gamepix, playgama)
         run: npm run build:all
-      - name: Build size budget (< 10 MB each)
+      - name: Build size budget (< 4 MB each)
         run: npm run check:size
       - name: Each portal's SDK only in its own build
         run: |

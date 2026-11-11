@@ -11,12 +11,17 @@ acorn, and seeds are limited.
 - Hazards are introduced one world at a time and get denser and tighter: beetles, thorns, low logs, bees, snails,
   rolling acorns. The run speed rises a little at every checkpoint and from world to world, capped at 1.5x level 1;
   decision points are always a full stop.
+- Every level looks and plays differently: 20 scenery variants (4 per world: backdrop, props, time of day, weather)
+  that change within each level and never repeat on consecutive levels, a translated title card per level, and
+  11 set pieces — hanging planks, rope swings over a crocodile lake, floating logs, lily pads and stepping stones,
+  mushroom bounce chains, autumn wind gusts, a collapsing bridge, a boar chase, a dark cave, a hidden waterfall path
+  and a dandelion glide — each introduced with a sign, then remixed. Screenshots: `docs/phase-c/`.
 - Wardrobe: hats and sprite colours bought with gems. 6 languages (en, fr, de, es, it, ru).
 - Platform layer chosen at build time: `VITE_PLATFORM = web | crazygames | gd | gamepix | playgama`
   (`--mode <platform>`), `base: './'`. Rewarded ads only from labelled buttons, interstitials only between levels
   (at most one per 2 minutes); no ads at all in the web build.
 
-TypeScript, Vite, Three.js. Total build about 2.3 MB.
+TypeScript, Vite, Three.js. Each build is about 2.5 MB (CI budget: 4 MB).
 
 ```sh
 npm ci
