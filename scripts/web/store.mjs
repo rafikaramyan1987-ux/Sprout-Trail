@@ -44,7 +44,7 @@ if (only.includes('shots')) {
     await game.ready(page.mainFrame(), page);
     await shot.run(page.mainFrame(), page);
     const file = `${out}/screenshot-${i + 1}.png`;
-    await page.screenshot({ path: file });
+    await page.screenshot({ path: file, timeout: 300_000 });
     console.log(`${file}: ${shot.name}`);
     await ctx.close();
   }

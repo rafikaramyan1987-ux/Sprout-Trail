@@ -527,11 +527,15 @@ function exposeCapture() {
       const dp = play.level.dps[i];
       Object.assign(play.sim, { x: dp.stopX - 3, y: dp.y, vx: 0, vy: 0, grounded: true });
     },
-    lose: () => {
-      if (!play) return;
-      Object.assign(play.sim, { hearts: 1, invuln: 0 });
-    },
+    lose: () => play?.forceLose(),
     lang: (l: string) => setLang(l as Lang),
+    /** store art: hide the HUD and cards, show the big logo at the bottom (the top-left corner stays clear) */
+    cover: (on: boolean, zoom = 0.62) => {
+      document.body.classList.toggle('cover', on);
+      if (play) play.coverZoom = on ? zoom : 0;
+      document.getElementById('cover-logo')?.remove();
+      if (on) document.getElementById('ui')!.append(el(`<div id="cover-logo" class="logo">${esc(t('title'))}<small>${esc(t('tagline'))}</small></div>`));
+    },
     platform: __PLATFORM__,
   };
   window.__ready = true;

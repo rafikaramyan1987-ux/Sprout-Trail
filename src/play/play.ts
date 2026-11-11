@@ -73,6 +73,8 @@ export class Play {
   private noSeeds = false;
   /** the "continue with 1 heart" reward was used in this run (offered once) */
   revived = false;
+  /** store art: tighter framing around the sprite */
+  coverZoom = 0;
   /** render only (title screen behind the menu) */
   frozen = false;
 
@@ -490,6 +492,11 @@ export class Play {
     this.cam.sy = lerp(this.cam.sy, tsy, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.init = true;
     const viewH = portrait ? 0 : dp ? Math.max(10.5, (dp.height || 0) + (dp.drop || 0) + 6) : 10.5;
+    if (this.coverZoom) {
+      const z = this.coverZoom;
+      st.frame(x + (portrait ? 1 : 1.6), this.camGroundY + 1.2, (portrait ? 9 : 0) * z, 10.5 * z * (portrait ? 0 : 1), 0.42, portrait ? 0.55 : 0.5);
+      return;
+    }
     st.frame(this.cam.x, this.cam.y, this.cam.w, viewH, this.cam.sx, this.cam.sy);
     if (this.shake > 0) {
       this.shake = Math.max(0, this.shake - dt);
@@ -563,6 +570,15 @@ export class Play {
     this.noSeeds = false;
     this.updateHud(true);
     if (this.sim.mode === 'decide') this.showCards();
+  }
+
+  /** tests: out of hearts right now */
+  forceLose() {
+    this.sim.hearts = 0;
+    this.sim.mode = 'lost';
+    this.ended = true;
+    this.won = false;
+    this.endT = 0;
   }
 
   nextDecision() {

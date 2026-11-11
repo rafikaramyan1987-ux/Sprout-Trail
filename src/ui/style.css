@@ -1044,3 +1044,26 @@ select.lang {
 .panel.wardrobe {
   width: min(520px, 100%);
 }
+
+/* store art (capture only) */
+body.cover #hud,
+body.cover #dp,
+body.cover .bubble,
+body.cover .toast,
+body.cover .finger,
+body.cover #hand,
+body.cover #end {
+  display: none !important;
+}
+#cover-logo {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  font-size: min(15vw, 17vh);
+  white-space: nowrap;
+  animation: none;
+}
+#cover-logo small {
+  font-size: 0.3em;
+}

@@ -8,7 +8,7 @@ on:
 jobs:
   checks:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,16 +19,44 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
-      - name: Level validator (a bot plays every level with the real physics; all 3 acorns with the given seeds, wrong plants fail; writes docs/levels-report.md)
+      - name: Translations (every language file has all keys of en.json)
+        run: npm run check:i18n
+      - name: Builds (crazygames, web, gd, gamepix, playgama)
+        run: npm run build:all
+      - name: Build size budget (< 10 MB each)
+        run: npm run check:size
+      - name: Each portal's SDK only in its own build
+        run: |
+          ! grep -rqi "sdk.crazygames.com" dist-web dist-gd dist-gamepix dist-playgama
+          ! grep -rqi "gamedistribution.com" dist dist-web dist-gamepix dist-playgama
+          ! grep -rqi "gamepix.sdk.js" dist dist-web dist-gd dist-playgama
+          ! grep -rqi "playgama-bridge" dist dist-web dist-gd dist-gamepix
+      - name: GameDistribution build carries GD_OPTIONS, the SDK and the game ID (placeholder flagged)
+        run: npm run check:gd
+      - name: GamePix bundle declares the legacy sound handlers and reads GamePix.lang()
+        run: |
+          cat dist-gamepix/assets/*.js > "$RUNNER_TEMP/gpx.js"
+          for re in 'GamePix\.soundOff\s*=[^=]' 'GamePix\.soundOn\s*=[^=]' 'GamePix\.lang\(\)'; do
+            grep -qE "$re" "$RUNNER_TEMP/gpx.js" || { echo "::error::GamePix bundle has no match for $re"; exit 1; }
+          done
+      - name: Submission folders (zips, index.html at the root, own SDK only, store texts, art sizes)
+        run: npm run submission:check
+
+  levels:
+    # the level validator: a bot plays all 95 shipped levels with the real physics at their real speed
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Level validator (every level beaten with all 3 acorns within its hearts and seeds at its real speed, wrong plants fail, every hazard on screen >= 1 s; writes docs/levels-report.md)
         run: npm run validate:levels
       - name: Level validator report is up to date
         run: git diff --exit-code docs/levels-report.md
-      - name: Translations (every language file has all keys of en.json)
-        run: npm run check:i18n
-      - name: Web build
-        run: npm run build:web
-      - name: Build size budget (< 10 MB)
-        run: node scripts/check-size.mjs dist-web
 
   e2e:
     runs-on: ubuntu-latest
@@ -43,3 +71,49 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run build:web
       - run: npm run test:e2e
+
+  web:
+    # open portals (itch.io, Newgrounds, ...): the ad-free web build as a zip with index.html at the root
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Web build + zip
+        run: npm run build:web && node scripts/web/zip.mjs ci-web/sprout-trail-web.zip
+      - name: Web zip checks (index.html at the root, no portal SDK / ads, no external request, iframe 640x480 / 960x600 / 1280x720 / 390x844, level 1-1 played)
+        run: node scripts/web/check.mjs ci-web/sprout-trail-web.zip --shots ci-web/checks
+      - name: Committed zip passes the same file checks
+        run: node scripts/web/check.mjs "$(ls submission-web/sprout-trail-web-v*.zip | sort -V | tail -1)" --static
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-zip-checks
+          path: ci-web/
+
+  playgama:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Playgama build
+        run: npm run build:playgama
+      - name: Playgama zip checks (index.html at the root, Bridge first in <head>, pinned Bridge build, no other portal, Playgama's precheck)
+        run: node scripts/playgama/zip.mjs ci-playgama/sprout-trail-playgama.zip && node scripts/playgama/check.mjs ci-playgama/sprout-trail-playgama.zip
+      - name: Committed zip passes the same checks
+        run: node scripts/playgama/check.mjs "$(ls submission-playgama/sprout-trail-playgama-v*.zip | sort -V | tail -1)"
+      - name: Bridge test (mock platform + stubbed Playgama SDK; interstitial, rewarded completed / cancelled, muted during ads)
+        run: node scripts/playgama/test.mjs ci-playgama/sprout-trail-playgama.zip
+      - name: Vendored Bridge = official v2.4.1 standalone playgama build (rebuilt from the tag)
+        run: bash scripts/playgama/build-bridge.sh

@@ -78,9 +78,9 @@ const game = {
         await d.shot();
       },
     },
-    { name: 'deep forest: bees over the trail', query: '?capture', save: returning(), run: playTo('2-6', 's.x > 92') },
+    { name: 'deep forest: bees over the trail', query: '?capture', save: returning(), run: playTo('2-6', 's.x > 38.5') },
     { name: 'mushroom valley: the seed cards at a wide river', query: '?capture', save: returning(), run: playTo('3-2', "s.mode === 'decide'", 0.9) },
-    { name: 'autumn woods: rolling acorns', query: '?capture', save: returning(), run: playTo('4-1', 's.x > 60') },
+    { name: 'autumn woods: rolling acorns', query: '?capture', save: returning(), run: playTo('4-1', 's.x > 49.5') },
   ],
 };
 export default game;
