@@ -1,0 +1,4565 @@
+[
+ {
+  "id": "1-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 56.516666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 40.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "a fall at x 40.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9673
+ },
+ {
+  "id": "1-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 73.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 12,
+   "worst": 0.4301433388870648
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 12 ticks (worst 43%) at x 91.5 (89%), x 133.3 (98%, rope, air vx 8.6), x 246.2 (43%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10559
+ },
+ {
+  "id": "1-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 9,
+   "worst": 0.43014365609544547
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 31.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 9 ticks (worst 43%) at x 129.3 (43%), x 245.5 (84%)",
+   "a fall at x 31.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9530
+ },
+ {
+  "id": "1-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.18333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 9,
+   "worst": 0.4301431462242955
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 9 ticks (worst 43%) at x 138.6 (43%), x 247.9 (83%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9997
+ },
+ {
+  "id": "1-2",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2826.8333333333335,
+  "hudMismatch": [],
+  "offScreen": 4822,
+  "shortView": {
+   "ticks": 4,
+   "worst": 0.6641302662336362
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 183.2, presses 104/104, cards 1/1, gave up)",
+   "sprite off screen for 4822 ticks",
+   "camera shows less than viewAhead for 4 ticks (worst 66%) at x 84.6 (66%)",
+   "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 29278
+ },
+ {
+  "id": "1-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 16,
+   "worst": 0.6407274857056403
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 24.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 16 ticks (worst 64%) at x 103.6 (64%), x 254.7 (83%), x 288.2 (91%, rope, air vx 9.3)",
+   "a fall at x 24.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7836
+ },
+ {
+  "id": "1-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 9,
+   "worst": 0.6384043888533061
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 28.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 9 ticks (worst 64%) at x 92.0 (64%), x 213.5 (82%)",
+   "a fall at x 28.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8888
+ },
+ {
+  "id": "1-5",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 2790.05,
+  "hudMismatch": [],
+  "offScreen": 11210,
+  "shortView": {
+   "ticks": 8,
+   "worst": 0.6092212412795778
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 219.5, presses 120/120, cards 2/2, gave up)",
+   "sprite off screen for 11210 ticks",
+   "camera shows less than viewAhead for 8 ticks (worst 61%) at x 80.4 (88%), x 194.3 (61%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 29208
+ },
+ {
+  "id": "1-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 18,
+   "worst": 0.5993957817369066
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 18 ticks (worst 60%) at x 98.9 (64%), x 174.7 (98%, rope, air vx 8.5), x 223.6 (60%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6648
+ },
+ {
+  "id": "1-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 12,
+   "worst": 0.5945823947804388
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 12 ticks (worst 59%) at x 135.7 (63%), x 249.7 (59%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6960
+ },
+ {
+  "id": "1-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 24,
+   "worst": 0.574185528241107
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 24 ticks (worst 57%) at x 123.5 (86%), x 311.5 (57%), x 367.8 (98%, rope, air vx 8.6), x 372.6 (96%, rope, air vx 9.0)",
+   "a fall at x 22.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8640
+ },
+ {
+  "id": "2-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.15,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 16,
+   "worst": 0.01627196844821023
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 24.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 16 ticks (worst 2%) at x 111.1 (2%), x 234.0 (58%)",
+   "a fall at x 24.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7756
+ },
+ {
+  "id": "2-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 14,
+   "worst": 0.38726948153690044
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 270.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 14 ticks (worst 39%) at x 153.8 (39%), x 303.9 (59%)",
+   "a fall at x 270.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10771
+ },
+ {
+  "id": "2-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 13,
+   "worst": 0.5851479266568148
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 129.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 13 ticks (worst 59%) at x 104.1 (62%), x 226.1 (59%)",
+   "a fall at x 129.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6707
+ },
+ {
+  "id": "2-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.21666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 26,
+   "worst": 0.01636679177814671
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 50.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 26 ticks (worst 2%) at x 132.6 (2%), x 191.7 (98%, rope, air vx 8.6), x 196.6 (92%, rope, air vx 9.2), x 280.2 (43%)",
+   "a fall at x 50.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9621
+ },
+ {
+  "id": "1-10",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 3011.25,
+  "hudMismatch": [],
+  "offScreen": 6552,
+  "shortView": {
+   "ticks": 5,
+   "worst": 0.6338054419670999
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 27.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 136.3, presses 74/74, cards 1/1, gave up)",
+   "sprite off screen for 6552 ticks",
+   "camera shows less than viewAhead for 5 ticks (worst 63%) at x 103.4 (63%)",
+   "a fall at x 27.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 32369
+ },
+ {
+  "id": "2-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 79.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 13,
+   "worst": 0.3822309530042662
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 281.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 13 ticks (worst 38%) at x 118.7 (38%), x 263.4 (79%)",
+   "a fall at x 281.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9089
+ },
+ {
+  "id": "2-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 76.9,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 17,
+   "worst": 0.0164603704410036
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 17 ticks (worst 2%) at x 112.8 (2%), x 268.9 (58%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6375
+ },
+ {
+  "id": "2-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.86666666666666,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 26,
+   "worst": 0.01650669853257893
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 144.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 26 ticks (worst 2%) at x 118.9 (2%), x 227.6 (57%), x 281.9 (97%, rope, air vx 8.6), x 287.4 (96%, rope, air vx 8.7)",
+   "a fall at x 144.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7926
+ },
+ {
+  "id": "2-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 81.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 22,
+   "worst": 0.5507011952039342
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 100.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 22 ticks (worst 55%) at x 80.1 (77%), x 186.5 (59%), x 289.5 (55%)",
+   "a fall at x 100.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6910
+ },
+ {
+  "id": "2-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 21,
+   "worst": 0.5529808924295603
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 93.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 21 ticks (worst 55%) at x 82.5 (77%), x 180.0 (59%), x 289.1 (55%)",
+   "a fall at x 93.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10752
+ },
+ {
+  "id": "2-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 21,
+   "worst": 0.43014260896468187
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 20.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 21 ticks (worst 43%) at x 89.5 (77%), x 221.8 (43%), x 322.5 (43%)",
+   "a fall at x 20.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 11900
+ },
+ {
+  "id": "2-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 27,
+   "worst": 0.01791102152778116
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 27 ticks (worst 2%) at x 94.6 (37%), x 184.9 (73%), x 299.0 (2%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8606
+ },
+ {
+  "id": "3-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.46666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 22,
+   "worst": 0.4554806183768097
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 127.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 22 ticks (worst 46%) at x 79.9 (60%), x 207.3 (46%), x 304.9 (74%)",
+   "a fall at x 127.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8450
+ },
+ {
+  "id": "2-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 36,
+   "worst": 0.5461883960081235
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 309.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 36 ticks (worst 55%) at x 92.8 (76%), x 185.7 (58%), x 228.7 (98%, rope, air vx 8.6), x 233.7 (96%, rope, air vx 9.1), x 287.5 (55%)",
+   "a fall at x 309.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9748
+ },
+ {
+  "id": "3-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.38333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 17,
+   "worst": 0.34930664748320156
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 59.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 17 ticks (worst 35%) at x 147.5 (47%), x 352.3 (35%)",
+   "a fall at x 59.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9513
+ },
+ {
+  "id": "3-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 154.43333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 26,
+   "worst": 0.3361226794657313
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 100.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 26 ticks (worst 34%) at x 88.0 (47%), x 201.2 (79%), x 317.2 (34%)",
+   "a fall at x 100.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7023
+ },
+ {
+  "id": "3-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 32,
+   "worst": 0.01769937788579628
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 298.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 32 ticks (worst 2%) at x 119.8 (37%), x 182.2 (92%, rope, air vx 9.2), x 187.8 (96%, rope, air vx 10.4), x 280.2 (2%)",
+   "a fall at x 298.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10317
+ },
+ {
+  "id": "3-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 27,
+   "worst": 0.41903069994843267
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 42.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 27 ticks (worst 42%) at x 86.2 (59%), x 227.9 (57%), x 329.7 (42%)",
+   "a fall at x 42.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8205
+ },
+ {
+  "id": "3-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 29,
+   "worst": 0.01699694137346404
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 39.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 29 ticks (worst 2%) at x 108.8 (2%), x 208.3 (57%), x 322.5 (53%)",
+   "a fall at x 39.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9937
+ },
+ {
+  "id": "3-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 89.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 28,
+   "worst": 0.3542903410229071
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 135.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 28 ticks (worst 35%) at x 96.2 (46%), x 225.9 (35%), x 330.6 (73%)",
+   "a fall at x 135.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 11291
+ },
+ {
+  "id": "3-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.41666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 46,
+   "worst": 0.3644659986792618
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 132.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 46 ticks (worst 36%) at x 109.1 (36%), x 218.7 (56%), x 350.6 (72%), x 406.3 (95%, rope, air vx 8.8), x 411.9 (97%, rope, air vx 9.3), x 417.5 (91%, rope, air vx 11.2)",
+   "a fall at x 132.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9465
+ },
+ {
+  "id": "3-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 97.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 31,
+   "worst": 0.3519705781491276
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 31 ticks (worst 35%) at x 93.6 (46%), x 210.3 (35%), x 334.5 (41%)",
+   "a fall at x 23.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 11328
+ },
+ {
+  "id": "3-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.43333333333334,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.01716684757931783
+  },
+  "lateThreats": [],
+  "fall": "",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 33 ticks (worst 2%) at x 108.3 (2%), x 256.6 (56%), x 374.3 (41%)"
+  ],
+  "ms": 11940
+ },
+ {
+  "id": "3-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 45,
+   "worst": 0.3600084833652532
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 182.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 45 ticks (worst 36%) at x 102.4 (36%), x 219.3 (56%), x 274.2 (98%, rope, air vx 8.5), x 278.9 (98%, rope, air vx 8.5), x 284.5 (97%, rope, air vx 8.6), x 337.8 (41%)",
+   "a fall at x 182.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7753
+ },
+ {
+  "id": "4-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.95,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 76,
+   "worst": 0.017724158356685147
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 44.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 76 ticks (worst 2%) at x 84.3 (67%), x 194.7 (2%), x 228.3 (96%, air vx 8.7), x 247.5 (96%, air vx 8.7), x 267.1 (96%, air vx 8.7), x 273.7 (97%, air vx 8.7)",
+   "a fall at x 44.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9247
+ },
+ {
+  "id": "4-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 30,
+   "worst": 0.3806618741415221
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 140.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 30 ticks (worst 38%) at x 110.5 (67%), x 257.4 (38%), x 311.0 (97%, rope, air vx 8.7), x 316.3 (97%, rope, air vx 8.6)",
+   "a fall at x 140.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7593
+ },
+ {
+  "id": "4-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.38333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 69,
+   "worst": 0.38066314771901577
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 69 ticks (worst 38%) at x 189.1 (38%), x 249.2 (95%, air vx 8.8), x 265.0 (96%, air vx 8.8), x 284.8 (95%, air vx 8.8), x 287.6 (97%, air vx 8.8), x 291.6 (96%, air vx 8.8)",
+   "a fall at x 22.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8002
+ },
+ {
+  "id": "4-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.15,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 46,
+   "worst": 0.35566047117513605
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 46 ticks (worst 36%) at x 96.8 (36%), x 201.2 (64%), x 359.6 (64%), x 403.3 (97%, rope, air vx 8.6), x 408.7 (94%, rope, air vx 10.1)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8187
+ },
+ {
+  "id": "3-11",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 1702.6166666666666,
+  "hudMismatch": [],
+  "offScreen": 3566,
+  "shortView": {
+   "ticks": 36,
+   "worst": 0.3169511252617957
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 502.7, presses 210/210, cards 3/3, gave up)",
+   "sprite off screen for 3566 ticks",
+   "camera shows less than viewAhead for 36 ticks (worst 32%) at x 110.9 (36%), x 278.2 (42%), x 468.0 (32%)",
+   "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 30283
+ },
+ {
+  "id": "4-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.86666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.3429759628517254
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 34%) at x 97.1 (43%), x 209.0 (34%), x 330.5 (51%)",
+   "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5713
+ },
+ {
+  "id": "4-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.25,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 88,
+   "worst": 0.01749421296876362
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 204.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 88 ticks (worst 2%) at x 127.1 (2%), x 230.3 (75%), x 283.3 (94%, air vx 9.0), x 298.6 (94%, air vx 9.0), x 318.0 (94%, air vx 9.0), x 326.2 (95%, air vx 9.0)",
+   "a fall at x 204.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9028
+ },
+ {
+  "id": "4-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 37,
+   "worst": 0.01797339976571965
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 92.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 37 ticks (worst 2%) at x 115.0 (38%), x 270.9 (2%), x 386.8 (51%)",
+   "a fall at x 92.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6977
+ },
+ {
+  "id": "4-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 196.43333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 49,
+   "worst": 0.3806619668135864
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 43.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 49 ticks (worst 38%) at x 99.0 (66%), x 292.3 (38%), x 351.1 (96%, rope, air vx 8.8), x 356.8 (96%, rope, air vx 10.2), x 415.7 (58%)",
+   "a fall at x 43.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9784
+ },
+ {
+  "id": "4-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 2,
+  "seconds": 108.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 46,
+   "worst": 0.38066497132382127
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 144.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 46 ticks (worst 38%) at x 107.7 (38%), x 253.9 (54%), x 476.1 (69%), x 537.0 (94%, rope, air vx 9.0), x 542.6 (96%, rope, air vx 9.9)",
+   "a fall at x 144.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8864
+ },
+ {
+  "id": "4-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.58333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 34,
+   "worst": 0.4301436441937015
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 138.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 34 ticks (worst 43%) at x 96.9 (65%), x 219.1 (43%), x 343.3 (58%)",
+   "a fall at x 138.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7748
+ },
+ {
+  "id": "5-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 31,
+   "worst": 0.5521447378067618
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 31 ticks (worst 55%) at x 116.8 (76%), x 129.6 (55%), x 408.3 (97%, rope, air vx 8.6), x 413.7 (94%, rope, air vx 9.9), x 419.5 (97%, rope, air vx 8.6)",
+   "a fall at x 26.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5636
+ },
+ {
+  "id": "4-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.35,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 51,
+   "worst": 0.018932893966031168
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 51 ticks (worst 2%) at x 78.4 (65%), x 186.1 (38%), x 402.1 (2%), x 499.2 (58%)",
+   "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8513
+ },
+ {
+  "id": "4-9",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2018.1833333333334,
+  "hudMismatch": [],
+  "offScreen": 4167,
+  "shortView": {
+   "ticks": 35,
+   "worst": 0.3806614012925016
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 64.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 429.8, presses 188/188, cards 3/3, gave up)",
+   "sprite off screen for 4167 ticks",
+   "camera shows less than viewAhead for 35 ticks (worst 38%) at x 96.6 (43%), x 258.7 (38%), x 395.4 (59%)",
+   "a fall at x 64.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21251
+ },
+ {
+  "id": "5-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 85.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 24,
+   "worst": 0.32074145637295387
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 88.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "only 2 golden acorns in the browser",
+   "camera shows less than viewAhead for 24 ticks (worst 32%) at x 130.4 (55%), x 295.4 (32%)",
+   "a fall at x 88.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7103
+ },
+ {
+  "id": "5-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 59,
+   "worst": 0.31530534400718113
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 524.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 59 ticks (worst 32%) at x 96.1 (35%), x 229.3 (53%), x 239.9 (62%), x 292.1 (97%, rope, air vx 8.6), x 297.2 (92%, rope, air vx 9.3), x 356.7 (32%)",
+   "a fall at x 524.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9055
+ },
+ {
+  "id": "5-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 122.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 52,
+   "worst": 0.31530534391293497
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 52 ticks (worst 32%) at x 88.8 (64%), x 243.0 (67%), x 472.6 (32%), x 594.4 (50%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8111
+ },
+ {
+  "id": "5-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.73333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 37,
+   "worst": 0.018369131280205373
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 48.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 37 ticks (worst 2%) at x 96.7 (55%), x 219.0 (2%), x 324.3 (69%)",
+   "a fall at x 48.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5685
+ },
+ {
+  "id": "5-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.21666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 43,
+   "worst": 0.42777428120257555
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 75.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 43 ticks (worst 43%) at x 101.5 (43%), x 112.1 (64%), x 207.0 (61%), x 220.3 (53%)",
+   "a fall at x 75.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6827
+ },
+ {
+  "id": "5-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.68333333333334,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 91,
+   "worst": 0.018445477982924986
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 91 ticks (worst 2%) at x 104.8 (54%), x 117.8 (54%), x 237.0 (52%), x 261.8 (2%), x 292.2 (89%, air vx 9.6), x 313.5 (89%, air vx 9.6)",
+   "a fall at x 26.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7756
+ },
+ {
+  "id": "5-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 109.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 51,
+   "worst": 0.3153053438010155
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 51 ticks (worst 32%) at x 92.5 (74%), x 231.6 (41%), x 244.2 (38%), x 434.3 (32%)",
+   "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7333
+ },
+ {
+  "id": "5-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.85,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 39,
+   "worst": 0.018066798483357106
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 36.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 39 ticks (worst 2%) at x 103.1 (2%), x 219.2 (41%), x 337.2 (58%)",
+   "a fall at x 36.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8294
+ },
+ {
+  "id": "5-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.18333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 47,
+   "worst": 0.43014264704565913
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 47 ticks (worst 43%) at x 135.3 (54%), x 145.9 (63%), x 268.1 (43%), x 281.1 (52%)",
+   "a fall at x 60.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6304
+ },
+ {
+  "id": "5-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.35,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 49,
+   "worst": 0.018558328306879247
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 169.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 49 ticks (worst 2%) at x 94.9 (42%), x 107.5 (38%), x 242.9 (60%), x 268.0 (2%)",
+   "a fall at x 169.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7878
+ },
+ {
+  "id": "1-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 25,
+   "worst": 0.4301432899700599
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 98.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 25 ticks (worst 43%) at x 122.5 (61%), x 194.8 (81%), x 223.9 (98%, rope, air vx 8.6), x 283.6 (43%)",
+   "a fall at x 98.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7599
+ },
+ {
+  "id": "2-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 45,
+   "worst": 0.3513832226259948
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 253.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 45 ticks (worst 35%) at x 79.4 (74%), x 214.6 (35%), x 392.5 (53%), x 428.9 (98%, rope, air vx 8.5), x 434.4 (93%, rope, air vx 9.5), x 439.9 (97%, rope, air vx 8.6)",
+   "a fall at x 253.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7521
+ },
+ {
+  "id": "3-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 37,
+   "worst": 0.34827481736326765
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 111.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 37 ticks (worst 35%) at x 160.5 (35%), x 315.9 (42%), x 425.7 (50%)",
+   "a fall at x 111.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6646
+ },
+ {
+  "id": "4-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.91666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 105,
+   "worst": 0.018932894430212753
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 211.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 105 ticks (worst 2%) at x 187.2 (43%), x 344.2 (52%), x 386.7 (89%, air vx 9.6), x 394.1 (90%, air vx 9.6), x 407.0 (89%, air vx 9.6), x 416.0 (90%, air vx 9.6)",
+   "a fall at x 211.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9546
+ },
+ {
+  "id": "5-12",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2409.5,
+  "hudMismatch": [],
+  "offScreen": 5094,
+  "shortView": {
+   "ticks": 65,
+   "worst": 0.3153053437767336
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 158.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 376.6, presses 144/144, cards 4/4, gave up)",
+   "sprite off screen for 5094 ticks",
+   "camera shows less than viewAhead for 65 ticks (worst 32%) at x 88.0 (63%), x 213.3 (51%), x 221.0 (70%), x 263.1 (97%, rope, air vx 8.6), x 268.5 (94%, rope, air vx 10.1), x 330.5 (32%)",
+   "a fall at x 158.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23192
+ },
+ {
+  "id": "5-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 102,
+   "worst": 0.5008339756646285
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 123.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 102 ticks (worst 50%) at x 54.2 (93%, air vx 9.1), x 74.4 (93%, air vx 9.1), x 93.2 (93%, air vx 9.1), x 101.3 (93%, air vx 9.1), x 112.1 (93%, air vx 9.1), x 132.2 (93%, air vx 9.1)",
+   "a fall at x 123.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7505
+ },
+ {
+  "id": "daily-0",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 75.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 9,
+   "worst": 0.4301433908589124
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 18.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 9 ticks (worst 43%) at x 91.4 (43%), x 193.3 (83%)",
+   "a fall at x 18.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5586
+ },
+ {
+  "id": "daily-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 26,
+   "worst": 0.5759616905237895
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 32.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 26 ticks (worst 58%) at x 102.9 (61%), x 218.7 (58%), x 265.1 (98%, rope, air vx 8.6), x 269.9 (95%, rope, air vx 9.3)",
+   "a fall at x 32.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5936
+ },
+ {
+  "id": "daily-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.93333333333334,
+  "hudMismatch": [],
+  "offScreen": 2,
+  "shortView": {
+   "ticks": 32,
+   "worst": 0.017039820109985258
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 2 ticks",
+   "camera shows less than viewAhead for 32 ticks (worst 2%) at x 98.7 (2%), x 212.2 (57%), x 332.2 (2%)",
+   "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7358
+ },
+ {
+  "id": "daily-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.380662380179096
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 194.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 38%) at x 108.6 (66%), x 223.9 (38%), x 340.8 (43%)",
+   "a fall at x 194.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7965
+ },
+ {
+  "id": "daily-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 116.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 68,
+   "worst": 0.5003551440389191
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 57.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 68 ticks (worst 50%) at x 101.0 (54%), x 274.7 (59%), x 288.0 (50%), x 347.9 (97%, rope, air vx 8.7), x 353.5 (94%, rope, air vx 10.1), x 399.2 (69%)",
+   "a fall at x 57.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7897
+ },
+ {
+  "id": "daily-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 12,
+   "worst": 0.43014335584123986
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 12 ticks (worst 43%) at x 99.8 (43%), x 241.4 (73%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5336
+ },
+ {
+  "id": "daily-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.36666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 8,
+   "worst": 0.6042749327736542
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 56.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 8 ticks (worst 60%) at x 113.3 (88%), x 215.8 (60%)",
+   "a fall at x 56.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7312
+ },
+ {
+  "id": "daily-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.71666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 27,
+   "worst": 0.365597978016551
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 259.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 27 ticks (worst 37%) at x 112.5 (37%), x 233.9 (78%), x 350.1 (42%)",
+   "a fall at x 259.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7979
+ },
+ {
+  "id": "daily-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.3806625449974185
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 48.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 38%) at x 106.1 (38%), x 216.1 (55%), x 330.6 (69%)",
+   "a fall at x 48.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 9176
+ },
+ {
+  "id": "daily-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 66.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 8,
+   "worst": 0.6042757357855099
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 8 ticks (worst 60%) at x 90.3 (88%), x 194.1 (60%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 3381
+ },
+ {
+  "id": "daily-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.15,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 29,
+   "worst": 0.354290342926942
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 129.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 29 ticks (worst 35%) at x 86.8 (59%), x 192.0 (35%), x 301.5 (42%)",
+   "a fall at x 129.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7104
+ },
+ {
+  "id": "daily-9",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2299.133333333333,
+  "hudMismatch": [],
+  "offScreen": 4915,
+  "shortView": {
+   "ticks": 47,
+   "worst": 0.017993367838977797
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 135.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 375.9, presses 140/140, cards 4/4, gave up)",
+   "sprite off screen for 4915 ticks",
+   "camera shows less than viewAhead for 47 ticks (worst 2%) at x 92.1 (54%), x 116.9 (2%), x 237.6 (38%), x 246.5 (61%)",
+   "a fall at x 135.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21727
+ },
+ {
+  "id": "daily-13",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.38066225240376195
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 38%) at x 99.9 (57%), x 216.5 (38%), x 326.9 (51%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8511
+ },
+ {
+  "id": "daily-14",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.65,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 51,
+   "worst": 0.0179933708141294
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 51 ticks (worst 2%) at x 105.2 (2%), x 213.9 (43%), x 254.1 (94%, rope, air vx 9.0), x 259.7 (96%, rope, air vx 9.9), x 315.7 (50%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5954
+ },
+ {
+  "id": "daily-11",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 3115.8166666666666,
+  "hudMismatch": [],
+  "offScreen": 9234,
+  "shortView": {
+   "ticks": 4,
+   "worst": 0.7750739926747823
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 39.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 167.4, presses 80/80, cards 1/1, gave up)",
+   "sprite off screen for 9234 ticks",
+   "camera shows less than viewAhead for 4 ticks (worst 78%) at x 106.8 (78%)",
+   "a fall at x 39.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24534
+ },
+ {
+  "id": "daily-16",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.33333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 16,
+   "worst": 0.016506698556029736
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 163.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 16 ticks (worst 2%) at x 113.6 (2%), x 217.5 (72%)",
+   "a fall at x 163.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5926
+ },
+ {
+  "id": "daily-17",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.36666666666666,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 41,
+   "worst": 0.018288619926060245
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 72.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 41 ticks (worst 2%) at x 107.8 (46%), x 235.6 (43%), x 399.4 (2%), x 457.7 (98%, rope, air vx 8.6), x 463.0 (94%, rope, air vx 9.0)",
+   "a fall at x 72.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6443
+ },
+ {
+  "id": "daily-18",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 106.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.3806619081931133
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 90.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 38%) at x 111.4 (66%), x 239.1 (38%), x 375.2 (51%)",
+   "a fall at x 90.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7938
+ },
+ {
+  "id": "daily-19",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 50,
+   "worst": 0.3806613552376584
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 50 ticks (worst 38%) at x 84.4 (43%), x 190.3 (38%), x 201.6 (52%), x 305.7 (50%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5371
+ },
+ {
+  "id": "daily-15",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2578.85,
+  "hudMismatch": [],
+  "offScreen": 5813,
+  "shortView": {
+   "ticks": 11,
+   "worst": 0.6042755875654995
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 274.8, presses 136/136, cards 2/2, gave up)",
+   "sprite off screen for 5813 ticks",
+   "camera shows less than viewAhead for 11 ticks (worst 60%) at x 94.3 (64%), x 238.7 (60%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21014
+ },
+ {
+  "id": "daily-20",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 64.86666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 11,
+   "worst": 0.6042748936676157
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 11 ticks (worst 60%) at x 91.6 (64%), x 198.8 (60%)",
+   "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 4975
+ },
+ {
+  "id": "daily-21",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.68333333333334,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 15,
+   "worst": 0.01650669792647033
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 15 ticks (worst 2%) at x 128.6 (2%), x 287.6 (79%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6678
+ },
+ {
+  "id": "daily-22",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 107.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 30,
+   "worst": 0.33242158513754055
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 30 ticks (worst 33%) at x 101.7 (37%), x 236.9 (45%), x 384.3 (33%)",
+   "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6910
+ },
+ {
+  "id": "daily-23",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.31830245986864286
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 93.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 33 ticks (worst 32%) at x 115.6 (38%), x 264.3 (64%), x 389.2 (32%)",
+   "a fall at x 93.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7701
+ },
+ {
+  "id": "daily-24",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 106.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 42,
+   "worst": 0.3402653461523857
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 42 ticks (worst 34%) at x 109.7 (34%), x 117.1 (75%), x 228.8 (52%), x 237.2 (66%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7714
+ },
+ {
+  "id": "daily-26",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 18,
+   "worst": 0.3376910492508678
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 18 ticks (worst 34%) at x 160.1 (34%), x 341.8 (35%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6311
+ },
+ {
+  "id": "daily-27",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 28,
+   "worst": 0.3324215853022843
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 28 ticks (worst 33%) at x 107.7 (59%), x 242.2 (45%), x 353.6 (33%)",
+   "a fall at x 26.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5837
+ },
+ {
+  "id": "daily-28",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.93333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 34,
+   "worst": 0.3806610575826381
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 34 ticks (worst 38%) at x 107.7 (57%), x 224.4 (43%), x 338.9 (38%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6543
+ },
+ {
+  "id": "daily-29",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 100.2,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 39,
+   "worst": 0.017993370963196864
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 39 ticks (worst 2%) at x 105.3 (2%), x 255.1 (61%), x 354.9 (50%)",
+   "a fall at x 51.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5413
+ },
+ {
+  "id": "daily-25",
+  "device": "desktop",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 2537.5333333333333,
+  "hudMismatch": [],
+  "offScreen": 10253,
+  "shortView": {
+   "ticks": 8,
+   "worst": 0.43014373005889855
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 41.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 253.4, presses 142/142, cards 2/2, gave up)",
+   "sprite off screen for 10253 ticks",
+   "camera shows less than viewAhead for 8 ticks (worst 43%) at x 113.0 (88%), x 229.3 (43%)",
+   "a fall at x 41.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 19538
+ },
+ {
+  "id": "1-2",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 46.833333333333336,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 27,
+   "worst": 0.35552588913451527
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 187.0, presses 104/104, cards 1/1, gave up)",
+   "camera shows less than viewAhead for 27 ticks (worst 36%) at x 84.6 (36%)",
+   "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 15060
+ },
+ {
+  "id": "1-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 56.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 40.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 99 (x 169.30, planned 169.46)",
+   "a fall at x 40.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 19123
+ },
+ {
+  "id": "1-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 73.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 103,
+   "worst": 0.24676086950881784
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 103 ticks (worst 25%) at x 91.5 (44%), x 121.1 (94%, rope, air vx 6.0), x 132.3 (90%, rope, air vx 6.9), x 246.2 (25%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22964
+ },
+ {
+  "id": "1-5",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 90.05,
+  "hudMismatch": [],
+  "offScreen": 27,
+  "shortView": {
+   "ticks": 83,
+   "worst": 0.3284275114840578
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 229.4, presses 120/120, cards 2/2, gave up)",
+   "sprite off screen for 27 ticks",
+   "camera shows less than viewAhead for 83 ticks (worst 33%) at x 80.4 (43%), x 108.3 (91%), x 194.3 (33%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 15276
+ },
+ {
+  "id": "1-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 74,
+   "worst": 0.2467566542967575
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 31.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 74 ticks (worst 25%) at x 129.3 (25%), x 245.5 (42%), x 272.3 (91%)",
+   "a fall at x 31.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21913
+ },
+ {
+  "id": "1-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 71,
+   "worst": 0.24675614284382605
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "lifting the finger after the finish pressed a button on the end screen (end → play)",
+   "camera shows less than viewAhead for 71 ticks (worst 25%) at x 138.6 (25%), x 247.9 (42%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23085
+ },
+ {
+  "id": "1-7",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 0,
+  "seconds": 67.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 13,
+  "shortView": {
+   "ticks": 93,
+   "worst": 0.34397631272809015
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 24.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 276.9, presses 163/196, cards 2/2, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 13 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 93 ticks (worst 34%) at x 103.6 (34%), x 254.7 (42%), x 277.0 (97%, rope, air vx 6.2), x 282.6 (96%, rope, air vx 6.6)",
+   "a fall at x 24.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 18270
+ },
+ {
+  "id": "1-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 75,
+   "worst": 0.34282978734847613
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 28.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 75 ticks (worst 34%) at x 92.0 (34%), x 213.5 (41%)",
+   "a fall at x 28.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17742
+ },
+ {
+  "id": "1-10",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 291.25,
+  "hudMismatch": [],
+  "offScreen": 773,
+  "shortView": {
+   "ticks": 33,
+   "worst": 0.34056013320433026
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 27.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 136.0, presses 74/74, cards 1/1, gave up)",
+   "sprite off screen for 773 ticks",
+   "camera shows less than viewAhead for 33 ticks (worst 34%) at x 103.4 (34%)",
+   "a fall at x 27.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 11026
+ },
+ {
+  "id": "1-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.71666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 96,
+   "worst": 0.32357851640944113
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 96 ticks (worst 32%) at x 98.9 (34%), x 163.1 (91%, rope, air vx 6.5), x 168.9 (97%, rope, air vx 7.7), x 174.4 (92%, rope, air vx 8.1), x 223.6 (32%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 19637
+ },
+ {
+  "id": "1-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.8,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 73,
+   "worst": 0.3212030236343299
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 73 ticks (worst 32%) at x 135.7 (34%), x 249.7 (32%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20974
+ },
+ {
+  "id": "1-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 103,
+   "worst": 0.3111372942743443
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 103 ticks (worst 31%) at x 123.5 (43%), x 311.5 (31%), x 362.1 (98%, rope, air vx 6.8), x 367.1 (97%, rope, air vx 7.1), x 372.6 (97%, rope, air vx 7.0)",
+   "a fall at x 22.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 25467
+ },
+ {
+  "id": "2-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.51666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 48,
+   "worst": 0.3156931472089151
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 270.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 48 ticks (worst 32%) at x 153.8 (38%), x 303.9 (32%)",
+   "a fall at x 270.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23560
+ },
+ {
+  "id": "2-4",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 15.633333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 50.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 58.3, presses 33/212, cards 0/2, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "a fall at x 50.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 4324
+ },
+ {
+  "id": "2-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.2,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 50,
+   "worst": 0.007146799943512816
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 24.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 50 ticks (worst 1%) at x 111.1 (1%), x 234.0 (31%)",
+   "a fall at x 24.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 19039
+ },
+ {
+  "id": "2-3",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 2,
+  "seconds": 72.85,
+  "hudMismatch": [],
+  "offScreen": 154,
+  "shortView": {
+   "ticks": 35,
+   "worst": 0.3316759076645652
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 129.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 129.3, presses 162/162, cards 1/2, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 154 ticks",
+   "camera shows less than viewAhead for 35 ticks (worst 33%) at x 104.1 (33%)",
+   "a fall at x 129.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 18156
+ },
+ {
+  "id": "2-6",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 65.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 15,
+  "shortView": {
+   "ticks": 50,
+   "worst": 0.31313699526665567
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 283.3, presses 146/176, cards 2/2, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 15 ticks",
+   "camera shows less than viewAhead for 50 ticks (worst 31%) at x 108.8 (37%), x 268.9 (31%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 16947
+ },
+ {
+  "id": "2-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 51,
+   "worst": 0.3731814635953299
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 281.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 51 ticks (worst 37%) at x 118.7 (37%), x 263.4 (40%)",
+   "a fall at x 281.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21395
+ },
+ {
+  "id": "2-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.91666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 75,
+   "worst": 0.007507681802290549
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 144.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 75 ticks (worst 1%) at x 118.9 (1%), x 227.6 (31%), x 275.8 (93%, rope, air vx 7.0), x 281.5 (97%, rope, air vx 7.9), x 287.1 (92%, rope, air vx 8.2)",
+   "a fall at x 144.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17417
+ },
+ {
+  "id": "2-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 126,
+   "worst": 0.24677056295496833
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 20.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 106 (x 213.14, planned 221.84)",
+   "camera shows less than viewAhead for 126 ticks (worst 25%) at x 89.5 (35%), x 221.8 (25%), x 322.5 (25%)",
+   "a fall at x 20.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23897
+ },
+ {
+  "id": "2-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 128,
+   "worst": 0.303657798995354
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 93.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 114 (x 237.18, planned 237.47)",
+   "camera shows less than viewAhead for 128 ticks (worst 30%) at x 82.5 (35%), x 180.0 (32%), x 289.1 (30%)",
+   "a fall at x 93.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23134
+ },
+ {
+  "id": "2-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 81.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 133,
+   "worst": 0.3029892851289395
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 100.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 133 ticks (worst 30%) at x 80.1 (35%), x 186.5 (32%), x 213.5 (94%), x 289.5 (30%)",
+   "a fall at x 100.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21480
+ },
+ {
+  "id": "2-12",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 28.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 43,
+   "worst": 0.3480522978296257
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 309.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 107.1, presses 58/192, cards 1/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "the browser run left the planned run before press 9 (x 13.42, planned 13.59)",
+   "camera shows less than viewAhead for 43 ticks (worst 35%) at x 92.8 (35%)",
+   "a fall at x 309.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7529
+ },
+ {
+  "id": "3-2",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 27.25,
+  "hudMismatch": [],
+  "offScreen": 18,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 59.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 31.5, presses 64/252, cards 0/2, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 18 ticks",
+   "a fall at x 59.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 7765
+ },
+ {
+  "id": "2-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 64,
+   "worst": 0.009666734927029571
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 64 ticks (worst 1%) at x 94.6 (37%), x 184.9 (34%), x 299.0 (1%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20237
+ },
+ {
+  "id": "3-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.51666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 107,
+   "worst": 0.3244686167506654
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 127.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 107 ticks (worst 32%) at x 79.9 (32%), x 207.3 (34%), x 304.9 (39%)",
+   "a fall at x 127.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23952
+ },
+ {
+  "id": "3-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 1,
+  "seconds": 77.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 56,
+   "worst": 0.00934134649687545
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 298.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → play)",
+   "camera shows less than viewAhead for 56 ticks (worst 1%) at x 119.8 (36%), x 170.9 (97%, rope, air vx 6.3), x 176.5 (97%, rope, air vx 6.7), x 182.1 (90%, rope, air vx 9.6), x 187.9 (97%, rope, air vx 10.9), x 280.2 (1%)",
+   "a fall at x 298.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20266
+ },
+ {
+  "id": "3-4",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 1,
+  "hearts": 2,
+  "seconds": 157.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 370,
+  "shortView": {
+   "ticks": 63,
+   "worst": 0.34773724188849864
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 100.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 245.3, presses 192/192, cards 2/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 370 ticks",
+   "camera shows less than viewAhead for 63 ticks (worst 35%) at x 88.0 (35%), x 201.2 (40%)",
+   "a fall at x 100.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22378
+ },
+ {
+  "id": "3-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.21666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 117,
+   "worst": 0.3076291017934564
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 42.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 117 ticks (worst 31%) at x 86.2 (32%), x 227.9 (31%), x 329.7 (32%)",
+   "a fall at x 42.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21779
+ },
+ {
+  "id": "3-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.58333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 100,
+   "worst": 0.008261397678237494
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 39.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 100 ticks (worst 1%) at x 108.8 (1%), x 208.3 (31%), x 322.5 (30%)",
+   "a fall at x 39.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21281
+ },
+ {
+  "id": "3-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 89.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 75,
+   "worst": 0.34449436143963086
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 135.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 75 ticks (worst 34%) at x 96.2 (34%), x 225.9 (35%), x 330.6 (38%)",
+   "a fall at x 135.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23320
+ },
+ {
+  "id": "3-10",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 41.81666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 11,
+   "worst": 0.00852261747874987
+  },
+  "lateThreats": [],
+  "fall": "",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 193.0, presses 88/248, cards 1/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 11 ticks (worst 1%) at x 108.3 (1%)"
+  ],
+  "ms": 10766
+ },
+ {
+  "id": "3-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.46666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 124,
+   "worst": 0.30476528328035146
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 132.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 124 ticks (worst 30%) at x 109.1 (36%), x 218.7 (30%), x 350.6 (38%), x 401.0 (97%, rope, air vx 7.6), x 406.3 (93%, rope, air vx 8.8), x 411.9 (98%, rope, air vx 9.3)",
+   "a fall at x 132.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24307
+ },
+ {
+  "id": "3-9",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 0,
+  "seconds": 76.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 66,
+   "worst": 0.3109233791415793
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 386.2, presses 163/218, cards 3/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 66 ticks (worst 31%) at x 93.6 (34%), x 210.3 (34%), x 334.5 (31%)",
+   "a fall at x 23.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20565
+ },
+ {
+  "id": "3-11",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 112.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 22,
+  "shortView": {
+   "ticks": 57,
+   "worst": 0.30922231388234794
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 524.5, presses 210/210, cards 3/3, gave up)",
+   "sprite off screen for 22 ticks",
+   "camera shows less than viewAhead for 57 ticks (worst 31%) at x 110.9 (35%), x 261.0 (97%, air vx 5.7), x 278.2 (32%), x 468.0 (31%)",
+   "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23944
+ },
+ {
+  "id": "3-12",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 1,
+  "seconds": 93.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 112,
+   "worst": 0.30246079401441844
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 182.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 439.7, presses 192/192, cards 3/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "the browser run left the planned run before press 44 (x 85.48, planned 102.43)",
+   "camera shows less than viewAhead for 112 ticks (worst 30%) at x 102.4 (35%), x 219.3 (30%), x 273.1 (97%, rope, air vx 7.2), x 278.7 (95%, rope, air vx 8.0), x 284.4 (91%, rope, air vx 8.7), x 337.8 (31%)",
+   "a fall at x 182.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 21330
+ },
+ {
+  "id": "4-1",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 1,
+  "hearts": 1,
+  "seconds": 82.45,
+  "hudMismatch": [],
+  "offScreen": 17,
+  "shortView": {
+   "ticks": 44,
+   "worst": 0.3094870407958019
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 44.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 113.8, presses 218/218, cards 1/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 17 ticks",
+   "the browser run left the planned run before press 39 (x 84.67, planned 86.01)",
+   "camera shows less than viewAhead for 44 ticks (worst 31%) at x 84.3 (31%)",
+   "a fall at x 44.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22182
+ },
+ {
+  "id": "4-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 110,
+   "worst": 0.1484544185777265
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 140.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 84 (x 177.92, planned 177.87)",
+   "camera shows less than viewAhead for 110 ticks (worst 15%) at x 110.5 (31%), x 257.4 (15%), x 305.2 (98%, rope, air vx 7.4), x 310.7 (96%, rope, air vx 7.9), x 316.3 (92%, rope, air vx 9.2)",
+   "a fall at x 140.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20719
+ },
+ {
+  "id": "4-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 115,
+   "worst": 0.3019269951938206
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 38 (x 79.81, planned 96.75)",
+   "camera shows less than viewAhead for 115 ticks (worst 30%) at x 96.8 (35%), x 201.2 (30%), x 359.6 (31%), x 403.1 (94%, rope, air vx 8.2), x 408.7 (94%, rope, air vx 9.9)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23302
+ },
+ {
+  "id": "4-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 101.41666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 125,
+   "worst": 0.14844693704326184
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "only 2 golden acorns in the browser",
+   "the browser run ended differently from the simulated run (won, 2 acorns vs won, 3 acorns)",
+   "camera shows less than viewAhead for 125 ticks (worst 15%) at x 189.1 (15%), x 249.2 (84%, air vx 8.8), x 264.7 (85%), x 285.4 (85%, air vx 8.8), x 303.4 (85%, air vx 8.8), x 323.0 (84%, air vx 8.8)",
+   "a fall at x 22.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 28455
+ },
+ {
+  "id": "4-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 99,
+   "worst": 0.24677775370424285
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 99 ticks (worst 25%) at x 97.1 (25%), x 209.0 (33%), x 330.5 (29%)",
+   "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20724
+ },
+ {
+  "id": "4-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 105,
+   "worst": 0.009762639030782814
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 92.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 105 ticks (worst 1%) at x 115.0 (15%), x 270.9 (1%), x 386.8 (29%)",
+   "a fall at x 92.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23685
+ },
+ {
+  "id": "4-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.25,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 156,
+   "worst": 0.009025919804752312
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 204.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → play)",
+   "camera shows less than viewAhead for 156 ticks (worst 1%) at x 127.1 (1%), x 230.3 (39%), x 283.3 (84%, air vx 9.0), x 298.4 (85%, air vx 9.0), x 317.9 (84%, air vx 9.0), x 326.5 (90%, air vx 9.0)",
+   "a fall at x 204.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 29012
+ },
+ {
+  "id": "4-8",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 0,
+  "seconds": 166.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 9,
+  "shortView": {
+   "ticks": 99,
+   "worst": 0.14846332041026425
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 43.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 338.9, presses 159/230, cards 2/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 9 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 99 ticks (worst 15%) at x 99.0 (31%), x 292.3 (15%), x 340.0 (92%, rope, air vx 8.1)",
+   "a fall at x 43.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 19893
+ },
+ {
+  "id": "4-9",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 138.18333333333334,
+  "hudMismatch": [],
+  "offScreen": 22,
+  "shortView": {
+   "ticks": 137,
+   "worst": 0.14844939680867505
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 64.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 446.5, presses 188/188, cards 3/3, gave up)",
+   "sprite off screen for 22 ticks",
+   "camera shows less than viewAhead for 137 ticks (worst 15%) at x 96.6 (25%), x 258.7 (15%), x 395.4 (29%)",
+   "a fall at x 64.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22247
+ },
+ {
+  "id": "4-12",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 22.5,
+  "hudMismatch": [],
+  "offScreen": 15,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 41.1, presses 49/242, cards 0/4, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 15 ticks",
+   "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5965
+ },
+ {
+  "id": "4-10",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 0,
+  "seconds": 96.73333333333333,
+  "hudMismatch": [],
+  "offScreen": 44,
+  "shortView": {
+   "ticks": 91,
+   "worst": 0.14844306592864037
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 144.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 337.9, presses 237/260, cards 2/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 44 ticks",
+   "camera shows less than viewAhead for 91 ticks (worst 15%) at x 107.7 (15%), x 253.9 (30%)",
+   "a fall at x 144.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 28153
+ },
+ {
+  "id": "4-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 139,
+   "worst": 0.24679935009989643
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 138.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 139 ticks (worst 25%) at x 96.9 (30%), x 219.1 (25%), x 343.3 (29%)",
+   "a fall at x 138.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23060
+ },
+ {
+  "id": "5-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 1,
+  "seconds": 87.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 103,
+   "worst": 0.30130830872049036
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 103 ticks (worst 30%) at x 116.8 (39%), x 129.6 (30%), x 408.2 (98%, rope, air vx 7.7), x 413.6 (92%, rope, air vx 9.5)",
+   "a fall at x 26.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24213
+ },
+ {
+  "id": "5-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.38333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 59,
+   "worst": 0.300301174390801
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 88.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run ended differently from the simulated run (won, 3 acorns vs won, 2 acorns)",
+   "camera shows less than viewAhead for 59 ticks (worst 30%) at x 130.4 (30%), x 295.4 (31%)",
+   "a fall at x 88.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23916
+ },
+ {
+  "id": "5-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 133,
+   "worst": 0.29647566830309874
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 524.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 133 ticks (worst 30%) at x 96.1 (34%), x 229.3 (30%), x 239.9 (30%), x 286.2 (97%, rope, air vx 7.7), x 291.5 (96%, rope, air vx 7.8), x 297.2 (92%, rope, air vx 9.3)",
+   "a fall at x 524.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 31176
+ },
+ {
+  "id": "5-6",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 0,
+  "seconds": 59.38333333333333,
+  "hudMismatch": [],
+  "offScreen": 14,
+  "shortView": {
+   "ticks": 166,
+   "worst": 0.29438955046992965
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 75.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 263.4, presses 117/204, cards 4/4, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 14 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 166 ticks (worst 29%) at x 101.5 (32%), x 112.1 (30%), x 207.0 (29%), x 220.3 (30%)",
+   "a fall at x 75.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 15710
+ },
+ {
+  "id": "5-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.8,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 140,
+   "worst": 0.010371048194440917
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 48.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 140 ticks (worst 1%) at x 96.7 (30%), x 219.0 (1%), x 324.3 (37%)",
+   "a fall at x 48.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23396
+ },
+ {
+  "id": "5-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 2,
+  "seconds": 122.46666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 153,
+   "worst": 0.2883801357723239
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 153 ticks (worst 29%) at x 88.8 (30%), x 243.0 (32%), x 472.6 (31%), x 594.4 (29%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 33053
+ },
+ {
+  "id": "5-8",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 41.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 46,
+   "worst": 0.38725922389293044
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 207.6, presses 89/248, cards 1/4, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 46 ticks (worst 39%) at x 92.5 (39%)",
+   "a fall at x 58.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10302
+ },
+ {
+  "id": "5-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.7,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 187,
+   "worst": 0.01048842636106826
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 187 ticks (worst 1%) at x 104.8 (30%), x 117.8 (30%), x 237.0 (29%), x 261.8 (1%), x 292.1 (83%, air vx 9.6), x 313.3 (84%, air vx 9.6)",
+   "a fall at x 26.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 25957
+ },
+ {
+  "id": "5-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 132,
+   "worst": 0.009906232462539086
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 36.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 132 ticks (worst 1%) at x 103.1 (1%), x 219.2 (31%), x 337.2 (29%)",
+   "a fall at x 36.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23640
+ },
+ {
+  "id": "5-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.4,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 137,
+   "worst": 0.010661926382946817
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 169.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 137 ticks (worst 1%) at x 94.9 (32%), x 107.5 (15%), x 242.9 (29%), x 268.0 (1%)",
+   "a fall at x 169.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24739
+ },
+ {
+  "id": "5-12",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 2,
+  "seconds": 79.5,
+  "hudMismatch": [],
+  "offScreen": 26,
+  "shortView": {
+   "ticks": 167,
+   "worst": 0.2924802089246035
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 158.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 368.8, presses 144/144, cards 4/4, gave up)",
+   "sprite off screen for 26 ticks",
+   "camera shows less than viewAhead for 167 ticks (worst 29%) at x 88.0 (30%), x 213.3 (29%), x 221.0 (37%), x 263.0 (93%, rope, air vx 8.4), x 268.6 (94%, rope, air vx 10.3), x 330.5 (31%)",
+   "a fall at x 158.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17005
+ },
+ {
+  "id": "5-11",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 1,
+  "seconds": 109.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 126,
+  "shortView": {
+   "ticks": 181,
+   "worst": 0.24682536306672326
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 316.7, presses 230/230, cards 4/4, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 126 ticks",
+   "camera shows less than viewAhead for 181 ticks (worst 25%) at x 135.3 (30%), x 145.9 (30%), x 268.1 (25%), x 281.1 (29%)",
+   "a fall at x 60.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 25517
+ },
+ {
+  "id": "1-S",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 58.6,
+  "hudMismatch": [],
+  "offScreen": 20,
+  "shortView": {
+   "ticks": 96,
+   "worst": 0.32884139207593915
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 98.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 228.5, presses 134/184, cards 2/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 20 ticks",
+   "camera shows less than viewAhead for 96 ticks (worst 33%) at x 122.5 (33%), x 194.8 (41%), x 228.6 (90%, rope, air vx 8.1), x 223.4 (97%, rope, air vx 6.5)",
+   "a fall at x 98.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 15651
+ },
+ {
+  "id": "2-S",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 25,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 44,
+   "worst": 0.3412364116748778
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 253.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 93.5, presses 48/220, cards 1/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 44 ticks (worst 34%) at x 79.4 (34%)",
+   "a fall at x 253.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 6226
+ },
+ {
+  "id": "5-S",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 31.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 57,
+   "worst": 0.8215832517713318
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 123.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 192.9, presses 78/220, cards 0/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 57 ticks (worst 82%) at x 54.2 (82%, air vx 9.1), x 74.7 (83%, air vx 9.1), x 93.2 (83%, air vx 9.1), x 101.6 (90%, air vx 9.1), x 112.1 (83%, air vx 9.1), x 132.2 (83%, air vx 9.1)",
+   "a fall at x 123.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8973
+ },
+ {
+  "id": "3-S",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 2,
+  "seconds": 100.55,
+  "hudMismatch": [],
+  "offScreen": 43,
+  "shortView": {
+   "ticks": 42,
+   "worst": 0.31748107299575834
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 111.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 390.3, presses 214/214, cards 2/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 43 ticks",
+   "camera shows less than viewAhead for 42 ticks (worst 32%) at x 160.5 (34%), x 315.9 (32%)",
+   "a fall at x 111.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24505
+ },
+ {
+  "id": "daily-0",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 75.51666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 76,
+   "worst": 0.24675638900929212
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 18.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 76 ticks (worst 25%) at x 91.4 (25%), x 193.3 (42%), x 219.9 (91%)",
+   "a fall at x 18.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17386
+ },
+ {
+  "id": "4-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 167,
+   "worst": 0.011237795916543216
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 211.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 167 ticks (worst 1%) at x 187.2 (25%), x 344.2 (29%), x 386.4 (84%, air vx 9.6), x 394.2 (90%, air vx 9.6), x 406.6 (85%, air vx 9.6), x 416.1 (89%, air vx 9.6)",
+   "a fall at x 211.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 31022
+ },
+ {
+  "id": "daily-1",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 2,
+  "seconds": 76.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 96,
+   "worst": 0.3120135106530076
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 32.7 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 307.2, presses 162/162, cards 2/2, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "the browser run left the planned run before press 68 (x 143.31, planned 143.32)",
+   "camera shows less than viewAhead for 96 ticks (worst 31%) at x 102.9 (33%), x 218.7 (31%), x 264.3 (93%, rope, air vx 7.3), x 270.0 (97%, rope, air vx 8.7)",
+   "a fall at x 32.7 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17752
+ },
+ {
+  "id": "daily-4",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 33.93333333333333,
+  "hudMismatch": [],
+  "offScreen": 11,
+  "shortView": {
+   "ticks": 45,
+   "worst": 0.3012034467234548
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 57.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 136.8, presses 72/272, cards 1/4, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 11 ticks",
+   "camera shows less than viewAhead for 45 ticks (worst 30%) at x 101.0 (30%)",
+   "a fall at x 57.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8421
+ },
+ {
+  "id": "daily-2",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 0,
+  "seconds": 88.41666666666667,
+  "hudMismatch": [],
+  "offScreen": 2,
+  "shortView": {
+   "ticks": 68,
+   "worst": 0.008327321410407507
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 463.8, presses 197/206, cards 3/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 2 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 68 ticks (worst 1%) at x 98.7 (1%), x 212.2 (31%), x 332.2 (1%)",
+   "a fall at x 116.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22015
+ },
+ {
+  "id": "daily-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 136,
+   "worst": 0.14844770582148706
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 194.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 10 (x 20.66, planned 20.94)",
+   "camera shows less than viewAhead for 136 ticks (worst 15%) at x 108.6 (31%), x 223.9 (15%), x 340.8 (25%)",
+   "a fall at x 194.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24414
+ },
+ {
+  "id": "daily-6",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 48.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 34,
+   "worst": 0.246764888081757
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 146.1, presses 118/176, cards 1/2, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 34 ticks (worst 25%) at x 99.8 (25%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 12146
+ },
+ {
+  "id": "daily-5",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 79.76666666666667,
+  "hudMismatch": [],
+  "offScreen": 80,
+  "shortView": {
+   "ticks": 79,
+   "worst": 0.3259864385159828
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 56.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 246.7, presses 172/172, cards 2/2, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 80 ticks",
+   "camera shows less than viewAhead for 79 ticks (worst 33%) at x 113.3 (43%), x 215.8 (33%)",
+   "a fall at x 56.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 18556
+ },
+ {
+  "id": "daily-7",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 1,
+  "hearts": 2,
+  "seconds": 85.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 52,
+   "worst": 0.35688498784965045
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 259.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 246.1, presses 196/196, cards 2/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 52 ticks (worst 36%) at x 112.5 (36%), x 233.9 (40%)",
+   "a fall at x 259.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20400
+ },
+ {
+  "id": "daily-9",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 1,
+  "hearts": 1,
+  "seconds": 63.666666666666664,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 57,
+   "worst": 0.009793337977995734
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 135.8 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 220.6, presses 140/140, cards 2/4, gave up)",
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 57 ticks (worst 1%) at x 92.1 (30%), x 116.9 (1%)",
+   "a fall at x 135.8 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 14171
+ },
+ {
+  "id": "daily-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.13333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 138,
+   "worst": 0.1484340171360965
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 48.3 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 16 (x 31.91, planned 32.19)",
+   "camera shows less than viewAhead for 138 ticks (worst 15%) at x 106.1 (15%), x 216.1 (30%), x 330.6 (37%)",
+   "a fall at x 48.3 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 22670
+ },
+ {
+  "id": "daily-11",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 75.81666666666666,
+  "hudMismatch": [],
+  "offScreen": 131,
+  "shortView": {
+   "ticks": 43,
+   "worst": 0.35167274090368983
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 39.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 169.0, presses 80/80, cards 1/1, gave up)",
+   "sprite off screen for 131 ticks",
+   "camera shows less than viewAhead for 43 ticks (worst 35%) at x 106.8 (35%)",
+   "a fall at x 39.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 10224
+ },
+ {
+  "id": "daily-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 66.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 83,
+   "worst": 0.325987473543604
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 83 ticks (worst 33%) at x 90.3 (43%), x 194.1 (33%), x 229.8 (91%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17369
+ },
+ {
+  "id": "daily-12",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 2,
+  "hearts": 0,
+  "seconds": 80.91666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 84,
+   "worst": 0.3132129933110908
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 129.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 420.3, presses 174/190, cards 3/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 84 ticks (worst 31%) at x 86.8 (32%), x 192.0 (35%), x 301.5 (31%)",
+   "a fall at x 129.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 20911
+ },
+ {
+  "id": "daily-13",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 3,
+  "seconds": 92.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 86,
+  "shortView": {
+   "ticks": 137,
+   "worst": 0.1484475733550387
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 391.9, presses 202/202, cards 3/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 86 ticks",
+   "the browser run left the planned run before press 46 (x 90.77, planned 99.90)",
+   "camera shows less than viewAhead for 137 ticks (worst 15%) at x 99.9 (31%), x 216.5 (15%), x 326.9 (29%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23393
+ },
+ {
+  "id": "daily-14",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 157,
+   "worst": 0.009793341314753356
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 157 ticks (worst 1%) at x 105.2 (1%), x 213.9 (25%), x 248.7 (97%, rope, air vx 7.8), x 254.1 (92%, rope, air vx 9.0), x 259.7 (97%, rope, air vx 9.9), x 315.7 (29%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 24036
+ },
+ {
+  "id": "daily-16",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 19.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 163.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 80.7, presses 42/152, cards 0/2, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "a fall at x 163.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 4756
+ },
+ {
+  "id": "daily-15",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.85,
+  "hudMismatch": [],
+  "offScreen": 32,
+  "shortView": {
+   "ticks": 69,
+   "worst": 0.3259873956620332
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 268.9, presses 136/136, cards 2/2, gave up)",
+   "sprite off screen for 32 ticks",
+   "camera shows less than viewAhead for 69 ticks (worst 33%) at x 94.3 (34%), x 238.7 (33%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 15286
+ },
+ {
+  "id": "daily-17",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 1,
+  "seconds": 101.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 74,
+   "worst": 0.2467773425814232
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 72.6 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 408.1, presses 214/214, cards 3/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 74 ticks (worst 25%) at x 107.8 (34%), x 235.6 (25%), x 395.3 (32%)",
+   "a fall at x 72.6 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23567
+ },
+ {
+  "id": "daily-19",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 179,
+   "worst": 0.1484627672895143
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "the browser run left the planned run before press 138 (x 353.96, planned 353.95)",
+   "camera shows less than viewAhead for 179 ticks (worst 15%) at x 84.4 (25%), x 190.3 (15%), x 305.7 (29%)",
+   "a fall at x 22.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23116
+ },
+ {
+  "id": "daily-18",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 1,
+  "hearts": 1,
+  "seconds": 101.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 18,
+  "shortView": {
+   "ticks": 90,
+   "worst": 0.14845247750288623
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 90.5 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 261.8, presses 262/262, cards 2/3, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 18 ticks",
+   "the browser run left the planned run before press 100 (x 218.75, planned 219.05)",
+   "camera shows less than viewAhead for 90 ticks (worst 15%) at x 111.4 (31%), x 239.1 (15%)",
+   "a fall at x 90.5 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 27448
+ },
+ {
+  "id": "daily-20",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 64.86666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 74,
+   "worst": 0.3259863891367634
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 74 ticks (worst 33%) at x 91.6 (34%), x 198.8 (33%), x 232.7 (91%)",
+   "a fall at x 23.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 17279
+ },
+ {
+  "id": "daily-21",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.68333333333334,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 53,
+   "worst": 0.007507681469640718
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "sprite off screen for 1 ticks",
+   "camera shows less than viewAhead for 53 ticks (worst 1%) at x 128.6 (1%), x 287.6 (40%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 23744
+ },
+ {
+  "id": "daily-23",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 50.233333333333334,
+  "hudMismatch": [],
+  "offScreen": 36,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 93.2 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 68.2, presses 128/216, cards 0/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 36 ticks",
+   "a fall at x 93.2 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 13499
+ },
+ {
+  "id": "daily-22",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 107.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 44,
+   "worst": 0.32437978981906207
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "camera shows less than viewAhead for 44 ticks (worst 32%) at x 101.7 (36%), x 236.9 (33%), x 384.3 (32%)",
+   "a fall at x 60.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 26793
+ },
+ {
+  "id": "daily-25",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 67.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 27,
+  "shortView": {
+   "ticks": 78,
+   "worst": 0.24675686434414623
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 41.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 265.9, presses 142/142, cards 2/2, gave up)",
+   "sprite off screen for 27 ticks",
+   "camera shows less than viewAhead for 78 ticks (worst 25%) at x 113.0 (43%), x 229.3 (25%)",
+   "a fall at x 41.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 16101
+ },
+ {
+  "id": "daily-26",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 0,
+  "seconds": 57.4,
+  "hudMismatch": [],
+  "offScreen": 19,
+  "shortView": {
+   "ticks": 34,
+   "worst": 0.17874865642037951
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 227.3, presses 143/210, cards 1/2, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 19 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 34 ticks (worst 18%) at x 160.1 (18%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 16624
+ },
+ {
+  "id": "daily-27",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 22.533333333333335,
+  "hudMismatch": [],
+  "offScreen": 24,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 26.9 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 39.3, presses 51/208, cards 0/3, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 24 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "a fall at x 26.9 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 5983
+ },
+ {
+  "id": "daily-24",
+  "device": "phone",
+  "won": false,
+  "endScreen": false,
+  "acorns": 2,
+  "hearts": 1,
+  "seconds": 114.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 149,
+   "worst": 0.2950321483373425
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (run at x 325.6, presses 236/236, cards 4/4, gave up)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 149 ticks (worst 30%) at x 109.7 (33%), x 117.1 (39%), x 228.8 (30%), x 237.2 (32%)",
+   "a fall at x 51.4 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 25327
+ },
+ {
+  "id": "daily-29",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 0,
+  "hearts": 0,
+  "seconds": 43.13333333333333,
+  "hudMismatch": [],
+  "offScreen": 1,
+  "shortView": {
+   "ticks": 47,
+   "worst": 0.0097933413965626
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 51.1 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 207.2, presses 81/222, cards 2/4, loop end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "sprite off screen for 1 ticks",
+   "lifting the finger after the finish pressed a button on the end screen (end → title)",
+   "camera shows less than viewAhead for 47 ticks (worst 1%) at x 105.3 (1%)",
+   "a fall at x 51.1 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 8735
+ },
+ {
+  "id": "daily-28",
+  "device": "phone",
+  "won": false,
+  "endScreen": true,
+  "acorns": 1,
+  "hearts": 0,
+  "seconds": 58.25,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 74,
+   "worst": 0.3074712871862306
+  },
+  "lateThreats": [],
+  "fall": "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)",
+  "errors": [],
+  "problems": [
+   "not won in the browser (lost at x 296.9, presses 130/196, cards 2/3, end)",
+   "the browser run ended differently from the simulated run (not won vs won, 3 acorns)",
+   "camera shows less than viewAhead for 74 ticks (worst 31%) at x 107.7 (31%), x 224.4 (32%)",
+   "a fall at x 13.0 costs no heart (hearts 3 → 3, HUD 3)"
+  ],
+  "ms": 14360
+ }
+]

@@ -10,3 +10,4 @@ scripts/_*
 ci/
 ci-web/
 ci-playgama/
+playtest-out/

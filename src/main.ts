@@ -8,6 +8,7 @@ import '@fontsource/nunito/latin-700.css';
 import '@fontsource/nunito/latin-ext-700.css';
 import '@fontsource/nunito/cyrillic-700.css';
 import './ui/style.css';
+import * as THREE from 'three';
 import { Stage, SPRING } from './render/stage';
 import { loadModels } from './render/assets';
 import { Play } from './play/play';
@@ -509,6 +510,26 @@ function exposeCapture() {
     },
     screen: () => screen,
     sim: () => play?.sim,
+    level: () => play?.level,
+    /** the world x range the real camera shows at the trail (z = 0), at height y (playtest) */
+    view: (y: number) => {
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const at = (sx: number) => {
+        // the ray through the screen point (sx, the row of height y) meets the trail plane z = 0
+        const p = new THREE.Vector3(0, y, 0).project(cam);
+        const a = new THREE.Vector3(sx, p.y, -1).unproject(cam);
+        const b = new THREE.Vector3(sx, p.y, 1).unproject(cam);
+        const k = a.z / (a.z - b.z);
+        return a.x + (b.x - a.x) * k;
+      };
+      return { left: at(-1), right: at(1) };
+    },
+    /** screen position (0..1) of a world point on the trail (playtest) */
+    screenOf: (x: number, y: number) => {
+      const p = new THREE.Vector3(x, y, 0).project(stage.camera);
+      return { x: (p.x + 1) / 2, y: (1 - p.y) / 2 };
+    },
     save: () => save,
     setSave: (patch: Partial<typeof save>) => {
       Object.assign(save, patch);

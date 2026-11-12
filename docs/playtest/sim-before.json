@@ -1,0 +1,7943 @@
+{
+ "human": {
+  "reaction": 0.25,
+  "jitter": 0.1,
+  "tap": 0.1,
+  "hold": 0.45,
+  "lift": 0.2
+ },
+ "results": [
+  {
+   "id": "1-1",
+   "pieces": [
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 267.4,
+   "maxX": 267.4,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 0,
+   "seedsUsed": 0,
+   "seconds": 54.916666666666664,
+   "presses": 77,
+   "minRead": 1.6166666666666667,
+   "deaths": [
+    {
+     "x": 40,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 60.4,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 160.5,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 182.4,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 227.39999999999998,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 249.99999999999997,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 40.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 160.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 182.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 227.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 250.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1746
+  },
+  {
+   "id": "1-2",
+   "pieces": [
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 247.60000000000002,
+   "maxX": 195.65000000000003,
+   "failAt": "x 195.7 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 195.3, 164x)",
+    "fell (x 195.7, 156x)",
+    "hold: fell (x 193.4, 80x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 1,
+   "seconds": 47.983333333333334,
+   "presses": 52,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 23,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 91.4,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 137,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 167.3,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 182.20000000000002,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 195.7 (bouncy mushrooms): tap: fell; fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 23.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 91.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 137.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 167.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 182.2 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 10912
+  },
+  {
+   "id": "1-3",
+   "pieces": [
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 344.1567274698531,
+   "maxX": 344.1567274698531,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 70.8,
+   "presses": 89,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 24.014136966756293,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 119.06718360946714,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 119.06718360946714,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 167.5536438464364,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 175.78784200703114,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 194.0991645835199,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 216.47035308337,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 267.35344918233966,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 278.8591230034344,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 296.2525571840772,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 313.70869607941717,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 24.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 167.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 175.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 194.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 216.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 267.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 278.9 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 296.3 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 313.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3001
+  },
+  {
+   "id": "1-4",
+   "pieces": [
+    "logs",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 359.400712715109,
+   "maxX": 359.400712715109,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 74.73333333333333,
+   "presses": 95,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 31.77128944450274,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 41.98322358355754,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 140.7937382424844,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 158.24709109240794,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 158.24709109240794,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 299.17778193112036,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 310.68304832316494,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 31.8 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 42.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 140.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 299.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 310.7 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3034
+  },
+  {
+   "id": "1-5",
+   "pieces": [
+    "collapse",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 301.0417351928646,
+   "maxX": 239.2073695667434,
+   "failAt": "x 239.2 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 239.4, 153x)",
+    "fell (x 239.4, 143x)",
+    "hold: fell (x 239.2, 104x)"
+   ],
+   "acorns": 2,
+   "missedAcorns": [
+    "acorn at x 265.0 (low log), 4.4 high"
+   ],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 81.2,
+   "presses": 60,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 51.42722490069897,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 62.29517379349296,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 151.64143665614205,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 219.74501022090087,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 239.2 (bouncy mushrooms): tap: fell; fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 51.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 62.3 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 151.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 219.7 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 15254
+  },
+  {
+   "id": "1-6",
+   "pieces": [
+    "glide",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 408.71468815529823,
+   "maxX": 408.71468815529823,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 83.38333333333334,
+   "presses": 98,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 38.44930705151044,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 87.71283994247787,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 167.7384737505753,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 259.91317288956526,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 273.5826897344778,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 273.5826897344778,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 330.3766081236875,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 341.2438785324027,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 38.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 87.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 167.7 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 259.9 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 330.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 341.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3774
+  },
+  {
+   "id": "1-7",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 377.3761080852907,
+   "maxX": 377.3761080852907,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 77.26666666666667,
+   "presses": 98,
+   "minRead": 1.6,
+   "deaths": [
+    {
+     "x": 24.655825838530088,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 60.62502006573726,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 213.77116549364743,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 274.88943536549533,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 274.88943536549533,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 304.5597800806437,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 316.11336439139575,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 327.8465705941228,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 336.25581745333295,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 356.9034417896629,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 24.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.6 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 213.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 304.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 316.1 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 327.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 336.3 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 356.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2255
+  },
+  {
+   "id": "1-8",
+   "pieces": [
+    "planks",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 324.88816914056133,
+   "maxX": 324.88816914056133,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 2,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 67.05,
+   "presses": 78,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 28.722115744040206,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 48.94723942153162,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 57.22568270184186,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 125.68265953961739,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 177.65853887873854,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 249.07506888167174,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 283.636442430721,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 303.82231253853286,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "golden acorn not collectable",
+     "text": "1 golden acorn(s) only with lucky timing (missed when pressed 0.1 s early or late) at x 131.6 (hanging planks)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 28.7 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 48.9 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 57.2 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 125.7 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 177.7 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 249.1 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 283.6 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 303.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1963
+  },
+  {
+   "id": "1-9",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 361.9223839915066,
+   "maxX": 361.9223839915066,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 71.86666666666666,
+   "presses": 91,
+   "minRead": 1.2333333333333334,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 46.658641836202925,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 56.8275768530931,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 75.49038574529948,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 117.0188987088262,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 161.0999899439989,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 161.0999899439989,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 190.46191618682946,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 46.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 56.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 75.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 117.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 190.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2458
+  },
+  {
+   "id": "1-10",
+   "pieces": [
+    "shrooms",
+    "glide"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 337.4756070959606,
+   "maxX": 155.03546455959886,
+   "failAt": "x 155.0 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 155.3, 168x)",
+    "fell (x 155.3, 136x)",
+    "hold: fell (x 153.5, 96x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 1,
+   "seconds": 42.7,
+   "presses": 37,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 27.85762035455973,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 70.83931341342421,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 135.66121081308893,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 155.0 (bouncy mushrooms): tap: fell; fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 27.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 70.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 135.7 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 10499
+  },
+  {
+   "id": "1-11",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 379.72797183691847,
+   "maxX": 379.72797183691847,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 75.95,
+   "presses": 95,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 22.894363022712263,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 39.64695516491847,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 47.37320187341471,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 68.79961686685282,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 85.96869785976635,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 103.5531995303923,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 111.86235433298485,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 167.61065999600956,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 167.61065999600956,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 205.91721810465398,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 271.62599963790757,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 282.017369760235,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 296.0382498592714,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 338.5144789658192,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 359.29267244617097,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 39.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 47.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 68.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 86.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 103.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 111.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 205.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 271.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 282.0 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 296.0 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 338.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 359.3 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2424
+  },
+  {
+   "id": "1-12",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 455.36300084581205,
+   "maxX": 455.36300084581205,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 89.3,
+   "presses": 117,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 22.015013394069452,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 41.61870257335043,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 143.16746338542603,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 268.2651724482928,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 324.1732652960829,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 344.91687633183057,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 359.27830225705657,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 359.27830225705657,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 398.5821453574039,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 41.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 143.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 268.3 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 324.2 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 344.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 398.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2559
+  },
+  {
+   "id": "2-1",
+   "pieces": [
+    "cave",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 415.35247443352785,
+   "maxX": 415.35247443352785,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 81.68333333333334,
+   "presses": 101,
+   "minRead": 1.4666666666666666,
+   "deaths": [
+    {
+     "x": 269.9943871204799,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 361.48723147810006,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 385.12120431340435,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 270.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 361.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 385.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3502
+  },
+  {
+   "id": "2-2",
+   "pieces": [
+    "waterfall",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 342.3860018789342,
+   "maxX": 342.3860018789342,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 67.35,
+   "presses": 82,
+   "minRead": 1.5333333333333332,
+   "deaths": [
+    {
+     "x": 24.76462293755654,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 268.844445407975,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 24.8 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 268.8 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2336
+  },
+  {
+   "id": "2-3",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 338.98969915573,
+   "maxX": 338.98969915573,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 2,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 65.83333333333333,
+   "presses": 81,
+   "minRead": 1.4833333333333334,
+   "deaths": [
+    {
+     "x": 129.66152831650197,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 248.26642257627833,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 261.69644868304505,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "golden acorn not collectable",
+     "text": "1 golden acorn(s) only with lucky timing (missed when pressed 0.1 s early or late) at x 135.9 (hanging planks)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 129.7 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 248.3 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 261.7 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 21042
+  },
+  {
+   "id": "2-4",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 444.54506723147324,
+   "maxX": 444.54506723147324,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 84.41666666666667,
+   "presses": 106,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 50.10651011460193,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 149.895300926476,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 183.21317854904228,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 183.21317854904228,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 292.6274218175744,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 414.9104958692097,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 50.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 149.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 292.6 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 414.9 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3975
+  },
+  {
+   "id": "2-5",
+   "pieces": [
+    "chase",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 390.82225843890933,
+   "maxX": 390.82225843890933,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 77.16666666666667,
+   "presses": 92,
+   "minRead": 1.3,
+   "deaths": [
+    {
+     "x": 280.9784622572311,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 294.06868059313996,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 326.8039875412602,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 281.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 294.1 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 326.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3850
+  },
+  {
+   "id": "2-6",
+   "pieces": [
+    "cave",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 382.9548213091737,
+   "maxX": 382.9548213091737,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 74.1,
+   "presses": 88,
+   "minRead": 1.35,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 49.98224528617968,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 58.054133575631234,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 69.05464123585665,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 162.0179002492996,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 290.90264323499935,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 50.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 58.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 69.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 162.0 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 290.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2107
+  },
+  {
+   "id": "2-7",
+   "pieces": [
+    "glide",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 346.38052061545613,
+   "maxX": 346.38052061545613,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 66.06666666666666,
+   "presses": 74,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 144.41803920659822,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 171.80391092084267,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 195.22205482137582,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 240.21688426166855,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 273.76487316467575,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 273.76487316467575,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 144.4 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 171.8 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 195.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 240.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2116
+  },
+  {
+   "id": "2-8",
+   "pieces": [
+    "logs",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 432.11399007683355,
+   "maxX": 432.11399007683355,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.65,
+   "presses": 101,
+   "minRead": 1.5,
+   "deaths": [
+    {
+     "x": 20.66367558435025,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 31.03785691128993,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 110.10076977600372,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 120.1147295774631,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 146.63519019203105,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 234.1545971010024,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 257.58812403041,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 257.58812403041,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 20.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 31.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 110.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 120.1 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 146.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 234.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3362
+  },
+  {
+   "id": "2-9",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 428.0679196649487,
+   "maxX": 428.0679196649487,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.43333333333334,
+   "presses": 100,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 93.70657687578016,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 114.01684631648644,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 245.27562456543077,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 93.7 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 114.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 245.3 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2449
+  },
+  {
+   "id": "2-10",
+   "pieces": [
+    "collapse",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 406.75641251666815,
+   "maxX": 406.75641251666815,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 78.25,
+   "presses": 96,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 100.24461409123023,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 162.39476561597095,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 266.0020411223529,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 327.76927428477234,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 373.05687894453877,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 100.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 162.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 266.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 327.8 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 373.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2569
+  },
+  {
+   "id": "2-11",
+   "pieces": [
+    "shrooms",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 417.52057770421015,
+   "maxX": 417.52057770421015,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 80.71666666666667,
+   "presses": 86,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 22.885288774346947,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 116.48140765158865,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 156.8160110314837,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 165.17110992396655,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 220.30260953841216,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 332.946396949122,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 116.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 156.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 165.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 220.3 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 332.9 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2555
+  },
+  {
+   "id": "2-12",
+   "pieces": [
+    "ropes",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 412.6095194519198,
+   "maxX": 412.6095194519198,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 78.65,
+   "presses": 96,
+   "minRead": 1.4666666666666666,
+   "deaths": [
+    {
+     "x": 220.3898990775311,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.3898990775311,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 309.77557351766944,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 324.1310668395533,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 324.1310668395533,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 309.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2658
+  },
+  {
+   "id": "3-1",
+   "pieces": [
+    "shrooms",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 443.2232320598451,
+   "maxX": 443.2232320598451,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 84.06666666666666,
+   "presses": 100,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 127.61466776546703,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 247.29410936380077,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 345.8485835605048,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 345.8485835605048,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 377.42882179130004,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 422.6035019113695,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 127.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 247.3 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 377.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 422.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3461
+  },
+  {
+   "id": "3-2",
+   "pieces": [
+    "cave",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 555.1688562312341,
+   "maxX": 555.1688562312341,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 101.58333333333333,
+   "presses": 126,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 59.01637154277358,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 88.058841570422,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 414.86158216674994,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 59.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 88.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 414.9 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 5102
+  },
+  {
+   "id": "3-3",
+   "pieces": [
+    "ropes",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 400.4781366220759,
+   "maxX": 400.4781366220759,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 74.43333333333334,
+   "presses": 84,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 168.83923135668903,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 168.83923135668903,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 298.8581905902509,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 320.75540524447763,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 298.9 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 320.8 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2454
+  },
+  {
+   "id": "3-4",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 436.60560093323227,
+   "maxX": 436.60560093323227,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 2,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 151.03333333333333,
+   "presses": 96,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 100.33108395066607,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 119.69078930470997,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 127.77065374621824,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 182.71799181950706,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 245.59945292896884,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "golden acorn not collectable",
+     "text": "1 golden acorn(s) only with lucky timing (missed when pressed 0.1 s early or late) at x 254.5 (hanging planks)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 100.3 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 119.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 127.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 182.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 245.6 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 17701
+  },
+  {
+   "id": "3-5",
+   "pieces": [
+    "glide",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 434.0071821679262,
+   "maxX": 434.0071821679262,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.76666666666667,
+   "presses": 92,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 42.65202886963586,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 53.06028686438367,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 143.5115068203207,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 264.39310465185696,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 293.2234252153764,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 413.04144027662215,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 42.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 53.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 143.5 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 264.4 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 293.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 413.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2910
+  },
+  {
+   "id": "3-6",
+   "pieces": [
+    "waterfall",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 432.2753591995679,
+   "maxX": 432.2753591995679,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.13333333333334,
+   "presses": 90,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 39.508754676619496,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 116.83432285719047,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 136.72194569623778,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 255.64970680970507,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 297.98436988819554,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 39.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 116.8 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 136.7 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 255.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 298.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2413
+  },
+  {
+   "id": "3-7",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 469.436599960866,
+   "maxX": 469.436599960866,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 86.48333333333333,
+   "presses": 100,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 135.72415541960297,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 154.17107130528754,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 261.39780157804813,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 261.39780157804813,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 370.72218076989935,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 420.701215009797,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 135.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 154.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 370.7 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 420.7 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3561
+  },
+  {
+   "id": "3-8",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 465.1191555924813,
+   "maxX": 465.1191555924813,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 84.01666666666667,
+   "presses": 102,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 132.28382486874443,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 140.76924782786742,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 374.12161697751606,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 398.6054073229551,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 398.6054073229551,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 444.52723426102085,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 132.3 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 140.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 374.1 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 444.5 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2757
+  },
+  {
+   "id": "3-9",
+   "pieces": [
+    "shrooms",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 530.093401450384,
+   "maxX": 530.093401450384,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 93.7,
+   "presses": 109,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 23.232878835115066,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 42.10855239357092,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 179.00002881658327,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 242.62711263014927,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 297.61365195610483,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 307.3746419552098,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 375.0053290161209,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 375.0053290161209,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 458.564158197216,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 23.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 42.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 179.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 242.6 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 297.6 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 307.4 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 458.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4017
+  },
+  {
+   "id": "3-10",
+   "pieces": [
+    "collapse",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 603.194290368775,
+   "maxX": 603.194290368775,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 105.03333333333333,
+   "presses": 124,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 336.4290989425938,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 497.9824260999484,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 507.02654811907115,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 518.6913957756541,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 336.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 498.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 507.0 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 518.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 5209
+  },
+  {
+   "id": "3-11",
+   "pieces": [
+    "cave",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 608.454657570816,
+   "maxX": 530.5099164711654,
+   "failAt": "x 530.5 (bouncy mushrooms)",
+   "stuck": [
+    "fell (x 530.7, 225x)",
+    "tap: fell (x 529.8, 146x)",
+    "hold: fell (x 526.7, 29x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 103.56666666666666,
+   "presses": 105,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 60.05089608932188,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 363.8686589975761,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 384.4919673415854,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 506.06983981373196,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 530.5 (bouncy mushrooms): fell; tap: fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 363.9 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 384.5 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 506.1 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 26658
+  },
+  {
+   "id": "3-12",
+   "pieces": [
+    "ropes",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 459.75652085504606,
+   "maxX": 459.75652085504606,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 81.5,
+   "presses": 96,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 182.5415392335295,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 265.4339265505808,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 265.4339265505808,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 301.2393152529791,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 351.4662033615695,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 400.4613371987591,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 182.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 301.2 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 351.5 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 400.5 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2965
+  },
+  {
+   "id": "4-1",
+   "pieces": [
+    "wind",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 532.7232978759868,
+   "maxX": 532.7232978759868,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 89.55,
+   "presses": 109,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 44.82147196198047,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 159.96409609580715,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 248.1277269337877,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 275.1961441769694,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 300.7896082321349,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 44.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 160.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 248.1 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 275.2 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 300.8 (wind) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4268
+  },
+  {
+   "id": "4-2",
+   "pieces": [
+    "logs",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 393.5713636372843,
+   "maxX": 393.5713636372843,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 68.16666666666667,
+   "presses": 89,
+   "minRead": 1.1833333333333333,
+   "deaths": [
+    {
+     "x": 140.9063798165792,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 172.86203210791496,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 172.86203210791496,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.4114178133889,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.4114178133889,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 140.9 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2404
+  },
+  {
+   "id": "4-3",
+   "pieces": [
+    "wind",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 602.0220664212792,
+   "maxX": 602.0220664212792,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 98.58333333333333,
+   "presses": 124,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 22.26266947160636,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 200.50536307217195,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 304.20856066113964,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 314.6838269365958,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 352.9017753539933,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.3 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 200.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 304.2 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 314.7 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 352.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4131
+  },
+  {
+   "id": "4-4",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 481.40397150221816,
+   "maxX": 481.40397150221816,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 84.75,
+   "presses": 101,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 109.15523229889476,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 161.21921737391065,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 395.3680205489172,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 395.3680205489172,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 109.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 161.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2868
+  },
+  {
+   "id": "4-5",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 456.5662898477837,
+   "maxX": 456.5662898477837,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.46666666666667,
+   "presses": 96,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 116.7695381736995,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 255.31468064250666,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 344.31826202036984,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 116.8 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 255.3 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 344.3 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3097
+  },
+  {
+   "id": "4-6",
+   "pieces": [
+    "wind",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 624.2533977692702,
+   "maxX": 624.2533977692702,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 104.85,
+   "presses": 131,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 204.13323479768363,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 399.1620161715386,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 465.88860759572447,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 204.1 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 399.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 465.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4738
+  },
+  {
+   "id": "4-7",
+   "pieces": [
+    "glide",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 525.0829468774791,
+   "maxX": 525.0829468774791,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 90.66666666666667,
+   "presses": 104,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 92.76638563422432,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 144.48195852478312,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 332.9640619106992,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 452.7728613932393,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 452.7728613932393,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 92.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 144.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 333.0 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2992
+  },
+  {
+   "id": "4-8",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 547.1864803874379,
+   "maxX": 547.1864803874379,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 193.03333333333333,
+   "presses": 115,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 43.39388443889328,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 112.1330383051916,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 161.4545928982048,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 337.8797285341123,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 337.8797285341123,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 478.07341338380587,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 43.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 112.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 161.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 478.1 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 13581
+  },
+  {
+   "id": "4-9",
+   "pieces": [
+    "collapse",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 516.5892868372559,
+   "maxX": 453.29707495944945,
+   "failAt": "x 453.3 (bouncy mushrooms)",
+   "stuck": [
+    "fell (x 453.5, 209x)",
+    "tap: fell (x 452.8, 151x)",
+    "hold: fell (x 450.0, 40x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 129.13333333333333,
+   "presses": 94,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 64.39082445156203,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 201.16678169483737,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 288.0016656230752,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 428.85600513598956,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 453.3 (bouncy mushrooms): fell; tap: fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 64.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 201.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 288.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 428.9 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 14979
+  },
+  {
+   "id": "4-10",
+   "pieces": [
+    "wind",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 605.2722726180667,
+   "maxX": 605.2722726180667,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 1,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 105.26666666666667,
+   "presses": 130,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 144.05025937870423,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 169.65132956391034,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 205.75039267220183,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 222.30913724661374,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 285.8616865510642,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 359.4460317756893,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 368.1247465021166,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 410.42453321711145,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "2 → 2"
+    },
+    {
+     "x": 419.9553345271446,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "2 → 2"
+    },
+    {
+     "x": 457.21393531059124,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "2 → 2"
+    },
+    {
+     "x": 523.6471046098987,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "2 → 1"
+    },
+    {
+     "x": 523.6471046098987,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "2 → 1"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "unavoidable damage",
+     "text": "the human run loses 1 heart(s)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 144.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 169.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 205.8 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 222.3 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 285.9 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 359.4 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 368.1 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 410.4 (wind) costs 0 hearts (2 → 2)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 420.0 (wind) costs 0 hearts (2 → 2)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 457.2 (pit 2.7 wide) costs 0 hearts (2 → 2)"
+    }
+   ],
+   "ms": 4530
+  },
+  {
+   "id": "4-11",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 467.8138273757335,
+   "maxX": 467.8138273757335,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.18333333333334,
+   "presses": 97,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 138.44934493947488,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 158.51099635950928,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 167.87355544531667,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 197.11480897631017,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 294.46209837632034,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 303.8718765361011,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 386.97673067563466,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 399.2616621101282,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 399.2616621101282,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 448.0809740661557,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 138.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 158.5 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 167.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 197.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 294.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 303.9 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 387.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 448.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2525
+  },
+  {
+   "id": "4-12",
+   "pieces": [
+    "chase",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 594.542674334245,
+   "maxX": 594.542674334245,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 100.35,
+   "presses": 121,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 58.12632910082513,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 91.65695757330306,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 100.24711601766148,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 110.20067853721353,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 118.41986043025922,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 164.02059224067693,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 215.76121079652384,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 366.97633884203066,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 542.9912315067074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 58.1 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 91.7 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 100.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 110.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 118.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 164.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 215.8 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 367.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 543.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3565
+  },
+  {
+   "id": "5-1",
+   "pieces": [
+    "lily",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 499.43502436375195,
+   "maxX": 499.43502436375195,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 83.83333333333333,
+   "presses": 108,
+   "minRead": 1.2333333333333334,
+   "deaths": [
+    {
+     "x": 26.397860469553116,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 68.96042369847392,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 188.81134196984834,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 188.81134196984834,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 255.00525497666646,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 291.4599887787015,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 301.05009414312076,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 376.4519292252179,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 400.3416129068005,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.3416129068005,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 26.4 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 69.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 255.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 291.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 301.1 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 376.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4227
+  },
+  {
+   "id": "5-2",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 658.2404836162214,
+   "maxX": 658.2404836162214,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 110.06666666666666,
+   "presses": 130,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 278.24714575340363,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 278.24714575340363,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 524.6514037732906,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 602.0682856393054,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 524.7 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 602.1 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 5782
+  },
+  {
+   "id": "5-3",
+   "pieces": [
+    "lily",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 504.5069562071195,
+   "maxX": 504.5069562071195,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 2,
+   "missedAcorns": [
+    "acorn at x 185.8 (lily pads / stones), 0.4 high"
+   ],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 82.55,
+   "presses": 105,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 88.1738245432853,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 105.18173367124867,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 163.99392461832804,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 175.75192966841172,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 175.75192966841172,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 214.56769476775347,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 222.94066494173893,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "golden acorn not collectable",
+     "text": "acorn at x 185.8 (lily pads / stones), 0.4 high cannot be collected with human timing"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 88.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 105.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 164.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 214.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 222.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3560
+  },
+  {
+   "id": "5-4",
+   "pieces": [
+    "cave",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 706.7725797131135,
+   "maxX": 706.7725797131135,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 118.06666666666666,
+   "presses": 143,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 22.918846850807306,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 190.81322480402295,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 224.7784018914514,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 297.9163057119457,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 344.42246860859524,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 382.5464318938059,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 570.4038645321452,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 608.4514008456558,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 627.6784903722009,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 648.8611501773096,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 676.4615464480501,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 190.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 224.8 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 297.9 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 344.4 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 382.5 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 570.4 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 608.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 627.7 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 648.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 676.5 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 5036
+  },
+  {
+   "id": "5-5",
+   "pieces": [
+    "logs",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 521.0937699561808,
+   "maxX": 521.0937699561808,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 89.73333333333333,
+   "presses": 99,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 48.63405107203099,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 131.6972434795901,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 175.0533560370414,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 263.2665418561838,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 263.2665418561838,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 306.86113792922043,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 348.69807713021964,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 372.6636649675477,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 48.6 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 131.7 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 175.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 306.9 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 348.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 372.7 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3099
+  },
+  {
+   "id": "5-6",
+   "pieces": [
+    "lily",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 513.4039300524952,
+   "maxX": 513.4039300524952,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 87.21666666666667,
+   "presses": 102,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 75.77862698854025,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 158.12879182580198,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 256.4304523732749,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 256.4304523732749,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 314.59083918011015,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 348.7583915165716,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 75.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 158.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 314.6 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 348.8 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3237
+  },
+  {
+   "id": "5-7",
+   "pieces": [
+    "wind",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 594.6763171717097,
+   "maxX": 594.6763171717097,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 97.68333333333334,
+   "presses": 114,
+   "minRead": 1,
+   "deaths": [
+    {
+     "x": 26.305651442595074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 81.79685626947214,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 166.1523321531095,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 352.0090226340049,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 369.38840306226064,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 425.16290801002003,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 425.16290801002003,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 26.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 81.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 166.2 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 352.0 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 369.4 (wind) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3913
+  },
+  {
+   "id": "5-8",
+   "pieces": [
+    "chase",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 632.7517121302328,
+   "maxX": 632.7517121302328,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 105.9,
+   "presses": 124,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 58.134813072369596,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 175.95518700355237,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 448.0126641690345,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 504.71655605213476,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 521.5788300295162,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 558.0896426275049,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 58.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 176.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 448.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 504.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 521.6 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 558.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3375
+  },
+  {
+   "id": "5-9",
+   "pieces": [
+    "planks",
+    "lily"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 548.1026055507807,
+   "maxX": 548.1026055507807,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 91.85,
+   "presses": 106,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 36.179240751508516,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 44.73320220827998,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 164.4449064769763,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 250.78601931677088,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 262.8197667799558,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 373.8240932920148,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 373.8240932920148,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 36.2 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 44.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 164.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 250.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 262.8 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4001
+  },
+  {
+   "id": "5-10",
+   "pieces": [
+    "lily",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 541.2444250747028,
+   "maxX": 541.2444250747028,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 91.35,
+   "presses": 106,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 169.90789068290428,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 297.0826746660566,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.0826746660566,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 424.6079648821425,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 434.0912426322416,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 452.6706857873164,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 169.9 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 424.6 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 434.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 452.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4165
+  },
+  {
+   "id": "5-11",
+   "pieces": [
+    "glide",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 583.4997085330635,
+   "maxX": 583.4997085330635,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 97.18333333333334,
+   "presses": 115,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 60.60189838773939,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 69.10817048513907,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 245.59495198577073,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 314.93241922825473,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 356.9096907918238,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 506.3479216488704,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.6 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 69.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 245.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 314.9 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 356.9 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 506.3 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3436
+  },
+  {
+   "id": "5-12",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 523.0849253754252,
+   "maxX": 392.5654492253122,
+   "failAt": "x 392.6 (bouncy mushrooms)",
+   "stuck": [
+    "fell (x 392.8, 227x)",
+    "tap: fell (x 391.9, 141x)",
+    "hold: fell (x 389.1, 32x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 69.95,
+   "presses": 72,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 158.2065501643469,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 255.23116663645075,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 255.23116663645075,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 291.5511666364507,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 367.8840315699722,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 392.6 (bouncy mushrooms): fell; tap: fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 158.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 291.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 367.9 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3335
+  },
+  {
+   "id": "1-S",
+   "pieces": [
+    "ropes",
+    "shrooms",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 387.59845122382507,
+   "maxX": 387.59845122382507,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 75.15,
+   "presses": 92,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 98.34032966485945,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 207.02610274888605,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 220.96371484190686,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.96371484190686,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 259.78818644670935,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 296.5290207788516,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 98.3 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 207.0 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 259.8 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 296.5 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2254
+  },
+  {
+   "id": "2-S",
+   "pieces": [
+    "cave",
+    "ropes",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 514.3284478902193,
+   "maxX": 514.3284478902193,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 92.66666666666667,
+   "presses": 110,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 253.02187389837076,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 358.8625747858109,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 368.4201723047708,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 420.99550993607653,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 420.99550993607653,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 253.0 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 358.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 368.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4011
+  },
+  {
+   "id": "3-S",
+   "pieces": [
+    "shrooms",
+    "glide",
+    "cave"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 527.9857283386148,
+   "maxX": 527.9857283386148,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 92.43333333333334,
+   "presses": 107,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 111.48948354847829,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 234.53336221520587,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 274.4903044646037,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 329.22282565011585,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 449.76791037809585,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 111.5 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 234.5 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 274.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 329.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 449.8 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4072
+  },
+  {
+   "id": "4-S",
+   "pieces": [
+    "wind",
+    "collapse",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 665.6013381255261,
+   "maxX": 665.6013381255261,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 107.51666666666667,
+   "presses": 137,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 211.4478518004919,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 321.6847184197278,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 357.9530691115605,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 416.3018155229782,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 491.129647202651,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 573.9017000896105,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 211.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 321.7 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 358.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 416.3 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 491.1 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 573.9 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4526
+  },
+  {
+   "id": "5-S",
+   "pieces": [
+    "lily",
+    "ropes",
+    "wind"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 573.0288520096287,
+   "maxX": 573.0288520096287,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 91.3,
+   "presses": 110,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 123.16103563474275,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 132.45857410188785,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 346.43904919171,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 374.7710587196075,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 386.7207702674507,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 386.7207702674507,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 436.3908720183954,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 469.1281304217047,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 489.5018964184109,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 502.3620938427861,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 502.3620938427861,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 123.2 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 132.5 (wind) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 346.4 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 374.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 436.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 469.1 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 489.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4461
+  },
+  {
+   "id": "daily-0",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 303.33057631475,
+   "maxX": 303.33057631475,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 72.68333333333334,
+   "presses": 78,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 18.2,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 36.63311780995197,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 59.4264344509728,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 112.49939536503521,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 164.24917587506593,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 248.21374897306458,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 18.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 36.6 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 59.4 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 112.5 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 164.2 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 248.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2289
+  },
+  {
+   "id": "daily-1",
+   "pieces": [
+    "logs",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 351.3078425290966,
+   "maxX": 351.3078425290966,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 65.7,
+   "presses": 81,
+   "minRead": 1.45,
+   "deaths": [
+    {
+     "x": 32.73930764261027,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 41.221406475573275,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 80.06214510553585,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 114.90650877486826,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 126.0050195730375,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 139.4986849166244,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 139.4986849166244,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 176.95180232606347,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 186.97181464348603,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 194.9619500631443,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 256.61324135616894,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 256.61324135616894,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 32.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 41.2 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 80.1 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 114.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 126.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 177.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 187.0 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 195.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2360
+  },
+  {
+   "id": "daily-2",
+   "pieces": [
+    "shrooms",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 490.24665891946444,
+   "maxX": 490.24665891946444,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.53333333333333,
+   "presses": 103,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 116.8251002298892,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 249.50084220466212,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 116.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 249.5 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4268
+  },
+  {
+   "id": "daily-3",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 523.420415218289,
+   "maxX": 523.420415218289,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.21666666666667,
+   "presses": 110,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 194.40231073781757,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 365.2212834963534,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 502.8938583060027,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 194.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 365.2 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 502.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4015
+  },
+  {
+   "id": "daily-4",
+   "pieces": [
+    "ropes",
+    "cave"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 684.8793311855641,
+   "maxX": 684.8793311855641,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 112.85,
+   "presses": 136,
+   "minRead": 1.2166666666666666,
+   "deaths": [
+    {
+     "x": 57.61826124447994,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 124.40378459281986,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 165.36451607606483,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 224.72593975427299,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 244.52843970641263,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 334.5608250379895,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 334.5608250379895,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 490.1299785471046,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 611.4082455169663,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 57.6 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 124.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 165.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 224.7 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 244.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 490.1 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 611.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 6202
+  },
+  {
+   "id": "daily-5",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 324.32743208372875,
+   "maxX": 324.32743208372875,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 68.56666666666666,
+   "presses": 86,
+   "minRead": 1.3,
+   "deaths": [
+    {
+     "x": 56.031427513588476,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 85.39897711313779,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 142.60691566738183,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 228.05426704107163,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 241.8621735139283,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 292.37857788372855,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 56.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 85.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 142.6 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 228.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 241.9 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 292.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1885
+  },
+  {
+   "id": "daily-6",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 359.19969351702184,
+   "maxX": 359.19969351702184,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 69.16666666666667,
+   "presses": 88,
+   "minRead": 1.4333333333333333,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 20.71019581091003,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 144.09179567762453,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 144.09179567762453,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 262.4678781260574,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 296.9502411220625,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 329.73907944122413,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 20.7 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 262.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 297.0 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 329.7 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2675
+  },
+  {
+   "id": "daily-7",
+   "pieces": [
+    "planks",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 471.02584720765424,
+   "maxX": 471.02584720765424,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 87.31666666666666,
+   "presses": 98,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 259.3213556236143,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 396.4461141274187,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 259.3 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 396.4 (dandelion glide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4010
+  },
+  {
+   "id": "daily-8",
+   "pieces": [
+    "logs",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 471.69291940290253,
+   "maxX": 471.69291940290253,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.7,
+   "presses": 104,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 48.31140613296997,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 192.188553752736,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 250.1045563771719,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 250.1045563771719,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 292.0248578120317,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 48.3 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 192.2 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 292.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3092
+  },
+  {
+   "id": "daily-9",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 527.0537993501272,
+   "maxX": 389.17247302420964,
+   "failAt": "x 389.2 (bouncy mushrooms)",
+   "stuck": [
+    "fell (x 389.8, 201x)",
+    "tap: fell (x 388.5, 155x)",
+    "hold: fell (x 385.8, 44x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 69.08333333333333,
+   "presses": 70,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 135.78140687483722,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 185.7354192415779,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 260.4054402614166,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 269.15277930858093,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 281.4158071276311,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 364.69123398974523,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 389.2 (bouncy mushrooms): fell; tap: fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 135.8 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 185.7 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 260.4 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 269.2 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 281.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 364.7 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2640
+  },
+  {
+   "id": "daily-10",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 308.1488876161583,
+   "maxX": 308.1488876161583,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 2,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 63.8,
+   "presses": 80,
+   "minRead": 1.5,
+   "deaths": [
+    {
+     "x": 51.431658782924075,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 114.67045199539123,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 214.34295236035516,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 255.29547395513333,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 264.5238576831208,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 276.40176937029406,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 287.5089679339965,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "golden acorn not collectable",
+     "text": "1 golden acorn(s) only with lucky timing (missed when pressed 0.1 s early or late) at x 120.8 (hanging planks)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 51.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 114.7 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 214.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 255.3 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 264.5 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 276.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 287.5 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1484
+  },
+  {
+   "id": "daily-11",
+   "pieces": [
+    "shrooms",
+    "planks"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 392.8797505227983,
+   "maxX": 179.64263820660676,
+   "failAt": "x 179.6 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 180.1, 179x)",
+    "hold: fell (x 179.4, 123x)",
+    "fell (x 180.1, 98x)"
+   ],
+   "acorns": 2,
+   "missedAcorns": [
+    "acorn at x 236.3 (open trail), 6.4 high"
+   ],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 1,
+   "seconds": 37.56666666666667,
+   "presses": 40,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 39.61555187567749,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 127.825140111864,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 160.42290372793605,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 179.6 (bouncy mushrooms): tap: fell; hold: fell; fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 39.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 127.8 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 160.4 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1439
+  },
+  {
+   "id": "daily-12",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 455.95112413568387,
+   "maxX": 455.95112413568387,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.75,
+   "presses": 95,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 129.40692310750381,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 204.44027517046354,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 274.67024097826857,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 327.29970580262386,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 327.29970580262386,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 129.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 204.4 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 274.7 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3268
+  },
+  {
+   "id": "daily-13",
+   "pieces": [
+    "waterfall",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 470.1167832912706,
+   "maxX": 470.1167832912706,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 80.86666666666666,
+   "presses": 101,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 131.25022512837728,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 359.6154660263215,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 392.9822689169874,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 131.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 359.6 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 393.0 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2643
+  },
+  {
+   "id": "daily-14",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 548.2210887395017,
+   "maxX": 548.2210887395017,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 90.65,
+   "presses": 109,
+   "minRead": 1.2166666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 190.94059990666645,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 240.737974994965,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 240.737974994965,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 339.5876797125005,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 190.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 339.6 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3592
+  },
+  {
+   "id": "daily-15",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 355.2628945480974,
+   "maxX": 290.6101345452368,
+   "failAt": "x 290.6 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 290.7, 188x)",
+    "hold: fell (x 289.5, 129x)",
+    "fell (x 290.7, 83x)"
+   ],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 60.6,
+   "presses": 68,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 51.944284561238305,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 106.00429427667783,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 119.36594901082401,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 158.03392897673953,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 175.07196213418746,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 214.401707538893,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 271.03264968969825,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 290.6 (bouncy mushrooms): tap: fell; hold: fell; fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 51.9 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 106.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 119.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 158.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 175.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 214.4 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 271.0 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1696
+  },
+  {
+   "id": "daily-16",
+   "pieces": [
+    "planks",
+    "waterfall"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 334.23155353241486,
+   "maxX": 334.23155353241486,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 66.53333333333333,
+   "presses": 76,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 163.9317052794873,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 198.00705067794226,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 239.30007564591585,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 314.300822858173,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 163.9 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 198.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 239.3 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 314.3 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 2277
+  },
+  {
+   "id": "daily-17",
+   "pieces": [
+    "cave",
+    "ropes"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 500.7717873265116,
+   "maxX": 500.7717873265116,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 90.96666666666667,
+   "presses": 107,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 72.57330042427412,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 156.34208764270937,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 178.5153716811432,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 444.0663658481413,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 444.0663658481413,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 72.6 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 156.3 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 178.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3350
+  },
+  {
+   "id": "daily-18",
+   "pieces": [
+    "logs",
+    "cave"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 619.1886906209049,
+   "maxX": 619.1886906209049,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 102.91666666666667,
+   "presses": 131,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 90.49232778045435,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 216.43924887146522,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 274.8916358316064,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 274.8916358316064,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 351.10991180416767,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 90.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 216.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 351.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4288
+  },
+  {
+   "id": "daily-19",
+   "pieces": [
+    "collapse",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 532.1655107740405,
+   "maxX": 532.1655107740405,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 87.65,
+   "presses": 105,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 22.90843984061915,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 31.765828286786828,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 126.22105588451242,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 338.5263574064217,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 351.3970781964751,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 403.371504143795,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 483.6154180529761,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 22.9 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 31.8 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 126.2 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 338.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 351.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 403.4 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 483.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3820
+  },
+  {
+   "id": "daily-20",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 305.42627776434847,
+   "maxX": 305.42627776434847,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 62.06666666666667,
+   "presses": 79,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 23.020946662329514,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 59.298935835822405,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 67.32183220134584,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 112.83695434221697,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 219.2523556342446,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 261.02109006883273,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 284.5991011593114,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 23.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 59.3 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 67.3 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 112.8 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 219.3 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 261.0 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 284.6 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 1669
+  },
+  {
+   "id": "daily-21",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 452.3136961382404,
+   "maxX": 452.3136961382404,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 87.88333333333334,
+   "presses": 108,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 29.972937163696866,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 199.12205047708642,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 432.2873262760983,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 30.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 199.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 432.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3732
+  },
+  {
+   "id": "daily-22",
+   "pieces": [
+    "chase",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 576.3089814802096,
+   "maxX": 576.3089814802096,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 103.63333333333334,
+   "presses": 123,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 60.058253431963074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 113.81393682753358,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 163.7825082875575,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 210.50023154658442,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 405.47057074746374,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 476.58179793591245,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 503.8371745519467,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 556.5316045354335,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 113.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 163.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 210.5 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 405.5 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 476.6 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 503.8 (pit 2.8 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 556.5 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3792
+  },
+  {
+   "id": "daily-23",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 508.3269916310442,
+   "maxX": 508.3269916310442,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.35,
+   "presses": 108,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 93.20269421523975,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 357.1467456440148,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 447.1907035902407,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 447.1907035902407,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 93.2 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 357.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3556
+  },
+  {
+   "id": "daily-24",
+   "pieces": [
+    "chase",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 596.8866662220767,
+   "maxX": 596.8866662220767,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 102.55,
+   "presses": 118,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 51.39521350694554,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 174.71808323375677,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 184.11953862427134,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 440.07356871217365,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 520.4274792422822,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 540.2641464607179,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 51.4 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 174.7 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 184.1 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 440.1 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 520.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 540.3 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 4145
+  },
+  {
+   "id": "daily-25",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": false,
+   "finished": false,
+   "goalX": 342.86837412099516,
+   "maxX": 276.32427711582295,
+   "failAt": "x 276.3 (bouncy mushrooms)",
+   "stuck": [
+    "tap: fell (x 276.3, 174x)",
+    "fell (x 276.3, 124x)",
+    "hold: fell (x 276.3, 102x)"
+   ],
+   "acorns": 2,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 58.68333333333333,
+   "presses": 71,
+   "minRead": 99,
+   "deaths": [
+    {
+     "x": 41.35239667107184,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 124.46803990149338,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 143.39196888324727,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 180.79799266980433,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 256.674277115823,
+     "what": "bouncy mushrooms",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "bouncy mushrooms",
+     "text": "cannot be finished by a human: stuck at x 276.3 (bouncy mushrooms): tap: fell; fell; hold: fell"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 41.4 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 124.5 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 143.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 180.8 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 256.7 (bouncy mushrooms) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 12081
+  },
+  {
+   "id": "daily-26",
+   "pieces": [
+    "cave",
+    "glide"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 469.9445635604659,
+   "maxX": 469.9445635604659,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 87.31666666666666,
+   "presses": 105,
+   "minRead": 1.3,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 44.11294199988006,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 183.0808274984225,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 216.71260025800862,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 256.17354265626295,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 277.12201146012717,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 366.0365178268467,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 379.61905561394656,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 440.77207090665365,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 44.1 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 183.1 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 216.7 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 256.2 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 277.1 (cave) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 366.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 379.6 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 440.8 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3254
+  },
+  {
+   "id": "daily-27",
+   "pieces": [
+    "glide",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 502.0993925323706,
+   "maxX": 502.0993925323706,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 91.08333333333333,
+   "presses": 104,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 26.86499147488783,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 269.01656536526707,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 322.4765904042112,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 395.4428899882632,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 26.9 (pit 2.2 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 269.0 (dandelion glide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 322.5 (pit 2.3 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 395.4 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3810
+  },
+  {
+   "id": "daily-28",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 487.76386080940125,
+   "maxX": 487.76386080940125,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 83.53333333333333,
+   "presses": 98,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 41.46077247476933,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 145.71450789576275,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 165.68461733798944,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 284.50407875609204,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 284.50407875609204,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 408.94193958141574,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 13.0 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 41.5 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 145.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 165.7 (pit 2.6 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 408.9 (hanging planks) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3764
+  },
+  {
+   "id": "daily-29",
+   "pieces": [
+    "waterfall",
+    "planks"
+   ],
+   "ok": false,
+   "finished": true,
+   "goalX": 575.1400828865096,
+   "maxX": 575.1400828865096,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 96.2,
+   "presses": 111,
+   "minRead": 1.1166666666666667,
+   "deaths": [
+    {
+     "x": 51.12021656397584,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 60.13974727417937,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 286.9363574661606,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 390.37870021536645,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 3"
+    },
+    {
+     "x": 546.5824256666265,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 3"
+    }
+   ],
+   "problems": [
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 51.1 (pit 2.7 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 60.1 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 286.9 (pit 2.4 wide) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 390.4 (hanging planks) costs 0 hearts (3 → 3)"
+    },
+    {
+     "cause": "dying costs no heart",
+     "text": "falling at x 546.6 (pit 2.5 wide) costs 0 hearts (3 → 3)"
+    }
+   ],
+   "ms": 3558
+  }
+ ]
+}
