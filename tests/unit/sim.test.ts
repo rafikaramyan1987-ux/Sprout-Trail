@@ -56,7 +56,7 @@ describe('physics', () => {
     };
     expect(run()).toEqual(run());
   });
-  it('falling returns to the last checkpoint without losing a heart', () => {
+  it('falling costs a heart and returns to the last checkpoint', () => {
     const L = new LevelBuilder('t', 1, 1, 0).ground(6).checkpoint().ground(4).gap(8).ground(10).goal().done();
     const s = newSim(L);
     let fell = false;
@@ -66,7 +66,7 @@ describe('physics', () => {
     }
     expect(fell).toBe(true);
     expect(s.x).toBeCloseTo(L.checkpoints[0].x);
-    expect(s.hearts).toBe(3);
+    expect(s.hearts).toBe(2);
   });
 });
 

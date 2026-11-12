@@ -256,6 +256,7 @@ type Sfx =
   | 'gem'
   | 'acorn'
   | 'hit'
+  | 'ouch'
   | 'stomp'
   | 'grow'
   | 'bounce'
@@ -338,6 +339,12 @@ export function sfx(name: Sfx) {
       o.stop(t + 0.32);
       break;
     }
+    case 'ouch':
+      // a short cartoon "oof": two falling notes and a soft thump
+      voice(c, out, t, mtof(67), 0.09, { type: 'triangle', gain: 0.16, r: 0.08 });
+      voice(c, out, t + 0.1, mtof(60), 0.16, { type: 'triangle', gain: 0.16, r: 0.18 });
+      noiseHit(c, out, noise, t, { gain: 0.18, f: 260, q: 0.8, dur: 0.12, type: 'lowpass' });
+      break;
     case 'stomp':
       noiseHit(c, out, noise, t, { gain: 0.3, f: 500, q: 1, dur: 0.12 });
       voice(c, out, t, 180, 0.05, { type: 'triangle', gain: 0.25, r: 0.1 });

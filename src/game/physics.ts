@@ -57,6 +57,8 @@ export const ROPE_PUMP = 2.2;
 export const ROPE_RELEASE_UP = 4;
 export const ROPE_COOLDOWN = 0.35;
 export const SHROOM_V = 17;
+/** keeping the finger down when landing on a bouncy mushroom bounces a little higher (never needed) */
+export const SHROOM_BOOST = 1.06;
 /** a sinking platform goes down this fast once it starts sinking */
 export const SINK_V = 1.4;
 export const SINK_MAX = 4;

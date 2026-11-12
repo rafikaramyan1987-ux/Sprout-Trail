@@ -79,11 +79,12 @@ describe('ropes and the crocodile', () => {
     expect(s.hearts).toBe(2);
     expect(s.x).toBeCloseTo(s.cpX);
   });
-  it('a plain pit costs no heart', () => {
+  it('a plain pit costs a heart too (every death goes the same way)', () => {
     const L2 = mini((b) => b.gap(8));
     const s = newSim(L2);
-    run(L2, s, 400);
-    expect(s.hearts).toBe(3);
+    for (let i = 0; i < 400 && !s.events.includes('die'); i++) step(L2, s, NO_INPUT);
+    expect(s.events).toContain('fall');
+    expect(s.hearts).toBe(2);
   });
 });
 

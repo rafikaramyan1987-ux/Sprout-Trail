@@ -1,13 +1,14 @@
 /**
  * One-finger controls and the keyboard.
  * - Touch / mouse anywhere on the game: tap or swipe up = jump (keep the finger down for a higher jump), swipe down
- *   = duck / slide (keep it down to stay low). A touch is a jump unless it moves down within 70 ms.
+ *   = duck / slide (keep it down to stay low). A touch jumps at once (no waiting to see whether it becomes a swipe:
+ *   that delay made every touch jump 70 ms later than a key press); a swipe down that follows turns it into a duck
+ *   (still on the ground: no jump at all; already in the air: a dive into the duck).
  * - Keyboard (KeyboardEvent.code, so QWERTY and AZERTY both work): Space / ArrowUp / W = jump (hold for higher),
  *   ArrowDown / S = duck. Escape is never used for a game action.
  */
 import type { Input } from '../game/sim';
 
-const DECIDE_MS = 70;
 const SWIPE_PX = 22;
 const JUMP_KEYS = new Set(['Space', 'ArrowUp', 'KeyW']);
 const DUCK_KEYS = new Set(['ArrowDown', 'KeyS']);
@@ -22,7 +23,8 @@ class Controls {
   private duckKey = false;
   private touchJump = false;
   private touchDuck = false;
-  private pending: { id: number; x: number; y: number; t: number } | null = null;
+  /** the touch that just started (until it is lifted or has become a swipe down) */
+  private pending: { id: number; x: number; y: number } | null = null;
   private active: number | null = null;
   /** a gesture was recognised (the tutorial hand and the video's finger dot listen) */
   onGesture: (g: GestureKind, x: number, y: number) => void = () => {};
@@ -38,7 +40,8 @@ class Controls {
       if ((e.target as HTMLElement).closest('button, .ui-block')) return;
       e.preventDefault();
       this.active = e.pointerId;
-      this.pending = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now() };
+      this.pending = { id: e.pointerId, x: e.clientX, y: e.clientY };
+      this.fireJump(e.clientX, e.clientY);
     });
     window.addEventListener(
       'pointermove',
@@ -46,13 +49,12 @@ class Controls {
         if (e.pointerId !== this.active || !this.pending) return;
         const dy = e.clientY - this.pending.y;
         if (dy > SWIPE_PX) this.fireDuck(e.clientX, e.clientY);
-        else if (dy < -SWIPE_PX) this.fireJump(e.clientX, e.clientY);
       },
       { passive: true },
     );
     const up = (e: PointerEvent) => {
       if (e.pointerId !== this.active) return;
-      if (this.pending) this.fireJump(e.clientX, e.clientY);
+      this.pending = null;
       this.active = null;
       this.touchJump = false;
       this.touchDuck = false;
@@ -83,13 +85,15 @@ class Controls {
   }
 
   private fireJump(x: number, y: number) {
-    this.pending = null;
     this.jumpEdge = true;
-    this.touchJump = this.active !== null;
+    this.touchJump = true;
     this.onGesture('tap', x, y);
   }
   private fireDuck(x: number, y: number) {
     this.pending = null;
+    // a jump not taken yet is no jump at all; one already taken dives into the duck (sim: duck in the air)
+    this.jumpEdge = false;
+    this.touchJump = false;
     this.duckEdge = true;
     this.touchDuck = true;
     this.onGesture('swipeDown', x, y);
@@ -104,7 +108,6 @@ class Controls {
 
   /** the input for one simulation tick (press edges are consumed) */
   sample(): Input {
-    if (this.pending && performance.now() - this.pending.t > DECIDE_MS) this.fireJump(this.pending.x, this.pending.y);
     const inp: Input = {
       jumpPressed: this.jumpEdge,
       jumpHeld: this.jumpKey || this.touchJump || this.jumpEdge,

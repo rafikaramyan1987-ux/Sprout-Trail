@@ -16,7 +16,7 @@ platformer, runner, puzzle, casual, cute, nature, forest, one-finger, 3d, family
 
 | File | What |
 |---|---|
-| `sprout-trail-playgama-v2.zip` | the Playgama build (`npm run build:playgama` + `node scripts/playgama/zip.mjs`): `index.html` at the zip root, `playgama-bridge.js` (Bridge 2.4.1) + `playgama-bridge-config.json` beside it, `assets/`; relative paths only |
+| `sprout-trail-playgama-v3.zip` | the Playgama build (`npm run build:playgama` + `node scripts/playgama/zip.mjs`): `index.html` at the zip root, `playgama-bridge.js` (Bridge 2.4.1) + `playgama-bridge-config.json` beside it, `assets/`; relative paths only |
 | `cover-800x800.png`, `cover-1080x1920.png`, `cover-1920x1080.png` | the three covers (square, portrait, landscape), from real play (`scripts/submission/covers.ts`) |
 
 ## Playgama Bridge

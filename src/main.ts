@@ -8,6 +8,7 @@ import '@fontsource/nunito/latin-700.css';
 import '@fontsource/nunito/latin-ext-700.css';
 import '@fontsource/nunito/cyrillic-700.css';
 import './ui/style.css';
+import * as THREE from 'three';
 import { Stage, SPRING } from './render/stage';
 import { loadModels } from './render/assets';
 import { Play } from './play/play';
@@ -19,7 +20,7 @@ import { currentStreak, loadSave, persist, recordDaily, recordLevel, resetProgre
 import { buyOrEquip, COLORS, equipped, HATS, owned, type Item } from './app/cosmetics';
 import { sdk } from './app/sdk';
 import { LANGS, LANG_NAMES, getLang, onLang, pickLang, setLang, t, type Lang } from './i18n';
-import { el, esc, hide, ico, label, onClick, show, starsHtml, tickMessages, timedRemove, toast } from './ui/ui';
+import { el, esc, hide, ico, label, onClick, onPress, show, starsHtml, tickMessages, timedRemove, toast } from './ui/ui';
 import type { Level } from './game/types';
 import type { Input, SimState } from './game/sim';
 
@@ -132,6 +133,7 @@ function showTitle() {
           <button class="btn wood" data-act="settings">${ico('gear')}${label('menu.settings')}</button>
         </div>
       </div></div>
+      <div class="version">v${esc(__VERSION__)}</div>
     </div>`),
   );
   onClick(n, '[data-act=play]', () => {
@@ -336,8 +338,8 @@ function showWin(level: Level, s: SimState, st: number) {
     s.gems > 0 ? adButton('gems', 'ad.gems') : '',
   );
   const b = n.querySelector<HTMLElement>('[data-ad=gems]');
-  b?.addEventListener('click', (e) => {
-    e.stopPropagation();
+  if (b)
+    onPress(b, () => {
     void rewarded(b, () => {
       save.gems += s.gems;
       persist();
@@ -353,8 +355,8 @@ function showLost(level: Level) {
   sdk.levelEnd?.(false);
   const n = endPanel(`<h2>${label('lost.title')}</h2><p>${label('lost.text')}</p>`, level, null, play?.revived ? '' : adButton('heart', 'ad.heart'));
   const b = n.querySelector<HTMLElement>('[data-ad=heart]');
-  b?.addEventListener('click', (e) => {
-    e.stopPropagation();
+  if (b)
+    onPress(b, () => {
     void rewarded(b, () => {
       hide('end');
       if (!play) return;
@@ -372,8 +374,8 @@ function showLost(level: Level) {
 function showNoSeeds(level: Level) {
   const n = endPanel(`<h2>${label('seeds.title')}</h2><p>${label('seeds.text')}</p>`, level, null, adButton('seeds', 'ad.seeds'));
   const b = n.querySelector<HTMLElement>('[data-ad=seeds]');
-  b?.addEventListener('click', (e) => {
-    e.stopPropagation();
+  if (b)
+    onPress(b, () => {
     void rewarded(b, () => {
       hide('end');
       if (!play) return;
@@ -509,6 +511,27 @@ function exposeCapture() {
     },
     screen: () => screen,
     sim: () => play?.sim,
+    level: () => play?.level,
+    lastInput: () => play?.lastInput,
+    /** the world x range the real camera shows at the trail (z = 0), at height y (playtest) */
+    view: (y: number) => {
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const at = (sx: number) => {
+        // the ray through the screen point (sx, the row of height y) meets the trail plane z = 0
+        const p = new THREE.Vector3(0, y, 0).project(cam);
+        const a = new THREE.Vector3(sx, p.y, -1).unproject(cam);
+        const b = new THREE.Vector3(sx, p.y, 1).unproject(cam);
+        const k = a.z / (a.z - b.z);
+        return a.x + (b.x - a.x) * k;
+      };
+      return { left: at(-1), right: at(1) };
+    },
+    /** screen position (0..1) of a world point on the trail (playtest) */
+    screenOf: (x: number, y: number) => {
+      const p = new THREE.Vector3(x, y, 0).project(stage.camera);
+      return { x: (p.x + 1) / 2, y: (1 - p.y) / 2 };
+    },
     save: () => save,
     setSave: (patch: Partial<typeof save>) => {
       Object.assign(save, patch);

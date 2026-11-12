@@ -70,10 +70,24 @@ export function toast(text: string, ms = 2500) {
   timed.push({ node: b, left: ms / 1000 });
 }
 
+/**
+ * A button press. Only a press that started on the button counts (or a keyboard press): a finger that was already
+ * down in the game when a screen or the seed cards appeared must not press whatever button it is lifted over.
+ */
+export function onPress(b: HTMLElement, fn: (e: MouseEvent) => void) {
+  let pressed = false;
+  b.addEventListener('pointerdown', () => (pressed = true));
+  b.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    if (!pressed && ev.detail !== 0) return;
+    pressed = false;
+    fn(ev);
+  });
+}
+
 export function onClick(root: HTMLElement, sel: string, fn: (e: HTMLElement) => void, sound?: () => void) {
   root.querySelectorAll<HTMLElement>(sel).forEach((b) =>
-    b.addEventListener('click', (ev) => {
-      ev.stopPropagation();
+    onPress(b, () => {
       sound?.();
       fn(b);
     }),

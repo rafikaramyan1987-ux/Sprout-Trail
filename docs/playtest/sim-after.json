@@ -1,0 +1,5808 @@
+{
+ "human": {
+  "reaction": 0.25,
+  "jitter": 0.1,
+  "tap": 0.1,
+  "hold": 0.45,
+  "lift": 0.2
+ },
+ "results": [
+  {
+   "id": "1-1",
+   "pieces": [
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 267.4,
+   "maxX": 267.4,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 0,
+   "seedsUsed": 0,
+   "seconds": 54.916666666666664,
+   "presses": 77,
+   "minRead": 1.6166666666666667,
+   "deaths": [
+    {
+     "x": 40,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 60.4,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 160.5,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 182.4,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 227.39999999999998,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 249.99999999999997,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 1871
+  },
+  {
+   "id": "1-2",
+   "pieces": [
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 246.35000000000002,
+   "maxX": 246.35000000000002,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 1,
+   "seconds": 53.13333333333333,
+   "presses": 70,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 23,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 91.4,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 137,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 167.3,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.75000000000003,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2287
+  },
+  {
+   "id": "1-3",
+   "pieces": [
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 346.1567274698531,
+   "maxX": 346.1567274698531,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 71.31666666666666,
+   "presses": 88,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 24.014136966756293,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 120.06718360946714,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 120.06718360946714,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 168.5536438464364,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 176.78784200703114,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 195.0991645835199,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 218.47035308337,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 269.35344918233966,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 280.8591230034344,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 298.2525571840772,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 315.70869607941717,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3103
+  },
+  {
+   "id": "1-4",
+   "pieces": [
+    "logs",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 361.400712715109,
+   "maxX": 361.400712715109,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 74.83333333333333,
+   "presses": 94,
+   "minRead": 1.2333333333333334,
+   "deaths": [
+    {
+     "x": 31.77128944450274,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 41.98322358355754,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 141.7937382424844,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.24709109240794,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.24709109240794,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 301.17778193112036,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 312.68304832316494,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3495
+  },
+  {
+   "id": "1-5",
+   "pieces": [
+    "collapse",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 300.7917351928646,
+   "maxX": 300.7917351928646,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 62.68333333333333,
+   "presses": 80,
+   "minRead": 1.6,
+   "deaths": [
+    {
+     "x": 52.42722490069897,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 63.29517379349296,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 152.64143665614205,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 280.74297718258595,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2976
+  },
+  {
+   "id": "1-6",
+   "pieces": [
+    "glide",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 417.8874620012123,
+   "maxX": 417.8874620012123,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 82.9,
+   "presses": 98,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 38.44930705151044,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 87.71283994247787,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 169.21594041622362,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 265.7300182875502,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 279.66932387741394,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 279.66932387741394,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 337.23235393033053,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 348.35453210608773,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4003
+  },
+  {
+   "id": "1-7",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 381.3761080852907,
+   "maxX": 381.3761080852907,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 78.03333333333333,
+   "presses": 99,
+   "minRead": 1.6,
+   "deaths": [
+    {
+     "x": 24.655825838530088,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 63.62502006573726,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 216.77116549364743,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 278.88943536549533,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 278.88943536549533,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 308.5597800806437,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 320.11336439139575,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 331.8465705941228,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 340.25581745333295,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 360.9034417896629,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3068
+  },
+  {
+   "id": "1-8",
+   "pieces": [
+    "planks",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 330.88816914056133,
+   "maxX": 330.88816914056133,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 68.28333333333333,
+   "presses": 80,
+   "minRead": 1.5833333333333333,
+   "deaths": [
+    {
+     "x": 31.722115744040206,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 51.94723942153162,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 60.22568270184186,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 128.6826595396174,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 180.65853887873854,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 255.07506888167174,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 289.636442430721,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 309.82231253853286,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 1893
+  },
+  {
+   "id": "1-9",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 362.9223839915066,
+   "maxX": 362.9223839915066,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 71.98333333333333,
+   "presses": 92,
+   "minRead": 1.2333333333333334,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 46.658641836202925,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 56.8275768530931,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 75.49038574529948,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 117.0188987088262,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 162.0999899439989,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 162.0999899439989,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 191.46191618682946,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2797
+  },
+  {
+   "id": "1-10",
+   "pieces": [
+    "shrooms",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 339.2256070959606,
+   "maxX": 339.2256070959606,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 69.18333333333334,
+   "presses": 86,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 27.85762035455973,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 70.83931341342421,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 186.43742760899818,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 252.5011270014224,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 298.7252314525893,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 1949
+  },
+  {
+   "id": "1-11",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 383.72797183691847,
+   "maxX": 383.72797183691847,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 77.25,
+   "presses": 96,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 22.894363022712263,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 39.64695516491847,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 47.37320187341471,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 68.79961686685282,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 85.96869785976635,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 106.5531995303923,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 114.86235433298485,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 170.61065999600956,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 170.61065999600956,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 209.91721810465398,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 275.62599963790757,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 286.017369760235,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 300.0382498592714,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 342.5144789658192,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 363.29267244617097,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3160
+  },
+  {
+   "id": "1-12",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 458.61461081371016,
+   "maxX": 458.61461081371016,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 89.7,
+   "presses": 118,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 22.015013394069452,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 41.61870257335043,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 143.16746338542603,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 268.2651724482928,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 327.424875263981,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 348.16848629972867,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 362.52991222495467,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 362.52991222495467,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 401.833755325302,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2744
+  },
+  {
+   "id": "2-1",
+   "pieces": [
+    "cave",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 416.35247443352785,
+   "maxX": 416.35247443352785,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 81.98333333333333,
+   "presses": 100,
+   "minRead": 1.5666666666666667,
+   "deaths": [
+    {
+     "x": 270.9943871204799,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 362.48723147810006,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 386.12120431340435,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4128
+  },
+  {
+   "id": "2-2",
+   "pieces": [
+    "waterfall",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 342.1360018789342,
+   "maxX": 342.1360018789342,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 67.23333333333333,
+   "presses": 80,
+   "minRead": 1.5333333333333332,
+   "deaths": [
+    {
+     "x": 24.76462293755654,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2827
+  },
+  {
+   "id": "2-3",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 337.73969915573,
+   "maxX": 337.73969915573,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 65.28333333333333,
+   "presses": 81,
+   "minRead": 1.5,
+   "deaths": [
+    {
+     "x": 129.66152831650197,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 248.26642257627833,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3093
+  },
+  {
+   "id": "2-4",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 445.54506723147324,
+   "maxX": 445.54506723147324,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 84.71666666666667,
+   "presses": 105,
+   "minRead": 1.3,
+   "deaths": [
+    {
+     "x": 50.10651011460193,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 150.895300926476,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 184.21317854904228,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 184.21317854904228,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 293.6274218175744,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 415.9104958692097,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4158
+  },
+  {
+   "id": "2-5",
+   "pieces": [
+    "chase",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 392.57225843890933,
+   "maxX": 392.57225843890933,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 77.48333333333333,
+   "presses": 92,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 283.9784622572311,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 328.5539875412602,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3632
+  },
+  {
+   "id": "2-6",
+   "pieces": [
+    "cave",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 384.9548213091737,
+   "maxX": 384.9548213091737,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 74.15,
+   "presses": 88,
+   "minRead": 1.5666666666666667,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 49.98224528617968,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 58.054133575631234,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 69.05464123585665,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 163.0179002492996,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 291.90264323499935,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2812
+  },
+  {
+   "id": "2-7",
+   "pieces": [
+    "glide",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 349.3805206154561,
+   "maxX": 349.3805206154561,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 66.51666666666667,
+   "presses": 76,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 147.41803920659822,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 174.80391092084267,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 198.22205482137582,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 243.21688426166855,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 276.7648731646757,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 276.7648731646757,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2639
+  },
+  {
+   "id": "2-8",
+   "pieces": [
+    "logs",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 432.11399007683355,
+   "maxX": 432.11399007683355,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.65,
+   "presses": 101,
+   "minRead": 1.5,
+   "deaths": [
+    {
+     "x": 20.66367558435025,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 31.03785691128993,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 110.10076977600372,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 120.1147295774631,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 146.63519019203105,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 234.1545971010024,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 257.58812403041,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 257.58812403041,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3189
+  },
+  {
+   "id": "2-9",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 428.0679196649487,
+   "maxX": 428.0679196649487,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.43333333333334,
+   "presses": 100,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 93.70657687578016,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 114.01684631648644,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 245.27562456543077,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2885
+  },
+  {
+   "id": "2-10",
+   "pieces": [
+    "collapse",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 407.75641251666815,
+   "maxX": 407.75641251666815,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 78.36666666666666,
+   "presses": 96,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 100.24461409123023,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 163.39476561597095,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 267.0020411223529,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 328.76927428477234,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 374.05687894453877,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2758
+  },
+  {
+   "id": "2-11",
+   "pieces": [
+    "shrooms",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 417.27057770421015,
+   "maxX": 417.27057770421015,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 80.61666666666666,
+   "presses": 88,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 22.885288774346947,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 116.48140765158865,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 157.8160110314837,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 166.17110992396655,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 332.696396949122,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2646
+  },
+  {
+   "id": "2-12",
+   "pieces": [
+    "ropes",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 412.6095194519198,
+   "maxX": 412.6095194519198,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 78.65,
+   "presses": 96,
+   "minRead": 1.4666666666666666,
+   "deaths": [
+    {
+     "x": 220.3898990775311,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.3898990775311,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 309.77557351766944,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 324.1310668395533,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 324.1310668395533,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2825
+  },
+  {
+   "id": "3-1",
+   "pieces": [
+    "shrooms",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 444.9732320598451,
+   "maxX": 444.9732320598451,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 84.16666666666667,
+   "presses": 99,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 127.61466776546703,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 344.5985835605048,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 344.5985835605048,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 376.17882179130004,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 424.3535019113695,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4263
+  },
+  {
+   "id": "3-2",
+   "pieces": [
+    "cave",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 557.1688562312341,
+   "maxX": 557.1688562312341,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 102.1,
+   "presses": 127,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 59.01637154277358,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 88.058841570422,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 415.86158216674994,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5314
+  },
+  {
+   "id": "3-3",
+   "pieces": [
+    "ropes",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 403.47813662207585,
+   "maxX": 403.47813662207585,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 74.96666666666667,
+   "presses": 88,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 171.83923135668903,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 171.83923135668903,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 301.85819059025084,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 323.7554052444776,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3020
+  },
+  {
+   "id": "3-4",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 436.60560093323227,
+   "maxX": 436.60560093323227,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 89.5,
+   "presses": 98,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 100.33108395066607,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 119.69078930470997,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 127.77065374621824,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 182.71799181950706,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 245.59945292896884,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4435
+  },
+  {
+   "id": "3-5",
+   "pieces": [
+    "glide",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 433.7571821679262,
+   "maxX": 433.7571821679262,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.48333333333333,
+   "presses": 90,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 42.65202886963586,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 53.06028686438367,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 143.5115068203207,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 265.39310465185696,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 294.2234252153764,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 412.79144027662215,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3782
+  },
+  {
+   "id": "3-6",
+   "pieces": [
+    "waterfall",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 431.0253591995679,
+   "maxX": 431.0253591995679,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.16666666666667,
+   "presses": 91,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 39.508754676619496,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 116.83432285719047,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 136.72194569623778,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 255.64970680970507,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.98436988819554,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2899
+  },
+  {
+   "id": "3-7",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 470.436599960866,
+   "maxX": 470.436599960866,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 86.63333333333334,
+   "presses": 100,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 135.72415541960297,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 154.17107130528754,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 261.39780157804813,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 261.39780157804813,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 370.72218076989935,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 420.701215009797,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3876
+  },
+  {
+   "id": "3-8",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 467.1191555924813,
+   "maxX": 467.1191555924813,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 85.13333333333334,
+   "presses": 103,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 133.28382486874443,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 141.76924782786742,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 375.12161697751606,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.6054073229551,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.6054073229551,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 446.52723426102085,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3024
+  },
+  {
+   "id": "3-9",
+   "pieces": [
+    "shrooms",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 532.843401450384,
+   "maxX": 532.843401450384,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 94.45,
+   "presses": 109,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 23.232878835115066,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 42.10855239357092,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 182.00002881658327,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 299.36365195610483,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 309.1246419552098,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 376.7553290161209,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 376.7553290161209,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 460.314158197216,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4783
+  },
+  {
+   "id": "3-10",
+   "pieces": [
+    "collapse",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 608.194290368775,
+   "maxX": 608.194290368775,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 106.26666666666667,
+   "presses": 126,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 340.4290989425938,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 501.9824260999484,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 511.02654811907115,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 522.6913957756541,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 6192
+  },
+  {
+   "id": "3-11",
+   "pieces": [
+    "cave",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 608.204657570816,
+   "maxX": 608.204657570816,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 107.45,
+   "presses": 124,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 60.05089608932188,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 364.8686589975761,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 385.4919673415854,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5594
+  },
+  {
+   "id": "3-12",
+   "pieces": [
+    "ropes",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 459.75652085504606,
+   "maxX": 459.75652085504606,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 81.5,
+   "presses": 96,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 182.5415392335295,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 265.4339265505808,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 265.4339265505808,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 301.2393152529791,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 351.4662033615695,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.4613371987591,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3265
+  },
+  {
+   "id": "4-1",
+   "pieces": [
+    "wind",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 532.7232978759868,
+   "maxX": 532.7232978759868,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 89.55,
+   "presses": 109,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 44.82147196198047,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.96409609580715,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 248.1277269337877,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 275.1961441769694,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 300.7896082321349,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4639
+  },
+  {
+   "id": "4-2",
+   "pieces": [
+    "logs",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 393.5713636372843,
+   "maxX": 393.5713636372843,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 68.16666666666667,
+   "presses": 89,
+   "minRead": 1.1833333333333333,
+   "deaths": [
+    {
+     "x": 140.9063798165792,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 172.86203210791496,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 172.86203210791496,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.4114178133889,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.4114178133889,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3048
+  },
+  {
+   "id": "4-3",
+   "pieces": [
+    "wind",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 603.0220664212792,
+   "maxX": 603.0220664212792,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 98.75,
+   "presses": 125,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 22.26266947160636,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 201.50536307217195,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 305.20856066113964,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 315.6838269365958,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 353.9017753539933,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4951
+  },
+  {
+   "id": "4-4",
+   "pieces": [
+    "chase",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 481.40397150221816,
+   "maxX": 481.40397150221816,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 84.75,
+   "presses": 101,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 109.15523229889476,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 161.21921737391065,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 395.3680205489172,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 395.3680205489172,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3469
+  },
+  {
+   "id": "4-5",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 459.5662898477837,
+   "maxX": 459.5662898477837,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 80.1,
+   "presses": 97,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 119.7695381736995,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 258.3146806425067,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 347.31826202036984,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3897
+  },
+  {
+   "id": "4-6",
+   "pieces": [
+    "wind",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 625.2533977692702,
+   "maxX": 625.2533977692702,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 104.86666666666666,
+   "presses": 131,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 204.13323479768363,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 399.1620161715386,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 466.88860759572447,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5287
+  },
+  {
+   "id": "4-7",
+   "pieces": [
+    "glide",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 526.0829468774791,
+   "maxX": 526.0829468774791,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 90.65,
+   "presses": 107,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 92.76638563422432,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 144.48195852478312,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 333.9640619106992,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 453.7728613932393,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 453.7728613932393,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3461
+  },
+  {
+   "id": "4-8",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 545.9364803874379,
+   "maxX": 545.9364803874379,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 92.23333333333333,
+   "presses": 114,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 43.39388443889328,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 112.1330383051916,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 161.4545928982048,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 337.8797285341123,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 337.8797285341123,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4965
+  },
+  {
+   "id": "4-9",
+   "pieces": [
+    "collapse",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 518.3392868372559,
+   "maxX": 518.3392868372559,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 87.55,
+   "presses": 112,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 64.39082445156203,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 201.16678169483737,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 291.0016656230752,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 470.32600513598953,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3846
+  },
+  {
+   "id": "4-10",
+   "pieces": [
+    "wind",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 608.2722726180667,
+   "maxX": 608.2722726180667,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 105.55,
+   "presses": 132,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 144.05025937870423,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 169.65132956391034,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 205.75039267220183,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 225.30913724661374,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 288.8616865510642,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 362.4460317756893,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 371.1247465021166,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 413.42453321711145,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 422.9553345271446,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 460.21393531059124,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 526.6471046098987,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 526.6471046098987,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5870
+  },
+  {
+   "id": "4-11",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 471.8138273757335,
+   "maxX": 471.8138273757335,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 79.8,
+   "presses": 97,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 139.44934493947488,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.51099635950928,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 168.87355544531667,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 198.11480897631017,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 295.46209837632034,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 304.8718765361011,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 387.97673067563466,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.2616621101282,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 400.2616621101282,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 452.0809740661557,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3025
+  },
+  {
+   "id": "4-12",
+   "pieces": [
+    "chase",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 597.542674334245,
+   "maxX": 597.542674334245,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 100.78333333333333,
+   "presses": 121,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 58.12632910082513,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 91.65695757330306,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 100.24711601766148,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 110.20067853721353,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 118.41986043025922,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 164.02059224067693,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 215.76121079652384,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 366.97633884203066,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 545.9912315067074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4587
+  },
+  {
+   "id": "5-1",
+   "pieces": [
+    "lily",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 500.43502436375195,
+   "maxX": 500.43502436375195,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 83.8,
+   "presses": 108,
+   "minRead": 1.2166666666666666,
+   "deaths": [
+    {
+     "x": 26.397860469553116,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 68.96042369847392,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 188.81134196984834,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 188.81134196984834,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 255.00525497666646,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 291.4599887787015,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 301.05009414312076,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 377.4519292252179,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 401.3416129068005,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 401.3416129068005,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4537
+  },
+  {
+   "id": "5-2",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 660.2404836162214,
+   "maxX": 660.2404836162214,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 110.16666666666667,
+   "presses": 128,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 279.24714575340363,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 279.24714575340363,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 525.6514037732906,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 604.0682856393054,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 6384
+  },
+  {
+   "id": "5-3",
+   "pieces": [
+    "lily",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 505.5069562071195,
+   "maxX": 505.5069562071195,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 82.76666666666667,
+   "presses": 105,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 88.1738245432853,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 105.18173367124867,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 163.99392461832804,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 175.75192966841172,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 175.75192966841172,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 214.56769476775347,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 222.94066494173893,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4209
+  },
+  {
+   "id": "5-4",
+   "pieces": [
+    "cave",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 710.7725797131135,
+   "maxX": 710.7725797131135,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 118.98333333333333,
+   "presses": 145,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 22.918846850807306,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 190.81322480402295,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 225.7784018914514,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 298.9163057119457,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 345.42246860859524,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 383.5464318938059,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 574.4038645321452,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 612.4514008456558,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 631.6784903722009,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 652.8611501773096,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 680.4615464480501,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5496
+  },
+  {
+   "id": "5-5",
+   "pieces": [
+    "logs",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 525.0937699561808,
+   "maxX": 525.0937699561808,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 90.58333333333333,
+   "presses": 98,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 48.63405107203099,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 131.6972434795901,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 178.0533560370414,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 266.2665418561837,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 266.2665418561837,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 309.8611379292204,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 351.6980771302196,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 376.6636649675476,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4478
+  },
+  {
+   "id": "5-6",
+   "pieces": [
+    "lily",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 585.7138320788697,
+   "maxX": 585.7138320788697,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 98.33333333333333,
+   "presses": 122,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 75.77862698854025,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 161.12879182580198,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 237.89734082228455,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 250.40751613201783,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 250.40751613201783,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 299.48159419252954,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 325.9954871687361,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 338.0299761469305,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 535.6478502540842,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5401
+  },
+  {
+   "id": "5-7",
+   "pieces": [
+    "wind",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 597.6763171717097,
+   "maxX": 597.6763171717097,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 98.16666666666667,
+   "presses": 114,
+   "minRead": 1.1333333333333333,
+   "deaths": [
+    {
+     "x": 26.305651442595074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 81.79685626947214,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 166.1523321531095,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 355.0090226340049,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 372.38840306226064,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 428.16290801002003,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 428.16290801002003,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5434
+  },
+  {
+   "id": "5-8",
+   "pieces": [
+    "chase",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 638.7517121302328,
+   "maxX": 638.7517121302328,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 106.9,
+   "presses": 126,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 58.134813072369596,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 175.95518700355237,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 451.0126641690345,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 507.71655605213476,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 527.5788300295162,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 564.0896426275049,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4754
+  },
+  {
+   "id": "5-9",
+   "pieces": [
+    "planks",
+    "lily"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 550.1026055507807,
+   "maxX": 550.1026055507807,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 92.1,
+   "presses": 103,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 36.179240751508516,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 44.73320220827998,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 165.4449064769763,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 251.78601931677088,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 263.8197667799558,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 374.8240932920148,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 374.8240932920148,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4185
+  },
+  {
+   "id": "5-10",
+   "pieces": [
+    "lily",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 541.2444250747028,
+   "maxX": 541.2444250747028,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 91.35,
+   "presses": 106,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 169.90789068290428,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.0826746660566,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 297.0826746660566,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 424.6079648821425,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 434.0912426322416,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 452.6706857873164,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4789
+  },
+  {
+   "id": "5-11",
+   "pieces": [
+    "glide",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 590.4997085330637,
+   "maxX": 590.4997085330637,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 98.18333333333334,
+   "presses": 116,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 60.60189838773939,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 69.10817048513907,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 251.59495198577073,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 320.93241922825473,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 362.9096907918238,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 513.3479216488704,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4683
+  },
+  {
+   "id": "5-12",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 525.8349253754253,
+   "maxX": 525.8349253754253,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 89.53333333333333,
+   "presses": 103,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 158.2065501643469,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 258.2311666364508,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 258.2311666364508,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 294.5511666364508,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 453.4202809858269,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 473.7940469825331,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 507.41168900239563,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4064
+  },
+  {
+   "id": "1-S",
+   "pieces": [
+    "ropes",
+    "shrooms",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 386.34845122382507,
+   "maxX": 386.34845122382507,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 74.95,
+   "presses": 92,
+   "minRead": 1.3166666666666667,
+   "deaths": [
+    {
+     "x": 98.34032966485945,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 207.02610274888605,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.96371484190686,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.96371484190686,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 259.78818644670935,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 296.5290207788516,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2797
+  },
+  {
+   "id": "2-S",
+   "pieces": [
+    "cave",
+    "ropes",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 515.3284478902194,
+   "maxX": 515.3284478902194,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 92.83333333333333,
+   "presses": 109,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 254.02187389837076,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 359.862574785811,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 369.42017230477086,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 421.9955099360766,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 421.9955099360766,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4683
+  },
+  {
+   "id": "3-S",
+   "pieces": [
+    "shrooms",
+    "glide",
+    "cave"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 529.7357283386148,
+   "maxX": 529.7357283386148,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 93.15,
+   "presses": 106,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 111.48948354847829,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 234.53336221520587,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 274.4903044646037,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 329.22282565011585,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 451.51791037809585,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4623
+  },
+  {
+   "id": "4-S",
+   "pieces": [
+    "wind",
+    "collapse",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 666.6013381255261,
+   "maxX": 666.6013381255261,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 107.31666666666666,
+   "presses": 137,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 212.4478518004919,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 322.6847184197278,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 358.9530691115605,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 417.3018155229782,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 492.129647202651,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 574.9017000896105,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5901
+  },
+  {
+   "id": "5-S",
+   "pieces": [
+    "lily",
+    "ropes",
+    "wind"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 573.0288520096287,
+   "maxX": 573.0288520096287,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 91.3,
+   "presses": 111,
+   "minRead": 1.15,
+   "deaths": [
+    {
+     "x": 123.16103563474275,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 132.45857410188785,
+     "what": "wind",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 346.43904919171,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 374.7710587196075,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 386.7207702674507,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 386.7207702674507,
+     "what": "lily pads / stones",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 436.3908720183954,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 469.1281304217047,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 489.5018964184109,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 502.3620938427861,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 502.3620938427861,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4247
+  },
+  {
+   "id": "daily-0",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 306.33057631475,
+   "maxX": 306.33057631475,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 62.583333333333336,
+   "presses": 79,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 18.2,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 36.63311780995197,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 59.4264344509728,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 115.49939536503521,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 167.24917587506593,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 251.21374897306458,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2398
+  },
+  {
+   "id": "daily-1",
+   "pieces": [
+    "logs",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 351.3078425290966,
+   "maxX": 351.3078425290966,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 65.7,
+   "presses": 81,
+   "minRead": 1.45,
+   "deaths": [
+    {
+     "x": 32.73930764261027,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 41.221406475573275,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 80.06214510553585,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 114.90650877486826,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 126.0050195730375,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 139.4986849166244,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 139.4986849166244,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 176.95180232606347,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 186.97181464348603,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 194.9619500631443,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 256.61324135616894,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 256.61324135616894,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2689
+  },
+  {
+   "id": "daily-2",
+   "pieces": [
+    "shrooms",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 488.99665891946444,
+   "maxX": 488.99665891946444,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.13333333333334,
+   "presses": 103,
+   "minRead": 1.2333333333333334,
+   "deaths": [
+    {
+     "x": 116.8251002298892,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4247
+  },
+  {
+   "id": "daily-3",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 523.420415218289,
+   "maxX": 523.420415218289,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.21666666666667,
+   "presses": 110,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 194.40231073781757,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 365.2212834963534,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 502.8938583060027,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4624
+  },
+  {
+   "id": "daily-4",
+   "pieces": [
+    "ropes",
+    "cave"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 685.8793311855641,
+   "maxX": 685.8793311855641,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 112.75,
+   "presses": 135,
+   "minRead": 1.2166666666666666,
+   "deaths": [
+    {
+     "x": 57.61826124447994,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 124.40378459281986,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 165.36451607606483,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 224.72593975427299,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 245.52843970641263,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 335.5608250379895,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 335.5608250379895,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 491.1299785471046,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 612.4082455169663,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 6801
+  },
+  {
+   "id": "daily-5",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 324.07743208372875,
+   "maxX": 324.07743208372875,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 67.86666666666666,
+   "presses": 86,
+   "minRead": 1.3,
+   "deaths": [
+    {
+     "x": 56.031427513588476,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 86.39897711313779,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 143.60691566738183,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 229.05426704107163,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 292.12857788372855,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2417
+  },
+  {
+   "id": "daily-6",
+   "pieces": [
+    "ropes",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 357.94969351702184,
+   "maxX": 357.94969351702184,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 68.81666666666666,
+   "presses": 88,
+   "minRead": 1.4333333333333333,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 20.71019581091003,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 144.09179567762453,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 144.09179567762453,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 262.4678781260574,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 328.48907944122413,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2798
+  },
+  {
+   "id": "daily-7",
+   "pieces": [
+    "planks",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 477.0258472076543,
+   "maxX": 477.0258472076543,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.4,
+   "presses": 98,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 262.32135562361435,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 402.44611412741875,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4146
+  },
+  {
+   "id": "daily-8",
+   "pieces": [
+    "logs",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 471.69291940290253,
+   "maxX": 471.69291940290253,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.7,
+   "presses": 104,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 48.31140613296997,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 192.188553752736,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 250.1045563771719,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 250.1045563771719,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 292.0248578120317,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3409
+  },
+  {
+   "id": "daily-9",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 526.8037993501272,
+   "maxX": 526.8037993501272,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 89.28333333333333,
+   "presses": 102,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 135.78140687483722,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 185.7354192415779,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 261.4054402614166,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 270.15277930858093,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 282.4158071276311,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 490.293012963844,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4658
+  },
+  {
+   "id": "daily-10",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 314.1488876161583,
+   "maxX": 314.1488876161583,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 64.73333333333333,
+   "presses": 80,
+   "minRead": 1.6,
+   "deaths": [
+    {
+     "x": 54.431658782924075,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 117.67045199539123,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.34295236035516,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 261.29547395513333,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 270.5238576831208,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 282.40176937029406,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 293.5089679339965,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2071
+  },
+  {
+   "id": "daily-11",
+   "pieces": [
+    "shrooms",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 394.6297505227983,
+   "maxX": 394.6297505227983,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 75.63333333333334,
+   "presses": 91,
+   "minRead": 1.4666666666666666,
+   "deaths": [
+    {
+     "x": 39.61555187567749,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 127.825140111864,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 241.58000103167547,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 330.76150291001704,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3789
+  },
+  {
+   "id": "daily-12",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 456.95112413568387,
+   "maxX": 456.95112413568387,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 82.95,
+   "presses": 97,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 129.40692310750381,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 205.44027517046354,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 275.67024097826857,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 328.29970580262386,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 328.29970580262386,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3443
+  },
+  {
+   "id": "daily-13",
+   "pieces": [
+    "waterfall",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 470.1167832912706,
+   "maxX": 470.1167832912706,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 80.86666666666666,
+   "presses": 101,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 131.25022512837728,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 359.6154660263215,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 392.9822689169874,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3308
+  },
+  {
+   "id": "daily-14",
+   "pieces": [
+    "ropes",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 549.2210887395017,
+   "maxX": 549.2210887395017,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 90.81666666666666,
+   "presses": 110,
+   "minRead": 1.2166666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 191.94059990666645,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 241.737974994965,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 241.737974994965,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 340.5876797125005,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4144
+  },
+  {
+   "id": "daily-15",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 358.0128945480974,
+   "maxX": 358.0128945480974,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 72.28333333333333,
+   "presses": 90,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 52.944284561238305,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 107.00429427667783,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 120.36594901082401,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.03392897673953,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 176.07196213418746,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 218.401707538893,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 329.7722081711505,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2422
+  },
+  {
+   "id": "daily-16",
+   "pieces": [
+    "planks",
+    "waterfall"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 337.23155353241486,
+   "maxX": 337.23155353241486,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 67.08333333333333,
+   "presses": 78,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 166.9317052794873,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 201.00705067794226,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 242.30007564591585,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 317.300822858173,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 2492
+  },
+  {
+   "id": "daily-17",
+   "pieces": [
+    "cave",
+    "ropes"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 507.7717873265116,
+   "maxX": 507.7717873265116,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 91.3,
+   "presses": 109,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 72.57330042427412,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 159.34208764270937,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 181.5153716811432,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 451.0663658481413,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 451.0663658481413,
+     "what": "rope swings",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4123
+  },
+  {
+   "id": "daily-18",
+   "pieces": [
+    "logs",
+    "cave"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 619.1886906209049,
+   "maxX": 619.1886906209049,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 102.91666666666667,
+   "presses": 131,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 90.49232778045435,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 216.43924887146522,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 274.8916358316064,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 274.8916358316064,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 351.10991180416767,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4567
+  },
+  {
+   "id": "daily-19",
+   "pieces": [
+    "collapse",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 532.1655107740405,
+   "maxX": 532.1655107740405,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 87.65,
+   "presses": 105,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 22.90843984061915,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 31.765828286786828,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 126.22105588451242,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 338.5263574064217,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 351.3970781964751,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 403.371504143795,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 483.6154180529761,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3998
+  },
+  {
+   "id": "daily-20",
+   "pieces": [
+    "planks",
+    "collapse"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 308.42627776434847,
+   "maxX": 308.42627776434847,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 62.766666666666666,
+   "presses": 81,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 23.020946662329514,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 59.298935835822405,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 67.32183220134584,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 115.83695434221697,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 222.2523556342446,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 264.02109006883273,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 287.5991011593114,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 1767
+  },
+  {
+   "id": "daily-21",
+   "pieces": [
+    "waterfall",
+    "chase"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 454.3136961382404,
+   "maxX": 454.3136961382404,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 87.8,
+   "presses": 108,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 29.972937163696866,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 200.12205047708642,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 434.2873262760983,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3925
+  },
+  {
+   "id": "daily-22",
+   "pieces": [
+    "chase",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 576.0589814802096,
+   "maxX": 576.0589814802096,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 103.91666666666667,
+   "presses": 124,
+   "minRead": 1.2666666666666666,
+   "deaths": [
+    {
+     "x": 60.058253431963074,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 113.81393682753358,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 163.7825082875575,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 406.47057074746374,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 476.33179793591245,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 503.5871745519467,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 556.2816045354335,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3959
+  },
+  {
+   "id": "daily-23",
+   "pieces": [
+    "waterfall",
+    "logs"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 511.3269916310442,
+   "maxX": 511.3269916310442,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 88.91666666666667,
+   "presses": 110,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 93.20269421523975,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 360.1467456440148,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 450.1907035902407,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 450.1907035902407,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3592
+  },
+  {
+   "id": "daily-24",
+   "pieces": [
+    "chase",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 651.6551246656566,
+   "maxX": 651.6551246656566,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 110.4,
+   "presses": 127,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 51.39521350694554,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 177.71808323375677,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 187.11953862427134,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 431.9694294746652,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 473.2897552112084,
+     "what": "pit 2.8 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 503.185772711256,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 5724
+  },
+  {
+   "id": "daily-25",
+   "pieces": [
+    "planks",
+    "shrooms"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 344.61837412099516,
+   "maxX": 344.61837412099516,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 2,
+   "seconds": 70.41666666666667,
+   "presses": 88,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 41.35239667107184,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 127.46803990149338,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 146.39196888324727,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 183.79799266980433,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 1960
+  },
+  {
+   "id": "daily-26",
+   "pieces": [
+    "cave",
+    "glide"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 473.9445635604659,
+   "maxX": 473.9445635604659,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 2,
+   "seedsUsed": 2,
+   "seconds": 88.33333333333333,
+   "presses": 104,
+   "minRead": 1.2833333333333332,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 44.11294199988006,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 186.0808274984225,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 220.71260025800862,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 260.17354265626295,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 281.12201146012717,
+     "what": "cave",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 370.0365178268467,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 383.61905561394656,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 444.77207090665365,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3835
+  },
+  {
+   "id": "daily-27",
+   "pieces": [
+    "glide",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 509.0993925323706,
+   "maxX": 509.0993925323706,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 92.08333333333333,
+   "presses": 105,
+   "minRead": 1.25,
+   "deaths": [
+    {
+     "x": 26.86499147488783,
+     "what": "pit 2.2 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 273.01656536526707,
+     "what": "dandelion glide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 326.4765904042112,
+     "what": "pit 2.3 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 399.4428899882632,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4482
+  },
+  {
+   "id": "daily-28",
+   "pieces": [
+    "logs",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 488.76386080940125,
+   "maxX": 488.76386080940125,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 3,
+   "seedsUsed": 3,
+   "seconds": 83.66666666666667,
+   "presses": 101,
+   "minRead": 1.2,
+   "deaths": [
+    {
+     "x": 13,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 41.46077247476933,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 146.71450789576275,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 166.68461733798944,
+     "what": "pit 2.6 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 285.50407875609204,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 285.50407875609204,
+     "what": "floating logs",
+     "how": "crocodile",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 409.94193958141574,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 4004
+  },
+  {
+   "id": "daily-29",
+   "pieces": [
+    "waterfall",
+    "planks"
+   ],
+   "ok": true,
+   "finished": true,
+   "goalX": 576.1400828865096,
+   "maxX": 576.1400828865096,
+   "failAt": "",
+   "stuck": [],
+   "acorns": 3,
+   "missedAcorns": [],
+   "heartsLost": 0,
+   "seeds": 4,
+   "seedsUsed": 4,
+   "seconds": 96.36666666666666,
+   "presses": 113,
+   "minRead": 1.1166666666666667,
+   "deaths": [
+    {
+     "x": 51.12021656397584,
+     "what": "pit 2.7 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 60.13974727417937,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 287.9363574661606,
+     "what": "pit 2.4 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 391.37870021536645,
+     "what": "hanging planks",
+     "how": "fell",
+     "hearts": "3 → 2"
+    },
+    {
+     "x": 547.5824256666265,
+     "what": "pit 2.5 wide",
+     "how": "fell",
+     "hearts": "3 → 2"
+    }
+   ],
+   "problems": [],
+   "ms": 3647
+  }
+ ]
+}

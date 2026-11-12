@@ -57,7 +57,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: './',
     plugins: platform === 'gamepix' ? [gamepixSdk()] : platform === 'playgama' ? [playgamaBridge()] : [],
-    define: { __PLATFORM__: JSON.stringify(platform) },
+    define: { __PLATFORM__: JSON.stringify(platform), __VERSION__: JSON.stringify(JSON.parse(readFileSync('package.json', 'utf8')).version) },
     assetsInclude: ['**/*.glb'],
     build: {
       target: 'es2020',

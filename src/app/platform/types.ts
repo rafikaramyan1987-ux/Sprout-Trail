@@ -8,6 +8,8 @@ export type PlatformName = 'crazygames' | 'gd' | 'web' | 'gamepix' | 'playgama';
 declare global {
   /** the build target, a string literal at build time (vite.config.ts `define`), so other platforms' branches are dropped */
   const __PLATFORM__: PlatformName;
+  /** the game version (package.json), shown small on the title screen */
+  const __VERSION__: string;
 }
 
 /**
