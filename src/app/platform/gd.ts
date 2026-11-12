@@ -5,18 +5,15 @@
  * - interstitials (`gdsdk.showAd()`) only from user input outside gameplay: Play on the title (pre-roll) and the
  *   result-screen buttons, at most one per ~2 minutes
  * - rewarded ads (`gdsdk.showAd('rewarded')`): the reward is granted only after SDK_REWARDED_WATCH_COMPLETE
- * - every ad request settles exactly once (completion, rejection / AD_ERROR / AD_SDK_CANCELED, or not started in 8 s)
+ * - every ad request settles exactly once (completion, rejection / AD_ERROR / AD_SDK_CANCELED, not started in 8 s, or
+ *   AD_MAX after it started)
  * - saves use localStorage (no portal storage); if the SDK fails to load the game plays on without ads
  */
 
-import { AD_TIMEOUT, MIDGAME_GAP, loadScript, type AdSlot, type Platform } from './types';
+import { AD_MAX, AD_TIMEOUT, MIDGAME_GAP, loadScript, type AdSlot, type Platform } from './types';
 
-/**
- * GameDistribution game ID. PLACEHOLDER until the game is registered on GameDistribution: replace it with the real
- * 32-character ID from the GD developer dashboard (scripts/check-gd.mjs checks the build carries it and reports a
- * placeholder).
- */
-export const GD_GAME_ID = '00000000000000000000000000000000';
+/** GameDistribution game ID (GD developer dashboard; scripts/check-gd.mjs checks the build carries it) */
+export const GD_GAME_ID = 'cc966171a12a4fa68ea6b94b0bf1f757';
 export const GD_SDK_URL = 'https://html5.api.gamedistribution.com/main.min.js';
 export const GD_SCRIPT_ID = 'gamedistribution-jssdk';
 /** a rewarded ad that closed without SDK_REWARDED_WATCH_COMPLETE gets this long for a late event (ms) */
@@ -135,6 +132,7 @@ export class GDPlatform implements Platform {
         if (done) return;
         done = true;
         clearTimeout(timer);
+        clearTimeout(cap);
         clearTimeout(grace);
         if (this.pending === pending) this.pending = null;
         this.setAdPaused(false);
@@ -154,6 +152,8 @@ export class GDPlatform implements Platform {
       const timer = setTimeout(() => {
         if (!pending.started) finish(false);
       }, AD_TIMEOUT);
+      // started but never ended (SDK stuck): give up so the game cannot stay paused
+      const cap = setTimeout(() => finish(false), AD_MAX);
       try {
         const r = type === 'rewarded' ? s.showAd('rewarded') : s.showAd();
         if (r && typeof (r as Promise<unknown>).then === 'function')

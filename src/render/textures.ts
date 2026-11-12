@@ -27,7 +27,11 @@ function tex(c: HTMLCanvasElement, repeat = true) {
 const cache = new Map<string, THREE.Texture>();
 function cached(key: string, make: () => THREE.Texture) {
   let t = cache.get(key);
-  if (!t) cache.set(key, (t = make()));
+  if (!t) {
+    cache.set(key, (t = make()));
+    // kept for the whole session: a finished level's scene disposal leaves it alone (render/dispose.ts)
+    t.userData.shared = true;
+  }
   return t;
 }
 

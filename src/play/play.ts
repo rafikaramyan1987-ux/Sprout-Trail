@@ -22,6 +22,7 @@ import { buildWorld, signText, touchFirst, type WorldView } from '../render/worl
 import { bubble, el, esc, ico, onPress, timedClass, timedRemove, toast, ui } from '../ui/ui';
 import { PLANT_ART } from '../ui/icons';
 import { dpFrame, keepAhead } from './camera';
+import { disposeScene } from '../render/dispose';
 
 export interface PlayHooks {
   onWin(s: SimState, stars: number): void;
@@ -124,6 +125,8 @@ export class Play {
     this.hand?.remove();
     document.querySelectorAll('.bubble').forEach((b) => b.remove());
     this.fx.clear();
+    // free the level's GPU memory (geometries, materials, textures; not the session-long caches)
+    disposeScene(this.stage.world);
     this.stage.world.clear();
   }
 

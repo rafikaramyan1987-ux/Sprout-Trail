@@ -157,5 +157,8 @@
   "piece.wind": "Böen schieben deine Sprünge",
   "piece.lily": "Manche Blätter sinken",
   "piece.crocBite": "Schnapp! Zurück zur Blume",
-  "piece.chaseGo": "Lauf, lauf, lauf!"
+  "piece.chaseGo": "Lauf, lauf, lauf!",
+  "boot.loadFailed": "Das Spiel konnte nicht geladen werden. Prüf deine Verbindung.",
+  "boot.noWebgl": "Dieser Browser kann das 3D-Spiel nicht anzeigen. Schalte die Hardwarebeschleunigung ein oder nimm einen anderen Browser.",
+  "boot.retry": "Nochmal versuchen"
 }

@@ -157,5 +157,8 @@
   "piece.wind": "Les rafales poussent tes sauts",
   "piece.lily": "Certains nénuphars coulent",
   "piece.crocBite": "Clac ! Retour à la fleur",
-  "piece.chaseGo": "Cours, cours, cours !"
+  "piece.chaseGo": "Cours, cours, cours !",
+  "boot.loadFailed": "Impossible de charger le jeu. Vérifie ta connexion.",
+  "boot.noWebgl": "Ce navigateur ne peut pas afficher le jeu en 3D. Active l'accélération matérielle ou essaie un autre navigateur.",
+  "boot.retry": "Réessayer"
 }
