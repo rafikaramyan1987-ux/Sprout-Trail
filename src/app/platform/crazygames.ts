@@ -43,6 +43,8 @@ export class CrazyGamesPlatform implements Platform {
   private store: KeyValueStore | null = null;
   private loaded = false;
   private heldGameplay = false;
+  /** loadingStart came before the SDK was up (the game calls it first thing): sent right after init */
+  private loadingAsked = false;
   muted = false;
   onMute: (m: boolean) => void = () => {};
   onAdPause: (paused: boolean) => void = () => {};
@@ -56,6 +58,7 @@ export class CrazyGamesPlatform implements Platform {
       await Promise.race([s.init(), new Promise((_, rej) => (to = setTimeout(() => rej(new Error('sdk timeout')), timeoutMs)))]).finally(() => clearTimeout(to));
       if (s.environment === 'disabled') return;
       this.s = s;
+      if (this.loadingAsked && !this.loaded) safe(() => s.game.loadingStart());
       // the Data Module throws ({ code: 'dataModuleDisabled' }) on every call when Progress Save is off: probe it once,
       // and never let a later call throw into the game
       const d = s.data;
@@ -86,6 +89,7 @@ export class CrazyGamesPlatform implements Platform {
     return this.store;
   }
   loadingStart() {
+    this.loadingAsked = true;
     safe(() => this.s?.game.loadingStart());
   }
   loadingStop() {

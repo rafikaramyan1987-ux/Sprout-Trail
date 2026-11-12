@@ -83,6 +83,8 @@ export class Play {
   revived = false;
   /** store art: tighter framing around the sprite */
   coverZoom = 0;
+  /** store art: the framing moves up this far (world units; a sprite high in the air stays in the middle) */
+  coverLift = 0;
   /** render only (title screen behind the menu) */
   frozen = false;
 
@@ -626,7 +628,7 @@ export class Play {
     }
     if (this.coverZoom) {
       const z = this.coverZoom;
-      st.frame(x + (portrait ? 1 : 1.6), this.camGroundY + 1.2, (portrait ? 9 : 0) * z, 10.5 * z * (portrait ? 0 : 1), 0.42, portrait ? 0.55 : 0.5);
+      st.frame(x + (portrait ? 1 : 1.6), this.camGroundY + 1.2 + this.coverLift, (portrait ? 9 : 0) * z, 10.5 * z * (portrait ? 0 : 1), 0.42, portrait ? 0.55 : 0.5);
       return;
     }
     st.frame(this.cam.x, this.cam.y, this.cam.w, viewH, this.cam.sx, this.cam.sy);

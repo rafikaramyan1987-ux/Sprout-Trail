@@ -2,18 +2,22 @@
 // portals' limits, each portal build loads only its own SDK, the art has the required sizes.
 // usage: node scripts/submission/check.mjs
 import { execFileSync } from 'node:child_process';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import sharp from 'sharp';
-import { DESCRIPTION, HOW_TO_PLAY } from './texts.mjs';
+import { CONTROLS, DESCRIPTION, HOW_TO_PLAY } from './texts.mjs';
 
 let bad = 0;
 const fail = (m) => (bad++, console.log('FAIL', m));
 if (DESCRIPTION.length > 500 || DESCRIPTION.length < 100) fail(`description is ${DESCRIPTION.length} chars (100-500)`);
 if (HOW_TO_PLAY.length > 500) fail(`how-to-play is ${HOW_TO_PLAY.length} chars (max 500)`);
+if (DESCRIPTION.length > 600) fail(`GameMonetize description is ${DESCRIPTION.length} chars (max 600)`);
+if (CONTROLS.length > 350) fail(`GameMonetize controls are ${CONTROLS.length} chars (max 350)`);
 const version = JSON.parse(readFileSync('package.json', 'utf8')).version;
 const newest = (dir) => readdirSync(dir).filter((f) => f.endsWith('.zip')).sort((a, b) => a.localeCompare(b, 'en', { numeric: true })).pop();
-const SDKS = { crazygames: 'sdk.crazygames.com', gd: 'html5.api.gamedistribution.com', gamepix: 'gamepix.sdk.js', playgama: 'playgama-bridge.js' };
-const dirs = { submission: 'crazygames', 'submission-gd': 'gd', 'submission-gamepix': 'gamepix', 'submission-playgama': 'playgama', 'submission-web': 'web' };
+const SDKS = { crazygames: 'sdk.crazygames.com', gd: 'html5.api.gamedistribution.com', gamepix: 'gamepix.sdk.js', playgama: 'playgama-bridge.js', gamemonetize: 'api.gamemonetize.com/sdk.js', y8: 'cdn.y8.com/minimal-sdk' };
+const dirs = { submission: 'crazygames', 'submission-gd': 'gd', 'submission-gamepix': 'gamepix', 'submission-playgama': 'playgama', 'submission-web': 'web', 'submission-gamemonetize': 'gamemonetize', 'submission-y8': 'y8' };
+// each folder holds exactly the zip to upload
+for (const dir of Object.keys(dirs)) if (existsSync(dir) && readdirSync(dir).filter((f) => f.endsWith('.zip')).length !== 1) fail(`${dir}: more than one zip (keep only the one to upload)`);
 for (const [dir, portal] of Object.entries(dirs)) {
   const z = newest(dir);
   if (!z) {
@@ -52,6 +56,14 @@ const need = [
   'submission-playgama/cover-1080x1920.png',
   'submission-playgama/cover-1920x1080.png',
   'submission-web/cover-630x500.png',
+  'submission-gamemonetize/sprout-trail-512x384.jpg',
+  'submission-gamemonetize/sprout-trail-512x512.jpg',
+  'submission-gamemonetize/sprout-trail-512x340.jpg',
+  ...[1, 2, 3, 4].flatMap((i) => [`submission-y8/media/screenshot-760x570-${i}.jpg`, `submission-y8/media/screenshot-1280x720-${i}.jpg`]),
+  'submission-y8/media/promo-landscape-1920x1080.jpg',
+  'submission-y8/media/promo-portrait-1080x1920.jpg',
+  'submission-y8/media/promo-card-760x570.jpg',
+  'submission-y8/media/gameplay-1280x720.mp4',
   ...[1, 2, 3, 4].map((i) => `submission-web/screenshot-${i}.png`),
 ];
 for (const f of need) {
@@ -59,11 +71,18 @@ for (const f of need) {
     fail(`missing ${f}`);
     continue;
   }
-  const want = /(\d+)x(\d+)\.\w+$/.exec(f);
+  const want = /(\d+)x(\d+)(?:-\d)?\.\w+$/.exec(f);
+  const kb = statSync(f).size / 1024;
   if (f.endsWith('.mp4')) {
     const { w, h, dur } = mp4Info(f);
-    if (`${w}x${h}` !== `${want[1]}x${want[2]}` || dur < 15 || dur > 20) fail(`${f}: ${w}x${h}, ${dur.toFixed(1)} s (want ${want[1]}x${want[2]}, about 18 s)`);
+    // Y8: 16:9, at least 1280x720, 20-30 s (best moment in the 20 s preview), under 50 MB; CrazyGames trailers 15-20 s
+    const [lo, hi] = f.includes('submission-y8') ? [20, 30] : [15, 20];
+    if (`${w}x${h}` !== `${want[1]}x${want[2]}` || dur < lo || dur > hi) fail(`${f}: ${w}x${h}, ${dur.toFixed(1)} s (want ${want[1]}x${want[2]}, ${lo}-${hi} s)`);
+    if (kb > 50 * 1024) fail(`${f}: ${(kb / 1024).toFixed(1)} MB (max 50 MB)`);
   } else {
+    if (f.includes('submission-gamemonetize') && kb > 300) fail(`${f}: ${kb.toFixed(0)} KB (GameMonetize: under 300 KB)`);
+    if (f.includes('submission-y8') && kb > (/760x570/.test(f) ? 2048 : 5120)) fail(`${f}: ${kb.toFixed(0)} KB (Y8 limit)`);
+    if ((f.includes('submission-gamemonetize') || f.includes('submission-y8')) && !f.endsWith('.jpg')) fail(`${f}: JPG wanted`);
     const m = await sharp(f).metadata();
     const size = `${m.width}x${m.height}`;
     const expect = want ? `${want[1]}x${want[2]}` : f.includes('screenshot') ? '1280x720' : null;

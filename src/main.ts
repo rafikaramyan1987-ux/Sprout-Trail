@@ -17,7 +17,7 @@ import { Play } from './play/play';
 import { dailyLevel, level as levelAt, levelById, LEVEL_IDS, nextLevel, PER_WORLD, specialLevel, WORLDS } from './game/levels';
 import { Replay } from './game/bot';
 import { controls } from './app/input';
-import { prepareMusic, setMusic, setMuted, setSfx, sfx, startMusic, unlockAudio } from './app/audio';
+import { audioMuted, prepareMusic, setMusic, setMuted, setSfx, sfx, startMusic, unlockAudio } from './app/audio';
 import { currentStreak, loadSave, persist, recordDaily, recordLevel, resetProgress, save, today } from './app/save';
 import { buyOrEquip, COLORS, equipped, HATS, owned, type Item } from './app/cosmetics';
 import { sdk, type AdSlot } from './app/sdk';
@@ -571,7 +571,7 @@ function exposeCapture() {
     render: () => stage.render(),
     state: () =>
       play
-        ? { mode: play.sim.mode, x: play.sim.x, y: play.sim.y, level: play.level.id, screen, acorns: play.sim.acorns, gems: play.sim.gems, seeds: play.sim.seeds, hearts: play.sim.hearts, speed: play.sim.speed, finished: play.finished }
+        ? { mode: play.sim.mode, x: play.sim.x, y: play.sim.y, level: play.level.id, screen, acorns: play.sim.acorns, gems: play.sim.gems, seeds: play.sim.seeds, hearts: play.sim.hearts, speed: play.sim.speed, finished: play.finished, paused: play.paused || adPaused, muted: audioMuted() }
         : null,
     start: (id: string) => startLevel(levelById(id)!),
     special: (w: number) => startLevel(specialLevel(w)),
@@ -627,11 +627,14 @@ function exposeCapture() {
     lose: () => play?.forceLose(),
     lang: (l: string) => setLang(l as Lang),
     /** store art: hide the HUD and cards, show the big logo at the bottom (the top-left corner stays clear) */
-    cover: (on: boolean, zoom = 0.62) => {
+    cover: (on: boolean, zoom = 0.62, lift = 0, logo = true) => {
       document.body.classList.toggle('cover', on);
-      if (play) play.coverZoom = on ? zoom : 0;
+      if (play) {
+        play.coverZoom = on ? zoom : 0;
+        play.coverLift = on ? lift : 0;
+      }
       document.getElementById('cover-logo')?.remove();
-      if (on) document.getElementById('ui')!.append(el(`<div id="cover-logo" class="logo">${esc(t('title'))}<small>${esc(t('tagline'))}</small></div>`));
+      if (on && logo) document.getElementById('ui')!.append(el(`<div id="cover-logo" class="logo">${esc(t('title'))}<small>${esc(t('tagline'))}</small></div>`));
     },
     platform: __PLATFORM__,
   };

@@ -65,6 +65,9 @@ function applyGains() {
   musicBus.gain.setTargetAtTime(muted || !musicOn ? 0 : MUSIC_GAIN, ctx.currentTime, 0.08);
 }
 
+/** all game audio is silenced (an ad, a hidden page, the portal's mute) */
+export const audioMuted = () => muted;
+
 export function setMuted(m: boolean) {
   muted = m;
   applyGains();

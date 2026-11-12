@@ -64,6 +64,11 @@ function playgamaBridge(): Plugin {
         });
         if (!held) throw new Error('playgama build: no game module script to hold until bridge.initialize()');
         if (!/<head>/.test(src)) throw new Error('playgama build: no <head> in index.html');
+        // Playgama: no localStorage at all (progress and the language come from Bridge); the loading screen's failure
+        // card then speaks the browser's language
+        const guess = "JSON.parse(localStorage.getItem('sprout-trail-save') || '{}').lang";
+        if (!src.includes(guess)) throw new Error('playgama build: the loading screen language guess in index.html changed');
+        src = src.replace(guess, 'null');
         src = src.replace('<head>', `<head>\n    <script src="${PLAYGAMA_BRIDGE_CDN}"></script>\n    <script>${playgamaBoot()}</script>`);
         html.source = src;
       },
