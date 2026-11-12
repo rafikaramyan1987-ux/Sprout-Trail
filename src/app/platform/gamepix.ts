@@ -75,6 +75,7 @@ export class GamePixPlatform implements Platform {
   muted = false;
   onMute: (m: boolean) => void = () => {};
   onAdPause: (paused: boolean) => void = () => {};
+  private orphan: ReturnType<typeof setTimeout> | undefined;
 
   async init() {
     const s = typeof window !== 'undefined' ? window.GamePix : undefined;
@@ -148,6 +149,9 @@ export class GamePixPlatform implements Platform {
 
   private onPause() {
     this.pending?.start();
+    clearTimeout(this.orphan);
+    // an open request ends the pause itself (settle, AD_MAX); a pause without one (a late event) must not hold forever
+    this.orphan = this.pending ? undefined : setTimeout(() => this.setPaused('sdk', false), AD_MAX);
     this.setPaused('sdk', true);
   }
 
@@ -162,6 +166,7 @@ export class GamePixPlatform implements Platform {
   }
 
   private onResume() {
+    clearTimeout(this.orphan);
     this.setPaused('sdk', false);
     this.pending?.resumed();
   }

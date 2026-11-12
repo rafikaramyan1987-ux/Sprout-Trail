@@ -1,14 +1,14 @@
 # Sprout Trail — GameMonetize submission
 
 - **Game ID:** `tnwpox2a6ymzt6ljyslvspxnstv85tjd` (in the build)
-- **Upload:** `sprout-trail-gamemonetize-v1.zip` — `index.html` and `assets/`, `models/` at the zip root, relative paths only
+- **Upload:** `sprout-trail-gamemonetize-v2.zip` — `index.html` and `assets/`, `models/` at the zip root, relative paths only
   (Game Management > My games > select the game > drop the file; then "Verify Game" and "REQUEST ACTIVATION").
 
 ## Files to upload
 
 | What | File (in this folder) |
 | --- | --- |
-| Game | `sprout-trail-gamemonetize-v1.zip` |
+| Game | `sprout-trail-gamemonetize-v2.zip` |
 | Image 512x384 | `sprout-trail-512x384.jpg` |
 | Image 512x512 | `sprout-trail-512x512.jpg` |
 | Image 512x340 | `sprout-trail-512x340.jpg` |
@@ -52,7 +52,7 @@ Mouse / touch: tap to jump, hold to jump higher or glide, swipe down to duck, ta
   (`SDK_GAME_START`, an error, or not started within 8 s; 120 s at most).
 - **No rewarded ads:** the SDK documents no rewarded API, so this build has no "watch an ad" buttons.
 - No external links, no "more games", no other ad networks. Saves stay in localStorage (`sprout-trail-save`).
-- **Robust (v1.2.0):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
-  context pauses the game until it is restored, nothing is ever uncaught, every ad gives up after 120 s at most, and
+  context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).

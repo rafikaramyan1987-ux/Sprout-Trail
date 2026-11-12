@@ -170,7 +170,7 @@ function showTitle() {
     hide('title');
     if (play) {
       play.frozen = false;
-      play.paused = false;
+      play.paused = adPaused;
       controls.release();
       controls.enabled = true;
       screen = 'play';
@@ -326,7 +326,7 @@ function pause() {
 function resume() {
   hide('pause');
   if (!play) return;
-  play.paused = false;
+  play.paused = adPaused;
   controls.release();
   controls.enabled = true;
   screen = 'play';
@@ -392,7 +392,7 @@ function showLost(level: Level) {
       hide('end');
       if (!play) return;
       play.revived = true;
-      play.paused = false;
+      play.paused = adPaused;
       play.reviveWithHeart();
       controls.release();
       controls.enabled = true;
@@ -410,7 +410,7 @@ function showNoSeeds(level: Level) {
     void rewarded(b, () => {
       hide('end');
       if (!play) return;
-      play.paused = false;
+      play.paused = adPaused;
       play.addTwoSeeds();
       controls.release();
       controls.enabled = true;
@@ -568,6 +568,10 @@ function fingerDot(kind: 'tap' | 'swipeDown') {
 function exposeCapture() {
   window.__game = {
     tick: (dt: number, render = true) => tick(dt, render),
+    /** one frame exactly as the requestAnimationFrame loop runs it (nothing moves while an ad pause holds) */
+    frame: (dt: number) => {
+      if (!adPaused) tick(dt, false);
+    },
     render: () => stage.render(),
     state: () =>
       play

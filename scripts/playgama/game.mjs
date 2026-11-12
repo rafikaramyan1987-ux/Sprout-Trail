@@ -6,7 +6,7 @@ export default {
   title: web.title,
   dist: 'dist-playgama',
   /** the submission zip's version: submission-playgama/<slug>-playgama-v<version>.zip */
-  version: 4,
+  version: 5,
   exclude: web.exclude,
   query: 'capture',
   ready: web.ready,

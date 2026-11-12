@@ -51,6 +51,8 @@ export class GDPlatform implements Platform {
   private lastMidgame = Date.now(); // no mid-game ad right after loading (the pre-roll is separate)
   private prerollDone = false;
   private adPaused = false;
+  /** a pause the SDK started with no request of ours open (its own ad, a late event): ended after AD_MAX at most */
+  private orphan: ReturnType<typeof setTimeout> | undefined;
   private pending: Pending | null = null;
   muted = false;
   onMute: (m: boolean) => void = () => {};
@@ -110,6 +112,10 @@ export class GDPlatform implements Platform {
   }
 
   private setAdPaused(p: boolean) {
+    clearTimeout(this.orphan);
+    this.orphan = undefined;
+    // an open request ends the pause itself (settle, AD_MAX); a pause without one must not hold forever
+    if (p && !this.pending) this.orphan = setTimeout(() => this.setAdPaused(false), AD_MAX);
     if (this.adPaused === p) return;
     this.adPaused = p;
     this.muted = p;

@@ -65,6 +65,22 @@ describe('GameDistribution', () => {
     expect(done).toBe(true);
     expect(log).toEqual(['pause', 'resume']);
   });
+
+  it('an SDK_GAME_PAUSE with no request open (the SDK\'s own ad, a late event) never holds longer than AD_MAX', async () => {
+    const gd = new GDPlatform();
+    const log: string[] = [];
+    gd.onAdPause = (p) => log.push(p ? 'pause' : 'resume');
+    gd.onEvent({ name: 'SDK_GAME_PAUSE' });
+    await vi.advanceTimersByTimeAsync(AD_MAX - 1);
+    expect(log).toEqual(['pause']);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(log).toEqual(['pause', 'resume']);
+    // a normal pause / start pair is not affected
+    gd.onEvent({ name: 'SDK_GAME_PAUSE' });
+    gd.onEvent({ name: 'SDK_GAME_START' });
+    await vi.advanceTimersByTimeAsync(AD_MAX);
+    expect(log).toEqual(['pause', 'resume', 'pause', 'resume']);
+  });
 });
 
 describe('CrazyGames', () => {
@@ -145,6 +161,20 @@ describe('GamePix', () => {
     expect(r).toBeNull(); // started: longer than the "not started" timeout
     await vi.advanceTimersByTimeAsync(AD_MAX);
     expect(r).toBe(false);
+  });
+
+  it('a pause from the SDK with no ad of ours open never holds longer than AD_MAX; resume clears it', async () => {
+    const gp = new GamePixPlatform();
+    const g = gp as unknown as { onPause(): void; onResume(): void };
+    const log: string[] = [];
+    gp.onAdPause = (p) => log.push(p ? 'pause' : 'resume');
+    g.onPause();
+    await vi.advanceTimersByTimeAsync(AD_MAX);
+    expect(log).toEqual(['pause', 'resume']);
+    g.onPause();
+    g.onResume();
+    await vi.advanceTimersByTimeAsync(AD_MAX);
+    expect(log).toEqual(['pause', 'resume', 'pause', 'resume']);
   });
 });
 

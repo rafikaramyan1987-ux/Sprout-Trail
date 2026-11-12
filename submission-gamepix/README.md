@@ -4,7 +4,7 @@
 
 | What | File (in this folder) |
 | --- | --- |
-| Game | `sprout-trail-gamepix-v1.2.0.zip` — `index.html` at the root, relative paths only |
+| Game | `sprout-trail-gamepix-v1.2.1.zip` — `index.html` at the root, relative paths only |
 | Icon 256x256 | `icon-256x256.jpg` |
 | Cover 1360x850 | `cover-1360x850.jpg` |
 
@@ -14,9 +14,9 @@
   soundOn` assignments pause the game and silence it. Interstitials only at the result-screen breaks (at most one per
   2 minutes), rewarded ads only from the labelled buttons, the reward only when `ads.reward()` resolves with
   `success: true`. Language from `GamePix.lang()`.
-- **Robust (v1.2.0):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
-  context pauses the game until it is restored, nothing is ever uncaught, every ad gives up after 120 s at most, and
+  context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).
 
 ## Name
