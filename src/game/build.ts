@@ -2,7 +2,7 @@
  * Level builder: a small chainable language that walks a cursor along the trail (x) at the current ground height
  * (y) and drops ground, steps, gaps, logs, thorns, pickups, signs and decision points.
  */
-import { RUN } from './physics';
+import { GRAVITY, RUN, SHROOM_V } from './physics';
 import type { DecisionPoint, EnemyDef, EnemyKind, Level, MoverKind, PlantKind, HandHint, Zone } from './types';
 
 export interface DecisionOpts {
@@ -209,7 +209,7 @@ export class LevelBuilder {
 
   /**
    * Planks hanging from branches over a pit: jump plank to plank. `sway` drifts them sideways, `sink` makes them
-   * go down a moment after you land. `acornAt`: index of the plank with a golden acorn high above it.
+   * go down a moment after you land. `acornAt`: index of the plank after which a golden acorn hangs in the hop.
    */
   planks(n: number, o: { gap?: number; sway?: number; sink?: number; acornAt?: number; water?: boolean } = {}) {
     const w = 1.7;
@@ -222,7 +222,13 @@ export class LevelBuilder {
       const y = y0 + (i % 2 ? 1.2 : 0.6);
       this.mover('plank', x, w, y, { amp: o.sway ?? 0, freq: 1.5, phase: i * 1.7, sinkAfter: o.sink ?? 0 });
       this.level.pickups.push({ x: x + w / 2, y: y + 0.8, kind: 'gem' });
-      if (o.acornAt === i) this.level.pickups.push({ x: x + w / 2, y: y + 3.2, kind: 'acorn' });
+      // the golden acorn hangs in the hop from this plank to the next (a full jump from the plank would carry the
+      // sprite past the next plank: no human could both collect it and land)
+      if (o.acornAt === i) {
+        const ny = i + 1 < n ? y0 + ((i + 1) % 2 ? 1.2 : 0.6) : y0;
+        const gx = i + 1 < n ? x + w + gap / 2 : x + w + (gap + 0.4) / 2;
+        this.level.pickups.push({ x: gx, y: Math.max(y, ny) + 1.8, kind: 'acorn' });
+      }
       x += w + gap;
     }
     this.gap(x - start + 0.4 - gap, o.water ?? false);
@@ -272,7 +278,14 @@ export class LevelBuilder {
       const stone = i % 3 === 2;
       const sinks = !stone && o.sinkEvery && i % o.sinkEvery === 0;
       this.mover(stone ? 'stone' : 'lily', x, stone ? 1.1 : 1.4, this.y - (stone ? 0.6 : 0.9), { sinkAfter: sinks ? (o.sinkAfter ?? 0.5) : 0 });
-      this.level.pickups.push({ x: x + 0.65, y: this.y + 0.4, kind: o.acornAt === i ? 'acorn' : 'gem' });
+      if (o.acornAt === i) {
+        // the golden acorn hangs in the hop to the next pad (on a pad it needed a landing within a hand's width)
+        const top = this.y - (stone ? 0.6 : 0.9);
+        const nStone = (i + 1) % 3 === 2;
+        const ntop = i + 1 < n ? this.y - (nStone ? 0.6 : 0.9) : this.y;
+        const nx = i + 1 < n ? start + 1.3 + (i + 1) * sp : start + 1.3 + (n - 1) * sp + 1.4 + 1.4;
+        this.level.pickups.push({ x: (x + (stone ? 1.1 : 1.4) + nx) / 2, y: Math.max(top, ntop) + 1.8, kind: 'acorn' });
+      } else this.level.pickups.push({ x: x + 0.65, y: this.y + 0.4, kind: 'gem' });
     }
     const len = 1.3 + (n - 1) * sp + 1.4 + 1.4;
     this.level.water.push({ x0: start, x1: start + len, y: this.y - 1.3, croc: true });
@@ -280,17 +293,25 @@ export class LevelBuilder {
     return this.ground(3);
   }
 
-  /** big bouncy mushrooms over a canyon: each one launches the sprite to the next */
+  /**
+   * Big bouncy mushrooms over a canyon: the first cap starts right at the edge, so the sprite runs onto it by itself,
+   * and every bounce is aimed at the next cap (sim.ts), then at the far ground. No input needed at any speed.
+   */
   shrooms(n: number, o: { sp?: number; acornAt?: number } = {}) {
     this.ground(1.5);
     const start = this.x;
     const sp = o.sp ?? 6.2;
+    const w = 1.8;
+    const top = this.y - 0.4;
     for (let i = 0; i < n; i++) {
-      const x = start + 1.4 + i * sp;
-      this.mover('shroom', x, 1.6, this.y - 0.4, { bounce: 17 });
-      this.level.pickups.push({ x: x + 0.8 + sp / 2, y: this.y + 4.2, kind: o.acornAt === i ? 'acorn' : 'gem' });
+      const x = start + 0.15 + i * sp;
+      this.mover('shroom', x, w, top, { bounce: SHROOM_V });
+      // over the middle of each flight, at the top of the arc
+      const to = i + 1 < n ? x + sp + w / 2 : x + w + (sp - w) + 1.4;
+      this.level.pickups.push({ x: (x + w / 2 + to) / 2, y: top + SHROOM_V ** 2 / (2 * GRAVITY) + 0.35, kind: o.acornAt === i ? 'acorn' : 'gem' });
     }
-    this.gap(1.4 + (n - 1) * sp + 1.6 + sp - 1.6);
+    // the far ground: as far after the last cap as the caps are apart
+    this.gap(0.15 + (n - 1) * sp + w + (sp - w));
     return this.ground(3);
   }
 

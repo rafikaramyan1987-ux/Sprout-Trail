@@ -19,8 +19,9 @@ import { cosmetics } from '../app/cosmetics';
 import { Sprite } from '../render/sprite';
 import type { Stage } from '../render/stage';
 import { buildWorld, signText, touchFirst, type WorldView } from '../render/world';
-import { bubble, el, esc, ico, timedClass, timedRemove, toast, ui } from '../ui/ui';
+import { bubble, el, esc, ico, onPress, timedClass, timedRemove, toast, ui } from '../ui/ui';
 import { PLANT_ART } from '../ui/icons';
+import { dpFrame, keepAhead } from './camera';
 
 export interface PlayHooks {
   onWin(s: SimState, stars: number): void;
@@ -143,8 +144,7 @@ export class Play {
         <div class="pill" data-seeds>${ico('seed')}<b data-v>0</b></div>
       </div>
     </div>`);
-    h.querySelector('#btn-pause')!.addEventListener('click', (e) => {
-      e.stopPropagation();
+    onPress(h.querySelector<HTMLElement>('#btn-pause')!, () => {
       sfx('click');
       this.hooks.onPause();
     });
@@ -206,8 +206,7 @@ export class Play {
       <div class="dp-prompt"><span>${esc(t('dp.prompt'))}</span><span class="seeds">${ico('seed')}${s.seeds}</span></div>
       <div class="cards">${cards}</div></div>`);
     this.dpSheet.querySelectorAll<HTMLButtonElement>('.card').forEach((b) =>
-      b.addEventListener('click', (e) => {
-        e.stopPropagation();
+      onPress(b, () => {
         if (this.replay) return;
         this.pick(b.dataset.plant as PlantKind);
       }),
@@ -218,6 +217,10 @@ export class Play {
   pick(kind: PlantKind) {
     const s = this.sim;
     if (s.mode !== 'decide') return;
+    // the events of the last tick were handled already: only the planting's own events are new (a card picked in
+    // the same frame the sprite stopped would otherwise handle 'dpStop' again and, with the last seed planted,
+    // show the "out of seeds" screen)
+    s.events.length = 0;
     const card = this.dpSheet?.querySelector<HTMLElement>(`[data-plant="${kind}"]`);
     card?.classList.add('picked');
     sfx('card');
@@ -229,6 +232,8 @@ export class Play {
 
   /* --------------------------------------------------------------- loop */
 
+  /** the input of the last simulation tick (playtest traces) */
+  lastInput: Input | null = null;
   /** the bot pressed something (the preview video draws a finger dot) */
   onBotGesture: ((kind: 'tap' | 'swipeDown') => void) | null = null;
 
@@ -261,6 +266,7 @@ export class Play {
         this.prevX = this.sim.x;
         this.prevY = this.sim.y;
         const inp = this.input();
+        this.lastInput = inp;
         step(this.level, this.sim, inp);
         this.handleEvents();
         if (this.ended) break;
@@ -331,7 +337,25 @@ export class Play {
         }
         case 'fall':
           sfx('fall');
+          break;
+        case 'die':
+          // every death: one heart (the HUD flashes), an "ouch", the camera jumps back to the checkpoint
+          sfx('ouch');
+          this.shake = 0.3;
           this.cam.init = false;
+          {
+            const h = this.hud.querySelector<HTMLElement>('[data-hearts]')!;
+            h.classList.remove('hurt');
+            void h.offsetWidth;
+            h.classList.add('hurt');
+          }
+          break;
+        case 'respawn':
+          // a puff where the sprite comes back
+          this.fx.dust(s.x, s.y, 16, 1.4);
+          this.fx.sparkle(s.x, s.y + 0.8, '#ffffff', 14);
+          this.prevX = s.x;
+          this.prevY = s.y;
           break;
         case 'checkpoint':
           sfx('checkpoint');
@@ -365,7 +389,10 @@ export class Play {
           break;
         case 'croc':
           sfx('splash');
-          this.fx.splash(s.x, s.y);
+          {
+            const w = this.level.water.find((q) => s.deathX >= q.x0 && s.deathX <= q.x1);
+            this.fx.splash(s.deathX, w ? w.y : s.deathY);
+          }
           bubble(t('piece.crocBite'), false, 1600);
           this.shake = 0.35;
           break;
@@ -561,9 +588,11 @@ export class Play {
     else if (y < this.camGroundY - 0.5) this.camGroundY = y + 0.5;
     else if (y > this.camGroundY + 3.2) this.camGroundY = y - 3.2;
     if (dp) {
-      tx = (dp.stopX - 1.5 + dp.exitX + 1) / 2;
+      // the obstacle, and as much of the trail after it as the run needs (no catching up after the crossing)
+      const { left, right } = dpFrame(dp.stopX, dp.exitX, s.speed);
+      tx = (left + right) / 2;
       ty = dp.y + (dp.obstacle === 'wall' ? dp.height * 0.45 : 1);
-      tw = Math.max(portrait ? 10.5 : 0, dp.exitX - dp.stopX + 4.5);
+      tw = Math.max(portrait ? 10.5 : 0, right - left);
       tsx = 0.5;
       tsy = portrait ? 0.56 : 0.5;
     } else {
@@ -586,6 +615,12 @@ export class Play {
     this.cam.sy = lerp(this.cam.sy, tsy, this.cam.init ? 1 - Math.exp(-dt * 2.5) : 1);
     this.cam.init = true;
     const viewH = portrait ? 0 : dp ? Math.max(10.5, (dp.height || 0) + (dp.drop || 0) + 6) : 10.5;
+    if (!dp && s.mode === 'run') {
+      // whatever the smoothing does: always at least viewAhead(speed) of trail ahead of the sprite on screen (the
+      // fairness check counts on it), so a hazard is never revealed late after a decision point or a fast flight
+      const visW = Math.max(this.cam.w, viewH * (st.width / st.height));
+      this.cam.x = keepAhead(this.cam.x, this.cam.sx, visW, x, P.viewAhead(Math.max(s.speed, s.vx)) + 0.2);
+    }
     if (this.coverZoom) {
       const z = this.coverZoom;
       st.frame(x + (portrait ? 1 : 1.6), this.camGroundY + 1.2, (portrait ? 9 : 0) * z, 10.5 * z * (portrait ? 0 : 1), 0.42, portrait ? 0.55 : 0.5);

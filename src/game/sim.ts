@@ -37,7 +37,11 @@ export type SimEvent =
   | 'boarStop'
   | 'crack'
   | 'gust'
-  | 'sink';
+  | 'sink'
+  /** lost a heart by dying (a fall, the crocodile): back at the last checkpoint (`deathX/Y` = where it happened) */
+  | 'die'
+  | 'respawn';
+export type DeathReason = 'fall' | 'croc';
 
 export interface Input {
   jumpPressed: boolean;
@@ -77,6 +81,11 @@ export interface SimState {
   hopped: boolean;
   bounced: boolean;
   knockT: number;
+  /** a heart was lost and the sprite has not landed since (a fall now is the same accident: no second heart) */
+  hurtAir: boolean;
+  /** where the last death happened (for the splash / fall effects) */
+  deathX: number;
+  deathY: number;
   hearts: number;
   invuln: number;
   /** current run speed (grows at checkpoints, capped) */
@@ -170,6 +179,9 @@ export function newSim(level: Level): SimState {
     hopped: false,
     bounced: false,
     knockT: 0,
+    hurtAir: false,
+    deathX: 0,
+    deathY: 0,
     hearts: 3,
     invuln: 0,
     speed: level.speed,
@@ -266,6 +278,37 @@ export function moverBox(m: Mover, s: SimState, i: number): Box {
   return { x0: m.x0 + o, x1: m.x1 + o, y0: m.y - 0.45 - d, y1: m.y - d, kind: 'plank', oneWay: true };
 }
 
+/** seconds a jump straight up at `vy` takes to come down to `dh` above where it started (fixed-step gravity) */
+export function flightTime(vy: number, dh: number) {
+  let v = vy,
+    y = 0,
+    t = 0;
+  while (t < 10) {
+    v = Math.max(v - P.GRAVITY * P.DT, -P.FALL_MAX);
+    y += v * P.DT;
+    t += P.DT;
+    if (v < 0 && y <= dh) return t;
+  }
+  return t;
+}
+
+/** where each bouncy mushroom sends the sprite: the middle of the next cap of its chain, or onto the ground after it */
+const shroomAims = new WeakMap<Level, { x: number; y: number }[]>();
+export function shroomTarget(level: Level, i: number) {
+  let a = shroomAims.get(level);
+  if (!a) {
+    a = level.movers.map((m) => {
+      if (m.kind !== 'shroom') return { x: m.x1, y: m.y };
+      const next = level.movers.filter((q) => q.kind === 'shroom' && q.x0 >= m.x1 && q.x0 - m.x1 < 9).sort((p, q) => p.x0 - q.x0)[0];
+      if (next) return { x: (next.x0 + next.x1) / 2, y: next.y };
+      const g = level.boxes.filter((b) => !b.oneWay && b.x0 >= m.x1 - 0.01 && b.x0 - m.x1 < 9 && b.y1 >= m.y - 0.01).sort((p, q) => p.x0 - q.x0)[0];
+      return g ? { x: g.x0 + 1.4, y: g.y1 } : { x: m.x1 + 4, y: m.y };
+    });
+    shroomAims.set(level, a);
+  }
+  return a[i];
+}
+
 /** collapsing bridges: which zone each bridge box belongs to */
 const bridgeZone = new WeakMap<Level, Int16Array>();
 function zoneOfBox(level: Level, i: number) {
@@ -340,6 +383,31 @@ function respawn(s: SimState) {
   s.gliding = false;
 }
 
+/**
+ * Every death (a fall into a pit or gap, off a plank, rope, log, lily pad, mushroom, glide, bridge or chase, or the
+ * crocodile) goes through here: exactly one heart, then back to the last checkpoint. A heart lost to a hit that
+ * knocked the sprite into the pit already paid for it. The last heart loses the level.
+ */
+function die(s: SimState, reason: DeathReason) {
+  s.deathX = s.x;
+  s.deathY = s.y;
+  s.events.push(reason, 'die');
+  if (!s.hurtAir) s.hearts--;
+  s.hurtAir = false;
+  if (s.hearts <= 0) {
+    s.hearts = 0;
+    s.mode = 'lost';
+    s.modeT = 0;
+    s.events.push('lose');
+    return;
+  }
+  respawn(s);
+  s.knockT = 0;
+  s.holding = false;
+  s.invuln = Math.max(s.invuln, 1.2);
+  s.events.push('respawn');
+}
+
 const height = (s: SimState) => (s.ducking ? P.H_DUCK : P.H_STAND);
 
 function canStand(level: Level, s: SimState) {
@@ -362,6 +430,7 @@ export function nextDp(level: Level, s: SimState): number {
 function hit(s: SimState) {
   if (s.invuln > 0 || s.mode !== 'run') return;
   s.hearts--;
+  s.hurtAir = true;
   s.invuln = P.INVULN;
   s.vy = 7;
   s.grounded = false;
@@ -648,16 +717,20 @@ export function step(level: Level, s: SimState, inp: Input) {
     });
   }
   if (s.climbing) s.grounded = false;
+  if (s.grounded) s.hurtAir = false;
   if (s.grounded && !wasGrounded) {
     s.events.push('land');
     s.bounced = false;
     s.flyVX = 0;
   }
-  // big bouncy mushrooms launch the sprite high
+  // big bouncy mushrooms launch the sprite high, aimed at the middle of the next mushroom (or the far ground after
+  // the last one): the chain crosses by itself at any run speed, wherever the sprite touched the cap
   if (!crossing && s.grounded && s.on >= 0 && level.movers[s.on].kind === 'shroom') {
-    s.vy = level.movers[s.on].bounce ?? P.SHROOM_V;
+    const vy = (level.movers[s.on].bounce ?? P.SHROOM_V) * (jumpHeld ? P.SHROOM_BOOST : 1);
+    const tg = shroomTarget(level, s.on);
+    s.vy = vy;
     s.grounded = false;
-    s.flyVX = s.speed;
+    s.flyVX = Math.max(1.5, Math.min(11, (tg.x - s.x) / flightTime(vy, tg.y - s.y)));
     s.holding = false;
     s.lastEnemy = s.on;
     s.events.push('bounce');
@@ -795,22 +868,12 @@ function afterMove(
   // the crocodile's lake: a heart, back to the last checkpoint
   if (!crossing && s.mode === 'run') {
     const w = level.water.find((q) => q.croc && s.x >= q.x0 && s.x <= q.x1);
-    if (w && s.y < w.y - 0.3) {
-      s.events.push('croc');
-      s.invuln = 0;
-      hit(s);
-      if ((s.mode as Mode) === 'lost') return;
-      respawn(s);
-      s.invuln = 1.2;
-      return;
-    }
+    if (w && s.y < w.y - 0.3) return die(s, 'croc');
   }
   // fell
   if (s.y < level.killY) {
     if (crossing) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
-    respawn(s);
-    s.events.push('fall');
-    return;
+    return die(s, 'fall');
   }
   // crossing: falling into the river / gap counts before reaching killY
   if (crossing && dp && s.y < dp.y - (dp.drop ?? 0) - 1.6) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
@@ -885,6 +948,7 @@ export function revive(s: SimState) {
   s.grounded = true;
   s.invuln = 2;
   s.knockT = 0;
+  s.hurtAir = false;
   s.ducking = false;
   s.duckT = 0;
 }

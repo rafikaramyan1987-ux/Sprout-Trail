@@ -1,13 +1,13 @@
 # Sprout Trail — GameDistribution submission
 
-- **Build:** `sprout-trail-gd-v1.1.0.zip` (`npm run build:gd`): `index.html` at the root of the zip, assets in
+- **Build:** `sprout-trail-gd-v1.1.1.zip` (`npm run build:gd`): `index.html` at the root of the zip, assets in
   `assets/`, relative paths only. GameDistribution HTML5 SDK (`GD_OPTIONS` + main.min.js loaded at boot):
   SDK_GAME_PAUSE / SDK_GAME_START pause and resume the game and its audio, interstitials only between levels (at most
   one per 2 minutes), rewarded ads only from the labelled buttons, reward only after SDK_REWARDED_WATCH_COMPLETE.
 - **Game ID:** `00000000000000000000000000000000` — **a placeholder.** Register the game on GameDistribution, put the real 32-character ID in
   `GD_GAME_ID` (`src/app/platform/gd.ts`), then `npm run build:gd && npm run submission`. CI
   (`scripts/check-gd.mjs`) checks the build carries the ID and flags the placeholder.
-- **Older versions:** `sprout-trail-gd-v1.0.0.zip`.
+- **Older versions:** none.
 - **Thumbnails (JPG):** `thumbnails/thumb-512x384.jpg`, `thumb-512x512.jpg`, `thumb-200x120.jpg`,
   `thumb-1280x720.jpg`, `thumb-1280x550.jpg`.
 - **Orientation:** landscape and portrait, desktop and mobile. **Category:** Platformer / Casual.

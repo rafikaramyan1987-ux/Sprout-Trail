@@ -43,7 +43,9 @@ jobs:
         run: npm run submission:check
 
   levels:
-    # the level validator: a bot plays all 95 shipped levels with the real physics at their real speed
+    # the level validator: the human-limited playtester (only a finger's inputs, every press checked 0.1 s early /
+    # late and with a shorter / longer hold, 0.25 s reaction time) plays all 95 shipped levels with the real physics
+    # at their real speed
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -53,10 +55,40 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Level validator (every level beaten with all 3 acorns within its hearts and seeds at its real speed, wrong plants fail, every hazard on screen >= 1 s; writes docs/levels-report.md)
+      - name: Level validator (the human-limited player beats every level with all 3 acorns, losing no heart, within its seeds at its real speed; wrong plants fail; every hazard on screen >= 1 s; writes docs/levels-report.md)
         run: npm run validate:levels
       - name: Level validator report is up to date
         run: git diff --exit-code docs/levels-report.md
+
+  playtest:
+    # the full playtest: the human-limited playtester plays every level (with death probes: a fall or the crocodile
+    # costs exactly one heart), then every level is played once more in the real web build on a desktop viewport
+    # with the keyboard and a phone viewport with touch (HUD, camera view ahead, end screen, finger lift, page errors)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: "Install Chromium for Playwright (system packages best-effort, the runner image already has Chromium's libraries)"
+        run: |
+          npx playwright install chromium
+          npx playwright install-deps chromium || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
+      - name: Human-limited playtest, simulation (all 95 levels, death probes)
+        run: npm run playtest -- --tag=ci
+      - run: npm run build:web
+      - name: Browser playtest (all 95 levels, desktop keyboard + phone touch, real input path)
+        run: npm run playtest:browser -- --tag=ci --no-shots
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playtest
+          path: |
+            playtest-out/*.json
+            playtest-out/*.log
 
   e2e:
     runs-on: ubuntu-latest

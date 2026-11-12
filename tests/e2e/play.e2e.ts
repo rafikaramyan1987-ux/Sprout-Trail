@@ -80,3 +80,94 @@ test('pause menu and settings', async ({ page }) => {
   await page.locator('#pause [data-act=resume]').click();
   expect((await state(page))!.screen).toBe('play');
 });
+
+test('a fall costs a heart: the HUD shows it and the sprite is back at the checkpoint', async ({ page }) => {
+  await open(page);
+  await page.evaluate(() => (window as unknown as { __game: { start(id: string): void } }).__game.start('1-1'));
+  await tick(page, 0.3);
+  // drop the sprite into the first pit of the level
+  await page.evaluate(() => {
+    const g = (window as unknown as { __game: { level(): { boxes: { kind: string; x0: number; x1: number }[] }; sim(): Record<string, unknown> } }).__game;
+    const ground = g.level().boxes.filter((b) => b.kind === 'ground').sort((a, b) => a.x0 - b.x0);
+    const i = ground.findIndex((b, k) => k > 0 && b.x0 - ground[k - 1].x1 > 1);
+    const pit = (ground[i - 1].x1 + ground[i].x0) / 2;
+    Object.assign(g.sim(), { x: pit, y: -2, vy: 0, vx: 0, grounded: false });
+  });
+  await tick(page, 1.5);
+  const s = await page.evaluate(() => (window as unknown as { __game: { sim(): { hearts: number; x: number; cpX: number } } }).__game.sim());
+  expect(s.hearts).toBe(2);
+  const full = await page.evaluate(() => {
+    const spans = [...document.querySelectorAll('[data-hearts] > span')].map((e) => e.innerHTML);
+    return spans.filter((h) => h === spans[0]).length;
+  });
+  expect(full).toBe(2);
+});
+
+test('a finger still down when the end screen appears does not press its buttons', async ({ page, isMobile }) => {
+  await open(page);
+  const g = () => page.evaluate(() => (window as unknown as { __game: { screen(): string } }).__game.screen());
+  await page.evaluate(() => (window as unknown as { __game: { start(id: string): void } }).__game.start('1-1'));
+  await page.evaluate(() => (window as unknown as { __game: { lose(): void } }).__game.lose());
+  for (let i = 0; i < 20 && (await g()) !== 'end'; i++) await tick(page, 0.25);
+  const box = (await page.locator('#end [data-act=retry]').boundingBox())!;
+  const at = { x: Math.round(box.x + box.width / 2), y: Math.round(box.y + box.height / 2) };
+  // play again; the finger goes down in the game where the button will be, the level ends, the finger lifts
+  await page.evaluate(() => (window as unknown as { __game: { start(id: string): void } }).__game.start('1-1'));
+  const cdp = isMobile ? await page.context().newCDPSession(page) : null;
+  if (cdp) await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: at.x, y: at.y, id: 1 }] });
+  else {
+    await page.mouse.move(at.x, at.y);
+    await page.mouse.down();
+  }
+  await page.evaluate(() => (window as unknown as { __game: { lose(): void } }).__game.lose());
+  for (let i = 0; i < 20 && (await g()) !== 'end'; i++) await tick(page, 0.25);
+  expect(await g()).toBe('end');
+  if (cdp) await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  else await page.mouse.up();
+  await tick(page, 0.2);
+  expect(await g()).toBe('end');
+  // a real tap on the button still works
+  await page.locator('#end [data-act=retry]').click();
+  expect(await g()).toBe('play');
+});
+
+test('planting the last seed at once does not show the "out of seeds" screen', async ({ page }) => {
+  await open(page);
+  await page.evaluate(() => (window as unknown as { __game: { start(id: string): void } }).__game.start('1-2'));
+  await page.evaluate(() => (window as unknown as { __game: { teleportToDecision(): void } }).__game.teleportToDecision());
+  // one seed left; the card is picked in the very frame the sprite stops (no tick in between)
+  await page.evaluate(() => {
+    const g = (window as unknown as { __game: { tick(dt: number, r: boolean): void; sim(): { mode: string; seeds: number } } }).__game;
+    g.sim().seeds = 1;
+    for (let i = 0; i < 600 && g.sim().mode !== 'decide'; i++) g.tick(1 / 60, false);
+    (document.querySelector('#dp .card[data-plant="bridge"]') as HTMLElement).dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+    (document.querySelector('#dp .card[data-plant="bridge"]') as HTMLElement).click();
+  });
+  expect(await page.evaluate(() => (window as unknown as { __game: { screen(): string } }).__game.screen())).toBe('play');
+  expect(await page.evaluate(() => (window as unknown as { __game: { sim(): { mode: string } } }).__game.sim().mode)).toBe('grow');
+});
+
+test('a touch jumps on the very next frame (no waiting to see whether it becomes a swipe)', async ({ page, isMobile }) => {
+  await open(page);
+  await page.evaluate(() => (window as unknown as { __game: { start(id: string): void } }).__game.start('1-1'));
+  await tick(page, 0.5);
+  await page.evaluate(() => {
+    (window as unknown as { __down: number }).__down = 0;
+    addEventListener('pointerdown', () => (window as unknown as { __down: number }).__down++, true);
+  });
+  const vp = page.viewportSize()!;
+  const cdp = isMobile ? await page.context().newCDPSession(page) : null;
+  if (cdp) await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: vp.width * 0.6, y: vp.height * 0.55, id: 1 }] });
+  else {
+    await page.mouse.move(vp.width * 0.6, vp.height * 0.55);
+    await page.mouse.down();
+  }
+  await page.waitForFunction(() => (window as unknown as { __down: number }).__down > 0);
+  // one frame
+  await page.evaluate(() => (window as unknown as { __game: { tick(dt: number, r: boolean): void } }).__game.tick(1 / 60, false));
+  const s = await page.evaluate(() => (window as unknown as { __game: { sim(): { vy: number; grounded: boolean } } }).__game.sim());
+  expect(s.grounded).toBe(false);
+  expect(s.vy).toBeGreaterThan(5);
+  if (cdp) await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  else await page.mouse.up();
+});

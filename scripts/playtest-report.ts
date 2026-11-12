@@ -240,6 +240,14 @@ ${summary(simA.results, brA ?? [], after!)}
 
 ${after!.length ? `### Problems left\n\n${causes(after!, false)}` : '**Every level, Golden Grove and daily level passes the human-limited playtest and the browser playtest with zero problems.**'}
 
+### Also found and fixed
+
+- Picking a seed card handled the previous frame's events again: a card picked in the very frame the sprite stopped
+  re-ran the stop and, with the last seed planted, showed the "out of seeds" screen (only reachable by a bot: the
+  cards are not visible yet in that frame). \`Play.pick\` now handles only the planting's own events.
+- The checks themselves: CI's level validator now uses the human-limited playtester instead of the frame-perfect bot,
+  the fairness check also counts pits, and CI runs the browser playtest on every level (desktop and phone).
+
 ### Every level (after)
 
 ${table(simA.results, brA ?? [], after!)}

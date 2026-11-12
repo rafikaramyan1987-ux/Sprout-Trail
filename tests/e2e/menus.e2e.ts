@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 
 type G = {
@@ -112,3 +113,15 @@ for (const lang of ['de', 'ru', 'fr']) {
     expect(await overflow(), 'seed cards').toEqual([]);
   });
 }
+
+test('the title screen shows the version small in a corner', async ({ page }) => {
+  await page.goto('./?capture');
+  await page.waitForFunction(() => (window as unknown as { __ready?: boolean }).__ready === true, null, { timeout: 90_000 });
+  const v = page.locator('#title .version');
+  await expect(v).toHaveText(`v${JSON.parse(readFileSync('package.json', 'utf8')).version}`);
+  const box = (await v.boundingBox())!;
+  const vp = page.viewportSize()!;
+  expect(box.height).toBeLessThan(24);
+  expect(box.x + box.width).toBeGreaterThan(vp.width * 0.7);
+  expect(box.y).toBeGreaterThan(vp.height * 0.8);
+});

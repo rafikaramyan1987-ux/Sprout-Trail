@@ -1,13 +1,13 @@
 # Sprout Trail — GamePix submission
 
-- **Build:** `sprout-trail-gamepix-v1.1.0.zip` (`npm run build:gamepix`): `index.html` at the root, relative paths
+- **Build:** `sprout-trail-gamepix-v1.1.1.zip` (`npm run build:gamepix`): `index.html` at the root, relative paths
   only. `window.GamePixConfig = { lifecycle: 'manual' }` and the GamePix SDK v3 script come first in `<head>`, before
   the game. Lifecycle: loading(0-100) during boot, `loaded()` before the menu, `gameStart()` at the first level. The
   SDK's `pause`/`resume` and `soundOff`/`soundOn` events (and the legacy `GamePix.pause/resume/soundOff/soundOn`
   handlers) pause the game and silence it. Interstitials only between levels (at most one per 2 minutes), rewarded
   ads only from the labelled buttons, reward only when `ads.reward()` resolves with `success: true`. Language from
   `GamePix.lang()`.
-- **Older versions:** `sprout-trail-gamepix-v1.0.0.zip`.
+- **Older versions:** none.
 - **Icon / cover:** `icon-256x256.jpg`, `cover-1360x850.jpg` (from real play).
 
 ## Name

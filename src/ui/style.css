@@ -331,6 +331,26 @@ svg {
   gap: 8px;
   align-items: center;
 }
+/* a heart lost: the hearts pill flashes red */
+.hurt,
+.hurt.bump {
+  animation: hurt 0.6s;
+}
+@keyframes hurt {
+  0%,
+  100% {
+    box-shadow: inherit;
+  }
+  15%,
+  55% {
+    background: #ffd0d0;
+    box-shadow: 0 0 0 4px #ff5a6a88;
+    transform: scale(1.12);
+  }
+  35% {
+    transform: scale(0.96);
+  }
+}
 .bump {
   animation: bump 0.35s;
 }
@@ -1138,4 +1158,16 @@ body.cover #titlecard,
 body.cover .place,
 body.cover #vignette {
   display: none !important;
+}
+
+/* the build's version, small in a corner of the title screen */
+#title .version {
+  position: absolute;
+  right: calc(10px + var(--safe-right, 0px));
+  bottom: calc(6px + var(--safe-bottom));
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
 }

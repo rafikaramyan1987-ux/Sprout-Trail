@@ -243,10 +243,11 @@ export function generateLevel(world: number, n: number, seed: number, opts: GenO
   const placeAcorn = () => {
     const k = r();
     if (k < 0.34) {
-      // high above the trail: hold to jump higher
-      b.ground(2).acorn(2.5, 3.4).ground(5);
+      // high above the trail: hold to jump higher (and room to land before whatever comes next)
+      b.ground(2).acorn(2.5, 3.4).ground(8);
     } else if (k < 0.67) {
-      b.ground(1).ledge(2.5, 2.6, 4).acorn(4.5, 3.6).gems(3, 3, 3.2, 1).ground(10);
+      // on a ledge: towards its far end, so a jump onto it a little late still gets it
+      b.ground(1).ledge(2.5, 2.6, 5).acorn(5.6, 3.6).gems(3, 3, 3.2, 1).ground(11);
     } else {
       b.acorn(2.6, 0.4).lowLog(3.2, 1, 1);
     }

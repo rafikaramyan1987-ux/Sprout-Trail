@@ -1,0 +1,3802 @@
+[
+ {
+  "id": "1-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 55.333333333333336,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7947
+ },
+ {
+  "id": "1-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 56.516666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 40.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8747
+ },
+ {
+  "id": "1-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8226
+ },
+ {
+  "id": "1-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 52.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6556
+ },
+ {
+  "id": "1-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 31.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8149
+ },
+ {
+  "id": "1-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8979
+ },
+ {
+  "id": "1-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 24.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5483
+ },
+ {
+  "id": "1-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 4969
+ },
+ {
+  "id": "1-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 31.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8643
+ },
+ {
+  "id": "1-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5040
+ },
+ {
+  "id": "1-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.98333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 27.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8282
+ },
+ {
+  "id": "1-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8119
+ },
+ {
+  "id": "2-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 24.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5935
+ },
+ {
+  "id": "2-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 271.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8938
+ },
+ {
+  "id": "2-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 129.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5637
+ },
+ {
+  "id": "2-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.51666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 50.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7085
+ },
+ {
+  "id": "2-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 284.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8444
+ },
+ {
+  "id": "2-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 76.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6625
+ },
+ {
+  "id": "2-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 147.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6048
+ },
+ {
+  "id": "2-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 93.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6502
+ },
+ {
+  "id": "2-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 20.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7705
+ },
+ {
+  "id": "2-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 81.76666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 100.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6980
+ },
+ {
+  "id": "2-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.01666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6802
+ },
+ {
+  "id": "2-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 309.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7657
+ },
+ {
+  "id": "3-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 127.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8566
+ },
+ {
+  "id": "3-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 59.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7569
+ },
+ {
+  "id": "3-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.76666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 301.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7442
+ },
+ {
+  "id": "3-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 100.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5670
+ },
+ {
+  "id": "3-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 42.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7218
+ },
+ {
+  "id": "3-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 39.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7603
+ },
+ {
+  "id": "3-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 135.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7350
+ },
+ {
+  "id": "3-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 133.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6286
+ },
+ {
+  "id": "3-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 97.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7426
+ },
+ {
+  "id": "3-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 109.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "",
+  "errors": [],
+  "problems": [],
+  "ms": 9531
+ },
+ {
+  "id": "3-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 182.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6504
+ },
+ {
+  "id": "3-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 10936
+ },
+ {
+  "id": "4-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 44.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5916
+ },
+ {
+  "id": "4-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 140.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7634
+ },
+ {
+  "id": "4-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.15,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8141
+ },
+ {
+  "id": "4-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 10749
+ },
+ {
+  "id": "4-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 119.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5792
+ },
+ {
+  "id": "4-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 92.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7469
+ },
+ {
+  "id": "4-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 204.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9268
+ },
+ {
+  "id": "4-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 43.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9173
+ },
+ {
+  "id": "4-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 64.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8007
+ },
+ {
+  "id": "4-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 144.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 10234
+ },
+ {
+  "id": "4-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.2,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 139.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9366
+ },
+ {
+  "id": "4-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 58.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8727
+ },
+ {
+  "id": "5-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6484
+ },
+ {
+  "id": "5-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 525.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9521
+ },
+ {
+  "id": "5-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 88.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6158
+ },
+ {
+  "id": "5-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 122.98333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8846
+ },
+ {
+  "id": "5-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.58333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 48.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6859
+ },
+ {
+  "id": "5-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.33333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 75.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8802
+ },
+ {
+  "id": "5-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8379
+ },
+ {
+  "id": "5-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 58.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6753
+ },
+ {
+  "id": "5-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 36.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7633
+ },
+ {
+  "id": "5-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 169.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8001
+ },
+ {
+  "id": "5-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.18333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7036
+ },
+ {
+  "id": "5-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 158.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6120
+ },
+ {
+  "id": "1-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 98.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8023
+ },
+ {
+  "id": "2-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 254.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7868
+ },
+ {
+  "id": "3-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 111.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6023
+ },
+ {
+  "id": "daily-0",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.38333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 18.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5101
+ },
+ {
+  "id": "5-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 123.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7876
+ },
+ {
+  "id": "4-S",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.71666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 212.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 11209
+ },
+ {
+  "id": "daily-1",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 32.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5637
+ },
+ {
+  "id": "daily-2",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 116.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7303
+ },
+ {
+  "id": "daily-3",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 194.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8203
+ },
+ {
+  "id": "daily-4",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 116.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 57.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8719
+ },
+ {
+  "id": "daily-5",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 56.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7569
+ },
+ {
+  "id": "daily-6",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5079
+ },
+ {
+  "id": "daily-7",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.8,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 262.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7110
+ },
+ {
+  "id": "daily-8",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 48.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7089
+ },
+ {
+  "id": "daily-9",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 135.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7130
+ },
+ {
+  "id": "daily-10",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 67.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 54.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 4312
+ },
+ {
+  "id": "daily-11",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.43333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 39.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7721
+ },
+ {
+  "id": "daily-13",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8259
+ },
+ {
+  "id": "daily-12",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 129.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9550
+ },
+ {
+  "id": "daily-14",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.81666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5406
+ },
+ {
+  "id": "daily-16",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 166.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 4999
+ },
+ {
+  "id": "daily-15",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 75.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9146
+ },
+ {
+  "id": "daily-17",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 72.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6877
+ },
+ {
+  "id": "daily-19",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6147
+ },
+ {
+  "id": "daily-20",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 5300
+ },
+ {
+  "id": "daily-18",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 106.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 90.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 9523
+ },
+ {
+  "id": "daily-23",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 93.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7852
+ },
+ {
+  "id": "daily-21",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7937
+ },
+ {
+  "id": "daily-22",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 107.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8053
+ },
+ {
+  "id": "daily-25",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 73.21666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 41.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7163
+ },
+ {
+  "id": "daily-26",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.13333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8089
+ },
+ {
+  "id": "daily-24",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.4,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 51.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 8630
+ },
+ {
+  "id": "daily-27",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6382
+ },
+ {
+  "id": "daily-28",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 6990
+ },
+ {
+  "id": "daily-29",
+  "device": "desktop",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 100.36666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 51.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 7056
+ },
+ {
+  "id": "1-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 55.333333333333336,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 17620
+ },
+ {
+  "id": "1-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 56.516666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 40.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 19336
+ },
+ {
+  "id": "1-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.11666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22078
+ },
+ {
+  "id": "1-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 52.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 18184
+ },
+ {
+  "id": "1-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 31.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21434
+ },
+ {
+  "id": "1-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23161
+ },
+ {
+  "id": "1-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 31.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 18468
+ },
+ {
+  "id": "1-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 24.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21733
+ },
+ {
+  "id": "1-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 74.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20331
+ },
+ {
+  "id": "1-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.98333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 27.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 19155
+ },
+ {
+  "id": "1-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21350
+ },
+ {
+  "id": "1-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 26440
+ },
+ {
+  "id": "2-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 24.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 18362
+ },
+ {
+  "id": "2-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 271.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23805
+ },
+ {
+  "id": "2-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 129.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 18899
+ },
+ {
+  "id": "2-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 80.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 284.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21480
+ },
+ {
+  "id": "2-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.51666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 50.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24461
+ },
+ {
+  "id": "2-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 76.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20410
+ },
+ {
+  "id": "2-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 147.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 17716
+ },
+ {
+  "id": "2-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 20.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24355
+ },
+ {
+  "id": "2-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.83333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 93.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23733
+ },
+ {
+  "id": "2-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 81.76666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 100.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21918
+ },
+ {
+  "id": "2-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.01666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20261
+ },
+ {
+  "id": "2-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 309.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22701
+ },
+ {
+  "id": "3-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 127.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23393
+ },
+ {
+  "id": "3-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 59.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28674
+ },
+ {
+  "id": "3-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 77.76666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 301.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20242
+ },
+ {
+  "id": "3-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 100.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23184
+ },
+ {
+  "id": "3-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 42.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21150
+ },
+ {
+  "id": "3-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 82.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 39.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21380
+ },
+ {
+  "id": "3-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.03333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 135.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23250
+ },
+ {
+  "id": "3-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 133.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24517
+ },
+ {
+  "id": "3-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 97.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25725
+ },
+ {
+  "id": "3-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 109.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "",
+  "errors": [],
+  "problems": [],
+  "ms": 29940
+ },
+ {
+  "id": "3-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 182.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22109
+ },
+ {
+  "id": "3-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.85,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28710
+ },
+ {
+  "id": "4-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 44.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24431
+ },
+ {
+  "id": "4-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.96666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 140.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20139
+ },
+ {
+  "id": "4-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 101.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28349
+ },
+ {
+  "id": "4-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 88.15,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22524
+ },
+ {
+  "id": "4-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 119.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 21783
+ },
+ {
+  "id": "4-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 204.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 29334
+ },
+ {
+  "id": "4-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.05,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 92.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24529
+ },
+ {
+  "id": "4-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.63333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 43.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25057
+ },
+ {
+  "id": "4-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 64.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24679
+ },
+ {
+  "id": "4-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 83.2,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 139.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23510
+ },
+ {
+  "id": "4-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 108.95,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 144.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 30255
+ },
+ {
+  "id": "4-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 104.78333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 58.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28057
+ },
+ {
+  "id": "5-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24580
+ },
+ {
+  "id": "5-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 525.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 30745
+ },
+ {
+  "id": "5-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 85.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 88.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23370
+ },
+ {
+  "id": "5-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 122.98333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 32363
+ },
+ {
+  "id": "5-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.58333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 48.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22635
+ },
+ {
+  "id": "5-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.33333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 75.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 27485
+ },
+ {
+  "id": "5-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.16666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 26021
+ },
+ {
+  "id": "5-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.9,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 58.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 27709
+ },
+ {
+  "id": "5-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 36.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23095
+ },
+ {
+  "id": "5-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 169.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24462
+ },
+ {
+  "id": "5-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 102.18333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25911
+ },
+ {
+  "id": "5-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 158.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23274
+ },
+ {
+  "id": "1-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 98.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20472
+ },
+ {
+  "id": "2-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.23333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 254.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25131
+ },
+ {
+  "id": "3-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 96.55,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 111.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24463
+ },
+ {
+  "id": "4-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 110.71666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 212.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 29966
+ },
+ {
+  "id": "daily-0",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.38333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 18.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 16850
+ },
+ {
+  "id": "5-S",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 123.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25401
+ },
+ {
+  "id": "daily-1",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 68.5,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 32.7: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 17824
+ },
+ {
+  "id": "daily-2",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 116.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23032
+ },
+ {
+  "id": "daily-3",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 194.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24706
+ },
+ {
+  "id": "daily-5",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 70.66666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 56.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 19046
+ },
+ {
+  "id": "daily-6",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 71.61666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 19089
+ },
+ {
+  "id": "daily-4",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 116.75,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 57.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 30981
+ },
+ {
+  "id": "daily-7",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.8,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 262.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22975
+ },
+ {
+  "id": "daily-8",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.1,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 48.3: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23700
+ },
+ {
+  "id": "daily-9",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 93.28333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 135.8: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23735
+ },
+ {
+  "id": "daily-10",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 67.53333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 54.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 17614
+ },
+ {
+  "id": "daily-11",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 78.43333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 39.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20131
+ },
+ {
+  "id": "daily-12",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 86.35,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 129.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 22279
+ },
+ {
+  "id": "daily-13",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 84.26666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23570
+ },
+ {
+  "id": "daily-15",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 75.08333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 20441
+ },
+ {
+  "id": "daily-14",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.81666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24481
+ },
+ {
+  "id": "daily-16",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 69.88333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 166.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 18004
+ },
+ {
+  "id": "daily-17",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 94.7,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 72.6: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24651
+ },
+ {
+  "id": "daily-18",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 106.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 90.5: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 29459
+ },
+ {
+  "id": "daily-19",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.65,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 22.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23625
+ },
+ {
+  "id": "daily-20",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 65.56666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 23.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 17744
+ },
+ {
+  "id": "daily-21",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 90.6,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24526
+ },
+ {
+  "id": "daily-22",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 107.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 60.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28051
+ },
+ {
+  "id": "daily-23",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 92.31666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 93.2: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25255
+ },
+ {
+  "id": "daily-25",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 73.21666666666667,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 41.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 19458
+ },
+ {
+  "id": "daily-24",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 114.4,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 51.4: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 28389
+ },
+ {
+  "id": "daily-26",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 91.13333333333334,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24168
+ },
+ {
+  "id": "daily-27",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 95.48333333333333,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 26.9: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 24412
+ },
+ {
+  "id": "daily-28",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 87.06666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 13.0: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 23809
+ },
+ {
+  "id": "daily-29",
+  "device": "phone",
+  "won": true,
+  "endScreen": true,
+  "acorns": 3,
+  "hearts": 3,
+  "seconds": 100.36666666666666,
+  "hudMismatch": [],
+  "offScreen": 0,
+  "shortView": {
+   "ticks": 0,
+   "worst": 1
+  },
+  "lateThreats": [],
+  "fall": "ok: fall at x 51.1: hearts 3 → 2, HUD 2",
+  "errors": [],
+  "problems": [],
+  "ms": 25406
+ }
+]

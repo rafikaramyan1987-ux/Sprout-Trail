@@ -21,14 +21,16 @@ acorn, and seeds are limited.
   (`--mode <platform>`), `base: './'`. Rewarded ads only from labelled buttons, interstitials only between levels
   (at most one per 2 minutes); no ads at all in the web build.
 
-TypeScript, Vite, Three.js. Each build is about 2.5 MB (CI budget: 4 MB).
+TypeScript, Vite, Three.js. Each build is about 2.5 MB (CI budget: 4 MB). The version is shown small on the title screen.
 
 ```sh
 npm ci
 npm run dev                 # local dev server
 npm run build:all           # dist/ (CrazyGames), dist-web/, dist-gd/, dist-gamepix/, dist-playgama/
 npm test                    # unit tests
-npm run validate:levels     # level validator → docs/levels-report.md (fails if any level is unsolvable or unfair)
+npm run validate:levels     # level validator (human-limited playtester) → docs/levels-report.md
+npm run playtest            # human-limited playtest of every level + death probes → playtest-out/
+npm run playtest:browser    # every level in the web build, desktop keyboard + phone touch (build:web first)
 npm run test:e2e            # Playwright, desktop + phone (build:web first)
 npm run submission          # portal zips + READMEs (after build:all); npm run submission:check
 ```
@@ -36,10 +38,16 @@ npm run submission          # portal zips + READMEs (after build:all); npm run s
 Controls: touch / mouse — tap or swipe up = jump (hold for higher), swipe down = duck. Keyboard — Space / Up / W =
 jump (hold for higher), Down / S = duck (`KeyboardEvent.code`, so QWERTY and AZERTY both work). Escape is never used.
 
-The simulation (`src/game/sim.ts`) is deterministic with a fixed 60 Hz timestep. The level bot (`src/game/bot.ts`)
-plays every shipped level with it in CI at the level's real speed: each level must be beaten with all three golden
-acorns within its hearts and seeds, every wrong plant must really fail, and every hazard must be on screen at least
-1 second before it has to be dodged (`src/game/fairness.ts`; the camera always shows `viewAhead(speed)` ahead).
+The simulation (`src/game/sim.ts`) is deterministic with a fixed 60 Hz timestep. In CI a human-limited playtester
+(`src/game/human.ts`) plays every shipped level with it at the level's real speed, using only a finger's inputs (tap,
+full jump, glide, swipe down, seed cards) with human limits: every press must still work 0.1 s early or late and with
+a shorter or longer hold, presses are at least 0.25 s apart, nothing hidden is read. Each level must be beaten with
+all three golden acorns, without losing a heart, within its seeds; every wrong plant must really fail; every hazard
+must be on screen at least 1 second before it has to be dodged (`src/game/fairness.ts`; the camera always shows
+`viewAhead(speed)` ahead, `src/play/camera.ts`). Every death (a fall or the crocodile) costs exactly one heart. The
+browser playtest then plays every level once more in the real web build (desktop keyboard and phone touch) and checks
+the HUD, the camera, the end screens and the input path. Results: `docs/playtest-report.md` (before / after the fixes
+of v1.1.1). The beam-search bot (`src/game/bot.ts`) still drives the autoplay demo and the preview video.
 
 Submission folders: `submission/` (CrazyGames), `submission-gd/`, `submission-gamepix/`, `submission-playgama/`,
 `submission-web/` — each with a README. Credits: `CREDITS.md`.
