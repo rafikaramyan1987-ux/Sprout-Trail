@@ -10,15 +10,17 @@ import '@fontsource/nunito/cyrillic-700.css';
 import './ui/style.css';
 import * as THREE from 'three';
 import { Stage, SPRING } from './render/stage';
+import { forgetLostContext } from './render/dispose';
+import { installGuard, report } from './app/guard';
 import { loadModels } from './render/assets';
 import { Play } from './play/play';
 import { dailyLevel, level as levelAt, levelById, LEVEL_IDS, nextLevel, PER_WORLD, specialLevel, WORLDS } from './game/levels';
 import { Replay } from './game/bot';
 import { controls } from './app/input';
-import { prepareMusic, setMusic, setMuted, setSfx, sfx, startMusic, unlockAudio } from './app/audio';
+import { audioMuted, prepareMusic, setMusic, setMuted, setSfx, sfx, startMusic, unlockAudio } from './app/audio';
 import { currentStreak, loadSave, persist, recordDaily, recordLevel, resetProgress, save, today } from './app/save';
 import { buyOrEquip, COLORS, equipped, HATS, owned, type Item } from './app/cosmetics';
-import { sdk } from './app/sdk';
+import { sdk, type AdSlot } from './app/sdk';
 import { LANGS, LANG_NAMES, getLang, onLang, pickLang, setLang, t, type Lang } from './i18n';
 import { el, esc, hide, ico, label, onClick, onPress, show, starsHtml, tickMessages, timedRemove, toast } from './ui/ui';
 import type { Level } from './game/types';
@@ -26,23 +28,29 @@ import type { Input, SimState } from './game/sim';
 
 const params = new URLSearchParams(location.search);
 const CAPTURE = params.has('capture');
-/** rewarded ads and interstitials exist in the portal builds only (never in the web build; on Playgama only where
- *  Bridge supports rewarded ads) */
-const ads = () => __PLATFORM__ !== 'web' && (__PLATFORM__ !== 'playgama' || sdk.available);
+/** rewarded ad buttons: portal builds only (never in the web build), and only where the portal's SDK is up and has
+ *  rewarded ads (not with an ad blocker; never on GameMonetize, whose SDK has no rewarded API) */
+const ads = () => __PLATFORM__ !== 'web' && sdk.available;
+
+// the game's module runs: from here on a failed download is the game's own business (index.html watchdog)
+window.__booted = true;
+installGuard();
 
 const canvas = document.getElementById('game') as HTMLCanvasElement;
-const stage = new Stage(canvas);
-stage.setTheme(SPRING);
+/** created in boot(): without WebGL the loading screen says so instead of throwing here */
+let stage!: Stage;
+/** the WebGL context is lost (GPU reset, too many contexts): the game pauses until it is restored */
+let glLost = false;
 let play: Play | null = null;
 let screen: 'title' | 'play' | 'pause' | 'end' | 'menu' | 'ad' = 'title';
 /** an ad is playing: everything is paused and silent */
 let adPaused = false;
 
 function resize() {
+  if (!stage) return;
   stage.resize(window.innerWidth, window.innerHeight, Math.min(window.devicePixelRatio || 1, 2));
 }
 window.addEventListener('resize', resize);
-resize();
 
 const click = () => sfx('click');
 
@@ -89,13 +97,35 @@ function startLevel(level: Level, frozen = false) {
   return play;
 }
 
-/** interstitial between levels (portal builds, at most one per 2 minutes, see the platform layer), then go on */
-async function between(next: () => void) {
-  if (__PLATFORM__ !== 'web' && sdk.adSlot('between')) {
+/** interstitial at a result-screen break (Next / Retry: `between`, Menu: `menu`), then go on; the platform layer
+ *  decides whether one shows (pacing, never during a level) and every request settles (see platform/types.ts) */
+async function between(next: () => void, slot: AdSlot = 'between') {
+  // a second click while the ad runs does nothing
+  if (screen === 'ad') return;
+  if (__PLATFORM__ !== 'web' && sdk.adSlot(slot)) {
     screen = 'ad';
-    await sdk.midgame('between');
+    await sdk.midgame(slot);
   }
   next();
+}
+
+/** the pre-roll: only from the first Play click of the session (title Play, a level tile or the daily trail) */
+let prerollAsked = false;
+let prerollBusy = false;
+async function firstPlay(go: () => void) {
+  // a second click while the pre-roll runs does nothing
+  if (prerollBusy) return;
+  if (!prerollAsked && __PLATFORM__ !== 'web' && sdk.adSlot('preroll')) {
+    prerollBusy = true;
+    prerollAsked = true;
+    const was = screen;
+    screen = 'ad';
+    await sdk.midgame('preroll');
+    screen = was;
+    prerollBusy = false;
+  }
+  prerollAsked = true;
+  go();
 }
 
 /** a rewarded ad from a clearly labelled button; `grant` runs only if the ad really completed */
@@ -136,17 +166,18 @@ function showTitle() {
       <div class="version">v${esc(__VERSION__)}</div>
     </div>`),
   );
-  onClick(n, '[data-act=play]', () => {
+  onClick(n, '[data-act=play]', () => void firstPlay(() => {
     hide('title');
     if (play) {
       play.frozen = false;
+      play.paused = false;
       controls.release();
       controls.enabled = true;
       screen = 'play';
       sdk.gameplayStart();
       void startMusic();
     }
-  }, click);
+  }), click);
   onClick(n, '[data-act=worlds]', () => showWorlds(), click);
   onClick(n, '[data-act=daily]', () => showDaily(), click);
   onClick(n, '[data-act=wardrobe]', () => showWardrobe(), click);
@@ -178,7 +209,7 @@ function showWorlds(w = worldTab) {
     </div></div>`),
   );
   onClick(n, '[data-w]', (b) => showWorlds(+b.dataset.w!), click);
-  onClick(n, '[data-lv]', (b) => startLevel(levelById(b.dataset.lv!)!), click);
+  onClick(n, '[data-lv]', (b) => void firstPlay(() => startLevel(levelById(b.dataset.lv!)!)), click);
   onClick(n, '[data-act=back]', () => hide('worlds'), click);
 }
 
@@ -195,7 +226,7 @@ function showDaily() {
         <button class="btn wood" data-act="back">${label('back')}</button>
       </div></div></div>`),
   );
-  onClick(n, '[data-act=go]', () => startLevel(dailyLevel(day)), click);
+  onClick(n, '[data-act=go]', () => void firstPlay(() => startLevel(dailyLevel(day))), click);
   onClick(n, '[data-act=back]', () => hide('daily'), click);
 }
 
@@ -315,7 +346,7 @@ function endPanel(html: string, level: Level, next: Level | null, ads = '') {
   );
   onClick(n, '[data-act=next]', () => void between(() => next && startLevel(next)), click);
   onClick(n, '[data-act=retry]', () => void between(() => startLevel(level)), click);
-  onClick(n, '[data-act=menu]', () => void between(() => (level.daily ? (showTitle(), showDaily()) : (showTitle(), showWorlds(level.world)))), click);
+  onClick(n, '[data-act=menu]', () => void between(() => (level.daily ? (showTitle(), showDaily()) : (showTitle(), showWorlds(level.world))), 'menu'), click);
   return n;
 }
 
@@ -407,13 +438,19 @@ onLang(() => {
 
 let lastT = performance.now();
 function frame(now: number) {
+  // the next frame first: an exception in this one is recorded and the game keeps running
+  requestAnimationFrame(frame);
   const dt = Math.min(0.1, (now - lastT) / 1000);
   lastT = now;
-  if (!adPaused) tick(dt);
-  requestAnimationFrame(frame);
+  try {
+    if (!adPaused) tick(dt);
+  } catch (e) {
+    report('frame', e);
+  }
 }
 
 function tick(dt: number, render = true) {
+  if (glLost) return;
   play?.update(dt);
   if (!play?.paused) tickMessages(dt);
   stage.update(dt);
@@ -426,7 +463,33 @@ document.addEventListener('visibilitychange', () => {
 
 /* ------------------------------------------------------------------ boot */
 
+/** the WebGL renderer, or null without WebGL (the loading screen then says so) */
+function createStage(): boolean {
+  try {
+    stage = new Stage(canvas);
+    stage.setTheme(SPRING);
+  } catch (e) {
+    report('boot: WebGL', e);
+    window.__bootFail?.('webgl');
+    return false;
+  }
+  resize();
+  // a lost context (GPU reset, too many contexts on a phone): pause and draw nothing until it is restored
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    glLost = true;
+    if (play) play.paused = true;
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    forgetLostContext([stage.scene]);
+    glLost = false;
+    if (play) play.paused = adPaused || screen !== 'play';
+  });
+  return true;
+}
+
 async function boot() {
+  if (!createStage()) return;
   const bar = document.querySelector<HTMLElement>('#loading .bar i');
   let shown = 0.05;
   const setP = (k: number) => {
@@ -462,6 +525,11 @@ async function boot() {
   stage.render();
   document.getElementById('loading')?.remove();
   sdk.gameReady?.();
+  try {
+    sessionStorage.removeItem('st-reload');
+  } catch {
+    /* private mode */
+  }
   if (CAPTURE) exposeCapture();
   else
     requestAnimationFrame((tm) => {
@@ -483,6 +551,10 @@ declare global {
   interface Window {
     __ready?: boolean;
     __game?: unknown;
+    /** set once the game module runs (index.html's download watchdog stops then) */
+    __booted?: boolean;
+    /** index.html: show the loading screen's failure card ('load' | 'webgl') */
+    __bootFail?: (kind: 'load' | 'webgl') => void;
   }
 }
 
@@ -499,7 +571,7 @@ function exposeCapture() {
     render: () => stage.render(),
     state: () =>
       play
-        ? { mode: play.sim.mode, x: play.sim.x, y: play.sim.y, level: play.level.id, screen, acorns: play.sim.acorns, gems: play.sim.gems, seeds: play.sim.seeds, hearts: play.sim.hearts, speed: play.sim.speed, finished: play.finished }
+        ? { mode: play.sim.mode, x: play.sim.x, y: play.sim.y, level: play.level.id, screen, acorns: play.sim.acorns, gems: play.sim.gems, seeds: play.sim.seeds, hearts: play.sim.hearts, speed: play.sim.speed, finished: play.finished, paused: play.paused || adPaused, muted: audioMuted() }
         : null,
     start: (id: string) => startLevel(levelById(id)!),
     special: (w: number) => startLevel(specialLevel(w)),
@@ -513,6 +585,8 @@ function exposeCapture() {
     sim: () => play?.sim,
     level: () => play?.level,
     lastInput: () => play?.lastInput,
+    /** GPU objects alive (geometries, textures, shader programs): a finished level must free its own (zero-errors tests) */
+    gpu: () => ({ ...stage.renderer.info.memory, programs: stage.renderer.info.programs?.length ?? 0 }),
     /** the world x range the real camera shows at the trail (z = 0), at height y (playtest) */
     view: (y: number) => {
       const cam = stage.camera;
@@ -553,11 +627,14 @@ function exposeCapture() {
     lose: () => play?.forceLose(),
     lang: (l: string) => setLang(l as Lang),
     /** store art: hide the HUD and cards, show the big logo at the bottom (the top-left corner stays clear) */
-    cover: (on: boolean, zoom = 0.62) => {
+    cover: (on: boolean, zoom = 0.62, lift = 0, logo = true) => {
       document.body.classList.toggle('cover', on);
-      if (play) play.coverZoom = on ? zoom : 0;
+      if (play) {
+        play.coverZoom = on ? zoom : 0;
+        play.coverLift = on ? lift : 0;
+      }
       document.getElementById('cover-logo')?.remove();
-      if (on) document.getElementById('ui')!.append(el(`<div id="cover-logo" class="logo">${esc(t('title'))}<small>${esc(t('tagline'))}</small></div>`));
+      if (on && logo) document.getElementById('ui')!.append(el(`<div id="cover-logo" class="logo">${esc(t('title'))}<small>${esc(t('tagline'))}</small></div>`));
     },
     platform: __PLATFORM__,
   };
@@ -578,4 +655,8 @@ const HAT_ART: Record<string, string> = {
   crown: '<svg viewBox="0 0 64 64"><path d="M8 46 L12 18 L24 32 L32 12 L40 32 L52 18 L56 46Z" fill="#7bd05a" stroke="#2f7a1c" stroke-width="3" stroke-linejoin="round"/><circle cx="32" cy="38" r="4" fill="#ffd23a"/></svg>',
 };
 
-void boot();
+boot().catch((e) => {
+  // never an unhandled rejection, never a loading screen that waits forever
+  report('boot', e);
+  window.__bootFail?.('load');
+});

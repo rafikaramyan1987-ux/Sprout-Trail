@@ -17,7 +17,7 @@ acorn, and seeds are limited.
   mushroom bounce chains, autumn wind gusts, a collapsing bridge, a boar chase, a dark cave, a hidden waterfall path
   and a dandelion glide — each introduced with a sign, then remixed. Screenshots: `docs/phase-c/`.
 - Wardrobe: hats and sprite colours bought with gems. 6 languages (en, fr, de, es, it, ru).
-- Platform layer chosen at build time: `VITE_PLATFORM = web | crazygames | gd | gamepix | playgama`
+- Platform layer chosen at build time: `VITE_PLATFORM = web | crazygames | gd | gamepix | playgama | gamemonetize | y8`
   (`--mode <platform>`), `base: './'`. Rewarded ads only from labelled buttons, interstitials only between levels
   (at most one per 2 minutes); no ads at all in the web build.
 
@@ -26,12 +26,16 @@ TypeScript, Vite, Three.js. Each build is about 2.5 MB (CI budget: 4 MB). The ve
 ```sh
 npm ci
 npm run dev                 # local dev server
-npm run build:all           # dist/ (CrazyGames), dist-web/, dist-gd/, dist-gamepix/, dist-playgama/
+npm run build:all           # dist/ (CrazyGames), dist-web/, dist-gd/, dist-gamepix/, dist-playgama/,
+                            # dist-gamemonetize/, dist-y8/
 npm test                    # unit tests
 npm run validate:levels     # level validator (human-limited playtester) → docs/levels-report.md
 npm run playtest            # human-limited playtest of every level + death probes → playtest-out/
 npm run playtest:browser    # every level in the web build, desktop keyboard + phone touch (build:web first)
 npm run test:e2e            # Playwright, desktop + phone (build:web first)
+npm run test:e2e:crash      # zero-errors suite, Chromium/WebKit/Firefox, desktop + phone (build first)
+npm run test:e2e:portals    # GameMonetize, Y8, GameDistribution builds with stubbed SDKs
+npm run media               # store art, Y8 screenshots + video, CrazyGames trailers (serve dist-web first)
 npm run submission          # portal zips + READMEs (after build:all); npm run submission:check
 ```
 
@@ -50,4 +54,4 @@ the HUD, the camera, the end screens and the input path. Results: `docs/playtest
 of v1.1.1). The beam-search bot (`src/game/bot.ts`) still drives the autoplay demo and the preview video.
 
 Submission folders: `submission/` (CrazyGames), `submission-gd/`, `submission-gamepix/`, `submission-playgama/`,
-`submission-web/` — each with a README. Credits: `CREDITS.md`.
+`submission-gamemonetize/`, `submission-y8/`, `submission-web/` — each with a README. Credits: `CREDITS.md`. Robustness (crash-proofing, zero-errors suite): `docs/robustness.md`.

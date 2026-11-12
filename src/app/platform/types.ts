@@ -3,7 +3,7 @@
  * One implementation per portal, chosen at build time (`__PLATFORM__`, see vite.config.ts).
  */
 
-export type PlatformName = 'crazygames' | 'gd' | 'web' | 'gamepix' | 'playgama';
+export type PlatformName = 'crazygames' | 'gd' | 'web' | 'gamepix' | 'playgama' | 'gamemonetize' | 'y8';
 
 declare global {
   /** the build target, a string literal at build time (vite.config.ts `define`), so other platforms' branches are dropped */
@@ -14,9 +14,9 @@ declare global {
 
 /**
  * Where an interstitial may be shown. All of them are outside gameplay and follow a user input:
- * - `between`: Next / Retry on the result screens 
+ * - `between`: Next / Retry on the result screens
  * - `menu`: Menu on the result screens
- * - `preroll`: Play on the title screen
+ * - `preroll`: the first Play of the session (title Play, a level tile or the daily trail)
  */
 export type AdSlot = 'between' | 'menu' | 'preroll';
 
@@ -65,6 +65,17 @@ export interface Platform {
 export const MIDGAME_GAP = 120_000;
 /** an ad that has not started after this long is treated as unavailable (ms) */
 export const AD_TIMEOUT = 8000;
+/** a started ad that never reports its end is given up after this long, so the game can never stay paused (ms) */
+export const AD_MAX = 120_000;
+
+/** call into a portal SDK; a throwing SDK (blocked, disabled, half-loaded) never breaks the game */
+export function safe<T>(fn: () => T): T | undefined {
+  try {
+    return fn();
+  } catch {
+    return undefined;
+  }
+}
 
 export function loadScript(src: string, timeoutMs: number, id?: string) {
   return new Promise<void>((res, rej) => {

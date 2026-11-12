@@ -47,14 +47,61 @@ function local(): KeyValueStore | null {
   }
 }
 
+const num = (v: unknown, d: number) => (typeof v === 'number' && Number.isFinite(v) ? v : d);
+const str = (v: unknown, d: string) => (typeof v === 'string' ? v : d);
+const bool = (v: unknown, d: boolean) => (typeof v === 'boolean' ? v : d);
+
+/**
+ * A stored save, as the game uses it: every field coerced to its type (a missing or wrong-typed field, e.g. from an
+ * older version or a hand-edited save, gets its default instead of breaking the game later); unknown fields are kept,
+ * so the format stays the same for older and newer builds.
+ */
+export function parseSave(raw: string | null | undefined): Save {
+  const d = fresh();
+  if (!raw) return d;
+  let o: Record<string, unknown>;
+  try {
+    const v = JSON.parse(raw) as unknown;
+    if (!v || typeof v !== 'object' || Array.isArray(v)) return d;
+    o = v as Record<string, unknown>;
+  } catch {
+    return d;
+  }
+  const levels: Record<string, LevelRecord> = {};
+  if (o.levels && typeof o.levels === 'object' && !Array.isArray(o.levels))
+    for (const [k, r] of Object.entries(o.levels as Record<string, unknown>)) {
+      if (!r || typeof r !== 'object') continue;
+      const x = r as Record<string, unknown>;
+      levels[k] = { stars: Math.max(0, Math.min(3, num(x.stars, 0))), acorns: Math.max(0, Math.min(3, num(x.acorns, 0))), gems: Math.max(0, num(x.gems, 0)), done: bool(x.done, true) };
+    }
+  return {
+    ...o,
+    v: 1,
+    levels,
+    gems: Math.max(0, num(o.gems, d.gems)),
+    last: typeof o.last === 'string' ? o.last : null,
+    music: bool(o.music, d.music),
+    sfx: bool(o.sfx, d.sfx),
+    lang: typeof o.lang === 'string' ? o.lang : null,
+    hat: str(o.hat, d.hat),
+    color: str(o.color, d.color),
+    owned: Array.isArray(o.owned) ? o.owned.filter((x): x is string => typeof x === 'string') : [],
+    dailyDay: num(o.dailyDay, d.dailyDay),
+    streak: Math.max(0, num(o.streak, d.streak)),
+    bestStreak: Math.max(0, num(o.bestStreak, d.bestStreak)),
+  };
+}
+
+/** load the save; never throws (blocked storage, a broken or old save: defaults, the game plays on) */
 export function loadSave(portal: KeyValueStore | null = null) {
   store = portal ?? local();
+  let raw: string | null | undefined = null;
   try {
-    const raw = store?.getItem(SAVE_KEY);
-    if (raw) save = { ...fresh(), ...(JSON.parse(raw) as Partial<Save>) };
+    raw = store?.getItem(SAVE_KEY);
   } catch {
-    save = fresh();
+    raw = null;
   }
+  save = parseSave(raw);
   return save;
 }
 

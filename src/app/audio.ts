@@ -37,7 +37,14 @@ export function unlockAudio() {
       ctx = null;
     }
   }
-  if (ctx?.state === 'suspended') void ctx.resume();
+  // resume() rejects on a closed context (and can throw): never an unhandled rejection from a tap
+  if (ctx?.state === 'suspended') {
+    try {
+      ctx.resume().catch(() => {});
+    } catch {
+      /* play on silently */
+    }
+  }
   if (wantMusic) void startMusic();
 }
 
@@ -57,6 +64,9 @@ function applyGains() {
   sfxBus.gain.setTargetAtTime(muted || !sfxOn ? 0 : SFX_GAIN, ctx.currentTime, 0.02);
   musicBus.gain.setTargetAtTime(muted || !musicOn ? 0 : MUSIC_GAIN, ctx.currentTime, 0.08);
 }
+
+/** all game audio is silenced (an ad, a hidden page, the portal's mute) */
+export const audioMuted = () => muted;
 
 export function setMuted(m: boolean) {
   muted = m;
@@ -232,7 +242,10 @@ async function renderMusic(): Promise<AudioBuffer | null> {
 
 /** start rendering the music early (it needs no user gesture) */
 export function prepareMusic() {
-  rendering ??= renderMusic().then((b) => (music = b));
+  // a failed render is no music, never a rejection nobody handles
+  rendering ??= renderMusic()
+    .catch(() => null)
+    .then((b) => (music = b));
   return rendering;
 }
 
@@ -240,12 +253,16 @@ export async function startMusic() {
   wantMusic = true;
   if (!ctx || !musicBus || musicSrc) return;
   await prepareMusic();
-  if (!music || musicSrc || !ctx) return;
-  musicSrc = ctx.createBufferSource();
-  musicSrc.buffer = music;
-  musicSrc.loop = true;
-  musicSrc.connect(musicBus);
-  musicSrc.start();
+  if (!music || musicSrc || !ctx || ctx.state === 'closed') return;
+  try {
+    musicSrc = ctx.createBufferSource();
+    musicSrc.buffer = music;
+    musicSrc.loop = true;
+    musicSrc.connect(musicBus);
+    musicSrc.start();
+  } catch {
+    musicSrc = null;
+  }
 }
 
 /* ---------------------------------------------------------------- effects */
@@ -284,9 +301,17 @@ let gemStreak = 0;
 let lastGem = 0;
 
 export function sfx(name: Sfx) {
+  try {
+    playSfx(name);
+  } catch {
+    /* a closed / broken AudioContext: the game goes on silently */
+  }
+}
+
+function playSfx(name: Sfx) {
   const c = ctx;
   const out = sfxBus;
-  if (!c || !out || !noise || muted || !sfxOn) return;
+  if (!c || !out || !noise || muted || !sfxOn || c.state === 'closed') return;
   const t = c.currentTime + 0.005;
   switch (name) {
     case 'jump': {

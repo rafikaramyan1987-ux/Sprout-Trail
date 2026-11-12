@@ -7,6 +7,30 @@
     <meta name="description" content="Sprout Trail - a cozy forest platformer: run, jump, duck and grow the right plant to cross every obstacle. One finger is all you need." />
     <title>Sprout Trail</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 60 C31 48 32 40 33 30' stroke='%232f7a1c' stroke-width='5' fill='none'/%3E%3Cpath d='M33 32 C18 32 8 22 8 10 C22 10 32 18 33 32Z' fill='%237bd05a'/%3E%3Cpath d='M33 26 C44 26 56 18 56 6 C42 6 34 14 33 26Z' fill='%239fe070'/%3E%3C/svg%3E" />
+    <script>
+      // a game script failed to download: the module never runs and no error reaches the page, so the loading screen
+      // would stay forever. Fetch the game's scripts afresh (WebKit keeps a failed script in its memory cache across a
+      // plain reload) and reload once by itself; a second failure shows the retry card (window.__bootFail, below).
+      addEventListener('error', function (e) {
+        var t = e.target;
+        if (!t || t.tagName !== 'SCRIPT' || t.type !== 'module' || window.__booted) return;
+        var once = false;
+        try { once = sessionStorage.getItem('st-reload') === '1'; sessionStorage.setItem('st-reload', '1'); } catch (x) { once = true; }
+        if (!once) {
+          var urls = [t.src];
+          var pre = document.querySelectorAll('link[rel="modulepreload"]');
+          for (var i = 0; i < pre.length; i++) urls.push(pre[i].href);
+          var go = function () { location.reload(); };
+          var timer = setTimeout(go, 8000);
+          try {
+            Promise.all(urls.map(function (u) { return fetch(u, { cache: 'reload' }).catch(function () {}); })).then(function () { clearTimeout(timer); go(); });
+          } catch (x) { go(); }
+          return;
+        }
+        if (window.__bootFail) window.__bootFail('load');
+        else window.__stFail = 'load';
+      }, true);
+    </script>
     <style>
       html,body{margin:0;height:100%;background:#a8dcf5;overflow:hidden}
       #loading{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:radial-gradient(circle at 50% 35%,#fff7d6,#a8dcf5 70%);z-index:50;font-family:'Trebuchet MS',system-ui,sans-serif}
@@ -14,6 +38,8 @@
       #loading .bar{width:min(320px,80%);height:22px;border-radius:12px;background:rgba(110,69,36,.25);overflow:hidden;border:3px solid #a8703f}
       #loading .bar i{display:block;height:100%;width:5%;background:linear-gradient(#8fe06a,#4fae35);transition:width .2s}
       @keyframes bob{50%{transform:translateY(-10px) rotate(-4deg)}}
+      #loading p{margin:0 16px;max-width:360px;text-align:center;font-size:18px;font-weight:700;color:#5a3a20}
+      #loading button{font:inherit;font-size:20px;font-weight:700;color:#fff;background:#4fae35;border:3px solid #2f7a1c;border-radius:99px;padding:10px 28px;cursor:pointer}
     </style>
   </head>
   <body>
@@ -23,6 +49,35 @@
       <svg class="sp" viewBox="0 0 64 64"><circle cx="32" cy="42" r="18" fill="#9fd66b" stroke="#2f7a1c" stroke-width="3"/><circle cx="26" cy="40" r="3" fill="#2b2118"/><circle cx="38" cy="40" r="3" fill="#2b2118"/><path d="M32 24 C31 20 32 16 33 12" stroke="#2f7a1c" stroke-width="3" fill="none"/><path d="M33 14 C24 14 18 8 18 2 C26 2 32 7 33 14Z" fill="#7bd05a" stroke="#2f7a1c" stroke-width="2.5"/><path d="M33 12 C40 12 46 7 46 1 C38 1 34 6 33 12Z" fill="#9fe070" stroke="#2f7a1c" stroke-width="2.5"/></svg>
       <div class="bar"><i></i></div>
     </div>
+    <script>
+      // the game could not start: say why on the loading screen, with a retry button (kind: 'load' | 'webgl'), in the
+      // player's language (strings injected at build time from src/i18n/*.json, see vite.config.ts bootStrings)
+      (function () {
+        var S = __BOOT_STRINGS__;
+        var l = 'en';
+        try {
+          var sv = JSON.parse(localStorage.getItem('sprout-trail-save') || '{}').lang;
+          var c = [sv].concat(navigator.languages || [], navigator.language);
+          for (var i = 0; i < c.length; i++) { var k = String(c[i] || '').toLowerCase().split(/[-_]/)[0]; if (S[k]) { l = k; break; } }
+        } catch (e) {}
+        window.__bootFail = function (kind) {
+          var b = document.getElementById('loading');
+          if (!b || b.getAttribute('data-failed')) return;
+          b.setAttribute('data-failed', kind);
+          var bar = b.querySelector('.bar');
+          if (bar) bar.style.display = 'none';
+          var p = document.createElement('p');
+          p.textContent = kind === 'webgl' ? S[l].noWebgl : S[l].loadFailed;
+          var r = document.createElement('button');
+          r.id = 'boot-retry';
+          r.textContent = S[l].retry;
+          r.onclick = function () { location.reload(); };
+          b.appendChild(p);
+          b.appendChild(r);
+        };
+        if (window.__stFail) window.__bootFail(window.__stFail);
+      })();
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

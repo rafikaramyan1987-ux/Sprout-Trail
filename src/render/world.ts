@@ -546,5 +546,6 @@ function mistTexture() {
   x.fillStyle = gr;
   x.fillRect(0, 0, 128, 64);
   mistTex = new THREE.CanvasTexture(c);
+  mistTex.userData.shared = true;
   return mistTex;
 }

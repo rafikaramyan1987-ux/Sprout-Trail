@@ -19,7 +19,7 @@
  *   one in Settings
  */
 
-import { AD_TIMEOUT, MIDGAME_GAP, type AdSlot, type Platform } from './types';
+import { AD_MAX, AD_TIMEOUT, MIDGAME_GAP, type AdSlot, type Platform } from './types';
 
 export const GPX_SDK_URL = 'https://integration.gamepix.com/sdk/v3/gamepix.sdk.js';
 /** a rewarded ad whose `resume` came without a result gets this long for a late result (ms) */
@@ -224,7 +224,8 @@ export class GamePixPlatform implements Platform {
 
   /**
    * Show an ad and settle exactly once: true only on `success === true`; false on `success: false`, rejection,
-   * a throw, a `resume` without a result (after a short grace), or nothing started within AD_TIMEOUT. The SDK
+   * a throw, a `resume` without a result (after a short grace), nothing started within AD_TIMEOUT, or AD_MAX after
+   * it started (the SDK never answers: the game cannot stay paused). The SDK
    * pauses / resumes the game itself around the ad; settling always resumes the game and its audio too.
    */
   private requestAd(type: AdType): Promise<boolean> {
@@ -237,6 +238,7 @@ export class GamePixPlatform implements Platform {
         if (done) return;
         done = true;
         clearTimeout(timer);
+        clearTimeout(cap);
         clearTimeout(grace);
         if (this.pending === pending) this.pending = null;
         this.setPaused('sdk', false);
@@ -258,6 +260,7 @@ export class GamePixPlatform implements Platform {
       const timer = setTimeout(() => {
         if (!pending.started) finish(false);
       }, AD_TIMEOUT);
+      const cap = setTimeout(() => finish(false), AD_MAX);
       try {
         const r = type === 'reward' ? s.ads.reward() : s.ads.interstitial();
         Promise.resolve(r).then(

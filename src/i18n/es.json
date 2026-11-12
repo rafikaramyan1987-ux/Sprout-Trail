@@ -157,5 +157,8 @@
   "piece.wind": "Las ráfagas empujan tus saltos",
   "piece.lily": "Algunos nenúfares se hunden",
   "piece.crocBite": "¡Ñam! Vuelta a la flor",
-  "piece.chaseGo": "¡Corre, corre, corre!"
+  "piece.chaseGo": "¡Corre, corre, corre!",
+  "boot.loadFailed": "No se pudo cargar el juego. Revisa tu conexión.",
+  "boot.noWebgl": "Este navegador no puede mostrar el juego en 3D. Activa la aceleración por hardware o prueba otro navegador.",
+  "boot.retry": "Reintentar"
 }

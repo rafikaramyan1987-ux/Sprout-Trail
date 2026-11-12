@@ -3,6 +3,7 @@
  * drifting clouds, light rays, pollen, soft sunlight with shadows following the camera.
  */
 import * as THREE from 'three';
+import { disposeScene } from './dispose';
 import { windTime } from './assets';
 import { glowTexture, rayTexture } from './textures';
 
@@ -196,9 +197,11 @@ export class Stage {
     this.hemi.groundColor.set(th.ambientGround);
     this.sun.color.set(th.sun);
     this.hillMats = [];
-    for (const f of this.far) this.scene.remove(f.o);
-    for (const c of this.clouds) this.scene.remove(c);
-    for (const r of this.rays) this.scene.remove(r);
+    // the previous theme's hills, clouds and rays: off the scene and off the GPU
+    for (const o of new Set([...this.far.map((f) => f.o), ...this.clouds, ...this.rays])) {
+      this.scene.remove(o);
+      disposeScene(o);
+    }
     this.far = [];
     this.clouds = [];
     this.rays = [];

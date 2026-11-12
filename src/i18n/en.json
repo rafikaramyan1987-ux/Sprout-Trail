@@ -157,5 +157,8 @@
   "piece.wind": "Gusts push your jumps",
   "piece.lily": "Some lily pads sink",
   "piece.crocBite": "Snap! Back to the flower",
-  "piece.chaseGo": "Run, run, run!"
+  "piece.chaseGo": "Run, run, run!",
+  "boot.loadFailed": "Couldn't load the game. Check your connection.",
+  "boot.noWebgl": "This browser can't show the 3D game. Turn on hardware acceleration or try another browser.",
+  "boot.retry": "Try again"
 }

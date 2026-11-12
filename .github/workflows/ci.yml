@@ -27,16 +27,20 @@ jobs:
         run: npm run check:size
       - name: Each portal's SDK only in its own build
         run: |
-          ! grep -rqi "sdk.crazygames.com" dist-web dist-gd dist-gamepix dist-playgama
-          ! grep -rqi "gamedistribution.com" dist dist-web dist-gamepix dist-playgama
-          ! grep -rqi "gamepix.sdk.js" dist dist-web dist-gd dist-playgama
-          ! grep -rqi "playgama-bridge" dist dist-web dist-gd dist-gamepix
-      - name: GameDistribution build carries GD_OPTIONS, the SDK and the game ID (placeholder flagged)
+          ! grep -rqi "sdk.crazygames.com" dist-web dist-gd dist-gamepix dist-playgama dist-gamemonetize dist-y8
+          ! grep -rqi "gamedistribution.com" dist dist-web dist-gamepix dist-playgama dist-gamemonetize dist-y8
+          ! grep -rqi "gamepix.sdk.js" dist dist-web dist-gd dist-playgama dist-gamemonetize dist-y8
+          ! grep -rqi "playgama-bridge" dist dist-web dist-gd dist-gamepix dist-gamemonetize dist-y8
+          ! grep -rqi "api.gamemonetize.com" dist dist-web dist-gd dist-gamepix dist-playgama dist-y8
+          ! grep -rqi "cdn.y8.com" dist dist-web dist-gd dist-gamepix dist-playgama dist-gamemonetize
+          grep -rq "tnwpox2a6ymzt6ljyslvspxnstv85tjd" dist-gamemonetize/assets
+          grep -rq "6af5b5e97eafcdc5d5ddce9c" dist-y8/assets && grep -rq "292717" dist-y8/assets
+      - name: GameDistribution build carries GD_OPTIONS, the SDK and the real game ID
         run: npm run check:gd
-      - name: GamePix bundle declares the legacy sound handlers and reads GamePix.lang()
+      - name: GamePix bundle assigns the legacy soundOn / soundOff / pause / resume handlers, listens with events.on and reads GamePix.lang()
         run: |
           cat dist-gamepix/assets/*.js > "$RUNNER_TEMP/gpx.js"
-          for re in 'GamePix\.soundOff\s*=[^=]' 'GamePix\.soundOn\s*=[^=]' 'GamePix\.lang\(\)'; do
+          for re in 'GamePix\.soundOff\s*=[^=]' 'GamePix\.soundOn\s*=[^=]' 'GamePix\.pause\s*=[^=]' 'GamePix\.resume\s*=[^=]' 'events\.on\(' 'GamePix\.lang\(\)'; do
             grep -qE "$re" "$RUNNER_TEMP/gpx.js" || { echo "::error::GamePix bundle has no match for $re"; exit 1; }
           done
       - name: Submission folders (zips, index.html at the root, own SDK only, store texts, art sizes)
@@ -108,6 +112,52 @@ jobs:
       - run: npm run build:web
       - run: npm run test:e2e
 
+  crash:
+    # zero errors (docs/robustness.md): nothing uncaught, no unhandled rejection, no console error, loading always
+    # reaches loadingStop, the game never waits forever or stays paused — first load, several levels, every ad
+    # outcome, tab hide / show, resize / rotate, failed downloads, private mode, old saves, no WebGL, context loss.
+    # Every engine, desktop + phone.
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit, firefox]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: "Install ${{ matrix.engine }} for Playwright (system packages best-effort if the Ubuntu apt mirror is down)"
+        run: |
+          npx playwright install ${{ matrix.engine }}
+          npx playwright install-deps ${{ matrix.engine }} || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
+      - run: npm run build
+      - name: Zero errors (${{ matrix.engine }}, desktop + phone)
+        run: xvfb-run -a npx playwright test -c playwright.crash.config.ts --project "${{ matrix.engine }}-*" --trace off
+
+  portals:
+    # GameMonetize, Y8 and GameDistribution builds with stubbed SDKs: init exactly as documented, ads only at the allowed breaks, every
+    # ad settles, rewarded only after the ad was watched (Y8; none on GameMonetize), pause + mute, ad blocker
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: "Install Chromium for Playwright (system packages best-effort, the runner image already has Chromium's libraries)"
+        run: |
+          npx playwright install chromium
+          npx playwright install-deps chromium || echo "::warning::apt mirror unreachable, using the runner image's system libraries"
+      - run: npm run build:gamemonetize && npm run build:y8 && npm run build:gd
+      - name: GameMonetize + Y8 + GameDistribution smoke tests
+        run: npx playwright test -c playwright.portals.config.ts --trace off
+
   web:
     # open portals (itch.io, Newgrounds, ...): the ad-free web build as a zip with index.html at the root
     runs-on: ubuntu-latest
@@ -159,5 +209,3 @@ jobs:
         run: node scripts/playgama/check.mjs "$(ls submission-playgama/sprout-trail-playgama-v*.zip | sort -V | tail -1)"
       - name: Bridge test (mock platform + stubbed Playgama SDK; interstitial, rewarded completed / cancelled, muted during ads)
         run: node scripts/playgama/test.mjs ci-playgama/sprout-trail-playgama.zip
-      - name: Vendored Bridge = official v2.4.1 standalone playgama build (rebuilt from the tag)
-        run: bash scripts/playgama/build-bridge.sh

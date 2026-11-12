@@ -27,6 +27,7 @@ export function fallsMaterial() {
         gl_FragColor = vec4(c, 0.82 * edge);
       }`,
   });
+  fallsMat.userData.shared = true;
   return fallsMat;
 }
 

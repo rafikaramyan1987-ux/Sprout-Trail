@@ -10,6 +10,11 @@ mushrooms, crystals, puddles, rain), terrain, water, sky, hills, clouds, light r
 (`src/ui/icons.ts`, `src/main.ts`), all sound effects and the music (synthesised at runtime with the Web Audio API,
 `src/app/audio.ts`), the level generator and all 95 levels.
 
+Store art and videos (every `submission*/` folder: covers, thumbnails, icons, screenshots, promos, the Y8 gameplay
+video, the CrazyGames trailers) are captured from the game itself (`scripts/submission/media.ts`): they show only the
+assets listed here, so they carry the same licences (original work and the CC0 models below). No music or sound is
+used in the videos.
+
 ## 3D models (CC0 1.0, public domain)
 
 ### Stylized Nature MegaKit (Standard) by Quaternius — https://quaternius.com
@@ -43,10 +48,11 @@ repository's `assets-src/`, licence file included). The Pirate Kit from the same
 - Fredoka by Milena Brandão and Hafontia — SIL Open Font License 1.1, via `@fontsource/fredoka` (npm)
 - Nunito by Vernon Adams, Cyreal and Jacques Le Bailly — SIL Open Font License 1.1, via `@fontsource/nunito` (npm)
 
-## Playgama Bridge
+## Portal SDKs (not shipped)
 
-`vendor/playgama-bridge/playgama-bridge.js`: Playgama Bridge 2.4.1, the official standalone `playgama` build
-(https://github.com/Playgama/bridge, MIT License, `vendor/playgama-bridge/LICENSE`), shipped in the Playgama build only.
+No portal SDK is part of any zip: each build loads its portal's SDK from the portal's own CDN at run time —
+CrazyGames SDK v3, GameDistribution `main.min.js`, GamePix `gamepix.sdk.js`, the Playgama Bridge
+(`bridge.playgama.com`), GameMonetize `api.gamemonetize.com/sdk.js`, Y8 `cdn.y8.com/minimal-sdk/2-0/y8.min.js`.
 
 ## Libraries
 

@@ -4,6 +4,8 @@
  */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { withRetry } from '../app/lazy';
+import { report } from '../app/guard';
 
 export const windTime = { value: 0 };
 const models = new Map<string, THREE.Object3D>();
@@ -35,8 +37,18 @@ export function addWind(mat: THREE.Material, amp = 0.08, freq = 1.6) {
 
 const FOLIAGE = /Leaves|Grass|Flowers|Leaf/i;
 
-export async function loadModels(url: string) {
-  const gltf = await new GLTFLoader().loadAsync(url);
+/**
+ * Load the models (retried, time-limited: app/lazy.ts). Never rejects: if every attempt fails the game plays on with
+ * its procedural scenery only (model() gives empty groups) instead of a loading screen that never ends.
+ */
+export async function loadModels(url: string): Promise<boolean> {
+  let gltf: Awaited<ReturnType<GLTFLoader['loadAsync']>>;
+  try {
+    gltf = await withRetry(url, (u) => new GLTFLoader().loadAsync(u));
+  } catch (e) {
+    report('models', e);
+    return false;
+  }
   const done = new Set<THREE.Material>();
   gltf.scene.traverse((o) => {
     const m = o as THREE.Mesh;
@@ -59,7 +71,18 @@ export async function loadModels(url: string) {
       }
     }
   });
+  // the model cache lives for the whole session: clones share its geometry, materials and textures, so a finished
+  // level's scene disposal leaves them alone (render/dispose.ts)
+  gltf.scene.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (m.geometry) m.geometry.userData.shared = true;
+    for (const mat of Array.isArray(m.material) ? m.material : m.material ? [m.material] : []) {
+      mat.userData.shared = true;
+      for (const v of Object.values(mat as unknown as Record<string, unknown>)) if (v instanceof THREE.Texture) v.userData.shared = true;
+    }
+  });
   for (const c of gltf.scene.children) models.set(c.name, c);
+  return true;
 }
 
 export function hasModel(name: string) {
