@@ -38,6 +38,13 @@ export async function sim(page: Page, s: number) {
   }, Math.round(s * 60));
 }
 
+/** `s` seconds of the real frame loop (requestAnimationFrame path: an ad pause stops it) */
+export async function frames(page: Page, s: number) {
+  await page.evaluate((n) => {
+    for (let k = 0; k < n; k++) window.__game.frame(1 / 60);
+  }, Math.round(s * 60));
+}
+
 /** finish the running level (the sprite runs into the goal) */
 export async function win(page: Page) {
   await page.evaluate(() => {

@@ -51,6 +51,18 @@ describe('GameMonetize ads', () => {
     expect(log).toEqual(['mute', 'pause', 'unmute', 'resume']);
   });
 
+  it('a pause the SDK starts by itself (or late, after our request settled) and never ends is lifted after AD_MAX', async () => {
+    const { gm, emit, log } = setup();
+    emit('SDK_GAME_PAUSE');
+    vi.advanceTimersByTime(AD_MAX - 1);
+    expect(gm.muted).toBe(true);
+    vi.advanceTimersByTime(1);
+    expect(log).toEqual(['mute', 'pause', 'unmute', 'resume']);
+    // a later SDK_GAME_START changes nothing
+    emit('SDK_GAME_START');
+    expect(log).toHaveLength(4);
+  });
+
   it('nothing started within AD_TIMEOUT settles exactly once; later events cannot settle it again', async () => {
     let emit: Emit = () => {};
     const { gm, log } = setup((e) => (emit = e));

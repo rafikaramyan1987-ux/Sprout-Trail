@@ -198,12 +198,8 @@ describe('Y8 SDK', () => {
     }
   });
 
-  it('a hidden page or a lost focus pauses + mutes; back → resumes; an ad during it keeps it paused', async () => {
-    let o!: Y8ShowAdOptions;
-    const e = env((x) => {
-      o = x;
-      return new Promise(() => {});
-    });
+  it('a hidden page pauses + mutes; shown again → resumes', async () => {
+    const e = env();
     await ready(e);
     e.doc.hidden = true;
     e.fire('visibilitychange');
@@ -211,15 +207,88 @@ describe('Y8 SDK', () => {
     e.doc.hidden = false;
     e.fire('visibilitychange');
     expect(e.log).toEqual(['mute', 'pause', 'unmute', 'resume']);
-    e.log.length = 0;
-    e.fire('blur');
-    expect(e.log).toEqual(['mute', 'pause']);
-    e.y8.midgame('between');
+  });
+
+  it('a blur without an ad mutes only (never pauses); focus, pointerdown, touchstart or keydown unmutes', async () => {
+    const e = env();
+    await ready(e);
+    for (const back of ['focus', 'pointerdown', 'touchstart', 'keydown']) {
+      e.log.length = 0;
+      e.fire('blur');
+      expect(e.log).toEqual(['mute']);
+      e.fire(back);
+      expect(e.log, back).toEqual(['mute', 'unmute']);
+    }
+  });
+
+  it('the ad on the parent page blurs the game and focus never comes back: after the ad nothing is paused or muted', async () => {
+    let o!: Y8ShowAdOptions;
+    const e = env((x) => {
+      o = x;
+      return new Promise(() => {});
+    });
+    await ready(e);
+    const done = e.y8.midgame('preroll');
+    e.fire('blur'); // the SDK takes focus before beforeAd
     o.beforeAd!();
-    e.fire('focus');
-    expect(e.y8.muted).toBe(true); // the ad still runs
+    e.fire('blur'); // and during the ad
+    expect(e.log).toEqual(['mute', 'pause']);
+    o.afterAd!();
+    e.fire('blur'); // and just after it
+    o.adBreakDone!({});
+    await done;
+    vi.advanceTimersByTime(500);
+    e.fire('blur');
+    expect(e.log).toEqual(['mute', 'pause', 'unmute', 'resume']);
+    expect(e.y8.muted).toBe(false);
+    // a blur well after the ad is the player's: sound off only
+    vi.advanceTimersByTime(1000);
+    e.fire('blur');
+    expect(e.log.slice(4)).toEqual(['mute']);
+  });
+
+  it('a blur before an ad is cleared when the ad settles; a page hidden at the end of the ad stays paused', async () => {
+    let o!: Y8ShowAdOptions;
+    const e = env((x) => {
+      o = x;
+      return new Promise(() => {});
+    });
+    await ready(e);
+    e.fire('blur');
+    expect(e.log).toEqual(['mute']);
+    const d1 = e.y8.midgame('between');
+    o.beforeAd!();
     o.afterAd!();
     o.adBreakDone!({});
+    await d1;
+    expect(e.log).toEqual(['mute', 'pause', 'unmute', 'resume']);
+    e.log.length = 0;
+    vi.advanceTimersByTime(2000);
+    const d2 = e.y8.midgame('between');
+    o.beforeAd!();
+    e.doc.hidden = true; // the player switched tabs during the ad (no visibilitychange seen)
+    o.afterAd!();
+    o.adBreakDone!({});
+    await d2;
+    expect(e.log).toEqual(['mute', 'pause']);
+    e.doc.hidden = false;
+    e.fire('visibilitychange');
+    expect(e.log).toEqual(['mute', 'pause', 'unmute', 'resume']);
+  });
+
+  it('an ad that never ends: AD_MAX settles it and clears the blur too', async () => {
+    let o!: Y8ShowAdOptions;
+    const e = env((x) => {
+      o = x;
+      return new Promise(() => {});
+    });
+    await ready(e);
+    const d = e.y8.midgame('between');
+    o.beforeAd!();
+    e.fire('blur');
+    vi.advanceTimersByTime(AD_MAX);
+    await d;
+    expect(e.y8.muted).toBe(false);
     expect(e.log).toEqual(['mute', 'pause', 'unmute', 'resume']);
   });
 });

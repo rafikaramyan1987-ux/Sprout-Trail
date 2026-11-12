@@ -14,8 +14,12 @@
  *   so do .catch() and a timeout (nothing started within AD_TIMEOUT, or AD_MAX in all), each exactly once.
  * - rewarded (`reward`): beforeReward(showAdFn) calls showAdFn(); the reward only after adViewed; adDismissed or no
  *   beforeReward (no ad) = no reward, the button says "No ad available right now, try later"
- * - Y8 requirement: pause and mute while the page is hidden (visibilitychange) or the window has lost focus (blur),
- *   resume on return
+ * - Y8 requirement: pause and mute while the page is hidden (visibilitychange), resume when it is shown again.
+ *   A window blur (the player clicked outside the game) mutes the sound only, it never freezes the gameplay: Y8 plays
+ *   its ads on the parent page, outside the game iframe, so the iframe loses focus during every ad and gets no
+ *   'focus' event afterwards. A blur during an ad or within BLUR_GRACE after it is ignored, the blur mute is cleared
+ *   when an ad settles (and focus / visibility re-checked), and focus or any input in the game (pointerdown,
+ *   touchstart, keydown) brings the sound back.
  * - saves use localStorage (no portal storage); no external links
  */
 
@@ -26,6 +30,8 @@ export const Y8_GAME_ID = '292717';
 export const Y8_SDK_URL = 'https://cdn.y8.com/minimal-sdk/2-0/y8.min.js';
 /** a started ad whose break never ends is given up after this long, so the game cannot stay paused (ms) */
 export { AD_MAX };
+/** a blur this soon after an ad ended is the ad's (focus left for the parent page), not the player's (ms) */
+export const BLUR_GRACE = 1000;
 
 export interface Y8AdBreakInfo {
   breakStatus?: string;
@@ -52,7 +58,8 @@ declare global {
   }
 }
 
-type PauseReason = 'ad' | 'hidden' | 'blur';
+/** what pauses (and mutes) the game; a blur only mutes it */
+type PauseReason = 'ad' | 'hidden';
 
 export class Y8Platform implements Platform {
   readonly name = 'y8';
@@ -64,6 +71,13 @@ export class Y8Platform implements Platform {
   private startShown = false;
   private busy = false;
   private pausedBy = new Set<PauseReason>();
+  private paused = false;
+  /** the window lost focus outside an ad: sound off, gameplay on */
+  private blurMuted = false;
+  /** a showAd() call is open (from the call to its settle) */
+  private adOpen = false;
+  /** when the last ad settled (or its afterAd ran), for BLUR_GRACE */
+  private adEndedAt = -Infinity;
   muted = false;
   onMute: (m: boolean) => void = () => {};
   onAdPause: (paused: boolean) => void = () => {};
@@ -77,8 +91,11 @@ export class Y8Platform implements Platform {
   async init(timeoutMs = 3500) {
     if (typeof document !== 'undefined') {
       document.addEventListener('visibilitychange', () => this.setPaused('hidden', document.hidden));
-      window.addEventListener('blur', () => this.setPaused('blur', true));
-      window.addEventListener('focus', () => this.setPaused('blur', false));
+      window.addEventListener('blur', () => this.onBlur());
+      window.addEventListener('focus', () => this.setBlurMuted(false));
+      // any input in the game means the player is here, whatever focus events did or did not arrive
+      for (const t of ['pointerdown', 'touchstart', 'keydown'])
+        window.addEventListener(t, () => this.setBlurMuted(false), { capture: true, passive: true });
     }
     await new Promise<void>((res) => {
       const to = setTimeout(res, timeoutMs);
@@ -136,17 +153,56 @@ export class Y8Platform implements Platform {
   }
   happytime() {}
 
-  /** ad, hidden page or lost focus: the game pauses and is silent while any of them holds */
+  /** ad or hidden page: the game pauses and is silent while any of them holds */
   setPaused(reason: PauseReason, on: boolean) {
-    if (on === this.pausedBy.has(reason)) return;
-    const was = this.pausedBy.size > 0;
     if (on) this.pausedBy.add(reason);
     else this.pausedBy.delete(reason);
+    this.apply();
+  }
+
+  /** a blur outside an ad (and not just after one) mutes; the gameplay goes on */
+  private onBlur() {
+    if (this.adOpen || this.now() - this.adEndedAt < BLUR_GRACE) return;
+    this.setBlurMuted(true);
+  }
+
+  private setBlurMuted(on: boolean) {
+    this.blurMuted = on;
+    this.apply();
+  }
+
+  private apply() {
     const p = this.pausedBy.size > 0;
-    if (p === was) return;
-    this.muted = p;
-    this.onMute(p);
-    this.onAdPause(p);
+    const m = p || this.blurMuted;
+    if (m !== this.muted) {
+      this.muted = m;
+      this.onMute(m);
+    }
+    if (p !== this.paused) {
+      this.paused = p;
+      this.onAdPause(p);
+    }
+  }
+
+  private now() {
+    return Date.now();
+  }
+
+  /**
+   * an ad is over (afterAd or its settle): nothing it caused may leave the game paused or muted. document.hasFocus()
+   * is false here on Y8 (focus is still on the parent page that showed the ad), so it is not a reason to stay muted;
+   * only a really hidden page keeps the game paused.
+   */
+  private adOver() {
+    this.adEndedAt = this.now();
+    this.pausedBy.delete('ad');
+    this.blurMuted = false;
+    // the page may really be hidden now: that pause is the player's, keep it
+    if (typeof document !== 'undefined') {
+      if (document.hidden) this.pausedBy.add('hidden');
+      else this.pausedBy.delete('hidden');
+    }
+    this.apply();
   }
 
   /** one showAd() call, settled exactly once: adBreakDone, .catch(), a throw, not started in AD_TIMEOUT, or AD_MAX */
@@ -154,6 +210,7 @@ export class Y8Platform implements Platform {
     const s = this.y8Sdk;
     if (!s || this.busy) return Promise.resolve(false);
     this.busy = true;
+    this.adOpen = true;
     return new Promise((res) => {
       let done = false;
       let started = false;
@@ -164,7 +221,8 @@ export class Y8Platform implements Platform {
         clearTimeout(notStarted);
         clearTimeout(cap);
         this.busy = false;
-        this.setPaused('ad', false);
+        this.adOpen = false;
+        this.adOver();
         // a reward only after adViewed
         res(type === 'reward' && viewed);
       };
@@ -180,7 +238,7 @@ export class Y8Platform implements Platform {
           started = true;
           this.setPaused('ad', true);
         },
-        afterAd: () => this.setPaused('ad', false),
+        afterAd: () => this.adOver(),
         adBreakDone: () => settle(),
       };
       if (type === 'reward') {

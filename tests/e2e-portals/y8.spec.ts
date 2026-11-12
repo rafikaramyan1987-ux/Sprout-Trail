@@ -1,10 +1,10 @@
 // Smoke test of the Y8 build (dist-y8/) with a stand-in for Y8's y8.min.js.
 import { expect, test } from '@playwright/test';
-import { boot, lose, OTHER_PORTALS, screen, sim, state, win } from './common';
+import { boot, frames, lose, OTHER_PORTALS, screen, sim, state, win } from './common';
 
 declare global {
   interface Window {
-    __y8?: { calls: string[]; mode: 'viewed' | 'noAd' | 'dismissed'; hold: boolean; finish?: () => void };
+    __y8?: { calls: string[]; mode: 'viewed' | 'noAd' | 'dismissed'; hold: boolean; blur?: boolean; finish?: () => void };
   }
 }
 
@@ -26,6 +26,9 @@ const STUB = `(() => {
         if (g.mode === 'noAd') { o.adBreakDone && o.adBreakDone({ breakStatus: 'noAdPreloaded' }); return res(); }
         const play = () => {
           o.beforeAd && o.beforeAd();
+          // Y8 plays its ads on the parent page, outside the game iframe: the game window loses focus during the ad
+          // and gets no 'focus' event back afterwards (focus stays on the parent page)
+          if (g.blur) { document.hasFocus = () => false; window.dispatchEvent(new Event('blur')); }
           g.finish = () => {
             if (o.type === 'reward') (g.mode === 'viewed' ? o.adViewed : o.adDismissed)();
             o.afterAd && o.afterAd();
@@ -109,23 +112,94 @@ test('Y8: rewarded "continue with 1 heart": reward only after adViewed; no ad or
   expect(errors).toEqual([]);
 });
 
-test('Y8: a hidden page or a lost focus pauses and mutes; coming back resumes', async ({ page }) => {
+test('Y8: the start ad blurs the game window and focus never comes back: after the ad the level runs without a click', async ({ page }) => {
+  const { errors } = await boot(page, Y8_SDK, STUB);
+  await page.evaluate(() => (window.__y8!.blur = true));
+  await page.locator('#title [data-act=play]').click();
+  await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
+  expect(await page.evaluate(() => document.hasFocus())).toBe(false);
+  // the frame loop's own path, no input, no focus event: the sprite must run on its own
+  const x0 = (await state(page)).x;
+  await page.waitForTimeout(500);
+  await frames(page, 1.5);
+  const s = await state(page);
+  expect(s.paused).toBe(false);
+  expect(s.muted).toBe(false);
+  expect(s.x).toBeGreaterThan(x0 + 1);
+  expect(errors).toEqual([]);
+});
+
+test('Y8: a "next" ad with a blur that lands just after the ad (within 1 s) does not leave the game paused', async ({ page }) => {
+  const { errors } = await boot(page, Y8_SDK, STUB);
+  await page.evaluate(() => (window.__y8!.mode = 'noAd'));
+  await page.locator('#title [data-act=play]').click();
+  await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
+  await sim(page, 1);
+  await win(page);
+  await page.evaluate(() => Object.assign(window.__y8!, { mode: 'viewed', hold: true }));
+  await page.locator('#end [data-act=next]').click();
+  await expect.poll(() => calls(page)).toContain('next');
+  await page.evaluate(() => {
+    window.__y8!.finish!();
+    // the parent page takes focus back a moment after the ad closed
+    setTimeout(() => window.dispatchEvent(new Event('blur')), 300);
+  });
+  await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
+  await page.waitForTimeout(600);
+  const x0 = (await state(page)).x;
+  await frames(page, 1.5);
+  const s = await state(page);
+  expect(s.paused).toBe(false);
+  expect(s.x).toBeGreaterThan(x0 + 1);
+  expect(errors).toEqual([]);
+});
+
+test('Y8: a blur without an ad (player clicked outside the game) mutes the sound only; focus or any input brings it back', async ({ page }) => {
+  const { errors } = await boot(page, Y8_SDK, STUB);
+  await page.evaluate(() => (window.__y8!.mode = 'noAd'));
+  await page.locator('#title [data-act=play]').click();
+  await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
+  await sim(page, 1);
+  // past the 1 s after the (skipped) start ad in which a blur is the ad's
+  await page.waitForTimeout(1200);
+  for (const back of ['focus', 'pointerdown', 'touchstart', 'keydown'] as const) {
+    await page.evaluate(() => window.dispatchEvent(new Event('blur')));
+    let s = await state(page);
+    expect(s.muted).toBe(true);
+    expect(s.paused).toBe(false); // the gameplay is never frozen by a blur
+    const x0 = s.x;
+    await frames(page, 0.5);
+    expect((await state(page)).x).toBeGreaterThan(x0);
+    await page.evaluate((t) => {
+      if (t === 'focus') window.dispatchEvent(new Event('focus'));
+      else if (t === 'keydown') window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyZ' }));
+      else document.body.dispatchEvent(new Event(t, { bubbles: true }));
+    }, back);
+    s = await state(page);
+    expect(s.muted, back).toBe(false);
+  }
+  expect(errors).toEqual([]);
+});
+
+test('Y8: a hidden page pauses and mutes; coming back resumes', async ({ page }) => {
   const { errors } = await boot(page, Y8_SDK, STUB);
   await page.locator('#title [data-act=play]').click();
   await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
   await sim(page, 1);
-  await page.evaluate(() => window.dispatchEvent(new Event('blur')));
+  const hide = (h: boolean) =>
+    page.evaluate((h) => {
+      Object.defineProperty(document, 'hidden', { configurable: true, get: () => h });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }, h);
+  await hide(true);
   let s = await state(page);
   expect(s.paused && s.muted).toBe(true);
-  await page.evaluate(() => window.dispatchEvent(new Event('focus')));
+  await hide(false);
+  // the game's own pause menu opened while hidden; Resume plays on, sound back
+  await page.locator('#pause [data-act=resume]').click();
+  await sim(page, 0.2);
   s = await state(page);
   expect(s.paused || s.muted).toBe(false);
-  await page.evaluate(() => {
-    Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
-    document.dispatchEvent(new Event('visibilitychange'));
-  });
-  s = await state(page);
-  expect(s.paused && s.muted).toBe(true);
   expect(errors).toEqual([]);
 });
 
