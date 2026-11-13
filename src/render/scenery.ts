@@ -66,6 +66,9 @@ export function sceneryProps(level: Level, v: Variant, x0: number, x1: number, t
       m.makeTranslation(x, -1.4, z);
       ih.setMatrixAt(i, m);
     }
+    // bounds from the real reeds (never from the identity matrices of a fresh InstancedMesh)
+    im.computeBoundingSphere();
+    ih.computeBoundingSphere();
     g.add(im, ih);
   }
   if (v.falls) {

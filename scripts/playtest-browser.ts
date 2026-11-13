@@ -236,6 +236,14 @@ async function playLevel(page: Page, finger: Finger, srcLevel: Level, plan: { in
     },
     [L.id, th, W] as [string, unknown, number],
   );
+  // drawn before its first update, as the title screen does (Bug 4: a stale InstancedMesh bounding sphere hid every
+  // gem); then everything that should be seen is checked after the first stretch of play and at the end
+  await page.evaluate(() => (window as unknown as { __game: { render(): void } }).__game.render());
+  const rendered = new Set<string>();
+  const audit = async (when: string) => {
+    for (const p of await page.evaluate(() => (window as unknown as { __game: { audit(): string[] } }).__game.audit())) rendered.add(`not drawn (${when}): ${p}`);
+  };
+  let audited = false;
   // the page's view-ahead formula must be the game's
   if (Math.abs(viewAhead(5) - (5 * 1.25 + 2.6)) > 1e-9) throw new Error('viewAhead changed: update playtest-browser.ts');
   const ed = edges(plan.inputs);
@@ -260,6 +268,10 @@ async function playLevel(page: Page, finger: Finger, srcLevel: Level, plan: { in
     const maxTicks = shotDone ? 600 : 30;
     const r = await page.evaluate(([until, max]) => (window as unknown as Record<string, (u: number, m: number) => { why: string; run?: number }>).__ptStep(until, max), [until, maxTicks] as [number, number]);
     runNow = r.run ?? runNow;
+    if (!audited && runNow > 120) {
+      audited = true;
+      await audit('2 s in');
+    }
     if (!shotDone) {
       const x = await page.evaluate(() => (window as unknown as { __game: { sim(): { x: number } } }).__game.sim().x);
       if (x >= shotX) {
@@ -333,6 +345,7 @@ async function playLevel(page: Page, finger: Finger, srcLevel: Level, plan: { in
     return { x: (s as unknown as { x: number }).x, mode: s.mode, acorns: s.acorns, hearts: s.hearts, end: w.__game.screen() === 'end' && !!document.querySelector('#end'), tick: w.__game.sim().tick, pt: w.__pt };
   });
   // the finger is still down when the level ends: lifting it must not press a button on the end screen
+  await audit('at the end');
   const before = await page.evaluate(() => (window as unknown as { __game: { state(): { level: string; mode: string }; screen(): string } }).__game.screen());
   for (const ev of ['jumpUp', 'duckUp'] as const) await finger.do(ev);
   const after = await page.evaluate(() => (window as unknown as { __game: { state(): { level: string; mode: string } | null; screen(): string } }).__game.screen());
@@ -358,6 +371,7 @@ async function playLevel(page: Page, finger: Finger, srcLevel: Level, plan: { in
   const won = out.mode === 'won';
   if (!won) problems.push(`not won in the browser (${out.mode} at x ${out.x.toFixed(1)}, presses ${e}/${ed.length}, cards ${c}/${plan.choices.length}, ${endWhy})`);
   if (won && !out.end) problems.push('the end screen did not appear');
+  problems.push(...rendered);
   if (won && out.acorns < 3) problems.push(`only ${out.acorns} golden acorns in the browser`);
   // the real input path reproduces the playtester's run
   if (plan.finished !== undefined && (won !== plan.finished || (won && out.acorns !== plan.acorns))) problems.push(`the browser run ended differently from the simulated run (${won ? `won, ${out.acorns} acorns` : 'not won'} vs ${plan.finished ? `won, ${plan.acorns} acorns` : 'not finished'})`);

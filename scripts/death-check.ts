@@ -22,6 +22,7 @@ import { cpus } from 'node:os';
 import { writeFileSync } from 'node:fs';
 import { Replay, solve } from '../src/game/bot';
 import { allLevels } from '../src/game/levels';
+import { playHuman } from '../src/game/human';
 import { bridgeGone, choose, cloneSim, newSim, NO_INPUT, revive, step, type Input, type SimState } from '../src/game/sim';
 import type { Level, PlantKind } from '../src/game/types';
 
@@ -207,6 +208,11 @@ function checkAfter(L: Level, spot: Spot, d: SimState, via: 'respawn' | 'revive'
     // a narrow search first (fast); a wider one before calling it a problem (a glide needs exact timing)
     let plan = solve(L, { from: r, needAcorns: 0, width: 48, maxSeconds: 300 });
     for (const width of [160, 400]) if (!plan.ok) plan = solve(L, { from: r, needAcorns: 0, width, maxSeconds: 300 });
+    if (!plan.ok) {
+      // the human-limited playtester (the level validator's player) from the same state
+      const h = playHuman(L, { from: r, needAcorns: 0, maxSeconds: 300 });
+      if (h.ok) plan = { ...plan, ok: true, inputs: h.inputs, choices: h.choices, final: h.final };
+    }
     if (!plan.ok) problems.push(`cannot finish the level from here (the bot got to x ${plan.final.x.toFixed(1)} of ${L.goalX.toFixed(0)})`);
     else problems.push(...replayFrom(L, r, plan).problems);
   }
@@ -216,7 +222,13 @@ function checkAfter(L: Level, spot: Spot, d: SimState, via: 'respawn' | 'revive'
 export function checkLevel(L: Level): LevelResult {
   const spots = spotsOf(L);
   const res: LevelResult = { id: L.id, obstacles: [...new Set(spots.map((s) => s.what.replace(/ #\d+| x\d+|\s*\(x [^)]*\)|: .*$/g, '')))], baseOk: false, problems: [], checks: [] };
-  const plan = solve(L);
+  // the normal run: the beam-search bot, a wider search, or else the human-limited playtester's run (the validator's)
+  let plan: { ok: boolean; inputs: Input[]; choices: PlantKind[]; final: SimState } = solve(L);
+  if (!plan.ok) plan = solve(L, { width: 400 });
+  if (!plan.ok) {
+    const h = playHuman(L);
+    if (h.ok) plan = { ok: true, inputs: h.inputs, choices: h.choices, final: h.final };
+  }
   if (!plan.ok) {
     res.problems.push(`the bot cannot finish the level with all 3 golden acorns (got to x ${plan.final.x.toFixed(1)})`);
     return res;

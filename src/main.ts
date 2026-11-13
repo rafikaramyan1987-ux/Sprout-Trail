@@ -608,6 +608,46 @@ function fingerDot(kind: 'tap' | 'swipeDown') {
 function exposeCapture() {
   window.__game = {
     tick: (dt: number, render = true) => tick(dt, render),
+    /** what should be drawn but is not (hidden, not in the scene, or culled by stale bounds); [] = all drawn */
+    audit: () => {
+      if (!play) return ['no level'];
+      const out = play.world.audit(play.sim);
+      let inScene = false;
+      for (let o: THREE.Object3D | null = play.world.root; o; o = o.parent) if (o === stage.scene) inScene = true;
+      if (!inScene) out.push('the level is not in the scene');
+      // anything in the scene whose geometry has moved outside the bounding sphere three.js computed once and kept
+      const box = new THREE.Box3();
+      const v = new THREE.Vector3();
+      stage.scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.geometry || !m.frustumCulled || o instanceof THREE.InstancedMesh || !o.visible) return;
+        const bs = m.geometry.boundingSphere;
+        const pos = m.geometry.attributes?.position;
+        if (!bs || !pos || m.geometry.morphAttributes?.position) return;
+        box.setFromBufferAttribute(pos as THREE.BufferAttribute);
+        if (box.isEmpty()) return;
+        const far = Math.max(...[box.min, box.max].map((c) => v.copy(c).distanceTo(bs.center)));
+        // the box corners are at most sqrt(3) x the farthest vertex: only clearly stale bounds count
+        if (far > bs.radius * 1.75 + 0.5) out.push(`${o.name || o.type}: its geometry moved outside the bounds three.js culls it by (never drawn there)`);
+      });
+      // gems the camera sees must not be culled (three.js tests the whole InstancedMesh by its bounding sphere)
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const fr = new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
+      const p = new THREE.Vector3();
+      const seen = play.level.pickups.filter((q, i) => q.kind === 'gem' && !play!.sim.got[i] && fr.containsPoint(p.set(q.x, q.y, 0)));
+      if (seen.length && !fr.intersectsObject(play.world.gems)) out.push(`${seen.length} gem(s) in view but culled (never drawn)`);
+      return out;
+    },
+    /** gems the camera sees now (not collected) */
+    gemsInView: () => {
+      if (!play) return 0;
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const fr = new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
+      const p = new THREE.Vector3();
+      return play.level.pickups.filter((q, i) => q.kind === 'gem' && !play!.sim.got[i] && fr.containsPoint(p.set(q.x, q.y, 0))).length;
+    },
     /** one frame exactly as the requestAnimationFrame loop runs it (nothing moves while an ad pause holds) */
     frame: (dt: number) => {
       if (!adPaused) tick(dt, false);

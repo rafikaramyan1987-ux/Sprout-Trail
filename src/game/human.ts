@@ -177,11 +177,23 @@ function duckable(level: Level, x: number) {
   return level.enemies.some((e) => Math.max(e.x0, e.x1) > x - 2 && Math.min(e.x0, e.x1) < far) || level.boxes.some((b) => b.kind === 'log' && b.x1 > x - 1 && b.x0 < far);
 }
 
-export function playHuman(level: Level, opts: { width?: number; maxSeconds?: number } = {}): HumanResult {
+export function playHuman(
+  level: Level,
+  opts: {
+    width?: number;
+    maxSeconds?: number;
+    /** start from this state (e.g. right after a respawn) instead of the level start */
+    from?: SimState;
+    /** golden acorns the run must have at the goal (default 3) */
+    needAcorns?: number;
+  } = {},
+): HumanResult {
   const width = opts.width ?? 48;
-  const maxTicks = T(opts.maxSeconds ?? 240);
+  const s0 = opts.from ? cloneSim(opts.from) : newSim(level);
+  const need = opts.needAcorns ?? 3;
+  const maxTicks = s0.tick + T(opts.maxSeconds ?? 240);
   const dps: DpReport[] = [];
-  const start: Node = { s: newSim(level), lp: -999, lr: -999, react: 0, inputs: [], choice: null, press: null, parent: null, presses: 0, checked: true, lucky: 0, luckyAt: [] };
+  const start: Node = { s: s0, lp: -999, lr: -999, react: 0, inputs: [], choice: null, press: null, parent: null, presses: 0, checked: true, lucky: 0, luckyAt: [] };
   let beam: Node[] = [start];
   let won: Node | null = null;
   let finished: Node | null = null;
@@ -324,7 +336,7 @@ export function playHuman(level: Level, opts: { width?: number; maxSeconds?: num
         }
       }
       if (s.mode === 'won') {
-        if (sure(k) >= 3) {
+        if (sure(k) >= need) {
           won = k;
           break;
         }

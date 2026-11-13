@@ -103,7 +103,7 @@ jobs:
       - name: Human-limited playtest, simulation (all 95 levels, death probes)
         run: npm run playtest -- --tag=ci
       - run: npm run build:web
-      - name: Browser playtest (all 95 levels, desktop keyboard + phone touch, real input path)
+      - name: Browser playtest (all 95 levels, desktop keyboard + phone touch, real input path; every gem, acorn, enemy, checkpoint and instanced mesh really drawn, each level drawn once before its first update as from the title)
         run: npm run playtest:browser -- --tag=ci --no-shots
       - uses: actions/upload-artifact@v4
         if: always()

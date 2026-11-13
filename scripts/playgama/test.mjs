@@ -261,7 +261,7 @@ if (only !== 'mock') {
     await page.waitForTimeout(300);
     const r = await runs();
     const hearts = await frame.evaluate(() => window.__game.state().hearts);
-    expect(r.screen === 'play' && hearts === 1, 'the heart was granted (\`rewarded\` after \`close\` still counts)', `${r.screen}, hearts ${hearts}`);
+    expect(r.screen === 'play' && hearts === 1, 'the heart was granted (`rewarded` after `close` still counts)', `${r.screen}, hearts ${hearts}`);
     expect(r.moved > 1 && !r.paused && !r.bridgePaused && !r.pauseMenu, 'the level runs right after the rewarded ad, no pause menu needed', JSON.stringify(r));
     expect(!r.muted, 'sound back after the ad', JSON.stringify({ muted: r.muted }));
     expect(!s.pageErrors.length, 'no page errors', s.pageErrors.join(' | '));
