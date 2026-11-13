@@ -106,17 +106,19 @@ export function culledInstances(im: THREE.InstancedMesh): number[] {
   if (im.boundingSphere === null) im.computeBoundingSphere();
   const sph = im.boundingSphere!;
   if (!im.geometry.boundingSphere) im.geometry.computeBoundingSphere();
-  const r = im.geometry.boundingSphere!.radius;
+  const geo = im.geometry.boundingSphere!;
   const m = new THREE.Matrix4();
-  const p = new THREE.Vector3();
+  const c = new THREE.Vector3();
   const sc = new THREE.Vector3();
   const out: number[] = [];
   for (let i = 0; i < im.count; i++) {
     im.getMatrixAt(i, m);
     sc.setFromMatrixScale(m);
-    if (sc.x === 0 && sc.y === 0 && sc.z === 0) continue; // hidden on purpose
-    p.setFromMatrixPosition(m);
-    if (p.distanceTo(sph.center) > sph.radius - r * Math.min(sc.x, sc.y, sc.z) * 0.5 + 1e-3) out.push(i);
+    const s = Math.max(sc.x, sc.y, sc.z);
+    if (s === 0) continue; // hidden on purpose
+    // this instance's own bounds: at least half of it must be inside the mesh's culling sphere
+    c.copy(geo.center).applyMatrix4(m);
+    if (c.distanceTo(sph.center) > sph.radius - geo.radius * s * 0.5 + 1e-3) out.push(i);
   }
   return out;
 }
@@ -279,6 +281,7 @@ export function buildWorld(level: Level): WorldView {
       }
     }
     const im = new THREE.InstancedMesh(coneG, thornTip, tips.length);
+    im.name = 'thorn tips';
     tips.forEach((m, i) => im.setMatrixAt(i, m));
     // bounds from the real tips (never from the identity matrices of a fresh InstancedMesh)
     im.computeBoundingSphere();
@@ -367,6 +370,7 @@ export function buildWorld(level: Level): WorldView {
   const gemList = level.pickups.map((p, i) => ({ p, i })).filter((q) => q.p.kind === 'gem');
   const gems = new THREE.InstancedMesh(gemGeo, gemMat, Math.max(1, gemList.length));
   gems.castShadow = true;
+  gems.name = 'gems';
   // every gem in its place from the start, and the bounding sphere computed from those places: three.js computes an
   // InstancedMesh's bounding sphere once, at its first frustum check, from the instance matrices of that moment, and
   // keeps it. The title screen draws the level before its first update(): with the matrices still at the identity,

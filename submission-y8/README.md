@@ -8,7 +8,7 @@
 
 | Portal tab → slot | File (in this folder) | Spec |
 | --- | --- | --- |
-| **Builds** → upload build | `sprout-trail-y8-v2.zip` | `index.html` + `assets/`, `models/` at the zip root, relative paths only |
+| **Builds** → upload build | `sprout-trail-y8-v3.zip` | `index.html` + `assets/`, `models/` at the zip root, relative paths only |
 | **Media** → Standard Screenshot (4:3) | `media/screenshot-760x570-1.jpg` … `-4.jpg` | 760x570 JPG, < 2 MB |
 | **Media** → Widescreen Screenshot (16:9) | `media/screenshot-1280x720-1.jpg` … `-4.jpg` | 1280x720 JPG, < 5 MB |
 | **Media** → Landscape Promo | `media/promo-landscape-1920x1080.jpg` | 1920x1080 JPG, < 5 MB |
@@ -76,7 +76,10 @@ generated levels). If the code was written with an AI coding assistant, declare 
   the game loses focus during every ad: a blur during an ad or within 1 s after it is ignored, and the end of an ad
   clears it, so the level runs on after the start ad without a click (v1.2.1).
 - No external links, no other ad networks. Saves stay in localStorage (`sprout-trail-save`).
-- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.2):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
   context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).
+  After every ad the game takes the keyboard focus back and runs on at once; if it still cannot run, the pause menu
+  opens instead of a frozen screen. After a lost heart (or "continue with 1 heart") every obstacle from the checkpoint
+  on is back in its first state; every level is checked for that (docs/death-check-report.md).

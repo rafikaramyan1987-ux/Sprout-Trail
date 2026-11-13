@@ -301,7 +301,7 @@ export function generateLevel(world: number, n: number, seed: number, opts: GenO
         break;
       case 'glide':
         // run-up: the checkpoint before a glide is also where the sprite comes back after a death, and from there it
-        // needs room to jump into the glide (4 units after the checkpoint were too short: an endless loop of falls)
+        // needs room to jump into the glide (with 4 units after the checkpoint the jump had to come within ~0.45 s of reappearing)
         b.ground(4);
         b.glide(12 + Math.round(6 * d));
         break;

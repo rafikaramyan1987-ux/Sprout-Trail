@@ -4,7 +4,7 @@
 
 | What | File (in this folder) |
 | --- | --- |
-| Game (HTML5 zip) | `sprout-trail-gd-v1.2.1.zip` — `index.html` at the root, assets in `assets/` and `models/`, relative paths only |
+| Game (HTML5 zip) | `sprout-trail-gd-v1.2.2.zip` — `index.html` at the root, assets in `assets/` and `models/`, relative paths only |
 | Thumbnail 512x384 | `thumbnails/thumb-512x384.jpg` |
 | Thumbnail 512x512 | `thumbnails/thumb-512x512.jpg` |
 | Thumbnail 200x120 | `thumbnails/thumb-200x120.jpg` |
@@ -17,10 +17,13 @@
   it and restores audio through the player's settings. Interstitials only at the result-screen breaks (Next / Retry /
   Menu), at most one per 2 minutes, never during a level. Rewarded ads only from the labelled buttons, the reward only
   after `SDK_REWARDED_WATCH_COMPLETE`. Every ad settles (not started in 8 s, or 120 s at most).
-- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.2):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
   context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).
+  After every ad the game takes the keyboard focus back and runs on at once; if it still cannot run, the pause menu
+  opens instead of a frozen screen. After a lost heart (or "continue with 1 heart") every obstacle from the checkpoint
+  on is back in its first state; every level is checked for that (docs/death-check-report.md).
 
 ## Ready-to-paste fields
 

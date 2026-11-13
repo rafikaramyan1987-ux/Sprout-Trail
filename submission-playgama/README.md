@@ -4,7 +4,7 @@
 
 | What | File (in this folder) |
 | --- | --- |
-| Game | `sprout-trail-playgama-v5.zip` — `index.html` at the zip root, `playgama-bridge-config.json` beside it, `assets/`, `models/` |
+| Game | `sprout-trail-playgama-v6.zip` — `index.html` at the zip root, `playgama-bridge-config.json` beside it, `assets/`, `models/` |
 | Cover 1:1 | `cover-800x800.png` |
 | Cover 9:16 | `cover-1080x1920.png` |
 | Cover 16:9 | `cover-1920x1080.png` |
@@ -38,9 +38,12 @@ platformer, runner, puzzle, casual, cute, nature, forest, one-finger, 3d, family
 - Pause and audio state events pause the game and silence it. Interstitials at the result-screen breaks after the
   first finished level (Bridge paces them), no pre-roll; rewarded ads only from the labelled buttons and only where
   `isRewardedSupported`; the reward only on the `rewarded` state. Every ad settles (8 s, or 120 s at most).
-- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.2):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
   context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).
+  After every ad the game takes the keyboard focus back and runs on at once; if it still cannot run, the pause menu
+  opens instead of a frozen screen. After a lost heart (or "continue with 1 heart") every obstacle from the checkpoint
+  on is back in its first state; every level is checked for that (docs/death-check-report.md).
 - CI: `scripts/playgama/check.mjs` (zip layout, CDN Bridge, Playgama's own precheck: no FAIL, no WARN) and
   `scripts/playgama/test.mjs` (mock platform + stubbed Playgama SDK: interstitial, rewarded completed / cancelled).
