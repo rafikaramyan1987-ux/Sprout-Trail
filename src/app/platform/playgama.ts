@@ -21,6 +21,13 @@
  * - an ad opening, Bridge's pause state and the page being hidden pause the level and mute all audio; Bridge's audio
  *   state mutes without pausing; audio comes back only when nothing keeps the game silent, and then through the
  *   player's own sound / music settings (audio.ts)
+ * - Bridge 2.4.1's PAUSE_STATE_CHANGED is an aggregate of its interstitial, rewarded, visibility, platform and rate
+ *   states, and its rewarded part stays `true` while the last rewarded state is `opened` or `rewarded`. The Playgama
+ *   platform bridge passes the SDK's events through as they come and turns an `error` after `open` into a popup only,
+ *   so a `rewarded` after `close`, or an error after `open`, leaves Bridge's pause on with no `false` ever sent. So a
+ *   Bridge pause that starts while an ad is open (or within AD_PAUSE_GRACE after it settled) belongs to the ad: it is
+ *   cleared when the ad settles and ignored right after it. Only a really hidden page keeps the game paused then.
+ * - a `rewarded` state that comes after `closed` (within REWARD_GRACE) still grants the reward
  */
 
 import { AD_MAX, AD_TIMEOUT, type AdSlot, type KeyValueStore, type Platform } from './types';
@@ -89,12 +96,20 @@ declare global {
   }
 }
 
-type PauseReason = 'sdk' | 'hidden' | 'ad';
+/** 'sdk': Bridge's pause outside ads; 'adsdk': Bridge's pause that started with an ad open (cleared when it settles) */
+type PauseReason = 'sdk' | 'adsdk' | 'hidden' | 'ad';
+/** a Bridge pause this soon after an ad settled is the ad's (ms) */
+export const AD_PAUSE_GRACE = 2000;
+/** a rewarded ad that closed without the `rewarded` state waits this long for it (ms) */
+export const REWARD_GRACE = 1000;
 type AdType = 'interstitial' | 'rewarded';
 interface Pending {
   type: AdType;
   opened: boolean;
   earned: boolean;
+  /** closed without `rewarded` yet (waiting REWARD_GRACE) */
+  closed?: boolean;
+  grace?: ReturnType<typeof setTimeout>;
   finish: (ok: boolean) => void;
 }
 
@@ -116,6 +131,8 @@ export class PlaygamaPlatform implements Platform {
   private lang: string | null = null;
   private store: KeyValueStore | null = null;
   private pending: Pending | null = null;
+  /** when the last ad settled (Date.now()) */
+  private adEndedAt = -Infinity;
   muted = false;
   /** what was sent to / received from Bridge (messages, ad states), for scripts/playgama/test.mjs */
   readonly log: string[] = [];
@@ -137,7 +154,7 @@ export class PlaygamaPlatform implements Platform {
       try {
         this.soundOff = s.platform.isAudioEnabled === false;
         s.platform.on(E.AUDIO_STATE_CHANGED, ((on: boolean) => this.setSound(on !== false)) as Listener);
-        s.platform.on(E.PAUSE_STATE_CHANGED, ((p: boolean) => this.setPaused('sdk', !!p)) as Listener);
+        s.platform.on(E.PAUSE_STATE_CHANGED, ((p: boolean) => this.onBridgePause(!!p)) as Listener);
         s.advertisement.on(E.INTERSTITIAL_STATE_CHANGED, ((st: string) => this.onAdState('interstitial', st)) as Listener);
         s.advertisement.on(E.REWARDED_STATE_CHANGED, ((st: string) => this.onAdState('rewarded', st)) as Listener);
       } catch {
@@ -190,9 +207,12 @@ export class PlaygamaPlatform implements Platform {
 
   /** pause the level + mute; idempotent, reasons tracked separately */
   setPaused(reason: PauseReason, on: boolean) {
-    if (on === this.pausedBy.has(reason)) return;
     if (on) this.pausedBy.add(reason);
     else this.pausedBy.delete(reason);
+    this.applyPause();
+  }
+
+  private applyPause() {
     const p = this.pausedBy.size > 0;
     if (p !== this.paused) {
       this.paused = p;
@@ -201,8 +221,43 @@ export class PlaygamaPlatform implements Platform {
     this.updateMute();
   }
 
-  /** the platform's audio state: off mutes (no pause), on restores only if nothing else keeps the game silent */
+  /** Bridge's PAUSE_STATE_CHANGED: during an ad (or just after it) it is the ad's pause, else the platform's */
+  private onBridgePause(p: boolean) {
+    if (!p) {
+      this.setPaused('sdk', false);
+      this.setPaused('adsdk', false);
+      return;
+    }
+    if (this.pending) this.setPaused('adsdk', true);
+    else if (Date.now() - this.adEndedAt < AD_PAUSE_GRACE) return;
+    else this.setPaused('sdk', true);
+  }
+
+  /**
+   * The pause menu's Resume: the player is here and wants to play. Every pause reason goes, except a page that is
+   * really hidden (and an ad that is still open).
+   */
+  clearPauses() {
+    this.pausedBy.delete('sdk');
+    this.pausedBy.delete('adsdk');
+    if (!this.pending) this.pausedBy.delete('ad');
+    this.syncHidden();
+  }
+
+  /** the 'hidden' reason follows the page as it is now, then the pause is recomputed */
+  private syncHidden() {
+    if (typeof document !== 'undefined' && document.hidden) this.pausedBy.add('hidden');
+    else this.pausedBy.delete('hidden');
+    this.applyPause();
+  }
+
+  /**
+   * the platform's audio state: off mutes (no pause), on restores only if nothing else keeps the game silent. Bridge's
+   * audio state is the same kind of aggregate as its pause state: an "off" while an ad is open or right after it is
+   * the ad's (the game is silent during ads anyway) and is not kept.
+   */
   setSound(on: boolean) {
+    if (!on && (this.pending || Date.now() - this.adEndedAt < AD_PAUSE_GRACE)) return;
     if (this.soundOff === !on) return;
     this.soundOff = !on;
     this.updateMute();
@@ -222,9 +277,20 @@ export class PlaygamaPlatform implements Platform {
     if (state === 'opened') {
       p.opened = true;
       this.setPaused('ad', true);
-    } else if (state === 'rewarded') p.earned = true;
-    else if (state === 'closed') p.finish(type === 'rewarded' ? p.earned : true);
-    else if (state === 'failed') p.finish(false);
+    } else if (state === 'rewarded') {
+      p.earned = true;
+      // the ad already closed and was waiting for this: settle now, with the reward
+      if (p.closed) p.finish(true);
+    } else if (state === 'closed') {
+      if (type !== 'rewarded' || p.earned) p.finish(true);
+      else {
+        // some platforms report `rewarded` after `closed`: wait a moment for it (the game goes on meanwhile)
+        p.closed = true;
+        this.setPaused('ad', false);
+        this.setPaused('adsdk', false);
+        p.grace = setTimeout(() => p.finish(false), REWARD_GRACE);
+      }
+    } else if (state === 'failed') p.finish(false);
   }
 
   locale() {
@@ -278,7 +344,7 @@ export class PlaygamaPlatform implements Platform {
     }
   }
 
-  /** Show an ad and settle exactly once: closed / failed, or not opened within AD_TIMEOUT. Resumes the game after. */
+  /** Show an ad and settle exactly once: closed / failed, or not opened within AD_TIMEOUT (AD_MAX in all). Resumes the game after. */
   private requestAd(type: AdType): Promise<boolean> {
     const s = this.b;
     if (!s || this.pending) return Promise.resolve(false);
@@ -293,8 +359,13 @@ export class PlaygamaPlatform implements Platform {
           done = true;
           clearTimeout(timer);
           clearTimeout(cap);
+          clearTimeout(pending.grace);
           if (this.pending === pending) this.pending = null;
-          this.setPaused('ad', false);
+          this.adEndedAt = Date.now();
+          // everything the ad paused goes; only a page that is really hidden keeps the game paused
+          this.pausedBy.delete('adsdk');
+          this.pausedBy.delete('ad');
+          this.syncHidden();
           res(ok);
         },
       };

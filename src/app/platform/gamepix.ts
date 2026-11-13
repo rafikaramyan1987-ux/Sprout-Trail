@@ -147,6 +147,13 @@ export class GamePixPlatform implements Platform {
     this.onAdPause(p);
   }
 
+  /** the pause menu's Resume: the SDK's pause goes (unless an ad of ours is open); a hidden page stays paused */
+  clearPauses() {
+    clearTimeout(this.orphan);
+    if (!this.pending) this.setPaused('sdk', false);
+    this.setPaused('hidden', typeof document !== 'undefined' && document.hidden);
+  }
+
   private onPause() {
     this.pending?.start();
     clearTimeout(this.orphan);

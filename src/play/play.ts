@@ -689,7 +689,7 @@ export class Play {
 
   /** after a completed rewarded ad: continue from the last checkpoint with one heart */
   reviveWithHeart() {
-    revive(this.sim);
+    revive(this.level, this.sim);
     this.ended = false;
     this.endT = 0;
     this.prevX = this.sim.x;

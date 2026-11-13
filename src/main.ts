@@ -37,6 +37,8 @@ window.__booted = true;
 installGuard();
 
 const canvas = document.getElementById('game') as HTMLCanvasElement;
+// focusable (not in the tab order), so the keyboard focus can be brought back to the game after an ad
+canvas.tabIndex = -1;
 /** created in boot(): without WebGL the loading screen says so instead of throwing here */
 let stage!: Stage;
 /** the WebGL context is lost (GPU reset, too many contexts): the game pauses until it is restored */
@@ -105,8 +107,39 @@ async function between(next: () => void, slot: AdSlot = 'between') {
   if (__PLATFORM__ !== 'web' && sdk.adSlot(slot)) {
     screen = 'ad';
     await sdk.midgame(slot);
+    next();
+    afterAd();
+    return;
   }
   next();
+}
+
+/** keyboard focus back to the game (an ad can leave it on the portal page or the ad's frame) */
+function refocus() {
+  try {
+    window.focus();
+  } catch {
+    /* not allowed here */
+  }
+  try {
+    canvas.focus({ preventScroll: true });
+  } catch {
+    /* not focusable */
+  }
+}
+
+/**
+ * After every ad (interstitial, rewarded, pre-roll): focus back to the game, and a safety net. If the game still cannot
+ * run (a pause reason other than a hidden page is still held, or the keyboard focus did not come back where the
+ * platform expects it), the pause menu opens instead of a silent, frozen screen; its Resume clears every pause reason
+ * except a hidden page.
+ */
+function afterAd() {
+  refocus();
+  if (!play || screen !== 'play') return;
+  const stuck = adPaused && !document.hidden;
+  const noFocus = sdk.focusAfterAd !== false && !document.hidden && typeof document.hasFocus === 'function' && !document.hasFocus();
+  if (stuck || noFocus) pause();
 }
 
 /** the pre-roll: only from the first Play click of the session (title Play, a level tile or the daily trail) */
@@ -123,6 +156,9 @@ async function firstPlay(go: () => void) {
     await sdk.midgame('preroll');
     screen = was;
     prerollBusy = false;
+    go();
+    afterAd();
+    return;
   }
   prerollAsked = true;
   go();
@@ -138,6 +174,7 @@ async function rewarded(btn: HTMLElement, grant: () => void) {
     sfx('reward');
     grant();
   } else toast(t('ad.none'), 2500);
+  afterAd();
 }
 const adButton = (act: string, key: string) => (ads() ? `<button class="btn ad" data-ad="${act}">${ico('tv')}<span>${label(key)}</span></button>` : '');
 
@@ -326,6 +363,9 @@ function pause() {
 function resume() {
   hide('pause');
   if (!play) return;
+  // the player is here: nothing but a hidden page (or an ad still open) may keep the game paused
+  sdk.clearPauses?.();
+  refocus();
   play.paused = adPaused;
   controls.release();
   controls.enabled = true;

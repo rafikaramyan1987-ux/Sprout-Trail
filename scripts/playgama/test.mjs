@@ -68,6 +68,8 @@ const STUB = `(() => {
         setTimeout(() => cb('rewarded', 'open'), 50);
         if (outcome === 'complete') setTimeout(() => cb('rewarded', 'rewarded'), 2900);
         setTimeout(() => cb('rewarded', 'close'), 3000);
+        // the order some Playgama ads report: \`rewarded\` after \`close\` (Bridge's pause then stays on)
+        if (outcome === 'lateReward') setTimeout(() => cb('rewarded', 'rewarded'), 3100);
       },
       showAdvancedBanners: async () => {},
       hideAdvancedBanners() {},
@@ -185,7 +187,8 @@ if (only !== 'mock') {
     await d.click('[data-ad=gems]');
     await waitLog(frame, 'rewarded:closed');
     const during1 = await frame.evaluate(() => window.__adSamples.rewarded);
-    await d.tick(0.2);
+    // closed without the reward: the adapter waits REWARD_GRACE (1 s) for a late \`rewarded\` before it says no
+    await frame.waitForSelector('.toast', { timeout: 5000 }).catch(() => {});
     const toast = await frame.locator('.toast').allInnerTexts();
     await d.tick(2.6);
     const v1 = await game.money(frame);
@@ -219,6 +222,51 @@ if (only !== 'mock') {
     expect(!s.pageErrors.length, 'no page errors', s.pageErrors.join(' | '));
   } catch (e) {
     fail(`playgama: ${e.message.split('\n')[0]}`);
+    console.log(await debug(frame));
+  }
+  await s.ctx.close();
+}
+
+// ---------------------------------------------------------------- 3. frozen after an ad (the real Bridge's pause aggregate)
+if (only !== 'mock') {
+  console.log('After an ad the game runs (Bridge playgama platform, `rewarded` after `close`)');
+  const s = await open(`platform_id=playgama&${game.query}`, { stub: true });
+  const { frame, page } = s;
+  const d = game.driver(frame, page);
+  /** the game moves on its own: the real frame loop's path (stops while an ad pause holds) */
+  const runs = () =>
+    frame.evaluate(() => {
+      const x0 = window.__game.state().x;
+      for (let i = 0; i < 60; i++) window.__game.frame(1 / 60);
+      return { moved: window.__game.state().x - x0, screen: window.__game.screen(), paused: window.__game.state().paused, bridgePaused: window.__playgama.paused, muted: window.__playgama.muted, pauseMenu: !!document.getElementById('pause') };
+    });
+  try {
+    await game.ready(frame, page);
+    // an interstitial between levels, then the next level must run at once
+    await game.play(frame, page, { w: 960, h: 600 });
+    await game.next(frame, page);
+    await waitLog(frame, 'interstitial:closed');
+    await page.waitForTimeout(300);
+    const r2 = await runs();
+    expect(r2.screen === 'play' && r2.moved > 1 && !r2.paused && !r2.pauseMenu, 'the level runs right after an interstitial', JSON.stringify(r2));
+    // out of hearts → "continue with 1 heart" (rewarded), the platform reports \`rewarded\` after \`close\`
+    await frame.evaluate(() => window.__game.lose());
+    for (let i = 0; i < 20 && (await frame.evaluate(() => window.__game.screen())) !== 'end'; i++) await d.tick(0.5);
+    await frame.evaluate(() => {
+      window.__rewardedOutcome = 'lateReward';
+      window.__playgama.log.length = 0;
+    });
+    await d.click('[data-ad=heart]');
+    await waitLog(frame, 'rewarded:rewarded');
+    await page.waitForTimeout(300);
+    const r = await runs();
+    const hearts = await frame.evaluate(() => window.__game.state().hearts);
+    expect(r.screen === 'play' && hearts === 1, 'the heart was granted (\`rewarded\` after \`close\` still counts)', `${r.screen}, hearts ${hearts}`);
+    expect(r.moved > 1 && !r.paused && !r.bridgePaused && !r.pauseMenu, 'the level runs right after the rewarded ad, no pause menu needed', JSON.stringify(r));
+    expect(!r.muted, 'sound back after the ad', JSON.stringify({ muted: r.muted }));
+    expect(!s.pageErrors.length, 'no page errors', s.pageErrors.join(' | '));
+  } catch (e) {
+    fail(`after-ad: ${e.message.split('\n')[0]}`);
     console.log(await debug(frame));
   }
   await s.ctx.close();

@@ -77,11 +77,24 @@ function score(s: SimState, presses = 0) {
 }
 const nscore = (n: Node) => score(n.s, n.presses);
 
-export function solve(level: Level, opts: { width?: number; maxSeconds?: number; wrongFirst?: boolean } = {}): Plan {
+export function solve(
+  level: Level,
+  opts: {
+    width?: number;
+    maxSeconds?: number;
+    wrongFirst?: boolean;
+    /** start from this state instead of the level start (e.g. right after a respawn) */
+    from?: SimState;
+    /** golden acorns the run must have at the goal (default 3) */
+    needAcorns?: number;
+  } = {},
+): Plan {
   const width = opts.width ?? 160;
-  const maxTicks = (opts.maxSeconds ?? 240) * 60;
+  const need = opts.needAcorns ?? 3;
+  const s0 = opts.from ? cloneSim(opts.from) : newSim(level);
+  const maxTicks = s0.tick + (opts.maxSeconds ?? 240) * 60;
   const dps: DpReport[] = [];
-  let beam: Node[] = [{ s: newSim(level), prev: 0, inputs: [], choice: null, parent: null, presses: 0 }];
+  let beam: Node[] = [{ s: s0, prev: 0, inputs: [], choice: null, parent: null, presses: 0 }];
   let won: Node | null = null;
   let best: Node = beam[0];
   while (beam.length && !won) {
@@ -123,7 +136,7 @@ export function solve(level: Level, opts: { width?: number; maxSeconds?: number;
         }
         if (fell || s.mode === 'lost') continue;
         const child: Node = { s, prev: a, inputs, choice: null, parent: n, presses: n.presses + (a !== 0 && a !== n.prev ? 1 : 0) + (a === 2 ? 0.4 : a === 1 ? 0.05 : 0) };
-        if (s.mode === 'won' && s.acorns >= 3) {
+        if (s.mode === 'won' && s.acorns >= need) {
           won = child;
           break;
         }
@@ -149,7 +162,7 @@ export function solve(level: Level, opts: { width?: number; maxSeconds?: number;
     if (n.choice) choices.push(...n.choice);
     inputs.push(...n.inputs);
   }
-  return { ok: !!won, inputs, choices, final: end.s, dps: dps.sort((a, b) => a.dp - b.dp), seconds: end.s.tick / 60 };
+  return { ok: !!won, inputs, choices, final: end.s, dps: dps.sort((a, b) => a.dp - b.dp), seconds: (end.s.tick - s0.tick) / 60 };
 }
 
 /** replays a plan against a live simulation, tick by tick */

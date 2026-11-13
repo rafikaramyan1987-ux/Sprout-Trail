@@ -111,6 +111,11 @@ export class GDPlatform implements Platform {
     }
   }
 
+  /** the pause menu's Resume: an SDK pause with no ad of ours open goes */
+  clearPauses() {
+    if (!this.pending) this.setAdPaused(false);
+  }
+
   private setAdPaused(p: boolean) {
     clearTimeout(this.orphan);
     this.orphan = undefined;

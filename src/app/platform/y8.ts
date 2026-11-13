@@ -64,6 +64,8 @@ type PauseReason = 'ad' | 'hidden';
 export class Y8Platform implements Platform {
   readonly name = 'y8';
   readonly autoResume = true;
+  /** Y8 shows its ads on the parent page, which keeps the focus: the game runs on without it */
+  readonly focusAfterAd = false;
   /** the SDK instance, set only once `init()` has been called on it */
   private y8Sdk: Y8Sdk | null = null;
   private adsReady = false;
@@ -157,6 +159,15 @@ export class Y8Platform implements Platform {
   setPaused(reason: PauseReason, on: boolean) {
     if (on) this.pausedBy.add(reason);
     else this.pausedBy.delete(reason);
+    this.apply();
+  }
+
+  /** the pause menu's Resume: every pause reason goes except a really hidden page and an ad still open */
+  clearPauses() {
+    if (!this.adOpen) this.pausedBy.delete('ad');
+    this.blurMuted = false;
+    if (typeof document !== 'undefined' && document.hidden) this.pausedBy.add('hidden');
+    else this.pausedBy.delete('hidden');
     this.apply();
   }
 

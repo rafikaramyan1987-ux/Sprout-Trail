@@ -37,6 +37,17 @@ export interface Platform {
   onAdPause: (paused: boolean) => void;
   /** after an ad that paused a running job, the game resumes by itself (otherwise the pause menu stays) */
   readonly autoResume: boolean;
+  /**
+   * The pause menu's Resume: drop every pause reason the platform holds (an SDK pause that never ended, a leftover
+   * blur), except a page that is really hidden and an ad that is still open.
+   */
+  clearPauses?(): void;
+  /**
+   * After an ad the game expects keyboard focus back (default true); if it does not come back, the pause menu is shown
+   * instead of a game that cannot hear the keyboard. Y8 shows its ads on the parent page and keeps focus there by
+   * design: the game runs on without it (false).
+   */
+  readonly focusAfterAd?: boolean;
   locale(): string | null;
   /** portal cloud save, or null for localStorage */
   data(): KeyValueStore | null;
