@@ -26,11 +26,11 @@ previous one ended (designed difficulty 0..1).
 | 1-3 | ok | ropes | lake → meadow | 0.30 | 71 s | 4.65 → 5.68 | 23 (22/min) | 1.27 s | 3/3 | 3/3 | 112/142 | 2/3 | 2 |
 | 1-4 | ok | logs + collapse | meadow → sunset | 0.31 | 75 s | 4.67 → 5.72 | 20 (19/min) | 1.23 s | 3/3 | 3/3 | 108/131 | 2/3 | 2 |
 | 1-5 | ok | collapse + shrooms | sunset → rain | 0.32 | 63 s | 4.69 → 5.75 | 17 (19/min) | 1.60 s | 3/3 | 3/3 | 89/107 | 2/3 | 2 |
-| 1-6 | ok | glide + logs | rain → lake | 0.34 | 83 s | 4.72 → 6.03 | 27 (22/min) | 1.28 s | 3/3 | 3/3 | 127/163 | 2/3 | 2 |
+| 1-6 | ok | glide + logs | rain → lake | 0.34 | 84 s | 4.72 → 6.03 | 27 (22/min) | 1.32 s | 3/3 | 3/3 | 126/163 | 2/3 | 2 |
 | 1-7 | ok | chase + ropes | lake → meadow | 0.35 | 78 s | 4.74 → 5.82 | 26 (22/min) | 1.60 s | 3/3 | 3/3 | 112/143 | 2/3 | 2 |
-| 1-8 | ok | planks + glide | meadow → sunset | 0.36 | 68 s | 4.76 → 5.86 | 17 (20/min) | 1.58 s | 3/3 | 3/3 | 93/116 | 2/3 | 2 |
+| 1-8 | ok | planks + glide | meadow → sunset | 0.36 | 69 s | 4.76 → 5.86 | 17 (20/min) | 1.57 s | 3/3 | 3/3 | 96/116 | 2/3 | 2 |
 | 1-9 | ok | ropes + chase | sunset → rain | 0.37 | 72 s | 4.79 → 5.89 | 25 (23/min) | 1.23 s | 3/3 | 3/3 | 98/119 | 2/3 | 2 |
-| 1-10 | ok | shrooms + glide | rain → lake | 0.39 | 69 s | 4.81 → 5.93 | 22 (22/min) | 1.32 s | 3/3 | 3/3 | 94/112 | 2/3 | 2 |
+| 1-10 | ok | shrooms + glide | rain → lake | 0.39 | 70 s | 4.81 → 5.93 | 22 (22/min) | 1.32 s | 3/3 | 3/3 | 90/112 | 2/3 | 2 |
 | 1-11 | ok | logs + planks | lake → meadow | 0.40 | 77 s | 4.83 → 5.97 | 25 (27/min) | 1.27 s | 3/3 | 3/3 | 118/139 | 2/3 | 2 |
 | 1-12 | ok | chase + ropes | meadow → sunset | 0.41 | 90 s | 4.86 → 6.26 | 35 (25/min) | 1.25 s | 3/3 | 3/3 | 109/137 | 2/2 | 2 |
 | 2-1 | ok | cave + waterfall | glow → falls | 0.42 | 82 s | 4.88 → 6.04 | 28 (20/min) | 1.57 s | 3/3 | 3/3 | 119/156 | 2/2 | 2 |
@@ -39,17 +39,17 @@ previous one ended (designed difficulty 0..1).
 | 2-4 | ok | ropes + chase | roots → glow → falls | 0.46 | 85 s | 4.95 → 6.15 | 32 (25/min) | 1.30 s | 3/3 | 3/3 | 149/177 | 2/2 | 2 |
 | 2-5 | ok | chase + shrooms | glow → falls → pines | 0.47 | 77 s | 4.97 → 6.18 | 27 (23/min) | 1.28 s | 3/3 | 3/3 | 105/128 | 2/2 | 2 |
 | 2-6 | ok | cave + collapse | falls → pines → roots | 0.48 | 74 s | 5.00 → 6.22 | 26 (21/min) | 1.57 s | 3/3 | 3/3 | 104/138 | 2/2 | 2 |
-| 2-7 | ok | glide + ropes | pines → roots → glow | 0.50 | 67 s | 5.02 → 6.25 | 20 (21/min) | 1.27 s | 3/3 | 3/3 | 78/111 | 2/2 | 2 |
+| 2-7 | ok | glide + ropes | pines → roots → glow | 0.50 | 67 s | 5.02 → 6.25 | 20 (21/min) | 1.28 s | 3/3 | 3/3 | 83/111 | 2/2 | 2 |
 | 2-8 | ok | logs + waterfall | roots → glow → falls | 0.51 | 83 s | 5.04 → 6.58 | 31 (25/min) | 1.50 s | 3/3 | 3/3 | 155/206 | 3/3 | 3 |
 | 2-9 | ok | waterfall + chase | glow → falls → pines | 0.52 | 82 s | 5.07 → 6.62 | 27 (20/min) | 1.25 s | 3/3 | 3/3 | 125/154 | 3/3 | 3 |
 | 2-10 | ok | collapse + planks | falls → pines → roots | 0.53 | 78 s | 5.09 → 6.66 | 23 (22/min) | 1.27 s | 3/3 | 3/3 | 114/146 | 3/3 | 3 |
-| 2-11 | ok | shrooms + glide | pines → roots → glow | 0.55 | 81 s | 5.11 → 6.70 | 24 (20/min) | 1.27 s | 3/3 | 3/3 | 103/135 | 3/3 | 3 |
+| 2-11 | ok | shrooms + glide | pines → roots → glow | 0.55 | 78 s | 5.11 → 6.70 | 22 (19/min) | 1.27 s | 3/3 | 3/3 | 100/129 | 3/3 | 3 |
 | 2-12 | ok | ropes + logs | roots → glow → falls | 0.56 | 79 s | 5.14 → 6.74 | 25 (26/min) | 1.47 s | 3/3 | 3/3 | 110/152 | 3/3 | 3 |
 | 3-1 | ok | shrooms + logs | grotto → caps → canyon | 0.57 | 84 s | 5.16 → 6.78 | 32 (29/min) | 1.27 s | 3/3 | 3/3 | 116/136 | 3/3 | 3 |
 | 3-2 | ok | cave + planks | caps → canyon → pastel | 0.58 | 102 s | 5.18 → 6.51 | 46 (31/min) | 1.25 s | 3/3 | 3/3 | 130/168 | 2/2 | 2 |
-| 3-3 | ok | ropes + glide | canyon → pastel → grotto | 0.59 | 75 s | 5.21 → 6.55 | 31 (28/min) | 1.27 s | 3/3 | 3/3 | 79/109 | 2/2 | 2 |
+| 3-3 | ok | ropes + glide | canyon → pastel → grotto | 0.59 | 76 s | 5.21 → 6.55 | 31 (28/min) | 1.27 s | 3/3 | 3/3 | 80/109 | 2/2 | 2 |
 | 3-4 | ok | planks + collapse | pastel → grotto → caps | 0.61 | 90 s | 5.23 → 6.90 | 33 (27/min) | 1.25 s | 3/3 | 3/3 | 113/138 | 3/3 | 3 |
-| 3-5 | ok | glide + shrooms | grotto → caps → canyon | 0.62 | 79 s | 5.25 → 6.90 | 29 (25/min) | 1.27 s | 3/3 | 3/3 | 91/120 | 3/3 | 3 |
+| 3-5 | ok | glide + shrooms | grotto → caps → canyon | 0.62 | 80 s | 5.25 → 6.90 | 29 (25/min) | 1.27 s | 3/3 | 3/3 | 89/120 | 3/3 | 3 |
 | 3-6 | ok | waterfall + shrooms | caps → canyon → pastel | 0.63 | 79 s | 5.28 → 6.90 | 31 (27/min) | 1.27 s | 3/3 | 3/3 | 102/132 | 3/3 | 3 |
 | 3-7 | ok | logs + planks | canyon → pastel → grotto | 0.64 | 87 s | 5.30 → 6.90 | 34 (32/min) | 1.25 s | 3/3 | 3/3 | 103/131 | 3/3 | 3 |
 | 3-8 | ok | chase + ropes | pastel → grotto → caps | 0.66 | 85 s | 5.33 → 6.90 | 36 (28/min) | 1.25 s | 3/3 | 3/3 | 107/142 | 3/3 | 3 |
@@ -63,7 +63,7 @@ previous one ended (designed difficulty 0..1).
 | 4-4 | ok | chase + ropes | drizzle → golden → ridge | 0.75 | 85 s | 5.51 → 6.90 | 35 (28/min) | 1.20 s | 3/3 | 3/3 | 110/144 | 3/3 | 3 |
 | 4-5 | ok | planks + collapse | golden → ridge → dusk | 0.77 | 80 s | 5.54 → 6.90 | 27 (26/min) | 1.20 s | 3/3 | 3/3 | 115/145 | 3/3 | 3 |
 | 4-6 | ok | wind + chase | ridge → dusk → drizzle | 0.78 | 105 s | 5.56 → 6.90 | 48 (27/min) | 1.15 s | 3/3 | 3/3 | 130/174 | 3/3 | 3 |
-| 4-7 | ok | glide + logs | dusk → drizzle → golden | 0.79 | 91 s | 5.58 → 6.90 | 33 (25/min) | 1.20 s | 3/3 | 3/3 | 122/149 | 3/3 | 3 |
+| 4-7 | ok | glide + logs | dusk → drizzle → golden | 0.79 | 92 s | 5.58 → 6.90 | 33 (25/min) | 1.20 s | 3/3 | 3/3 | 122/149 | 3/3 | 3 |
 | 4-8 | ok | ropes + shrooms | drizzle → golden → ridge | 0.80 | 92 s | 5.61 → 6.90 | 36 (29/min) | 1.20 s | 3/3 | 3/3 | 125/166 | 3/3 | 3 |
 | 4-9 | ok | collapse + shrooms | golden → ridge → dusk | 0.82 | 88 s | 5.63 → 6.90 | 35 (27/min) | 1.20 s | 3/3 | 3/3 | 147/181 | 3/3 | 3 |
 | 4-10 | ok | wind + ropes | ridge → dusk → drizzle | 0.83 | 106 s | 5.65 → 6.90 | 43 (27/min) | 1.20 s | 3/3 | 3/3 | 154/205 | 3/3 | 3 |
@@ -73,17 +73,17 @@ previous one ended (designed difficulty 0..1).
 | 5-2 | ok | ropes + chase | moon → mangrove → marsh | 0.88 | 110 s | 5.75 → 6.90 | 50 (29/min) | 1.25 s | 3/3 | 3/3 | 151/202 | 4/4 | 4 |
 | 5-3 | ok | lily + chase | mangrove → marsh → lagoon | 0.89 | 83 s | 5.77 → 6.90 | 38 (34/min) | 1.20 s | 3/3 | 3/3 | 131/166 | 2/2 | 2 |
 | 5-4 | ok | cave + waterfall | marsh → lagoon → moon | 0.90 | 119 s | 5.79 → 6.90 | 54 (27/min) | 1.20 s | 3/3 | 3/3 | 203/269 | 4/4 | 4 |
-| 5-5 | ok | logs + glide | lagoon → moon → mangrove | 0.91 | 91 s | 5.82 → 6.90 | 40 (30/min) | 1.25 s | 3/3 | 3/3 | 115/153 | 4/4 | 4 |
+| 5-5 | ok | logs + glide | lagoon → moon → mangrove | 0.91 | 91 s | 5.82 → 6.90 | 40 (30/min) | 1.25 s | 3/3 | 3/3 | 109/153 | 4/4 | 4 |
 | 5-6 | ok | lily + planks | moon → mangrove → marsh | 0.93 | 98 s | 5.84 → 6.90 | 42 (36/min) | 1.20 s | 3/3 | 3/3 | 109/155 | 4/4 | 4 |
 | 5-7 | ok | wind + logs | mangrove → marsh → lagoon | 0.94 | 98 s | 5.86 → 6.90 | 45 (31/min) | 1.13 s | 3/3 | 3/3 | 137/191 | 4/4 | 4 |
 | 5-8 | ok | chase + waterfall | marsh → lagoon → moon | 0.95 | 107 s | 5.89 → 6.90 | 48 (27/min) | 1.20 s | 3/3 | 3/3 | 151/193 | 4/4 | 4 |
 | 5-9 | ok | planks + lily | lagoon → moon → mangrove | 0.96 | 92 s | 5.91 → 6.90 | 35 (34/min) | 1.20 s | 3/3 | 3/3 | 126/162 | 4/4 | 4 |
 | 5-10 | ok | lily + waterfall | moon → mangrove → marsh | 0.98 | 91 s | 5.93 → 6.90 | 39 (32/min) | 1.20 s | 3/3 | 3/3 | 127/172 | 4/4 | 4 |
-| 5-11 | ok | glide + collapse | mangrove → marsh → lagoon | 0.99 | 98 s | 5.96 → 6.90 | 40 (24/min) | 1.20 s | 3/3 | 3/3 | 146/189 | 4/4 | 4 |
+| 5-11 | ok | glide + collapse | mangrove → marsh → lagoon | 0.99 | 94 s | 5.96 → 6.90 | 39 (25/min) | 1.20 s | 3/3 | 3/3 | 138/184 | 4/4 | 4 |
 | 5-12 | ok | ropes + shrooms | marsh → lagoon → moon | 1.00 | 90 s | 5.98 → 6.90 | 36 (29/min) | 1.25 s | 3/3 | 3/3 | 107/157 | 4/4 | 4 |
 | 1-S | ok | ropes + shrooms + chase | lake → meadow | 0.44 | 75 s | 4.86 → 6.56 | 23 (23/min) | 1.32 s | 3/3 | 3/3 | 109/137 | 3/3 | 3 |
 | 2-S | ok | cave + ropes + waterfall | falls → pines → roots | 0.59 | 93 s | 5.14 → 6.90 | 30 (22/min) | 1.27 s | 3/3 | 3/3 | 141/186 | 3/3 | 3 |
-| 3-S | ok | shrooms + glide + cave | grotto → caps → canyon | 0.74 | 93 s | 5.42 → 6.90 | 38 (27/min) | 1.27 s | 3/3 | 3/3 | 119/158 | 3/3 | 3 |
+| 3-S | ok | shrooms + glide + cave | grotto → caps → canyon | 0.74 | 94 s | 5.42 → 6.90 | 38 (27/min) | 1.27 s | 3/3 | 3/3 | 119/158 | 3/3 | 3 |
 | 4-S | ok | wind + collapse + chase | drizzle → golden → ridge | 0.88 | 107 s | 5.70 → 6.90 | 48 (27/min) | 1.15 s | 3/3 | 3/3 | 167/222 | 3/3 | 3 |
 | 5-S | ok | lily + ropes + wind | mangrove → marsh → lagoon | 1.00 | 91 s | 5.98 → 6.90 | 44 (37/min) | 1.15 s | 3/3 | 3/3 | 115/174 | 3/3 | 3 |
 | daily-0 | ok | planks + collapse | sunset → rain | 0.35 | 63 s | 4.74 → 5.82 | 16 (20/min) | 1.27 s | 3/3 | 3/3 | 92/113 | 2/3 | 2 |
@@ -93,7 +93,7 @@ previous one ended (designed difficulty 0..1).
 | daily-4 | ok | ropes + cave | moon → mangrove → marsh | 0.94 | 113 s | 5.86 → 6.90 | 51 (29/min) | 1.22 s | 3/3 | 3/3 | 164/219 | 4/4 | 4 |
 | daily-5 | ok | planks + shrooms | rain → lake | 0.35 | 68 s | 4.74 → 5.82 | 21 (26/min) | 1.30 s | 3/3 | 3/3 | 92/114 | 2/3 | 2 |
 | daily-6 | ok | ropes + shrooms | falls → pines → roots | 0.50 | 69 s | 5.02 → 6.25 | 25 (27/min) | 1.43 s | 3/3 | 3/3 | 105/130 | 2/2 | 2 |
-| daily-7 | ok | planks + glide | caps → canyon → pastel | 0.64 | 88 s | 5.30 → 6.90 | 34 (28/min) | 1.28 s | 3/3 | 3/3 | 98/133 | 3/3 | 3 |
+| daily-7 | ok | planks + glide | caps → canyon → pastel | 0.64 | 86 s | 5.30 → 6.90 | 32 (27/min) | 1.27 s | 3/3 | 3/3 | 92/122 | 3/3 | 3 |
 | daily-8 | ok | logs + collapse | ridge → dusk → drizzle | 0.79 | 83 s | 5.58 → 6.90 | 28 (24/min) | 1.20 s | 3/3 | 3/3 | 133/172 | 3/3 | 3 |
 | daily-9 | ok | planks + shrooms | moon → mangrove → marsh | 0.94 | 89 s | 5.86 → 6.90 | 36 (32/min) | 1.20 s | 3/3 | 3/3 | 120/153 | 4/4 | 4 |
 | daily-10 | ok | planks + collapse | lake → meadow | 0.35 | 65 s | 4.74 → 5.82 | 19 (22/min) | 1.60 s | 3/3 | 3/3 | 104/128 | 2/3 | 2 |
@@ -110,10 +110,10 @@ previous one ended (designed difficulty 0..1).
 | daily-21 | ok | waterfall + chase | glow → falls → pines | 0.50 | 88 s | 5.02 → 6.25 | 32 (22/min) | 1.27 s | 3/3 | 3/3 | 131/159 | 2/2 | 2 |
 | daily-22 | ok | chase + shrooms | grotto → caps → canyon | 0.64 | 104 s | 5.30 → 6.90 | 45 (28/min) | 1.27 s | 3/3 | 3/3 | 151/197 | 3/3 | 3 |
 | daily-23 | ok | waterfall + logs | golden → ridge → dusk | 0.79 | 89 s | 5.58 → 6.90 | 32 (25/min) | 1.20 s | 3/3 | 3/3 | 122/156 | 3/3 | 3 |
-| daily-24 | ok | chase + glide | lagoon → moon → mangrove | 0.94 | 110 s | 5.86 → 6.90 | 51 (28/min) | 1.20 s | 3/3 | 3/3 | 142/185 | 4/4 | 4 |
+| daily-24 | ok | chase + glide | lagoon → moon → mangrove | 0.94 | 111 s | 5.86 → 6.90 | 51 (28/min) | 1.20 s | 3/3 | 3/3 | 145/185 | 4/4 | 4 |
 | daily-25 | ok | planks + shrooms | rain → lake | 0.35 | 70 s | 4.74 → 5.82 | 23 (26/min) | 1.25 s | 3/3 | 3/3 | 107/132 | 2/3 | 2 |
-| daily-26 | ok | cave + glide | falls → pines → roots | 0.50 | 88 s | 5.02 → 6.54 | 34 (23/min) | 1.28 s | 3/3 | 3/3 | 130/178 | 2/2 | 2 |
-| daily-27 | ok | glide + planks | caps → canyon → pastel | 0.64 | 92 s | 5.30 → 6.90 | 40 (31/min) | 1.25 s | 3/3 | 3/3 | 109/136 | 3/3 | 3 |
+| daily-26 | ok | cave + glide | falls → pines → roots | 0.50 | 89 s | 5.02 → 6.54 | 34 (23/min) | 1.28 s | 3/3 | 3/3 | 130/178 | 2/2 | 2 |
+| daily-27 | ok | glide + planks | caps → canyon → pastel | 0.64 | 93 s | 5.30 → 6.90 | 40 (30/min) | 1.25 s | 3/3 | 3/3 | 110/136 | 3/3 | 3 |
 | daily-28 | ok | logs + planks | ridge → dusk → drizzle | 0.79 | 84 s | 5.58 → 6.90 | 37 (36/min) | 1.20 s | 3/3 | 3/3 | 102/136 | 3/3 | 3 |
 | daily-29 | ok | waterfall + planks | moon → mangrove → marsh | 0.94 | 96 s | 5.86 → 6.90 | 38 (29/min) | 1.12 s | 3/3 | 3/3 | 145/188 | 4/4 | 4 |
 

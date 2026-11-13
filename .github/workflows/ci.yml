@@ -64,6 +64,25 @@ jobs:
       - name: Level validator report is up to date
         run: git diff --exit-code docs/levels-report.md
 
+  deaths:
+    # no soft-lock after a lost heart: in every shipped level the bot loses a heart right after every stateful obstacle
+    # (collapsing bridges, the boar chase, ropes, lily pads / logs / planks / mushrooms, wind, glides, rolling acorns,
+    # beetles, decision points), as a death and as the rewarded "continue with 1 heart"; the sprite must be back at the
+    # right checkpoint with everything from there in its first state, and the level must still be finishable
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Death check (all levels, a heart lost after every stateful obstacle, respawn + revive; writes docs/death-check-report.md)
+        run: npm run check:deaths
+      - name: Death check report is up to date
+        run: git diff --exit-code docs/death-check-report.md
+
   playtest:
     # the full playtest: the human-limited playtester plays every level (with death probes: a fall or the crocodile
     # costs exactly one heart), then every level is played once more in the real web build on a desktop viewport

@@ -22,7 +22,7 @@ import { serve } from './serve.mjs';
 
 const args = process.argv.slice(2);
 const opt = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
-const zip = resolve(args[0] && !args[0].startsWith('--') ? args[0] : `submission-web/${game.slug}-web-v5.zip`);
+const zip = resolve(args[0] && !args[0].startsWith('--') ? args[0] : `submission-web/${game.slug}-web-v6.zip`);
 const shots = opt('--shots');
 const SIZES = (opt('--sizes') ?? '640x480,960x600,1280x720,390x844').split(',').map((s) => s.split('x').map(Number));
 const BANNED = ['crazygames', 'gamedistribution', 'gamepix', 'googlesyndication'];
