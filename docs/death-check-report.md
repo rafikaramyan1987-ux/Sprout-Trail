@@ -8,8 +8,102 @@ right checkpoint, every stateful obstacle from there on must be in its original 
 starting again behind the sprite, lily pads / logs risen, no rope held), and the bot must still finish the level
 from there with the boar never in front of the sprite and no further death.
 
-**1 levels, 50 death checks: all passed.**
+**95 levels, 2684 death checks: all passed.**
 
 | World / level | Stateful obstacles | Death checks | Result |
 | --- | --- | --- | --- |
+| 1 / 1 | plank | 2/2 | passed |
+| 1 / 2 | shroom, decision point (bridge) | 4/4 | passed |
+| 1 / 3 | rope, beetle, decision point (vine), decision point (mushroom) | 14/14 | passed |
+| 1 / 4 | collapsing bridge, log, beetle, decision point (mushroom), decision point (vine) | 12/12 | passed |
+| 1 / 5 | collapsing bridge, shroom, beetle, decision point (vine), decision point (bridge) | 12/12 | passed |
+| 1 / 6 | dandelion glide, log, beetle, decision point (mushroom), decision point (vine) | 18/18 | passed |
+| 1 / 7 | boar chase, rope, beetle, decision point (bridge), decision point (vine) | 22/22 | passed |
+| 1 / 8 | dandelion glide, plank, beetle, decision point (bridge), decision point (vine) | 12/12 | passed |
+| 1 / 9 | boar chase, rope, beetle, decision point (bridge) | 20/20 | passed |
+| 1 / 10 | dandelion glide, shroom, beetle, decision point (bridge), decision point (vine) | 14/14 | passed |
+| 1 / 11 | log, plank, beetle, decision point (bridge) | 12/12 | passed |
+| 1 / 12 | boar chase, rope, beetle, decision point (vine), decision point (bridge) | 36/36 | passed |
+| 2 / 1 | decision point (leaf), decision point (mushroom) | 4/4 | passed |
+| 2 / 2 | shroom, beetle, decision point (leaf), decision point (mushroom) | 8/8 | passed |
+| 2 / 3 | plank (sinking), shroom, beetle, decision point (mushroom), decision point (bridge) | 10/10 | passed |
+| 2 / 4 | boar chase, rope, beetle, decision point (leaf), decision point (mushroom) | 20/20 | passed |
+| 2 / 5 | boar chase, shroom, beetle, decision point (leaf), decision point (vine) | 18/18 | passed |
+| 2 / 6 | collapsing bridge, beetle, decision point (leaf), decision point (bridge) | 10/10 | passed |
+| 2 / 7 | dandelion glide, rope, beetle, decision point (leaf), decision point (mushroom) | 14/14 | passed |
+| 2 / 8 | log, beetle, decision point (vine), decision point (mushroom) | 12/12 | passed |
+| 2 / 9 | boar chase, beetle, decision point (vine), decision point (bridge) | 16/16 | passed |
+| 2 / 10 | collapsing bridge, plank (sinking), beetle, decision point (vine), decision point (bridge) | 14/14 | passed |
+| 2 / 11 | dandelion glide, shroom, beetle, decision point (leaf), decision point (vine) | 12/12 | passed |
+| 2 / 12 | log, rope, beetle, decision point (vine), decision point (bridge) | 18/18 | passed |
+| 3 / 1 | shroom, log, beetle, decision point (bridge), decision point (tree), decision point (vine) | 28/28 | passed |
+| 3 / 2 | plank (sinking), beetle, decision point (tree), decision point (leaf) | 40/40 | passed |
+| 3 / 3 | dandelion glide, rope, beetle, decision point (leaf) | 38/38 | passed |
+| 3 / 4 | collapsing bridge, plank (sinking), beetle, decision point (tree), decision point (vine), decision point (leaf) | 38/38 | passed |
+| 3 / 5 | dandelion glide, shroom, beetle, decision point (bridge), decision point (mushroom), decision point (tree) | 22/22 | passed |
+| 3 / 6 | shroom, beetle, decision point (leaf), decision point (mushroom), decision point (bridge) | 22/22 | passed |
+| 3 / 7 | log, plank (sinking), beetle, decision point (tree), decision point (leaf), decision point (vine) | 32/32 | passed |
+| 3 / 8 | boar chase, rope, beetle, decision point (leaf), decision point (mushroom), decision point (vine) | 50/50 | passed |
+| 3 / 9 | shroom, log, beetle, decision point (tree), decision point (leaf) | 48/48 | passed |
+| 3 / 10 | collapsing bridge, boar chase, beetle, decision point (leaf), decision point (bridge), decision point (tree) | 54/54 | passed |
+| 3 / 11 | shroom, beetle, decision point (leaf), decision point (tree) | 52/52 | passed |
+| 3 / 12 | plank (sinking), rope, beetle, decision point (leaf), decision point (mushroom), decision point (tree) | 40/40 | passed |
+| 4 / 1 | wind gusts, boar chase, rolling acorn, beetle, decision point (log), decision point (leaf), decision point (mushroom) | 40/40 | passed |
+| 4 / 2 | log, rope, rolling acorn, beetle, decision point (log), decision point (mushroom) | 38/38 | passed |
+| 4 / 3 | wind gusts, collapsing bridge, rolling acorn, beetle, decision point (mushroom), decision point (bridge) | 40/40 | passed |
+| 4 / 4 | boar chase, rope, beetle, rolling acorn, decision point (leaf), decision point (log), decision point (vine) | 38/38 | passed |
+| 4 / 5 | collapsing bridge, plank (sinking), beetle, rolling acorn, decision point (mushroom), decision point (leaf), decision point (bridge) | 34/34 | passed |
+| 4 / 6 | wind gusts, boar chase, beetle, rolling acorn, decision point (leaf), decision point (vine), decision point (mushroom) | 56/56 | passed |
+| 4 / 7 | dandelion glide, log, rolling acorn, beetle, decision point (mushroom), decision point (leaf), decision point (bridge) | 48/48 | passed |
+| 4 / 8 | shroom, rope, rolling acorn, beetle, decision point (log), decision point (mushroom) | 30/30 | passed |
+| 4 / 9 | collapsing bridge, shroom, rolling acorn, beetle, decision point (mushroom), decision point (log) | 22/22 | passed |
+| 4 / 10 | wind gusts, rope, beetle, rolling acorn, decision point (mushroom), decision point (bridge), decision point (vine) | 44/44 | passed |
+| 4 / 11 | log, rolling acorn, decision point (log), decision point (mushroom) | 18/18 | passed |
+| 4 / 12 | boar chase, collapsing bridge, beetle, rolling acorn, decision point (log), decision point (mushroom), decision point (leaf) | 48/48 | passed |
+| 5 / 1 | lily (sinking), stone, rope, beetle, decision point (vine), decision point (mushroom) | 54/54 | passed |
+| 5 / 2 | boar chase, rope, beetle, decision point (leaf), decision point (bridge), decision point (log) | 50/50 | passed |
+| 5 / 3 | boar chase, lily (sinking), stone, beetle, rolling acorn, decision point (mushroom), decision point (leaf) | 44/44 | passed |
+| 5 / 4 | beetle, rolling acorn, decision point (log), decision point (vine), decision point (leaf), decision point (bridge) | 28/28 | passed |
+| 5 / 5 | dandelion glide, log, beetle, decision point (bridge), decision point (leaf), decision point (log), decision point (vine) | 36/36 | passed |
+| 5 / 6 | lily (sinking), stone, plank (sinking), beetle, rolling acorn, decision point (tree), decision point (log), decision point (bridge) | 38/38 | passed |
+| 5 / 7 | wind gusts, log, rolling acorn, beetle, decision point (bridge), decision point (mushroom), decision point (leaf) | 30/30 | passed |
+| 5 / 8 | boar chase, rolling acorn, beetle, decision point (vine), decision point (tree), decision point (mushroom), decision point (leaf) | 42/42 | passed |
+| 5 / 9 | plank (sinking), lily (sinking), stone, beetle, rolling acorn, decision point (leaf), decision point (bridge), decision point (tree), decision point (log) | 46/46 | passed |
+| 5 / 10 | lily (sinking), stone, rolling acorn, beetle, decision point (tree), decision point (mushroom), decision point (log), decision point (leaf) | 34/34 | passed |
+| 5 / 11 | dandelion glide, collapsing bridge, beetle, rolling acorn, decision point (bridge), decision point (log), decision point (mushroom) | 32/32 | passed |
+| 5 / 12 | shroom, rope, beetle, decision point (log), decision point (bridge), decision point (vine), decision point (leaf) | 24/24 | passed |
+| 1 / Golden Grove | boar chase, shroom, rope, beetle, decision point (bridge), decision point (vine), decision point (mushroom) | 22/22 | passed |
+| 2 / Golden Grove | rope, beetle, decision point (vine), decision point (leaf), decision point (bridge) | 12/12 | passed |
+| 3 / Golden Grove | dandelion glide, shroom, beetle, decision point (leaf), decision point (tree), decision point (bridge) | 34/34 | passed |
+| 4 / Golden Grove | boar chase, wind gusts, collapsing bridge, rolling acorn, beetle, decision point (mushroom), decision point (bridge), decision point (leaf) | 50/50 | passed |
+| 5 / Golden Grove | wind gusts, lily (sinking), stone, rope, beetle, rolling acorn, decision point (vine), decision point (bridge) | 52/52 | passed |
+| daily (daily-0) | collapsing bridge, plank, beetle, decision point (mushroom), decision point (vine) | 14/14 | passed |
+| daily (daily-1) | log, rope, beetle, decision point (mushroom), decision point (bridge) | 12/12 | passed |
+| daily (daily-2) | boar chase, shroom, beetle, decision point (leaf), decision point (mushroom) | 48/48 | passed |
+| daily (daily-3) | boar chase, beetle, rolling acorn, decision point (log), decision point (mushroom) | 34/34 | passed |
+| daily (daily-4) | rope, beetle, rolling acorn, decision point (bridge), decision point (log), decision point (mushroom), decision point (vine) | 40/40 | passed |
+| daily (daily-5) | plank, shroom, beetle, decision point (vine), decision point (bridge) | 14/14 | passed |
+| daily (daily-6) | shroom, rope, beetle, decision point (mushroom), decision point (vine) | 14/14 | passed |
+| daily (daily-7) | dandelion glide, plank (sinking), beetle, decision point (leaf), decision point (vine), decision point (tree) | 40/40 | passed |
+| daily (daily-8) | collapsing bridge, log, rolling acorn, decision point (mushroom), decision point (bridge), decision point (vine) | 22/22 | passed |
+| daily (daily-9) | plank (sinking), shroom, beetle, rolling acorn, decision point (bridge), decision point (leaf), decision point (mushroom), decision point (log) | 28/28 | passed |
+| daily (daily-10) | collapsing bridge, plank, beetle, decision point (vine), decision point (bridge) | 12/12 | passed |
+| daily (daily-11) | shroom, plank (sinking), decision point (vine), decision point (mushroom) | 8/8 | passed |
+| daily (daily-12) | log, beetle, decision point (bridge), decision point (leaf), decision point (tree) | 24/24 | passed |
+| daily (daily-13) | plank (sinking), rolling acorn, beetle, decision point (bridge), decision point (mushroom) | 30/30 | passed |
+| daily (daily-14) | boar chase, rope, rolling acorn, beetle, decision point (leaf), decision point (bridge), decision point (mushroom) | 34/34 | passed |
+| daily (daily-15) | plank, shroom, beetle, decision point (bridge) | 14/14 | passed |
+| daily (daily-16) | plank (sinking), beetle, decision point (leaf), decision point (vine) | 16/16 | passed |
+| daily (daily-17) | rope, beetle, decision point (tree), decision point (mushroom), decision point (leaf) | 30/30 | passed |
+| daily (daily-18) | log, rolling acorn, beetle, decision point (log), decision point (mushroom), decision point (bridge) | 44/44 | passed |
+| daily (daily-19) | collapsing bridge, plank (sinking), beetle, rolling acorn, decision point (mushroom), decision point (bridge) | 28/28 | passed |
+| daily (daily-20) | collapsing bridge, plank, beetle, decision point (bridge) | 12/12 | passed |
+| daily (daily-21) | boar chase, beetle, decision point (leaf), decision point (vine) | 20/20 | passed |
+| daily (daily-22) | boar chase, shroom, beetle, decision point (leaf), decision point (tree) | 32/32 | passed |
+| daily (daily-23) | log, rolling acorn, beetle, decision point (mushroom), decision point (log), decision point (leaf) | 28/28 | passed |
 | daily (daily-24) | boar chase, dandelion glide, beetle, rolling acorn, decision point (leaf), decision point (vine), decision point (bridge) | 50/50 | passed |
+| daily (daily-25) | plank, shroom, beetle, decision point (vine), decision point (mushroom) | 16/16 | passed |
+| daily (daily-26) | dandelion glide, beetle, decision point (mushroom), decision point (leaf) | 12/12 | passed |
+| daily (daily-27) | dandelion glide, plank (sinking), beetle, decision point (bridge), decision point (tree), decision point (leaf) | 50/50 | passed |
+| daily (daily-28) | log, plank (sinking), beetle, rolling acorn, decision point (bridge), decision point (tree), decision point (mushroom) | 48/48 | passed |
+| daily (daily-29) | plank (sinking), beetle, rolling acorn, decision point (leaf), decision point (mushroom), decision point (log), decision point (bridge) | 28/28 | passed |
