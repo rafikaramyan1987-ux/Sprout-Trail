@@ -171,3 +171,40 @@ test('a touch jumps on the very next frame (no waiting to see whether it becomes
   if (cdp) await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   else await page.mouse.up();
 });
+
+test('Bug 4: the gems of the first level started from the title are drawn (not culled), and everything else too', async ({ page }) => {
+  const errors = await open(page);
+  type G = { audit(): string[]; gemsInView(): number; tick(dt: number, r: boolean): void };
+  const g = (fn: (g: G) => unknown) => page.evaluate(fn as never);
+  await page.locator('#title [data-act=play]').click();
+  expect((await state(page))!.screen).toBe('play');
+  // run until gems are in view, drawing every frame like the real loop; at each step nothing may be hidden or culled
+  let inView = 0;
+  for (let i = 0; i < 40 && !inView; i++) {
+    await tick(page, 0.25);
+    inView = (await g(() => (window as unknown as { __game: G }).__game.gemsInView())) as number;
+    expect(await g(() => (window as unknown as { __game: G }).__game.audit())).toEqual([]);
+  }
+  expect(inView).toBeGreaterThan(0);
+  expect(await g(() => (window as unknown as { __game: G }).__game.audit())).toEqual([]);
+  // and far from the origin, where bounds computed at the start no longer reach (gems, pollen, scenery)
+  // on down the trail: at a decision point, pick the answer card
+  for (let i = 0; i < 80 && (await state(page))!.x < 60; i++) {
+    const answer = await page.evaluate(() => {
+      const g = (window as unknown as { __game: { sim(): { mode: string; dp: number }; level(): { dps: { answer: string }[] } } }).__game;
+      return g.sim().mode === 'decide' ? g.level().dps[g.sim().dp].answer : null;
+    });
+    if (answer) await page.locator(`#dp .card[data-plant="${answer}"]`).click({ force: true });
+    else {
+      // jump over whatever stops the sprite (the tutorial's first obstacles need a jump)
+      await page.evaluate(() => {
+        const g = (window as unknown as { __game: { sim(): { buffer: number } } }).__game;
+        g.sim().buffer = 0.2;
+      });
+    }
+    await tick(page, 0.5);
+  }
+  expect((await state(page))!.x).toBeGreaterThan(50);
+  expect(await g(() => (window as unknown as { __game: G }).__game.audit())).toEqual([]);
+  expect(errors).toEqual([]);
+});

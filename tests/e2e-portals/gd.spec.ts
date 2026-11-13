@@ -5,7 +5,7 @@ import { boot, lose, OTHER_PORTALS, screen, sim, state } from './common';
 
 declare global {
   interface Window {
-    __gd?: { calls: string[]; hold: boolean; reward: 'complete' | 'skip'; finish?: () => void };
+    __gd?: { calls: string[]; hold: boolean; reward: 'complete' | 'skip'; latePause?: boolean; finish?: () => void };
   }
 }
 
@@ -21,6 +21,8 @@ const STUB = `(() => {
         g.finish = () => {
           if (type === 'rewarded' && g.reward === 'complete') ev('SDK_REWARDED_WATCH_COMPLETE');
           ev('SDK_GAME_START');
+          // a misbehaving SDK: one more pause right after the ad ended, and no start after it
+          if (g.latePause) ev('SDK_GAME_PAUSE');
           res();
         };
         if (!g.hold) setTimeout(g.finish, 300);
@@ -80,5 +82,29 @@ test('GameDistribution: rewarded "continue with 1 heart" only after SDK_REWARDED
   await btn.click();
   await expect.poll(() => screen(page), { timeout: 5000 }).toBe('play');
   expect((await state(page)).hearts).toBe(1);
+  expect(errors).toEqual([]);
+});
+
+test('safety net: an SDK pause left on after the ad opens the pause menu (no silent frozen screen); Resume plays on', async ({ page }) => {
+  const { errors } = await boot(page, GD_SDK, STUB);
+  await page.locator('#title [data-act=play]').click();
+  await expect.poll(() => screen(page), { timeout: 10_000 }).toBe('play');
+  await sim(page, 1);
+  await lose(page);
+  await page.evaluate(() => (window.__gd!.latePause = true));
+  await page.locator('#end [data-ad=heart]').click();
+  // the heart is granted, but the SDK still holds the game paused: the pause menu is shown instead of a frozen level
+  await expect(page.locator('#pause [data-act=resume]')).toBeVisible({ timeout: 5000 });
+  expect(await screen(page)).toBe('pause');
+  expect((await state(page)).hearts).toBe(1);
+  await page.locator('#pause [data-act=resume]').click();
+  const x0 = (await state(page)).x;
+  await page.evaluate(() => {
+    for (let i = 0; i < 60; i++) window.__game.frame(1 / 60);
+  });
+  const s = await state(page);
+  expect(await screen(page)).toBe('play');
+  expect(s.paused).toBe(false);
+  expect(s.x).toBeGreaterThan(x0 + 1);
   expect(errors).toEqual([]);
 });

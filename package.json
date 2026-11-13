@@ -1,7 +1,7 @@
 {
   "name": "sprout-trail",
   "private": true,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "module",
   "description": "Sprout Trail - a cozy 2.5D forest platformer with plant-choice puzzles, playable with one finger",
   "scripts": {
@@ -21,6 +21,7 @@
     "test:e2e": "playwright test --trace off",
     "assets": "node scripts/assets.mjs",
     "validate:levels": "tsx scripts/validate-levels.ts",
+    "check:deaths": "tsx scripts/death-check.ts",
     "playtest": "tsx scripts/playtest.ts",
     "playtest:browser": "tsx scripts/playtest-browser.ts",
     "playtest:report": "tsx scripts/playtest-report.ts",

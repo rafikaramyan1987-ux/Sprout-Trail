@@ -368,8 +368,13 @@ export function gustOn(z: Level['zones'][number], et: number) {
   return ((et * P.DT + (z.phase ?? 0)) % per) < per * (z.duty ?? 0.5);
 }
 
-/** back to the last checkpoint (falls, crocodile) */
-function respawn(s: SimState) {
+/**
+ * Back to the last checkpoint (every death, and the rewarded "continue with 1 heart"). Everything the sprite carried
+ * is dropped (rope, flight, glide, ride on a mover), and every stateful obstacle from the checkpoint on is put back
+ * the way it was the first time (`restoreAhead`), so the stretch the sprite died in can be played again exactly as
+ * before: no soft-lock, nothing in a wrong place.
+ */
+function respawn(level: Level, s: SimState) {
   s.x = s.cpX;
   s.y = s.cpY;
   s.vx = s.vy = 0;
@@ -378,9 +383,55 @@ function respawn(s: SimState) {
   s.ducking = false;
   s.duckT = 0;
   s.rope = -1;
+  s.ropeCool = 0;
   s.flyVX = 0;
   s.on = -1;
   s.gliding = false;
+  s.holding = false;
+  s.climbing = false;
+  s.bounced = false;
+  s.knockT = 0;
+  s.buffer = 0;
+  s.coyote = 0;
+  restoreAhead(level, s);
+}
+
+/**
+ * Stateful obstacles from the checkpoint on, back to their first state:
+ * - collapsing bridges that end after the checkpoint: whole again (they collapse again when crossed)
+ * - the boar chase, unless its fence is behind the checkpoint: starts again behind the sprite
+ * - sinking lily pads / logs and bouncy mushrooms ahead: risen, not sunk
+ * - rolling acorns that start a full view ahead: waiting again (an acorn closer than that, or one that already
+ *   rolled past, stays as it is: it would otherwise start rolling without the 1 s warning)
+ * - beetles stomped further ahead than the checkpoint: back (they patrol on the world clock as before)
+ * Pickups stay collected (they never block the way), and solved decision points stay solved: a checkpoint is always
+ * at or after the exit of the last solved one, so their plants are behind it.
+ */
+export function restoreAhead(level: Level, s: SimState) {
+  const cx = s.cpX;
+  level.zones.forEach((z, i) => {
+    if (z.kind === 'collapse' && z.x1 > cx) s.zoneX[i] = -1e9;
+    if (z.kind === 'chase' && z.x1 - 1.2 > cx) {
+      s.boarX = NaN;
+      s.boarDone = false;
+    }
+  });
+  level.movers.forEach((m, i) => {
+    if (m.x1 + m.amp > cx) {
+      s.moverT[i] = 0;
+      s.moverD[i] = 0;
+    }
+  });
+  const view = P.viewAhead(s.speed);
+  level.enemies.forEach((e, i) => {
+    const lo = Math.min(e.x0, e.x1);
+    if (e.kind === 'roller') {
+      if (e.x0 - cx > view) {
+        s.rollAt[i] = -1;
+        s.enemyDead[i] = 0;
+      }
+    } else if (lo > cx + 2) s.enemyDead[i] = 0;
+  });
 }
 
 /**
@@ -388,7 +439,7 @@ function respawn(s: SimState) {
  * crocodile) goes through here: exactly one heart, then back to the last checkpoint. A heart lost to a hit that
  * knocked the sprite into the pit already paid for it. The last heart loses the level.
  */
-function die(s: SimState, reason: DeathReason) {
+function die(level: Level, s: SimState, reason: DeathReason) {
   s.deathX = s.x;
   s.deathY = s.y;
   s.events.push(reason, 'die');
@@ -401,9 +452,7 @@ function die(s: SimState, reason: DeathReason) {
     s.events.push('lose');
     return;
   }
-  respawn(s);
-  s.knockT = 0;
-  s.holding = false;
+  respawn(level, s);
   s.invuln = Math.max(s.invuln, 1.2);
   s.events.push('respawn');
 }
@@ -789,10 +838,14 @@ function afterMove(
           s.boarX = z.x1 - 1.2;
           s.boarDone = true;
           s.events.push('boarStop');
-        } else if (Math.abs(s.boarX - s.x) < 0.9 && s.y < (z.y ?? 0) + 0.9 && s.mode === 'run') {
+        } else if (Math.abs(s.boarX - s.x) < 0.9 && s.y < (z.y ?? 0) + 0.9 && s.mode === 'run' && s.invuln <= 0) {
           hit(s);
-          s.boarX -= 4;
+          // knocked back: the boar falls back too, and always stays behind the sprite
+          s.boarX = Math.min(s.boarX, s.x) - 4;
         }
+        // the boar never overtakes the sprite (invulnerable after a hit, or slowing down for a decision point):
+        // it stays right on its heels
+        if (!s.boarDone) s.boarX = Math.min(s.boarX, s.x - 0.5);
       }
     }
   }
@@ -868,12 +921,12 @@ function afterMove(
   // the crocodile's lake: a heart, back to the last checkpoint
   if (!crossing && s.mode === 'run') {
     const w = level.water.find((q) => q.croc && s.x >= q.x0 && s.x <= q.x1);
-    if (w && s.y < w.y - 0.3) return die(s, 'croc');
+    if (w && s.y < w.y - 0.3) return die(level, s, 'croc');
   }
   // fell
   if (s.y < level.killY) {
     if (crossing) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
-    return die(s, 'fall');
+    return die(level, s, 'fall');
   }
   // crossing: falling into the river / gap counts before reaching killY
   if (crossing && dp && s.y < dp.y - (dp.drop ?? 0) - 1.6) return startFail(s, overWater(level, s.x) ? 'splash' : 'fall');
@@ -936,21 +989,15 @@ export function stars(level: Level, s: SimState) {
   return 1 + (s.acorns >= 3 ? 1 : 0) + (s.seeds >= level.seeds - level.dps.length ? 1 : 0);
 }
 
-/** "Watch an ad: continue with 1 heart": back to the last checkpoint with one heart */
-export function revive(s: SimState) {
+/** "Watch an ad: continue with 1 heart": back to the last checkpoint with one heart, the stretch ahead restored */
+export function revive(level: Level, s: SimState) {
   if (s.mode !== 'lost') return;
   s.hearts = 1;
   s.mode = 'run';
   s.modeT = 0;
-  s.x = s.cpX;
-  s.y = s.cpY;
-  s.vx = s.vy = 0;
-  s.grounded = true;
-  s.invuln = 2;
-  s.knockT = 0;
   s.hurtAir = false;
-  s.ducking = false;
-  s.duckT = 0;
+  respawn(level, s);
+  s.invuln = 2;
 }
 
 /** "Watch an ad: +2 seeds" */

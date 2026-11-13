@@ -12,7 +12,7 @@ import game from './game.mjs';
 import { serve } from './serve.mjs';
 
 const args = process.argv.slice(2);
-const zip = resolve(args[0] && !args[0].startsWith('--') ? args[0] : `submission-web/${game.slug}-web-v5.zip`);
+const zip = resolve(args[0] && !args[0].startsWith('--') ? args[0] : `submission-web/${game.slug}-web-v6.zip`);
 const only = args.includes('--only') ? args[args.indexOf('--only') + 1].split(',') : ['cover', 'icon', 'shots'];
 const out = 'submission-web';
 mkdirSync(out, { recursive: true });

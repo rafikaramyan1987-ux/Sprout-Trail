@@ -157,6 +157,11 @@ export class CrazyGamesPlatform implements Platform {
     });
   }
 
+  /** the pause menu's Resume: no ad of ours open → nothing may keep the game paused */
+  clearPauses() {
+    if (!this.busy) this.onAdPause(false);
+  }
+
   /** CrazyGames: midgame ads only in the between-jobs slot (Next / Retry / skip) */
   adSlot(slot: AdSlot) {
     return slot === 'between';

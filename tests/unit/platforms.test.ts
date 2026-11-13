@@ -212,4 +212,141 @@ describe('Playgama', () => {
     expect(pg.adSlot('preroll')).toBe(false);
     expect(pg.available).toBe(false);
   });
+
+  /** Bridge with event listeners the test fires: PAUSE / AUDIO / ad states, rewarded ads supported */
+  function liveBridge() {
+    const on: Record<string, ((v: unknown) => void)[]> = {};
+    const add = (e: string, fn: (v: unknown) => void) => (on[e] ??= []).push(fn);
+    const fire = (e: string, v: unknown) => (on[e] ?? []).forEach((f) => f(v));
+    const docOn: Record<string, (() => void)[]> = {};
+    const doc = { addEventListener: (t: string, fn: () => void) => (docOn[t] ??= []).push(fn), documentElement: { style: { setProperty: () => {} } }, hidden: false };
+    const b = {
+      initialize: async () => {},
+      EVENT_NAME: { INTERSTITIAL_STATE_CHANGED: 'i', REWARDED_STATE_CHANGED: 'r', AUDIO_STATE_CHANGED: 'a', PAUSE_STATE_CHANGED: 'p' },
+      platform: { id: 'playgama', language: 'en', isAudioEnabled: true, sendMessage: () => Promise.resolve(), on: add },
+      advertisement: { isInterstitialSupported: true, isRewardedSupported: true, showInterstitial: () => {}, showRewarded: () => {}, on: add },
+      storage: { get: async () => [null], set: async () => {} },
+    } as unknown as BridgeSdk;
+    vi.stubGlobal('window', { bridge: b, __playgamaBridgeInit: Promise.resolve(null) });
+    vi.stubGlobal('document', doc);
+    const setHidden = (h: boolean) => {
+      doc.hidden = h;
+      (docOn.visibilitychange ?? []).forEach((f) => f());
+    };
+    return { fire, setHidden };
+  }
+  async function liveGame() {
+    const br = liveBridge();
+    const pg = new PlaygamaPlatform();
+    const log: string[] = [];
+    pg.onAdPause = (p) => log.push(p ? 'pause' : 'resume');
+    pg.onMute = (m) => log.push(m ? 'mute' : 'unmute');
+    await pg.init();
+    pg.gameReady();
+    pg.gameplayStart();
+    pg.levelEnd(false);
+    pg.gameplayStop();
+    const g = pg as unknown as { paused: boolean };
+    return { ...br, pg, log, paused: () => g.paused };
+  }
+
+  it('(a) Bridge pauses during a rewarded ad and never sends pause false: the game runs right after the ad', async () => {
+    const { pg, fire, paused } = await liveGame();
+    let ok: boolean | null = null;
+    void pg.rewarded().then((v) => (ok = v));
+    fire('r', 'opened');
+    fire('p', true);
+    fire('r', 'rewarded');
+    fire('r', 'closed');
+    await vi.advanceTimersByTimeAsync(0);
+    expect(ok).toBe(true);
+    expect(paused()).toBe(false);
+    expect(pg.muted).toBe(false);
+  });
+
+  it('(a) the real Playgama order "open, close, rewarded": reward granted, and Bridge\'s late pause / audio off after it are ignored', async () => {
+    const { pg, fire, paused } = await liveGame();
+    let ok: boolean | null = null;
+    void pg.rewarded().then((v) => (ok = v));
+    fire('r', 'opened');
+    fire('p', true);
+    fire('a', false);
+    fire('r', 'closed');
+    fire('p', false);
+    fire('a', true);
+    fire('r', 'rewarded'); // Bridge: the rewarded aggregate goes back to true…
+    fire('p', true); // …and stays there: no pause false follows
+    fire('a', false);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(ok).toBe(true);
+    expect(paused()).toBe(false);
+    expect(pg.muted).toBe(false);
+  });
+
+  it('(a) an interstitial with a pause that never ends: the game runs right after it', async () => {
+    const { pg, fire, paused } = await liveGame();
+    let done = false;
+    void pg.midgame('between').then(() => (done = true));
+    fire('i', 'opened');
+    fire('p', true);
+    fire('i', 'closed');
+    await vi.advanceTimersByTimeAsync(0);
+    expect(done).toBe(true);
+    expect(paused()).toBe(false);
+  });
+
+  it('(b) the pause false arrives 5 s late: the game already runs; the late event changes nothing', async () => {
+    const { pg, fire, paused, log } = await liveGame();
+    void pg.rewarded();
+    fire('r', 'opened');
+    fire('p', true);
+    fire('r', 'rewarded');
+    fire('r', 'closed');
+    await vi.advanceTimersByTimeAsync(0);
+    expect(paused()).toBe(false);
+    const n = log.length;
+    await vi.advanceTimersByTimeAsync(5000);
+    fire('p', false);
+    expect(paused()).toBe(false);
+    expect(log.length).toBe(n);
+  });
+
+  it('(c) the ad fails: no reward, the game runs', async () => {
+    const { pg, fire, paused } = await liveGame();
+    let ok: boolean | null = null;
+    void pg.rewarded().then((v) => (ok = v));
+    fire('r', 'opened');
+    fire('p', true);
+    fire('r', 'failed');
+    await vi.advanceTimersByTimeAsync(0);
+    expect(ok).toBe(false);
+    expect(paused()).toBe(false);
+  });
+
+  it('(d) the tab is hidden during the ad: still paused after it; resumes when the tab is visible again', async () => {
+    const { pg, fire, paused, setHidden } = await liveGame();
+    void pg.rewarded();
+    fire('r', 'opened');
+    fire('p', true);
+    setHidden(true);
+    fire('r', 'rewarded');
+    fire('r', 'closed');
+    await vi.advanceTimersByTimeAsync(0);
+    expect(paused()).toBe(true);
+    setHidden(false);
+    expect(paused()).toBe(false);
+  });
+
+  it('a platform pause outside ads still pauses; Resume (clearPauses) clears it but keeps a hidden page paused', async () => {
+    const { pg, fire, paused, setHidden } = await liveGame();
+    await vi.advanceTimersByTimeAsync(3000);
+    fire('p', true);
+    expect(paused()).toBe(true);
+    pg.clearPauses();
+    expect(paused()).toBe(false);
+    setHidden(true);
+    fire('p', true);
+    pg.clearPauses();
+    expect(paused()).toBe(true);
+  });
 });

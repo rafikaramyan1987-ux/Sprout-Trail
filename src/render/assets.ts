@@ -135,6 +135,7 @@ export function instanced(name: string, mats: THREE.Matrix4[], shadows = true, t
       mat = c;
     }
     const im = new THREE.InstancedMesh(m.geometry, mat, mats.length);
+    im.name = name;
     const tmp = new THREE.Matrix4();
     mats.forEach((w, i) => im.setMatrixAt(i, tmp.multiplyMatrices(w, local)));
     im.castShadow = shadows;

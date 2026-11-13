@@ -91,6 +91,45 @@ export interface WorldView {
   /** pickup index → gem instance index */
   update(s: SimState, t: number, dt: number): void;
   hidePickup(i: number): void;
+  /**
+   * Is everything that should be seen really drawn? Problems found (empty = all fine): a gem / acorn / enemy /
+   * checkpoint / goal that is hidden or not in the scene, and any InstancedMesh with an instance outside the bounding
+   * sphere three.js culls it by (it computes that sphere once and keeps it), so that instance would never be drawn.
+   */
+  audit(s: SimState): string[];
+}
+
+/** instances of an InstancedMesh that lie outside the bounding sphere three.js culls it by (it is never drawn) */
+export function culledInstances(im: THREE.InstancedMesh): number[] {
+  if (im.count === 0) return [];
+  // the sphere three.js uses: computed at the first frustum check, then kept (computing it here is what it would do)
+  if (im.boundingSphere === null) im.computeBoundingSphere();
+  const sph = im.boundingSphere!;
+  if (!im.geometry.boundingSphere) im.geometry.computeBoundingSphere();
+  const geo = im.geometry.boundingSphere!;
+  const m = new THREE.Matrix4();
+  const c = new THREE.Vector3();
+  const sc = new THREE.Vector3();
+  const out: number[] = [];
+  for (let i = 0; i < im.count; i++) {
+    im.getMatrixAt(i, m);
+    sc.setFromMatrixScale(m);
+    const s = Math.max(sc.x, sc.y, sc.z);
+    if (s === 0) continue; // hidden on purpose
+    // this instance's own bounds: at least half of it must be inside the mesh's culling sphere
+    c.copy(geo.center).applyMatrix4(m);
+    if (c.distanceTo(sph.center) > sph.radius - geo.radius * s * 0.5 + 1e-3) out.push(i);
+  }
+  return out;
+}
+
+/** shown, all the way up to the scene */
+function shownIn(o: THREE.Object3D, root: THREE.Object3D) {
+  for (let q: THREE.Object3D | null = o; q; q = q.parent) {
+    if (!q.visible) return false;
+    if (q === root) return true;
+  }
+  return false;
 }
 
 export function buildWorld(level: Level): WorldView {
@@ -242,7 +281,10 @@ export function buildWorld(level: Level): WorldView {
       }
     }
     const im = new THREE.InstancedMesh(coneG, thornTip, tips.length);
+    im.name = 'thorn tips';
     tips.forEach((m, i) => im.setMatrixAt(i, m));
+    // bounds from the real tips (never from the identity matrices of a fresh InstancedMesh)
+    im.computeBoundingSphere();
     root.add(im);
   }
 
@@ -328,6 +370,20 @@ export function buildWorld(level: Level): WorldView {
   const gemList = level.pickups.map((p, i) => ({ p, i })).filter((q) => q.p.kind === 'gem');
   const gems = new THREE.InstancedMesh(gemGeo, gemMat, Math.max(1, gemList.length));
   gems.castShadow = true;
+  gems.name = 'gems';
+  // every gem in its place from the start, and the bounding sphere computed from those places: three.js computes an
+  // InstancedMesh's bounding sphere once, at its first frustum check, from the instance matrices of that moment, and
+  // keeps it. The title screen draws the level before its first update(): with the matrices still at the identity,
+  // the sphere sat at the origin and every gem was culled for the whole level once the camera moved on.
+  {
+    const m = new THREE.Matrix4();
+    gemList.forEach((q, k) => gems.setMatrixAt(k, m.makeTranslation(q.p.x, q.p.y, 0)));
+    if (!gemList.length) gems.setMatrixAt(0, m.makeScale(0, 0, 0));
+    gems.instanceMatrix.needsUpdate = true;
+    gems.computeBoundingSphere();
+    // room for the bobbing (update() moves each gem up to 0.06 up / down)
+    gems.boundingSphere!.radius += 0.2;
+  }
   const gemIndex: number[] = new Array(level.pickups.length).fill(-1);
   gemList.forEach((q, k) => (gemIndex[q.i] = k));
   root.add(gems);
@@ -380,6 +436,36 @@ export function buildWorld(level: Level): WorldView {
     beetles,
     checkpoints,
     goal,
+    audit(s) {
+      const out: string[] = [];
+      root.updateMatrixWorld(true);
+      root.traverse((o) => {
+        if (o instanceof THREE.InstancedMesh && shownIn(o, root)) {
+          const c = culledInstances(o);
+          if (c.length) out.push(`${o === gems ? 'gems' : o.name || 'instanced mesh'}: ${c.length} of ${o.count} instance(s) outside the bounds three.js culls by (never drawn)`);
+        }
+      });
+      if (gemList.length && !shownIn(gems, root)) out.push('the gems are hidden');
+      const m = new THREE.Matrix4();
+      const p = new THREE.Vector3();
+      const sc = new THREE.Vector3();
+      gemList.forEach((g, k) => {
+        if (s.got[g.i] || hidden.has(g.i)) return;
+        gems.getMatrixAt(k, m);
+        p.setFromMatrixPosition(m);
+        sc.setFromMatrixScale(m);
+        if (Math.abs(p.x - g.p.x) > 0.01 || Math.abs(p.y - g.p.y) > 0.2 || sc.x < 0.5) out.push(`gem #${g.i} at x ${g.p.x.toFixed(1)} not drawn in its place`);
+      });
+      for (const [i, a] of acorns) if (!s.got[i] && !hidden.has(i) && !shownIn(a, root)) out.push(`golden acorn #${i} at x ${level.pickups[i].x.toFixed(1)} hidden`);
+      level.enemies.forEach((e, i) => {
+        // a rolling acorn that has rolled away behind the sprite (22 units from its start) is put away on purpose
+        if (e.kind === 'roller' && e.x0 - enemyX(e, s.et, s.rollAt[i]) >= 22) return;
+        if (!s.enemyDead[i] && !shownIn(beetles[i].root, root)) out.push(`${e.kind} #${i} hidden`);
+      });
+      checkpoints.forEach((c, i) => !shownIn(c.root, root) && out.push(`checkpoint #${i} hidden`));
+      if (!shownIn(goal, root)) out.push('the goal is hidden');
+      return out;
+    },
     hidePickup(i) {
       hidden.add(i);
       const a = acorns.get(i);

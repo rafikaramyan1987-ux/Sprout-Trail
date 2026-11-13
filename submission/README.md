@@ -4,7 +4,7 @@
 
 | What | File (in this folder) |
 | --- | --- |
-| Game (folder upload: unzip and upload the folder, or the zip) | `sprout-trail-crazygames-v1.2.1.zip` — `index.html` at the root, relative paths only |
+| Game (folder upload: unzip and upload the folder, or the zip) | `sprout-trail-crazygames-v1.2.2.zip` — `index.html` at the root, relative paths only |
 | Cover 16:9 | `covers/cover-1920x1080.png` |
 | Cover 2:3 | `covers/cover-800x1200.png` |
 | Cover 1:1 | `covers/cover-800x800.png` |
@@ -23,10 +23,13 @@ path behind the waterfall, the moonlit swamp — and the key art again (`scripts
   rewarded ads only from the labelled buttons ("Watch an ad: +2 seeds", "… continue with 1 heart", "… double gems"),
   granted only on adFinished; no ad = "No ad available right now, try later". With an ad blocker the buttons are hidden.
 - Saves in the Data Module (if Progress Save is off, localStorage); the platform mute setting is followed live.
-- **Robust (v1.2.1):** a failed download is retried, the game never waits forever (a failed main script shows
+- **Robust (v1.2.2):** a failed download is retried, the game never waits forever (a failed main script shows
   "Couldn't load the game. Check your connection." with Try again), no WebGL shows a clear message, a lost WebGL
   context pauses the game until it is restored, nothing is ever uncaught, every ad (and any pause an SDK starts on its own) gives up after 120 s at most, and
   a finished level frees its GPU memory (docs/robustness.md; zero-errors suite in Chromium, WebKit and Firefox).
+  After every ad the game takes the keyboard focus back and runs on at once; if it still cannot run, the pause menu
+  opens instead of a frozen screen. After a lost heart (or "continue with 1 heart") every obstacle from the checkpoint
+  on is back in its first state; every level is checked for that (docs/death-check-report.md).
 
 ## Short description
 ```

@@ -132,6 +132,9 @@ export class Stage {
       pg,
       new THREE.PointsMaterial({ map: glowTexture(), size: 0.22, color: '#fff7c2', transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending }),
     );
+    // it drifts around the camera (positions rewritten every frame): its geometry's bounding sphere, computed once at
+    // the first draw around x -30..30, would cull it as soon as the camera moved on, so it is never culled
+    this.pollen.frustumCulled = false;
     this.scene.add(this.pollen);
 
     // rain: short streaks around the camera

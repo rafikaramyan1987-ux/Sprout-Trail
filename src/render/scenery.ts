@@ -55,6 +55,8 @@ export function sceneryProps(level: Level, v: Variant, x0: number, x1: number, t
     const n = Math.round((to - from) / 3);
     const im = new THREE.InstancedMesh(reed, reedM, n * 3);
     const ih = new THREE.InstancedMesh(head, headM, n);
+    im.name = 'reeds';
+    ih.name = 'reed heads';
     const m = new THREE.Matrix4();
     for (let i = 0; i < n; i++) {
       const x = from + r() * (to - from);
@@ -66,6 +68,9 @@ export function sceneryProps(level: Level, v: Variant, x0: number, x1: number, t
       m.makeTranslation(x, -1.4, z);
       ih.setMatrixAt(i, m);
     }
+    // bounds from the real reeds (never from the identity matrices of a fresh InstancedMesh)
+    im.computeBoundingSphere();
+    ih.computeBoundingSphere();
     g.add(im, ih);
   }
   if (v.falls) {

@@ -35,7 +35,7 @@ const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 
 export class Play {
   readonly sim: SimState;
-  private world: WorldView;
+  world: WorldView;
   private sprite = new Sprite();
   private fx: Fx;
   private plantViews: { dp: number; view: PlantView; at: number }[] = [];
@@ -689,7 +689,7 @@ export class Play {
 
   /** after a completed rewarded ad: continue from the last checkpoint with one heart */
   reviveWithHeart() {
-    revive(this.sim);
+    revive(this.level, this.sim);
     this.ended = false;
     this.endT = 0;
     this.prevX = this.sim.x;

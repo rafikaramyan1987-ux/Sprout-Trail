@@ -37,6 +37,8 @@ window.__booted = true;
 installGuard();
 
 const canvas = document.getElementById('game') as HTMLCanvasElement;
+// focusable (not in the tab order), so the keyboard focus can be brought back to the game after an ad
+canvas.tabIndex = -1;
 /** created in boot(): without WebGL the loading screen says so instead of throwing here */
 let stage!: Stage;
 /** the WebGL context is lost (GPU reset, too many contexts): the game pauses until it is restored */
@@ -105,8 +107,39 @@ async function between(next: () => void, slot: AdSlot = 'between') {
   if (__PLATFORM__ !== 'web' && sdk.adSlot(slot)) {
     screen = 'ad';
     await sdk.midgame(slot);
+    next();
+    afterAd();
+    return;
   }
   next();
+}
+
+/** keyboard focus back to the game (an ad can leave it on the portal page or the ad's frame) */
+function refocus() {
+  try {
+    window.focus();
+  } catch {
+    /* not allowed here */
+  }
+  try {
+    canvas.focus({ preventScroll: true });
+  } catch {
+    /* not focusable */
+  }
+}
+
+/**
+ * After every ad (interstitial, rewarded, pre-roll): focus back to the game, and a safety net. If the game still cannot
+ * run (a pause reason other than a hidden page is still held, or the keyboard focus did not come back where the
+ * platform expects it), the pause menu opens instead of a silent, frozen screen; its Resume clears every pause reason
+ * except a hidden page.
+ */
+function afterAd() {
+  refocus();
+  if (!play || screen !== 'play') return;
+  const stuck = adPaused && !document.hidden;
+  const noFocus = sdk.focusAfterAd !== false && !document.hidden && typeof document.hasFocus === 'function' && !document.hasFocus();
+  if (stuck || noFocus) pause();
 }
 
 /** the pre-roll: only from the first Play click of the session (title Play, a level tile or the daily trail) */
@@ -123,6 +156,9 @@ async function firstPlay(go: () => void) {
     await sdk.midgame('preroll');
     screen = was;
     prerollBusy = false;
+    go();
+    afterAd();
+    return;
   }
   prerollAsked = true;
   go();
@@ -138,6 +174,7 @@ async function rewarded(btn: HTMLElement, grant: () => void) {
     sfx('reward');
     grant();
   } else toast(t('ad.none'), 2500);
+  afterAd();
 }
 const adButton = (act: string, key: string) => (ads() ? `<button class="btn ad" data-ad="${act}">${ico('tv')}<span>${label(key)}</span></button>` : '');
 
@@ -326,6 +363,9 @@ function pause() {
 function resume() {
   hide('pause');
   if (!play) return;
+  // the player is here: nothing but a hidden page (or an ad still open) may keep the game paused
+  sdk.clearPauses?.();
+  refocus();
   play.paused = adPaused;
   controls.release();
   controls.enabled = true;
@@ -568,6 +608,46 @@ function fingerDot(kind: 'tap' | 'swipeDown') {
 function exposeCapture() {
   window.__game = {
     tick: (dt: number, render = true) => tick(dt, render),
+    /** what should be drawn but is not (hidden, not in the scene, or culled by stale bounds); [] = all drawn */
+    audit: () => {
+      if (!play) return ['no level'];
+      const out = play.world.audit(play.sim);
+      let inScene = false;
+      for (let o: THREE.Object3D | null = play.world.root; o; o = o.parent) if (o === stage.scene) inScene = true;
+      if (!inScene) out.push('the level is not in the scene');
+      // anything in the scene whose geometry has moved outside the bounding sphere three.js computed once and kept
+      const box = new THREE.Box3();
+      const v = new THREE.Vector3();
+      stage.scene.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.geometry || !m.frustumCulled || o instanceof THREE.InstancedMesh || !o.visible) return;
+        const bs = m.geometry.boundingSphere;
+        const pos = m.geometry.attributes?.position;
+        if (!bs || !pos || m.geometry.morphAttributes?.position) return;
+        box.setFromBufferAttribute(pos as THREE.BufferAttribute);
+        if (box.isEmpty()) return;
+        const far = Math.max(...[box.min, box.max].map((c) => v.copy(c).distanceTo(bs.center)));
+        // the box corners are at most sqrt(3) x the farthest vertex: only clearly stale bounds count
+        if (far > bs.radius * 1.75 + 0.5) out.push(`${o.name || o.type}: its geometry moved outside the bounds three.js culls it by (never drawn there)`);
+      });
+      // gems the camera sees must not be culled (three.js tests the whole InstancedMesh by its bounding sphere)
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const fr = new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
+      const p = new THREE.Vector3();
+      const seen = play.level.pickups.filter((q, i) => q.kind === 'gem' && !play!.sim.got[i] && fr.containsPoint(p.set(q.x, q.y, 0)));
+      if (seen.length && !fr.intersectsObject(play.world.gems)) out.push(`${seen.length} gem(s) in view but culled (never drawn)`);
+      return out;
+    },
+    /** gems the camera sees now (not collected) */
+    gemsInView: () => {
+      if (!play) return 0;
+      const cam = stage.camera;
+      cam.updateMatrixWorld();
+      const fr = new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse));
+      const p = new THREE.Vector3();
+      return play.level.pickups.filter((q, i) => q.kind === 'gem' && !play!.sim.got[i] && fr.containsPoint(p.set(q.x, q.y, 0))).length;
+    },
     /** one frame exactly as the requestAnimationFrame loop runs it (nothing moves while an ad pause holds) */
     frame: (dt: number) => {
       if (!adPaused) tick(dt, false);
